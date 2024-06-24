@@ -14,11 +14,16 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         password: { label: "Password", type: "password" },
       },
       authorize: async (credentials) => {
-        const { email, password } = credentials;
-
         // Valider les données d'entrée avec Zod
         try {
-          const parsedData = await signInSchema.parseAsync({ email, password });
+          const parsedData = await signInSchema.parseAsync(credentials);
+
+          if (
+            typeof parsedData.email !== "string" ||
+            typeof parsedData.password !== "string"
+          ) {
+            throw new Error("Invalid credentials");
+          }
 
           // Chercher l'utilisateur dans la base de données
           const user = await prisma.user.findUnique({
