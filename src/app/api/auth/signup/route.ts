@@ -3,6 +3,7 @@ import { signUpSchema } from "@/lib/zod";
 import { hash } from "bcryptjs";
 import { NextRequest, NextResponse } from "next/server";
 import { ZodError } from "zod";
+
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
@@ -29,19 +30,22 @@ export async function POST(req: NextRequest) {
       { status: 201 }
     );
   } catch (error: any) {
-    console.error(error);
+    console.error("Error during user signup:", error);
+
     if (error instanceof ZodError) {
       return NextResponse.json(
         { message: "Validation error", errors: error.errors },
         { status: 400 }
       );
     }
-    if (error.code === "P2002") {
+
+    if (error.code === "P2002" && error.meta?.target?.includes("email")) {
       return NextResponse.json(
         { message: "User with this email already exists" },
         { status: 409 }
       );
     }
+
     return NextResponse.json(
       { message: "Internal server error" },
       { status: 500 }

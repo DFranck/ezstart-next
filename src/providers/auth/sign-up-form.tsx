@@ -19,15 +19,16 @@ export default function SignUpForm() {
       });
 
       if (!res.ok) {
-        throw new Error("Signup failed");
+        const errorData = await res.json();
+        throw new Error(errorData.message);
       }
 
       const data = await res.json();
       console.log("User signed up successfully", data);
+      setError(null); // Clear any previous error
     } catch (error) {
       console.error("signup", error);
 
-      // Vérifier si l'erreur est de type Error avant d'accéder à error.message
       if (error instanceof Error) {
         setError(error.message || "Signup failed");
       } else {
