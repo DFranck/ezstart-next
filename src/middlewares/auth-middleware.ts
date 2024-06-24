@@ -1,38 +1,29 @@
-// src/middleware/auth-middleware.ts
+// src/middlewares/auth-middleware.ts
 import { getToken } from "next-auth/jwt";
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 
 export async function authMiddleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
+  const locale = req.headers.get("x-localization") || "en"; // Default to 'en' if not set
 
-  // Liste des chemins publics
-  const publicPaths = ["/auth/signin", "/auth/signup"];
-
-  // Vérifie si le chemin est public
-  if (publicPaths.includes(pathname)) {
+  // Allow public paths
+  if (pathname.startsWith(`/${locale}`)) {
     return NextResponse.next();
   }
 
-  // Récupère le token
+  // Add security logic for other paths
   const token = await getToken({
     req,
-    secret: process.env.AUTH_SECRET || "default-secret",
-    salt: process.env.AUTH_SALT || "default-salt",
+    secret: process.env.AUTH_SECRET as string,
+    salt: process.env.AUTH_SALT as string,
   });
 
-  // Vérifie si le token est présent
+  // Check permissions based on the locale
   if (!token) {
-    // Redirige vers la page de connexion si le token n'est pas présent
-    const redirectUrl = new URL(`/auth/signin`, req.url);
+    const redirectUrl = new URL(`/${locale}/auth/signin`, req.url);
     return NextResponse.redirect(redirectUrl);
   }
 
-  // Exemple de vérification de rôles
-  const isAdminRoute = pathname.startsWith("/admin");
-  if (isAdminRoute && token.role !== "admin") {
-    return new NextResponse("Forbidden", { status: 403 });
-  }
-  // Autorise l'accès si le token est présent
   return NextResponse.next();
 }

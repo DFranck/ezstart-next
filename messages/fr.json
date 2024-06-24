@@ -1,0 +1,31 @@
+{
+  "Header": {
+    "title": "ezstart",
+    "links": [""],
+    "cta": "",
+    "user": "",
+    "signin": "Sign in",
+    "signup": "Sign up",
+    "logout": "Sign out"
+  },
+  "Footer": {
+    "partnersTitle": "Partners",
+    "partners": "",
+    "linksTitle": "Links",
+    "links": "",
+    "copyright": "Copyright © 2024. All rights reserved."
+  },
+  "Locale": {
+    "Language": {
+      "en": "English",
+      "fr": "French"
+    }
+  },
+  "Theme": {
+    "light": "Light",
+    "dark": "Dark"
+  },
+  "App": {
+    "title": "Hello world!"
+  }
+}

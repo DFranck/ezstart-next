@@ -1,6 +1,4 @@
-// src/app/auth/signin/page.tsx
 "use client";
-
 import { signIn } from "next-auth/react";
 import { useState } from "react";
 
@@ -8,7 +6,6 @@ export default function SignInForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
-  const [userInfo, setUserInfo] = useState<any>(null);
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
@@ -24,10 +21,9 @@ export default function SignInForm() {
         setError(res.error);
       } else {
         setError(null);
-        setUserInfo(res);
-        console.log("User info:", res);
+        console.log("User signed in successfully", res);
       }
-    } catch (error: any) {
+    } catch (error) {
       console.error("signin", error);
       setError("Signin failed");
     }
@@ -51,13 +47,6 @@ export default function SignInForm() {
       />
       <button type="submit">Sign In</button>
       {error && <p>{error}</p>}
-      {userInfo && (
-        <div>
-          <p>User signed in successfully!</p>
-          <p>Email: {userInfo.user?.email}</p>
-          <p>Name: {userInfo.user?.name}</p>
-        </div>
-      )}
     </form>
   );
 }

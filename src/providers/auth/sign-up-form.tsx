@@ -25,10 +25,8 @@ export default function SignUpForm() {
 
       const data = await res.json();
       console.log("User signed up successfully", data);
-      setError(null); // Clear any previous error
-    } catch (error) {
+    } catch (error: unknown) {
       console.error("signup", error);
-
       if (error instanceof Error) {
         setError(error.message || "Signup failed");
       } else {
