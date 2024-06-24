@@ -9,7 +9,7 @@ import UserActions from "./user-actions";
 const Header = () => {
   return (
     <header className={cn("p-2 bg-primary/20 text-primary-foreground")}>
-      <div className="flex justify-between items-center max-w-screen-2xl mx-auto ">
+      <div className="flex justify-between items-center max-w-screen-2xl mx-auto text-foreground">
         <Logo />
         <Navigation />
         <div className="flex">
