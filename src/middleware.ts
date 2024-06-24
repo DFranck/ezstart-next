@@ -5,11 +5,18 @@ import { NextRequest } from "next/server";
 
 export default async function middleware(req: NextRequest) {
   const intlResponse = await intlMiddleware(req);
+
+  if (intlResponse.status !== 200) {
+    return intlResponse;
+  }
   const authResponse = await authMiddleware(req);
 
-  if (authResponse.status === 302) {
+  if (authResponse.status !== 200) {
+    console.log("Unauthorized, redirecting");
     return authResponse;
   }
+  console.log("Authorized");
+
   return intlResponse;
 }
 

@@ -7,7 +7,7 @@ import { ZodError } from "zod";
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const { email, password, role } = body;
+    const { email, password } = body;
 
     if (!email || !password) {
       return NextResponse.json(
@@ -22,7 +22,6 @@ export async function POST(req: NextRequest) {
       data: {
         email: parsedData.email,
         password: hashedPassword,
-        role: role || "user",
       },
     });
 
