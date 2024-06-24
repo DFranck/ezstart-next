@@ -19,7 +19,7 @@ export async function authMiddleware(req: NextRequest) {
   if (!token) {
     if (
       pathname.startsWith(`/${locale}/auth`) ||
-      pathname === `/${locale}/` ||
+      pathname === `/${locale}` ||
       pathname === `/${locale}/about`
     )
       return NextResponse.next();

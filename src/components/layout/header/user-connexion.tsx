@@ -11,7 +11,7 @@ const UserConnexion = () => {
   const locale = useLocale();
 
   const handleSignOut = async () => {
-    await signOut({ redirect: false });
+    await signOut({ redirect: true, callbackUrl: `/${locale}/` });
   };
 
   return (
