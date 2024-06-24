@@ -1,10 +1,8 @@
+import { db } from "@/lib/db";
 import { signUpSchema } from "@/lib/zod";
-import { PrismaClient } from "@prisma/client";
 import { hash } from "bcryptjs";
 import { NextRequest, NextResponse } from "next/server";
-
-const prisma = new PrismaClient();
-
+import { ZodError } from "zod";
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
@@ -19,7 +17,7 @@ export async function POST(req: NextRequest) {
 
     const parsedData = signUpSchema.parse(body);
     const hashedPassword = await hash(parsedData.password, 10);
-    const user = await prisma.user.create({
+    const user = await db.user.create({
       data: {
         email: parsedData.email,
         password: hashedPassword,
@@ -30,8 +28,20 @@ export async function POST(req: NextRequest) {
       { message: "User created", user },
       { status: 201 }
     );
-  } catch (error) {
+  } catch (error: any) {
     console.error(error);
+    if (error instanceof ZodError) {
+      return NextResponse.json(
+        { message: "Validation error", errors: error.errors },
+        { status: 400 }
+      );
+    }
+    if (error.code === "P2002") {
+      return NextResponse.json(
+        { message: "User with this email already exists" },
+        { status: 409 }
+      );
+    }
     return NextResponse.json(
       { message: "Internal server error" },
       { status: 500 }

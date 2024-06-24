@@ -1,10 +1,8 @@
-import { PrismaClient } from "@prisma/client";
 import { compare } from "bcryptjs";
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import { db } from "./db";
 import { signInSchema } from "./zod"; // Assurez-vous que le schéma Zod est correctement configuré
-
-const prisma = new PrismaClient();
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
@@ -26,7 +24,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           }
 
           // Chercher l'utilisateur dans la base de données
-          const user = await prisma.user.findUnique({
+          const user = await db.user.findUnique({
             where: { email: parsedData.email },
           });
 
@@ -34,10 +32,13 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             return { id: user.id, email: user.email, name: user.name }; // Adapter le retour pour correspondre à l'interface User de NextAuth
           }
 
-          return null;
-        } catch (error) {
+          throw new Error("Invalid email or password");
+        } catch (error: any) {
           console.error(error);
-          return null;
+          if (error.name === "ZodError") {
+            throw new Error("Validation error");
+          }
+          throw new Error("Authentication failed");
         }
       },
     }),
