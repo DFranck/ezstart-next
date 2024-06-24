@@ -1,5 +1,7 @@
+// pages/auth/signin.tsx
 "use client";
 
+import { signOut } from "next-auth/react";
 import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 import { Button } from "../../ui/button";
@@ -7,6 +9,10 @@ import { Button } from "../../ui/button";
 const UserConnexion = () => {
   const t = useTranslations("Header");
   const locale = useLocale();
+
+  const handleSignOut = async () => {
+    await signOut({ redirect: false });
+  };
 
   return (
     <div className="md:flex items-center">
@@ -20,7 +26,7 @@ const UserConnexion = () => {
           <span className="hidden md:flex">{t("signup")}</span>
         </Link>
       </Button>
-      <Button asChild className="mx-2">
+      <Button className="mx-2" onClick={handleSignOut}>
         <span className="hidden md:flex">{t("logout")}</span>
       </Button>
     </div>

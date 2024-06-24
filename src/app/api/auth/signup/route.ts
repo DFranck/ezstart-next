@@ -1,36 +1,26 @@
-import { signUpSchema } from "@/lib/zod";
-import { PrismaClient } from "@prisma/client";
+// src/app/api/auth/signup/route.ts
+import { db } from "@/lib/db";
 import { hash } from "bcryptjs";
-import { NextRequest, NextResponse } from "next/server";
+import { NextApiRequest, NextApiResponse } from "next";
 
-const prisma = new PrismaClient();
+export async function POST(req: NextApiRequest, res: NextApiResponse) {
+  const { email, password } = req.body;
 
-export async function POST(req: NextRequest) {
+  if (!email || !password) {
+    return res.status(400).json({ message: "Email and password are required" });
+  }
+
   try {
-    const body = await req.json();
-    const parsedData = signUpSchema.parse(body);
-    const hashedPassword = await hash(parsedData.password, 10);
-    const user = await prisma.user.create({
+    const hashedPassword = await hash(password, 10);
+    const user = await db.user.create({
       data: {
-        email: parsedData.email,
+        email,
         password: hashedPassword,
       },
     });
-    return NextResponse.json(
-      { message: "User created", user },
-      { status: 201 }
-    );
+    return res.status(201).json({ message: "User created", user });
   } catch (error) {
     console.error(error);
-    return NextResponse.json(
-      { message: "Internal server error" },
-      { status: 500 }
-    );
+    return res.status(500).json({ message: "Internal server error" });
   }
 }
-
-export const config = {
-  api: {
-    bodyParser: true,
-  },
-};
