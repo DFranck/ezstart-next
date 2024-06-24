@@ -27,7 +27,7 @@ export default function SignUpForm() {
       console.log("User signed up successfully");
     } catch (error) {
       console.error("signup", error);
-      setError(error.message);
+      setError(error.message || "Signup failed");
     }
   };
 

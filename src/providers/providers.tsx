@@ -1,5 +1,6 @@
 import { AbstractIntlMessages } from "next-intl";
 import React from "react";
+import { AuthProvider } from "./auth/session-provider";
 import LanguageProvider from "./language/language-provider";
 import { ThemeProvider } from "./theme/theme-provider";
 const Providers = ({
@@ -16,7 +17,9 @@ const Providers = ({
       enableSystem
       disableTransitionOnChange
     >
-      <LanguageProvider messages={messages}>{children}</LanguageProvider>
+      <LanguageProvider messages={messages}>
+        <AuthProvider>{children}</AuthProvider>
+      </LanguageProvider>
     </ThemeProvider>
   );
 };
