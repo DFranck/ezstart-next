@@ -7,12 +7,18 @@ import { useTheme } from "next-themes";
 import { useEffect, useRef, useState } from "react";
 
 export function ThemeSwitcher() {
+  const [isMounted, setIsMounted] = useState(false);
   const { theme, setTheme } = useTheme();
   const t = useTranslations("Theme");
   const [isOpen, setIsOpen] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const dropdownRef = useRef<HTMLUListElement>(null);
   const liStyle = "py-2 px-4 cursor-pointer hover:bg-accent text-sm";
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   const handleOpen = () => {
     setIsOpen(!isOpen);
   };
@@ -43,7 +49,9 @@ export function ThemeSwitcher() {
       dropdownRef.current.focus();
     }
   }, [isOpen]);
-
+  if (!isMounted) {
+    return null;
+  }
   return (
     <div className="relative text-foreground" onBlur={handleBlur}>
       <button

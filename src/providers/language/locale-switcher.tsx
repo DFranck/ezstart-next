@@ -8,6 +8,7 @@ import { useEffect, useRef, useState, useTransition } from "react";
 
 const LocaleSwitcher = () => {
   const t = useTranslations("Locale.Language");
+  const [isMounted, setIsMounted] = useState(false);
   const [isPending, startTransition] = useTransition();
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
@@ -16,6 +17,10 @@ const LocaleSwitcher = () => {
   const liStyle = "py-2 px-4 cursor-pointer hover:bg-accent text-sm";
   const buttonRef = useRef<HTMLButtonElement>(null);
   const dropdownRef = useRef<HTMLUListElement>(null);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const onValueChange = (nextLocale: string) => {
     const newPath = pathname.replace(localeActive, nextLocale);
@@ -46,13 +51,14 @@ const LocaleSwitcher = () => {
       setIsOpen(false);
     }
   };
-
   useEffect(() => {
     if (isOpen && dropdownRef.current) {
       dropdownRef.current.focus();
     }
   }, [isOpen]);
-
+  if (!isMounted) {
+    return null;
+  }
   return (
     <div className="relative text-foreground" onBlur={handleBlur}>
       <button

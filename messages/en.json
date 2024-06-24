@@ -1,5 +1,13 @@
 {
-  "Header": { "title": "ezstart", "links": [""], "cta": "" },
+  "Header": {
+    "title": "ezstart",
+    "links": [""],
+    "cta": "",
+    "user": "",
+    "signin": "Sign in",
+    "signup": "Sign up",
+    "logout": "Sign out"
+  },
   "Footer": {
     "partnersTitle": "Partners",
     "partners": "",

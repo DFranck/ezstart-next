@@ -1,5 +1,5 @@
 import { PrismaClient } from "@prisma/client";
-import { compare } from "bcrypt";
+import { compare } from "bcryptjs";
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { signInSchema } from "./zod"; // Assurez-vous que le schéma Zod est correctement configuré

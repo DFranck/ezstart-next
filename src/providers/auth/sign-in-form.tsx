@@ -1,7 +1,8 @@
+"use client";
 import { signIn } from "next-auth/react";
 import { FormEvent } from "react";
 
-export default function SignIn() {
+export default function SignInFrom() {
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget as HTMLFormElement);
@@ -22,7 +23,7 @@ export default function SignIn() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="bg-blue-500">
       <label>
         Email
         <input name="email" type="email" required />
