@@ -1,11 +1,10 @@
 "use client";
-
 import { useState } from "react";
 
 export default function SignUpForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
@@ -20,14 +19,20 @@ export default function SignUpForm() {
       });
 
       if (!res.ok) {
-        const data = await res.json();
-        throw new Error(data.message || "Signup failed");
+        throw new Error("Signup failed");
       }
 
-      console.log("User signed up successfully");
+      const data = await res.json();
+      console.log("User signed up successfully", data);
     } catch (error) {
       console.error("signup", error);
-      setError(error.message || "Signup failed");
+
+      // Vérifier si l'erreur est de type Error avant d'accéder à error.message
+      if (error instanceof Error) {
+        setError(error.message || "Signup failed");
+      } else {
+        setError("Signup failed");
+      }
     }
   };
 
