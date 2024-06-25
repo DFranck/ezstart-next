@@ -22,6 +22,13 @@
     "light": "Light",
     "dark": "Dark"
   },
+  "Errors": {
+    "emailRequired": "L'email est requis",
+    "invalidEmail": "Email invalide",
+    "passwordRequired": "Le mot de passe est requis",
+    "passwordMin": "Le mot de passe doit contenir plus de 8 caractères",
+    "passwordMax": "Le mot de passe doit contenir moins de 32 caractères"
+  },
   "App": {
     "Home": {
       "Hero": {
@@ -132,6 +139,32 @@
           "rel": "noreferrer noopener"
         }
       ]
+    },
+    "Auth": {
+      "SignInForm": {
+        "title": "Sign In",
+        "emailLabel": "Email",
+        "emailPlaceholder": "Email",
+        "emailDescription": "We’ll never share your email.",
+        "passwordLabel": "Password",
+        "passwordPlaceholder": "Password",
+        "signInButton": "Sign In",
+        "noAccountText": "Don’t have an account?",
+        "signUpLink": "Sign Up",
+        "forgotPasswordText": "Forgot your password?",
+        "resetPasswordLink": "Reset it here"
+      },
+      "SignUpForm": {
+        "title": "Sign Up",
+        "emailLabel": "Email",
+        "emailPlaceholder": "Email",
+        "emailDescription": "We’ll never share your email.",
+        "passwordLabel": "Password",
+        "passwordPlaceholder": "Password",
+        "signUpButton": "Sign Up",
+        "hasAccountText": "Already have an account?",
+        "signInLink": "Sign In"
+      }
     }
   }
 }

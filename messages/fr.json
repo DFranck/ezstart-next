@@ -1,61 +1,170 @@
 {
   "Header": {
-    "title": "ezstart",
-    "links": [""],
+    "title": "EzStart",
+    "links": ["Accueil", "À propos"],
     "cta": "",
     "user": "",
-    "signin": "Sign in",
-    "signup": "Sign up",
-    "logout": "Sign out"
+    "signin": "Se connecter",
+    "signup": "S'inscrire",
+    "logout": "Se déconnecter"
   },
   "Footer": {
-    "partnersTitle": "Partners",
+    "partnersTitle": "Partenaires",
     "partners": "",
-    "linksTitle": "Links",
+    "linksTitle": "Liens",
     "links": "",
-    "copyright": "Copyright © 2024. All rights reserved."
+    "copyright": "Copyright © 2024. Tous droits réservés."
   },
   "Locale": {
-    "language": { "en": "English", "fr": "French" }
+    "language": { "en": "Anglais", "fr": "Français" }
   },
   "Theme": {
-    "light": "Light",
-    "dark": "Dark"
+    "light": "Clair",
+    "dark": "Sombre"
+  },
+  "Errors": {
+    "emailRequired": "L'email est requis",
+    "invalidEmail": "Email invalide",
+    "passwordRequired": "Le mot de passe est requis",
+    "passwordMin": "Le mot de passe doit contenir plus de 8 caractères",
+    "passwordMax": "Le mot de passe doit contenir moins de 32 caractères"
   },
   "App": {
+    "Home": {
+      "Hero": {
+        "title": "Bienvenue sur EZ Start",
+        "description": "EZ Start est mon Boilerplate qui fournit un point de départ complet et flexible pour vos projets de développement web. Construit avec des technologies modernes et les meilleures pratiques, il vous aide à démarrer votre processus de développement avec une base solide.",
+        "cta": "Commencer"
+      },
+      "FeaturesList": {
+        "title": "Fonctionnalités",
+        "description": "Découvrez les puissantes technologies et outils intégrés dans ce boilerplate, conçus pour améliorer votre flux de travail de développement et fournir des applications web de haute qualité.",
+        "docs": "Documentation Officielle",
+        "features": [
+          {
+            "title": "Framework Next.js",
+            "description": "Profitez de la puissance et de la flexibilité de Next.js pour le rendu côté serveur, la génération de sites statiques et le rendu côté client.",
+            "link": "https://nextjs.org/docs",
+            "image": "NextSvg"
+          },
+          {
+            "title": "Support TypeScript",
+            "description": "Bénéficiez de la vérification des types et de l'autocomplétion de TypeScript pour une base de code plus robuste et maintenable.",
+            "link": "https://www.typescriptlang.org/docs/",
+            "image": "TypescriptSvg"
+          },
+          {
+            "title": "ORM Prisma",
+            "description": "Gérez facilement votre base de données avec Prisma, un ORM de nouvelle génération qui offre des capacités de modélisation et de requête de données puissantes.",
+            "link": "https://www.prisma.io/docs/",
+            "image": "PrismaSvg"
+          },
+          {
+            "title": "Authentification NextAuth",
+            "description": "Sécurisez votre application avec NextAuth, une solution d'authentification flexible et facile à implémenter.",
+            "link": "https://next-auth.js.org/getting-started/introduction",
+            "image": "AuthSvg"
+          },
+          {
+            "title": "Internationalisation",
+            "description": "Atteignez un public mondial avec un support intégré pour plusieurs langues utilisant next-intl.",
+            "link": "https://next-intl-docs.vercel.app/",
+            "image": "NextIntl"
+          },
+          {
+            "title": "Gestion des thèmes",
+            "description": "Personnalisez l'apparence de votre application avec next-themes, permettant un changement de thème facile.",
+            "link": "https://github.com/pacocoursey/next-themes",
+            "image": "NextSvg"
+          },
+          {
+            "title": "Sécurité",
+            "description": "Protégez les données des utilisateurs avec bcryptjs pour le hachage des mots de passe et la vérification des jetons JWT.",
+            "link": "https://github.com/dcodeIO/bcrypt.js",
+            "image": ""
+          },
+          {
+            "title": "Style",
+            "description": "Créez de belles interfaces utilisateur avec Tailwind CSS, un framework CSS utilitaire-first.",
+            "link": "https://tailwindcss.com/docs",
+            "image": "https://tailwindcss.com/_next/static/media/tailwindcss-mark.3c5441fc7a190fb1800d4a5c7f07ba4b1345a9c8.svg"
+          },
+          {
+            "title": "Qualité du code",
+            "description": "Maintenez une haute qualité de code avec les intégrations d'ESLint et Prettier.",
+            "link": "https://eslint.org/docs/latest/user-guide/getting-started",
+            "image": ""
+          }
+        ]
+      },
+      "GetStarted": {
+        "title": "Commencer",
+        "buttonText": "Commencer",
+        "content": [
+          "Pour commencer avec Mon Boilerplate EZ Start, clonez le dépôt et suivez les instructions d'installation dans le fichier README. Personnalisez les fichiers de configuration pour répondre aux besoins de votre projet et commencez à construire votre application avec facilité.",
+          "Ce boilerplate est conçu pour être flexible et extensible, vous permettant d'ajouter des fonctionnalités et de modifier les existantes pour répondre à vos exigences spécifiques."
+        ]
+      }
+    },
     "About": {
-      "title": "About Me",
+      "title": "À propos de moi",
       "content": [
         {
-          "paragraph": "Hi, I'm Franck, a passionate web developer with expertise in creating dynamic and responsive web applications. With a strong background in Next.js, React, TypeScript, and Tailwind CSS, I strive to build seamless and user-friendly digital experiences."
+          "paragraph": "Bonjour, je suis Franck, un développeur web passionné avec une expertise dans la création d'applications web dynamiques et réactives. Avec une solide expérience en Next.js, React, TypeScript et Tailwind CSS, je m'efforce de créer des expériences numériques fluides et conviviales."
         },
         {
-          "paragraph": "Over the years, I've worked on various projects, ranging from small personal websites to large-scale enterprise applications. My commitment to continuous learning and improvement has allowed me to stay updated with the latest industry trends and technologies."
+          "paragraph": "Au fil des années, j'ai travaillé sur divers projets, allant de petits sites web personnels à des applications d'entreprise à grande échelle. Mon engagement envers l'apprentissage continu et l'amélioration m'a permis de rester à jour avec les dernières tendances et technologies de l'industrie."
         },
         {
-          "paragraph": "I'm always excited to collaborate on new projects and bring innovative ideas to life. Feel free to explore my portfolio and connect with me on LinkedIn and GitHub to stay updated with my latest work and contributions."
+          "paragraph": "Je suis toujours enthousiaste à l'idée de collaborer sur de nouveaux projets et de concrétiser des idées innovantes. N'hésitez pas à explorer mon portfolio et à me contacter sur LinkedIn et GitHub pour rester informé de mes derniers travaux et contributions."
         }
       ],
       "links": [
         {
-          "name": "View My Portfolio",
+          "name": "Voir mon portfolio",
           "href": "https://dfranck.netlify.app/",
           "target": "_blank",
           "rel": "noreferrer noopener"
         },
         {
-          "name": "Connect with Me on LinkedIn",
+          "name": "Connectez-vous avec moi sur LinkedIn",
           "href": "https://www.linkedin.com/in/franck-dufournet-239446151/",
           "target": "_blank",
           "rel": "noreferrer noopener"
         },
         {
-          "name": "Check Out My GitHub",
+          "name": "Consultez mon GitHub",
           "href": "https://github.com/DFranck",
           "target": "_blank",
           "rel": "noreferrer noopener"
         }
       ]
+    },
+    "Auth": {
+      "SignInForm": {
+        "title": "Se connecter",
+        "emailLabel": "Email",
+        "emailPlaceholder": "Email",
+        "emailDescription": "Nous ne partagerons jamais votre email.",
+        "passwordLabel": "Mot de passe",
+        "passwordPlaceholder": "Mot de passe",
+        "signInButton": "Se connecter",
+        "noAccountText": "Vous n’avez pas de compte ?",
+        "signUpLink": "S'inscrire",
+        "forgotPasswordText": "Mot de passe oublié ?",
+        "resetPasswordLink": "Réinitialisez-le ici"
+      },
+      "SignUpForm": {
+        "title": "S'inscrire",
+        "emailLabel": "Email",
+        "emailPlaceholder": "Email",
+        "emailDescription": "Nous ne partagerons jamais votre email.",
+        "passwordLabel": "Mot de passe",
+        "passwordPlaceholder": "Mot de passe",
+        "signUpButton": "S'inscrire",
+        "hasAccountText": "Vous avez déjà un compte ?",
+        "signInLink": "Se connecter"
+      }
     }
   }
 }

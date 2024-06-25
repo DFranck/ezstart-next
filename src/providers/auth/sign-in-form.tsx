@@ -9,25 +9,27 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { signUpSchema } from "@/lib/zod";
+import { useValidationSchemas } from "@/lib/zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import { z } from "zod";
 
 const SignUpForm = () => {
-  const methods = useForm<z.infer<typeof signUpSchema>>({
-    resolver: zodResolver(signUpSchema),
+  const { signInSchema } = useValidationSchemas();
+  const methods = useForm<z.infer<typeof signInSchema>>({
+    resolver: zodResolver(signInSchema),
     defaultValues: {
       email: "",
       password: "",
     },
   });
   const locale = useLocale();
+  const t = useTranslations("App.Auth.SignInForm");
   const formStyle =
-    "bg-accent border shadow rounded-md p-4 flex flex-col gap-4";
-  const onSubmit: SubmitHandler<z.infer<typeof signUpSchema>> = async (
+    "bg-accent border shadow rounded-md p-4 flex flex-col gap-4 w-1/4";
+  const onSubmit: SubmitHandler<z.infer<typeof signInSchema>> = async (
     data
   ) => {
     console.log("data", data);
@@ -46,7 +48,7 @@ const SignUpForm = () => {
       }
 
       const result = await res.json();
-      console.log("User signed up successfully", result);
+      console.log("User signed in successfully", result);
     } catch (error: unknown) {
       console.error("signup", error);
       if (error instanceof Error) {
@@ -60,19 +62,17 @@ const SignUpForm = () => {
   return (
     <FormProvider {...methods}>
       <form onSubmit={methods.handleSubmit(onSubmit)} className={formStyle}>
-        <h2 className="text-center text-xl font-semibold">Sign In</h2>
+        <h2 className="text-center text-xl font-semibold">{t("title")}</h2>
         <FormField
           control={methods.control}
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Email</FormLabel>
+              <FormLabel>{t("emailLabel")}</FormLabel>
               <FormControl>
-                <Input placeholder="Email" {...field} />
+                <Input placeholder={t("emailPlaceholder")} {...field} />
               </FormControl>
-              <FormDescription>
-                We&apos;ll never share your email.
-              </FormDescription>
+              <FormDescription>{t("emailDescription")}</FormDescription>
               <FormMessage />
             </FormItem>
           )}
@@ -82,16 +82,20 @@ const SignUpForm = () => {
           name="password"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Password</FormLabel>
+              <FormLabel>{t("passwordLabel")}</FormLabel>
               <FormControl>
-                <Input type="password" placeholder="Password" {...field} />
+                <Input
+                  type="password"
+                  placeholder={t("passwordPlaceholder")}
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
         <Button type="submit" className="w-fit self-end">
-          Sign In
+          {t("signInButton")}
         </Button>
         {methods.formState.errors.email && (
           <p className="text-red-500">
@@ -103,23 +107,23 @@ const SignUpForm = () => {
             {methods.formState.errors.password.message}
           </p>
         )}
-        <div className="mt-4 text-center">
-          <p className="text-sm text-muted-foreground">
-            Don&apos;t have an account?{" "}
-            <Link
-              href={`/${locale}/auth/signup`}
-              className="text-primary underline"
-            >
-              Sign Up
-            </Link>
-          </p>
-          <p className="text-sm text-muted-foreground">
-            Forgot your password?{" "}
+        <div className="mt-4 text-justify w-full">
+          <p className="text-sm text-muted-foreground w-full flex justify-between gap-2">
+            {t("forgotPasswordText")}
             <Link
               href="/auth/forgot-password"
               className="text-primary underline"
             >
-              Reset it here
+              {t("resetPasswordLink")}
+            </Link>
+          </p>
+          <p className="text-sm text-muted-foreground w-full flex justify-between gap-2">
+            {t("noAccountText")}
+            <Link
+              href={`/${locale}/auth/signup`}
+              className="text-primary underline"
+            >
+              {t("signUpLink")}
             </Link>
           </p>
         </div>
