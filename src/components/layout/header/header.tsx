@@ -18,10 +18,10 @@ const Header = ({ className }: { className?: string }) => {
         "p-2 bg-background border-b shadow": scrollY > 0,
       })}
     >
-      <div className="flex justify-between items-center max-w-screen-2xl mx-auto text-foreground">
+      <div className="flex justify-between md:grid md:grid-cols-3  items-center max-w-screen-2xl mx-auto text-foreground">
         <Logo />
         <Navigation />
-        <div className="hidden md:flex justify-center gap-2">
+        <div className="hidden md:flex justify-end gap-2">
           <UserActions />
           <UserConnexion />
           <LocaleSwitcher />

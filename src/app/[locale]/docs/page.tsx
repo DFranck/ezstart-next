@@ -1,5 +1,5 @@
-const documentation = () => {
-  return <div>documentation</div>;
+const docs = () => {
+  return <div>docs</div>;
 };
 
-export default documentation;
+export default docs;
