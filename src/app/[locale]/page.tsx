@@ -1,67 +1,12 @@
 import Section from "@/components/layout/section";
-import { AuroraBackground } from "@/components/ui/aurora-background";
+import FeaturesList from "@/features/features-list";
+import Hero from "@/features/hero";
 
 export default function Home() {
   return (
     <>
-      <AuroraBackground className="text-foreground w-screen">
-        <Section className="max-w-4xl text-center">
-          <h1 className="text-3xl md:text-7xl font-bold dark:text-white text-center">
-            Welcome to My EZ Start Boilerplate
-          </h1>
-          <p className="font-extralight text-base md:text-2xl dark:text-neutral-200 py-4">
-            My EZ Start Boilerplate is a comprehensive and flexible starting
-            point for your web development projects. Built with modern
-            technologies and best practices, it helps you kickstart your
-            development process with a robust foundation.
-          </p>
-        </Section>
-      </AuroraBackground>
-      <Section>
-        <h2>Features</h2>
-        <ul>
-          <li>
-            <strong>Next.js Framework:</strong> Enjoy the power and flexibility
-            of Next.js for server-side rendering, static site generation, and
-            client-side rendering.
-          </li>
-          <li>
-            <strong>TypeScript Support:</strong> Benefit from TypeScript&apos;s
-            type-checking and autocompletion for a more robust and maintainable
-            codebase.
-          </li>
-          <li>
-            <strong>Prisma ORM:</strong> Easily manage your database with
-            Prisma, a next-generation ORM that provides powerful data modeling
-            and querying capabilities.
-          </li>
-          <li>
-            <strong>NextAuth Authentication:</strong> Secure your application
-            with NextAuth, a flexible and easy-to-implement authentication
-            solution.
-          </li>
-          <li>
-            <strong>Internationalization:</strong> Reach a global audience with
-            built-in support for multiple languages using next-intl.
-          </li>
-          <li>
-            <strong>Theme Management:</strong> Customize your application&apos;s
-            appearance with next-themes, allowing for easy theme switching.
-          </li>
-          <li>
-            <strong>Security:</strong> Protect user data with bcryptjs for
-            password hashing and JWT token verification.
-          </li>
-          <li>
-            <strong>Styling:</strong> Create beautiful user interfaces with
-            Tailwind CSS, a utility-first CSS framework.
-          </li>
-          <li>
-            <strong>Code Quality:</strong> Maintain high code quality with
-            ESLint and Prettier integrations.
-          </li>
-        </ul>
-      </Section>
+      <Hero />
+      <FeaturesList />
       <Section>
         <h2>Getting Started</h2>
         <p>

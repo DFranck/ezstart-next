@@ -15,7 +15,7 @@ const Header = ({ className }: { className?: string }) => {
   return (
     <header
       className={cn("p-6 z-10 w-full", className, {
-        "p-2 bg-background": scrollY > 0,
+        "p-2 bg-background border-b shadow": scrollY > 0,
       })}
     >
       <div className="flex justify-between items-center max-w-screen-2xl mx-auto text-foreground">
