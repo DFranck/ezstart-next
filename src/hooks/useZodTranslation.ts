@@ -1,9 +1,12 @@
 import { useTranslations } from "next-intl";
 
 export const useZodTranslation = () => {
-  const t = useTranslations("App.Auth.Errors");
-
+  const t = useTranslations("Zod");
   return {
-    t,
+    emailRequired: t("emailRequired"),
+    invalidEmail: t("invalidEmail"),
+    passwordRequired: t("passwordRequired"),
+    passwordMin: t("passwordMin"),
+    passwordMax: t("passwordMax"),
   };
 };

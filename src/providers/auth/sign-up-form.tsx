@@ -6,10 +6,9 @@ import {
   FormField,
   FormItem,
   FormLabel,
-  FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { useValidationSchemas } from "@/lib/zod";
+import { signUpSchema } from "@/lib/zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
@@ -18,7 +17,7 @@ import { z } from "zod";
 
 const SignUpForm = () => {
   const t = useTranslations("App.Auth.SignUpForm");
-  const { signUpSchema } = useValidationSchemas();
+  const err = useTranslations("Errors");
   const methods = useForm<z.infer<typeof signUpSchema>>({
     resolver: zodResolver(signUpSchema),
     defaultValues: {
@@ -73,7 +72,11 @@ const SignUpForm = () => {
                 <Input placeholder={t("emailPlaceholder")} {...field} />
               </FormControl>
               <FormDescription>{t("emailDescription")}</FormDescription>
-              <FormMessage />
+              {methods.formState.errors.email?.message && (
+                <p className="text-sm font-medium text-destructive">
+                  {err(methods.formState.errors.email.message)}
+                </p>
+              )}
             </FormItem>
           )}
         />
@@ -90,23 +93,17 @@ const SignUpForm = () => {
                   {...field}
                 />
               </FormControl>
-              <FormMessage />
+              {methods.formState.errors.password?.message && (
+                <p className="text-sm font-medium text-destructive">
+                  {err(methods.formState.errors.password.message)}
+                </p>
+              )}
             </FormItem>
           )}
         />
         <Button type="submit" className="w-fit self-end">
           {t("signUpButton")}
         </Button>
-        {methods.formState.errors.email && (
-          <p className="text-red-500">
-            {methods.formState.errors.email.message}
-          </p>
-        )}
-        {methods.formState.errors.password && (
-          <p className="text-red-500">
-            {methods.formState.errors.password.message}
-          </p>
-        )}
         <div className="mt-4 text-center w-full">
           <p className="text-sm text-muted-foreground opacity-0">signupform</p>
           <p className="text-sm text-muted-foreground w-full flex justify-between gap-2">

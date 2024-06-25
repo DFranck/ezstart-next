@@ -23,11 +23,11 @@
     "dark": "Dark"
   },
   "Errors": {
-    "emailRequired": "L'email est requis",
-    "invalidEmail": "Email invalide",
-    "passwordRequired": "Le mot de passe est requis",
-    "passwordMin": "Le mot de passe doit contenir plus de 8 caractères",
-    "passwordMax": "Le mot de passe doit contenir moins de 32 caractères"
+    "emailRequired": "Email is required",
+    "invalidEmail": "Invalid email",
+    "passwordRequired": "Password is required",
+    "passwordMin": "Password must be more than 8 characters",
+    "passwordMax": "Password must be less than 32 characters"
   },
   "App": {
     "Home": {

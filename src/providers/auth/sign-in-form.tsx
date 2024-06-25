@@ -6,10 +6,9 @@ import {
   FormField,
   FormItem,
   FormLabel,
-  FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { useValidationSchemas } from "@/lib/zod";
+import { signInSchema } from "@/lib/zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
@@ -17,7 +16,6 @@ import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import { z } from "zod";
 
 const SignUpForm = () => {
-  const { signInSchema } = useValidationSchemas();
   const methods = useForm<z.infer<typeof signInSchema>>({
     resolver: zodResolver(signInSchema),
     defaultValues: {
@@ -27,6 +25,7 @@ const SignUpForm = () => {
   });
   const locale = useLocale();
   const t = useTranslations("App.Auth.SignInForm");
+  const err = useTranslations("Errors");
   const formStyle =
     "bg-accent border shadow rounded-md p-4 flex flex-col gap-4 w-1/4";
   const onSubmit: SubmitHandler<z.infer<typeof signInSchema>> = async (
@@ -73,7 +72,11 @@ const SignUpForm = () => {
                 <Input placeholder={t("emailPlaceholder")} {...field} />
               </FormControl>
               <FormDescription>{t("emailDescription")}</FormDescription>
-              <FormMessage />
+              {methods.formState.errors.email?.message && (
+                <p className="text-sm font-medium text-destructive">
+                  {err(methods.formState.errors.email.message)}
+                </p>
+              )}
             </FormItem>
           )}
         />
@@ -90,23 +93,18 @@ const SignUpForm = () => {
                   {...field}
                 />
               </FormControl>
-              <FormMessage />
+              {methods.formState.errors.password?.message && (
+                <p className="text-sm font-medium text-destructive">
+                  {err(methods.formState.errors.password.message)}
+                </p>
+              )}
             </FormItem>
           )}
         />
         <Button type="submit" className="w-fit self-end">
           {t("signInButton")}
         </Button>
-        {methods.formState.errors.email && (
-          <p className="text-red-500">
-            {methods.formState.errors.email.message}
-          </p>
-        )}
-        {methods.formState.errors.password && (
-          <p className="text-red-500">
-            {methods.formState.errors.password.message}
-          </p>
-        )}
+
         <div className="mt-4 text-justify w-full">
           <p className="text-sm text-muted-foreground w-full flex justify-between gap-2">
             {t("forgotPasswordText")}
