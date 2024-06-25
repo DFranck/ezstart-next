@@ -1,6 +1,7 @@
 "use client";
 import { cn } from "@/lib/utils";
 import React, { ReactNode } from "react";
+import Section from "../layout/section";
 
 interface AuroraBackgroundProps extends React.HTMLProps<HTMLDivElement> {
   children: ReactNode;
@@ -14,10 +15,10 @@ export const AuroraBackground = ({
   ...props
 }: AuroraBackgroundProps) => {
   return (
-    <main>
+    <Section className="p-0">
       <div
         className={cn(
-          "relative flex flex-col  h-[100vh] items-center justify-center bg-zinc-50 dark:bg-zinc-900  text-slate-950 transition-bg",
+          "relative flex flex-col  h-[100vh] items-center justify-center bg-zinc-200 dark:bg-zinc-900  text-slate-950 transition-bg",
           className
         )}
         {...props}
@@ -47,6 +48,6 @@ export const AuroraBackground = ({
         </div>
         {children}
       </div>
-    </main>
+    </Section>
   );
 };

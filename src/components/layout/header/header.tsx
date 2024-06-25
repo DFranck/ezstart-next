@@ -10,12 +10,12 @@ import Navigation from "./navigation";
 import UserActions from "./user-actions";
 import UserConnexion from "./user-connexion";
 
-const Header = () => {
+const Header = ({ className }: { className?: string }) => {
   const scrollY = useOnScroll();
   return (
     <header
-      className={cn("p-6 bg-primary/20 text-primary-foreground", {
-        "p-2": scrollY > 0,
+      className={cn("p-6 z-10 w-full", className, {
+        "p-2 bg-background": scrollY > 0,
       })}
     >
       <div className="flex justify-between items-center max-w-screen-2xl mx-auto text-foreground">

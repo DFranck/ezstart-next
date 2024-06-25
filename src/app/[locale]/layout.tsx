@@ -27,7 +27,7 @@ export default async function RootLayout({
     <html lang={locale} suppressHydrationWarning={true}>
       <body className={cn(inter.className, "min-h-screen flex flex-col")}>
         <Providers messages={messages}>
-          <Header />
+          <Header className="fixed" />
           <Main>{children}</Main>
           <Footer />
         </Providers>
