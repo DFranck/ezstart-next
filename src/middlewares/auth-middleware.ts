@@ -20,7 +20,8 @@ export async function authMiddleware(req: NextRequest) {
     if (
       pathname.startsWith(`/${locale}/auth`) ||
       pathname === `/${locale}` ||
-      pathname === `/${locale}/about`
+      pathname === `/${locale}/about` ||
+      pathname.startsWith(`/${locale}/docs`)
     )
       return NextResponse.next();
     const redirectUrl = new URL(`/${locale}/auth/signin`, req.url);
