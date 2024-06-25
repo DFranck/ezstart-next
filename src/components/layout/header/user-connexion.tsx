@@ -12,7 +12,7 @@ const UserConnexion = ({ className }: { className?: string }) => {
   const locale = useLocale();
   const session = useSession();
   const user = session.data?.user;
-  console.log(session);
+  // console.log(session);
 
   const handleSignOut = async () => {
     await signOut({ redirect: true, callbackUrl: `/${locale}/` });

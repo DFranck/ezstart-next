@@ -55,8 +55,8 @@ const AuthSvg = ({
           y2="151"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#39EAB8" />
-          <stop offset="1" stop-color="#20ACF0" />
+          <stop stopColor="#39EAB8" />
+          <stop offset="1" stopColor="#20ACF0" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_189_8"
@@ -66,8 +66,8 @@ const AuthSvg = ({
           y2="199.795"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#1CB3E6" />
-          <stop offset="1" stop-color="#21ABF2" />
+          <stop stopColor="#1CB3E6" />
+          <stop offset="1" stopColor="#21ABF2" />
         </linearGradient>
         <linearGradient
           id="paint2_linear_189_8"
@@ -77,8 +77,8 @@ const AuthSvg = ({
           y2="655.548"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#A623D9" />
-          <stop offset="1" stop-color="#9559DF" />
+          <stop stopColor="#A623D9" />
+          <stop offset="1" stopColor="#9559DF" />
         </linearGradient>
         <linearGradient
           id="paint3_linear_189_8"
@@ -88,8 +88,8 @@ const AuthSvg = ({
           y2="608.359"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#DE66EB" />
-          <stop offset="1" stop-color="#B628E3" />
+          <stop stopColor="#DE66EB" />
+          <stop offset="1" stopColor="#B628E3" />
         </linearGradient>
         <linearGradient
           id="paint4_linear_189_8"
@@ -99,8 +99,8 @@ const AuthSvg = ({
           y2="471.336"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F95C04" />
-          <stop offset="0.69" stop-color="#FEAF02" />
+          <stop stopColor="#F95C04" />
+          <stop offset="0.69" stopColor="#FEAF02" />
         </linearGradient>
       </defs>
     </svg>
