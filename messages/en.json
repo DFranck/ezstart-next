@@ -89,6 +89,14 @@
             "image": ""
           }
         ]
+      },
+      "GetStarted": {
+        "title": "Get Started",
+        "buttonText": "Get Started",
+        "content": [
+          "To get started with My EZ Start Boilerplate, clone the repository and follow the setup instructions in the README file. Customize the configuration files to suit your project needs, and start building your application with ease.",
+          "This boilerplate is designed to be flexible and extensible, allowing you to add features and modify existing ones to fit your specific requirements."
+        ]
       }
     },
     "About": {
