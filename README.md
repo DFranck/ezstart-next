@@ -1,62 +1,91 @@
-# My EZ Start Boilerplate
+# My EZ Start
 
-My EZ Start est une base de code Next.js complète et prête à l'emploi, offrant des fonctionnalités intégrées pour l'authentification, l'internationalisation, la gestion des thèmes, et bien plus encore. Idéale pour démarrer rapidement vos projets Next.js.
+My EZ Start is a boilerplate designed to quickly kickstart your Next.js projects with advanced integrated features.
 
-## Fonctionnalités
+## Features
 
-- **Authentification** : Intégration avec NextAuth.js pour la gestion des utilisateurs et des sessions.
-- **Internationalisation** : Support multilingue avec NextIntl.
-- **Thématisation** : Gestion des thèmes avec Tailwind CSS et Next Themes.
-- **Formulaires** : Gestion avancée des formulaires avec React Hook Form et Zod.
-- **Animations** : Création d'animations fluides avec Framer Motion.
+- **Authentication**: Integration with NextAuth.js
+- **Multilingual Support**: Using NextIntl
+- **Theming**: Utilizing Tailwind CSS and Next Themes
+- **Form Management**: React Hook Form and Zod
+- **Animations**: Framer Motion
+- **ORM**: Prisma for database management
+
+## Dependencies
+
+- Next.js
+- NextAuth.js
+- NextIntl
+- Tailwind CSS
+- React Hook Form
+- Zod
+- Framer Motion
+- Prisma
 
 ## Installation
 
-1. Clonez le dépôt :
+```bash
+git clone https://github.com/DFranck/my-ez-start.git
+cd my-ez-start
+npm install
+npm run dev
+```
 
-   ```bash
-   git clone <repository-url>
-   cd my-ez-start
-   ```
+### Documentation Structure Proposal
 
-2. Installez les dépendances :
+1. **Introduction**
 
-   ```bash
-   npm install
-   ```
+   - Overview
+   - Prerequisites
+   - Installation Guide
 
-3. Configurez les variables d'environnement :
-   Créez un fichier `.env` et ajoutez les variables nécessaires :
+2. **Project Structure**
 
-   ```env
-   DATABASE_URL=your-database-url
-   AUTH_SECRET=your-auth-secret
-   AUTH_SALT=your-auth-salt
-   ```
+   - Explanation of folders and files
+   - Key files and their purposes
 
-4. Configurez la base de données et appliquez les migrations :
+3. **Authentication**
 
-   ```bash
-   npx prisma migrate dev
-   ```
+   - Setting up NextAuth.js
+   - Configuring providers
 
-5. Lancez le projet :
-   ```bash
-   npm run dev
-   ```
+4. **Internationalization**
 
-## Utilisation
+   - Configuring NextIntl
+   - Adding new languages
 
-1. **Page d'accueil** : Présente les fonctionnalités de la boilerplate.
-2. **Authentification** : Accédez aux pages de connexion et d'inscription.
-3. **Internationalisation** : Changez la langue avec le sélecteur de langue.
-4. **Thématisation** : Changez le thème (clair/sombre) avec le sélecteur de thème.
-5. **Animations** : Admirez les animations de fond Aurora.
+5. **Theming**
 
-## Contribution
+   - Tailwind CSS setup
+   - Customizing themes with Next Themes
 
-Les contributions sont les bienvenues. Veuillez soumettre des pull requests et signaler les problèmes sur le dépôt GitHub.
+6. **Form Management**
 
-## Licence
+   - Using React Hook Form
+   - Schema validation with Zod
 
-Ce projet est sous licence MIT. Voir le fichier [LICENSE](./LICENSE) pour plus d'informations.
+7. **Animations**
+
+   - Implementing animations with Framer Motion
+   - Examples and best practices
+
+8. **Database Management**
+
+   - Setting up Prisma
+   - Managing database schema and migrations
+
+9. **Deployment**
+
+   - Steps to deploy the project
+   - Environment configurations
+
+10. **FAQ**
+
+    - Common issues and solutions
+    - Additional resources
+
+11. **Contributing**
+    - Guidelines for contributing
+    - Code of conduct
+
+This structure provides a comprehensive guide to using and extending the boilerplate, ensuring developers can easily find the information they need.
