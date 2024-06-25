@@ -2,13 +2,36 @@ import LocaleSwitcher from "@/providers/language/locale-switcher";
 import { ThemeSwitcher } from "@/providers/theme/theme-switcher";
 import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
-import { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import UserConnexion from "./user-connexion";
 const NavBurger = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const t = useTranslations("");
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  const t = useTranslations("Header");
+  const links = t.raw("links") as string[];
   const locale = useLocale();
-  const link =
+  const linkStyle =
     "p-6 hover:bg-accent rounded w-full text-center cursor-pointer block";
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isOpen]);
+
   return (
     <>
       <button className="md:hidden rounded p-2" onClick={() => setIsOpen(true)}>
@@ -29,7 +52,11 @@ const NavBurger = () => {
       </button>
 
       {isOpen && (
-        <div className="fixed top-0 right-0 z-20 border shadow bg-background animate-slideInFromRight duration-200">
+        <div
+          ref={menuRef}
+          className="fixed top-0 right-0 z-20 border shadow bg-background animate-slideInFromRight duration-200"
+          id="burger-menu"
+        >
           <div className="inset-0 bg-black/50" aria-hidden="true" />
           <div className="p-2 w-screen max-w-xs">
             <div>
@@ -53,46 +80,41 @@ const NavBurger = () => {
                 </svg>
               </button>
             </div>
-
             <nav>
-              <ul className="flex flex-col text-center">
+              <ul
+                className="flex flex-col text-center"
+                onClick={() => setIsOpen(false)}
+              >
                 <div className="border border-border/50"></div>
-                <li className={""}>
-                  <Link
-                    className={link}
-                    onClick={() => setIsOpen(false)}
-                    href={`/${locale}`}
-                  >
-                    {/* {t("Nav.home")} */}Link
-                  </Link>
-                </li>
-                <div className="border border-border/50"></div>
-                <li className={""}>
-                  <Link
-                    className={link}
-                    onClick={() => setIsOpen(false)}
-                    href={`/${locale}/products`}
-                  >
-                    {/* {t("Nav.all")} */}Link
-                  </Link>
-                </li>
-                <div className="border border-border/50"></div>
-                <li className={""}>
-                  <Link
-                    className={link}
-                    onClick={() => setIsOpen(false)}
-                    href={`/${locale}/contact`}
-                  >
-                    {/* {t("Nav.contact")} */}Link
-                  </Link>
-                </li>
-                <div className="border border-border/50"></div>
+                {links.map((link, index) => (
+                  <React.Fragment key={index}>
+                    <li>
+                      {link === "Home" || link === "Accueil" ? (
+                        <Link href={`/${locale}`} className={linkStyle}>
+                          {link}
+                        </Link>
+                      ) : (
+                        <Link
+                          href={`/${locale}/${link.toLowerCase()}`}
+                          className={linkStyle}
+                        >
+                          {link}
+                        </Link>
+                      )}
+                    </li>
+                    <div className="border border-border/50"></div>
+                  </React.Fragment>
+                ))}
               </ul>
             </nav>
-
-            <div className="flex justify-end items-center gap-2 p-5">
-              <LocaleSwitcher />
-              <ThemeSwitcher />
+            <div className="flex justify-between p-5">
+              <span onClick={() => setIsOpen(false)}>
+                <UserConnexion />
+              </span>
+              <div className="flex justify-end items-center gap-2 ">
+                <LocaleSwitcher />
+                <ThemeSwitcher />
+              </div>
             </div>
           </div>
         </div>

@@ -1,52 +1,131 @@
 "use client";
-import { signIn } from "next-auth/react";
-import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import {
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { signUpSchema } from "@/lib/zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useLocale } from "next-intl";
+import Link from "next/link";
+import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
+import { z } from "zod";
 
-export default function SignInForm() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState<string | null>(null);
-
-  const handleSubmit = async (e: any) => {
-    e.preventDefault();
-
+const SignUpForm = () => {
+  const methods = useForm<z.infer<typeof signUpSchema>>({
+    resolver: zodResolver(signUpSchema),
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+  });
+  const locale = useLocale();
+  const formStyle =
+    "bg-accent border shadow rounded-md p-4 flex flex-col gap-4";
+  const onSubmit: SubmitHandler<z.infer<typeof signUpSchema>> = async (
+    data
+  ) => {
+    console.log("data", data);
     try {
-      const res = await signIn("credentials", {
-        redirect: false,
-        email,
-        password,
+      const res = await fetch("/api/auth/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
       });
 
-      if (res?.error) {
-        setError(res.error);
-      } else {
-        setError(null);
-        console.log("User signed in successfully", res);
+      if (!res.ok) {
+        const errorData = await res.json();
+        throw new Error(errorData.message);
       }
-    } catch (error) {
-      console.error("signin", error);
-      setError("Signin failed");
+
+      const result = await res.json();
+      console.log("User signed up successfully", result);
+    } catch (error: unknown) {
+      console.error("signup", error);
+      if (error instanceof Error) {
+        methods.setError("email", { type: "manual", message: error.message });
+      } else {
+        methods.setError("email", { type: "manual", message: "Signup failed" });
+      }
     }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        placeholder="Email"
-        required
-      />
-      <input
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        placeholder="Password"
-        required
-      />
-      <button type="submit">Sign In</button>
-      {error && <p>{error}</p>}
-    </form>
+    <FormProvider {...methods}>
+      <form onSubmit={methods.handleSubmit(onSubmit)} className={formStyle}>
+        <h2 className="text-center text-xl font-semibold">Sign In</h2>
+        <FormField
+          control={methods.control}
+          name="email"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Email</FormLabel>
+              <FormControl>
+                <Input placeholder="Email" {...field} />
+              </FormControl>
+              <FormDescription>
+                We&apos;ll never share your email.
+              </FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={methods.control}
+          name="password"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Password</FormLabel>
+              <FormControl>
+                <Input type="password" placeholder="Password" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <Button type="submit" className="w-fit self-end">
+          Sign In
+        </Button>
+        {methods.formState.errors.email && (
+          <p className="text-red-500">
+            {methods.formState.errors.email.message}
+          </p>
+        )}
+        {methods.formState.errors.password && (
+          <p className="text-red-500">
+            {methods.formState.errors.password.message}
+          </p>
+        )}
+        <div className="mt-4 text-center">
+          <p className="text-sm text-muted-foreground">
+            Don&apos;t have an account?{" "}
+            <Link
+              href={`/${locale}/auth/signup`}
+              className="text-primary underline"
+            >
+              Sign Up
+            </Link>
+          </p>
+          <p className="text-sm text-muted-foreground">
+            Forgot your password?{" "}
+            <Link
+              href="/auth/forgot-password"
+              className="text-primary underline"
+            >
+              Reset it here
+            </Link>
+          </p>
+        </div>
+      </form>
+    </FormProvider>
   );
-}
+};
+
+export default SignUpForm;

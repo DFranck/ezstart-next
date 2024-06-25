@@ -1,3 +1,14 @@
+import Section from "@/components/layout/section";
+
 export default function Home() {
-  return <div>my ez start</div>;
+  return (
+    <>
+      <Section>
+        <h1>my ez start</h1>
+      </Section>
+      <Section>
+        <p></p>
+      </Section>
+    </>
+  );
 }

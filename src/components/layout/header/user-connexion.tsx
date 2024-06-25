@@ -1,12 +1,13 @@
 // pages/auth/signin.tsx
 "use client";
 
+import { cn } from "@/lib/utils";
 import { signOut, useSession } from "next-auth/react";
 import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 import { Button } from "../../ui/button";
 
-const UserConnexion = () => {
+const UserConnexion = ({ className }: { className?: string }) => {
   const t = useTranslations("Header");
   const locale = useLocale();
   const session = useSession();
@@ -18,19 +19,19 @@ const UserConnexion = () => {
   };
 
   return (
-    <div className="md:flex items-center">
+    <div className={cn("md:flex items-center", className)}>
       {!user && (
         <>
           <Button asChild className="mx-2">
             <Link href={`/${locale}/auth/signin`}>
-              <span className="hidden md:flex">{t("signin")}</span>
+              <span className="">{t("signin")}</span>
             </Link>
           </Button>
-          <Button asChild className="mx-2">
+          {/* <Button asChild className="mx-2">
             <Link href={`/${locale}/auth/signup`}>
               <span className="hidden md:flex">{t("signup")}</span>
             </Link>
-          </Button>
+          </Button> */}
         </>
       )}
       {user && (

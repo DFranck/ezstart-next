@@ -1,7 +1,7 @@
 {
   "Header": {
-    "title": "ezstart",
-    "links": [""],
+    "title": "EzStart",
+    "links": ["Home", "About"],
     "cta": "",
     "user": "",
     "signin": "Sign in",

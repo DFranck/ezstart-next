@@ -1,10 +1,11 @@
+import Section from "@/components/layout/section";
 import SignUpForm from "@/providers/auth/sign-up-form";
 
 const page = () => {
   return (
-    <div>
-      page SignUp <SignUpForm />
-    </div>
+    <Section>
+      <SignUpForm />
+    </Section>
   );
 };
 

@@ -1,11 +1,11 @@
+import Section from "@/components/layout/section";
 import SignInFrom from "@/providers/auth/sign-in-form";
 
 const page = () => {
   return (
-    <div>
-      page signIn
+    <Section>
       <SignInFrom />
-    </div>
+    </Section>
   );
 };
 

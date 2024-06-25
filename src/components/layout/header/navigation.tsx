@@ -11,7 +11,11 @@ const Navigation = () => {
       <ul className="flex justify-center items-center gap-5">
         {links.map((link, index) => (
           <li key={index}>
-            <Link href={`/${locale}/${link}`}>{link}</Link>
+            {link === "Home" || link === "Accueil" ? (
+              <Link href={`/${locale}`}>{link}</Link>
+            ) : (
+              <Link href={`/${locale}/${link.toLowerCase()}`}>{link}</Link>
+            )}
           </li>
         ))}
       </ul>
