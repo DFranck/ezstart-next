@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# My EZ Start Boilerplate
 
-## Getting Started
+My EZ Start est une base de code Next.js complète et prête à l'emploi, offrant des fonctionnalités intégrées pour l'authentification, l'internationalisation, la gestion des thèmes, et bien plus encore. Idéale pour démarrer rapidement vos projets Next.js.
 
-First, run the development server:
+## Fonctionnalités
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Authentification** : Intégration avec NextAuth.js pour la gestion des utilisateurs et des sessions.
+- **Internationalisation** : Support multilingue avec NextIntl.
+- **Thématisation** : Gestion des thèmes avec Tailwind CSS et Next Themes.
+- **Formulaires** : Gestion avancée des formulaires avec React Hook Form et Zod.
+- **Animations** : Création d'animations fluides avec Framer Motion.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Clonez le dépôt :
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+   ```bash
+   git clone <repository-url>
+   cd my-ez-start
+   ```
 
-## Learn More
+2. Installez les dépendances :
 
-To learn more about Next.js, take a look at the following resources:
+   ```bash
+   npm install
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. Configurez les variables d'environnement :
+   Créez un fichier `.env` et ajoutez les variables nécessaires :
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+   ```env
+   DATABASE_URL=your-database-url
+   AUTH_SECRET=your-auth-secret
+   AUTH_SALT=your-auth-salt
+   ```
 
-## Deploy on Vercel
+4. Configurez la base de données et appliquez les migrations :
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```bash
+   npx prisma migrate dev
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+5. Lancez le projet :
+   ```bash
+   npm run dev
+   ```
+
+## Utilisation
+
+1. **Page d'accueil** : Présente les fonctionnalités de la boilerplate.
+2. **Authentification** : Accédez aux pages de connexion et d'inscription.
+3. **Internationalisation** : Changez la langue avec le sélecteur de langue.
+4. **Thématisation** : Changez le thème (clair/sombre) avec le sélecteur de thème.
+5. **Animations** : Admirez les animations de fond Aurora.
+
+## Contribution
+
+Les contributions sont les bienvenues. Veuillez soumettre des pull requests et signaler les problèmes sur le dépôt GitHub.
+
+## Licence
+
+Ce projet est sous licence MIT. Voir le fichier [LICENSE](./LICENSE) pour plus d'informations.
