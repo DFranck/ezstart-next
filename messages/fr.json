@@ -16,16 +16,46 @@
     "copyright": "Copyright © 2024. All rights reserved."
   },
   "Locale": {
-    "Language": {
-      "en": "English",
-      "fr": "French"
-    }
+    "language": { "en": "English", "fr": "French" }
   },
   "Theme": {
     "light": "Light",
     "dark": "Dark"
   },
   "App": {
-    "title": "Hello world!"
+    "About": {
+      "title": "About Me",
+      "content": [
+        {
+          "paragraph": "Hi, I'm Franck, a passionate web developer with expertise in creating dynamic and responsive web applications. With a strong background in Next.js, React, TypeScript, and Tailwind CSS, I strive to build seamless and user-friendly digital experiences."
+        },
+        {
+          "paragraph": "Over the years, I've worked on various projects, ranging from small personal websites to large-scale enterprise applications. My commitment to continuous learning and improvement has allowed me to stay updated with the latest industry trends and technologies."
+        },
+        {
+          "paragraph": "I'm always excited to collaborate on new projects and bring innovative ideas to life. Feel free to explore my portfolio and connect with me on LinkedIn and GitHub to stay updated with my latest work and contributions."
+        }
+      ],
+      "links": [
+        {
+          "name": "View My Portfolio",
+          "href": "https://dfranck.netlify.app/",
+          "target": "_blank",
+          "rel": "noreferrer noopener"
+        },
+        {
+          "name": "Connect with Me on LinkedIn",
+          "href": "https://www.linkedin.com/in/franck-dufournet-239446151/",
+          "target": "_blank",
+          "rel": "noreferrer noopener"
+        },
+        {
+          "name": "Check Out My GitHub",
+          "href": "https://github.com/DFranck",
+          "target": "_blank",
+          "rel": "noreferrer noopener"
+        }
+      ]
+    }
   }
 }

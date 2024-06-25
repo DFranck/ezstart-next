@@ -7,7 +7,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useRef, useState, useTransition } from "react";
 
 const LocaleSwitcher = () => {
-  const t = useTranslations("Locale.Language");
+  const t = useTranslations("Locale");
   const [isMounted, setIsMounted] = useState(false);
   const [isPending, startTransition] = useTransition();
   const [isOpen, setIsOpen] = useState(false);
@@ -17,6 +17,8 @@ const LocaleSwitcher = () => {
   const liStyle = "py-2 px-4 cursor-pointer hover:bg-accent text-sm";
   const buttonRef = useRef<HTMLButtonElement>(null);
   const dropdownRef = useRef<HTMLUListElement>(null);
+  const content = t.raw("language") as { [key: string]: string };
+  const languages = Object.entries(content);
 
   useEffect(() => {
     setIsMounted(true);
@@ -80,25 +82,19 @@ const LocaleSwitcher = () => {
             "absolute top-10 right-0 z-10 bg-background border shadow rounded animate-fadeIn duration-200"
           )}
         >
-          <li
-            className={liStyle}
-            onClick={() => onValueChange("en")}
-            role="menuitem"
-            tabIndex={0}
-            onKeyDown={(e) => e.key === "Enter" && onValueChange("en")}
-          >
-            {t("en")}
-          </li>
+          {languages.map(([key, value]) => (
+            <li
+              key={key}
+              className={liStyle}
+              onClick={() => onValueChange(key)}
+              role="menuitem"
+              tabIndex={0}
+              onKeyDown={(e) => e.key === "Enter" && onValueChange(key)}
+            >
+              {value}
+            </li>
+          ))}
           <div className="border border-border/50"></div>
-          {/* <li
-            className={liStyle}
-            onClick={() => onValueChange("fr")}
-            role="menuitem"
-            tabIndex={0}
-            onKeyDown={(e) => e.key === "Enter" && onValueChange("fr")}
-          >
-            {t("fr")}
-          </li> */}
         </ul>
       )}
     </div>
