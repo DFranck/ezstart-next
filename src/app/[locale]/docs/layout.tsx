@@ -6,7 +6,9 @@ const layout = ({ children }: { children: React.ReactNode }) => {
       <div className="hidden md:block min-w-60 relative">
         <SideNav />
       </div>
-      <div className="w-full h-full flex">{children}</div>
+      <div className="w-full h-full flex bg-secondary text-secondary-foreground">
+        {children}
+      </div>
     </div>
   );
 };

@@ -1,13 +1,15 @@
+import SideNav from "@/features/side-nav";
 import LocaleSwitcher from "@/providers/language/locale-switcher";
 import { ThemeSwitcher } from "@/providers/theme/theme-switcher";
 import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React, { useEffect, useRef, useState } from "react";
 import UserConnexion from "./user-connexion";
 const NavBurger = () => {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
-
+  const pathname = usePathname();
   const t = useTranslations("Header");
   const links = t.raw("links") as string[];
   const locale = useLocale();
@@ -105,6 +107,12 @@ const NavBurger = () => {
                     <div className="border border-border/50"></div>
                   </React.Fragment>
                 ))}
+                {pathname.includes("docs") && (
+                  <>
+                    <h3 className="text-xl font-semibold my-4">{t("docs")}</h3>
+                    <SideNav />
+                  </>
+                )}
               </ul>
             </nav>
             <div className="flex justify-between p-5">

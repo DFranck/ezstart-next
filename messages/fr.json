@@ -6,7 +6,14 @@
     "user": "",
     "signin": "Se connecter",
     "signup": "S'inscrire",
-    "logout": "Se déconnecter"
+    "logout": "Se déconnecter",
+    "docs": "Documentation"
+  },
+  "SideNav": {
+    "getStarted": "Commencer",
+    "authentication": "Authentification",
+    "internationalization": "Internationalisation",
+    "theming": "Thématisation"
   },
   "Footer": {
     "partnersTitle": "Partenaires",

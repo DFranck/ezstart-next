@@ -1,26 +1,21 @@
 "use client";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+
 const SideNav = () => {
   const locale = useLocale();
+  const t = useTranslations("SideNav");
   const pathname = usePathname();
   const navItems = [
-    { title: "Get Started", href: `/${locale}/docs/get-started` },
-    { title: "Features", href: `/${locale}/docs/features` },
-    { title: "Authentication", href: "/docs/authentication" },
-    { title: "Internationalization", href: "/docs/internationalization" },
-    { title: "Theming", href: `/${locale}/docs/theming` },
-    { title: "Form Management", href: "/docs/form-management" },
-    { title: "Animations", href: "/docs/animations" },
-    { title: "Database Management", href: "/docs/database-management" },
-    { title: "Deployment", href: "/docs/deployment" },
-    { title: "FAQ", href: "/docs/faq" },
-    { title: "Contributing", href: "/docs/contributing" },
+    { title: t("getStarted"), href: `/${locale}/docs/get-started` },
+    { title: t("authentication"), href: "/docs/authentication" },
+    { title: t("internationalization"), href: "/docs/internationalization" },
+    { title: t("theming"), href: `/${locale}/docs/theming` },
   ];
 
   return (
-    <nav className=" p-4 h-full fixed">
+    <nav className=" md:p-4 h-full md:fixed">
       <ul className="space-y-2">
         {navItems.map((item) => (
           <li key={item.href}>
