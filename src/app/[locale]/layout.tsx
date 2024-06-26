@@ -24,8 +24,10 @@ export default async function RootLayout({
 }>) {
   const messages = await getMessages();
   return (
-    <html lang={locale} suppressHydrationWarning={true}>
-      <body className={cn(inter.className, "min-h-screen flex flex-col")}>
+    <html lang={locale} suppressHydrationWarning={true} className="h-full">
+      <body
+        className={cn(inter.className, "min-h-screen flex flex-col h-full")}
+      >
         <Providers messages={messages}>
           <Header className="fixed" />
           <Main>{children}</Main>

@@ -1,46 +1,8 @@
 "use client";
-import { useLocale } from "next-intl";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 
 const GetStarted = () => {
-  const locale = useLocale();
-  const pathname = usePathname();
-  const navItems = [
-    { title: "Get Started", href: `/${locale}/docs` },
-    { title: "Features", href: `/${locale}/docs/features` },
-    { title: "Authentication", href: "/docs/authentication" },
-    { title: "Internationalization", href: "/docs/internationalization" },
-    { title: "Theming", href: "/docs/theming" },
-    { title: "Form Management", href: "/docs/form-management" },
-    { title: "Animations", href: "/docs/animations" },
-    { title: "Database Management", href: "/docs/database-management" },
-    { title: "Deployment", href: "/docs/deployment" },
-    { title: "FAQ", href: "/docs/faq" },
-    { title: "Contributing", href: "/docs/contributing" },
-  ];
-  console.log(navItems[0].href);
-
   return (
     <div className="flex mt-20">
-      <nav className="w-1/4 p-4 ">
-        <ul className="space-y-2">
-          {navItems.map((item) => (
-            <li key={item.href}>
-              <Link
-                href={item.href}
-                className={`block p-2 rounded ${
-                  pathname === item.href
-                    ? "bg-primary text-primary-foreground"
-                    : "text-foreground hover:bg-primary/50 hover:text-primary-foreground duration-100"
-                }`}
-              >
-                {item.title}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </nav>
       <main className="w-3/4 p-8">
         <h1 className="text-3xl font-bold mb-4">
           Get Started with My EZ Start
