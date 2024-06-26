@@ -113,6 +113,26 @@
         ]
       }
     },
+    "GetStarted": {
+      "title": "Get Started with EZ Start",
+      "welcome": "Welcome 👋",
+      "intro": "My EZ Start is a boilerplate designed to quickly kickstart your Next.js projects with advanced integrated features.",
+      "installationTitle": "Installation",
+      "installationSteps": "git clone https://github.com/DFranck/my-ez-start.git\ncd my-ez-start\nnpm install\nnpm run dev",
+      "primaryDependenciesTitle": "Primary Dependencies",
+      "framework": "Framework",
+      "orm": "ORM",
+      "authentication": "Authentication",
+      "styling": "Styling",
+      "forms": "Forms",
+      "internationalization": "Internationalization",
+      "secondaryDependenciesTitle": "Secondary Dependencies",
+      "utilityLibraries": "Utility Libraries",
+      "animations": "Animations",
+      "icons": "Icons",
+      "security": "Security",
+      "enjoy": "Enjoy!"
+    },
     "About": {
       "title": "About Me",
       "content": [

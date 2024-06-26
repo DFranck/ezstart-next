@@ -27,7 +27,7 @@ const SignUpForm = () => {
   const t = useTranslations("App.Auth.SignInForm");
   const err = useTranslations("Errors");
   const formStyle =
-    "bg-accent border shadow rounded-md p-4 flex flex-col gap-4 w-1/4";
+    "bg-accent border shadow rounded-md p-4 flex flex-col gap-4 ";
   const onSubmit: SubmitHandler<z.infer<typeof signInSchema>> = async (
     data
   ) => {

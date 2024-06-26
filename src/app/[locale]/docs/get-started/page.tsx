@@ -1,61 +1,179 @@
 "use client";
 
+import Section from "@/components/layout/section";
+import { useTranslations } from "next-intl";
+import Link from "next/link";
+
 const GetStarted = () => {
+  const t = useTranslations("App.GetStarted");
+  const cardStyle =
+    "bg-card text-card-foreground list-disc p-4 pl-6 rounded border shadow flex flex-col flex-grow";
+  const cardTitleStyle = "text-center text-xl font-semibold mb-2";
+
   return (
-    <div className="flex mt-20">
-      <main className="w-3/4 p-8">
-        <h1 className="text-3xl font-bold mb-4">
-          Get Started with My EZ Start
-        </h1>
-        <p className="mb-4">Welcome 👋</p>
-        <p className="mb-4">
-          My EZ Start is a boilerplate designed to quickly kickstart your
-          Next.js projects with advanced integrated features.
-        </p>
-        <h2 className="text-2xl font-bold mt-8 mb-4">Installation</h2>
-        <pre className="bg-accent p-4 rounded mb-8 text-accent-foreground">
-          <code>
-            {`git clone https://github.com/DFranck/my-ez-start.git
-cd my-ez-start
-npm install
-npm run dev`}
-          </code>
-        </pre>
-        <h2 className="text-2xl font-bold mt-8 mb-4">Features</h2>
-        <p className="mb-4">
-          Explore the powerful technologies and tools integrated into this
-          boilerplate, designed to enhance your development workflow and deliver
-          high-quality web applications.
-        </p>
-        <h3 className="text-xl font-bold mt-6 mb-2">Authentication</h3>
-        <p className="mb-4">
-          My EZ Start includes integration with NextAuth.js for handling
-          authentication. You can set up providers and manage user sessions with
-          ease.
-        </p>
-        <h3 className="text-xl font-bold mt-6 mb-2">Internationalization</h3>
-        <p className="mb-4">
-          Utilize NextIntl for multi-language support. Easily add new languages
-          and manage translations.
-        </p>
-        <h3 className="text-xl font-bold mt-6 mb-2">Theming</h3>
-        <p className="mb-4">
-          Customize your application's appearance with Tailwind CSS and Next
-          Themes for theme management.
-        </p>
-        <h3 className="text-xl font-bold mt-6 mb-2">Form Management</h3>
-        <p className="mb-4">
-          Manage forms with React Hook Form and validate them using Zod.
-        </p>
-        <h3 className="text-xl font-bold mt-6 mb-2">Animations</h3>
-        <p className="mb-4">Implement animations with Framer Motion.</p>
-        <h3 className="text-xl font-bold mt-6 mb-2">Database Management</h3>
-        <p className="mb-4">
-          Set up Prisma ORM from scratch with your favorite database and learn
-          basic workflows like data modeling, querying, and migrations.
-        </p>
-      </main>
-    </div>
+    <Section className="">
+      <h1 className="text-3xl font-bold mb-4">{t("title")}</h1>
+      <p className="mb-4">{t("welcome")}</p>
+      <p className="mb-4">{t("intro")}</p>
+      <h2 className="text-2xl font-bold mt-8 mb-4">{t("installationTitle")}</h2>
+      <pre className="bg-background p-4 rounded w-full text-accent-foreground border shadow overflow-x-auto">
+        <code>{t("installationSteps")}</code>
+      </pre>
+      <h2 className="text-2xl font-bold mt-8 mb-4">
+        {t("primaryDependenciesTitle")}
+      </h2>
+      <div className="flex gap-4 flex-wrap">
+        <ul className={cardStyle}>
+          <h3 className={cardTitleStyle}>{t("framework")}</h3>
+          <li>
+            <Link href="https://nextjs.org/docs" target="_blank">
+              Next.js
+            </Link>
+          </li>
+          <li>
+            <Link href="https://react.dev/" target="_blank">
+              React
+            </Link>
+          </li>
+        </ul>
+        <ul className={cardStyle}>
+          <h3 className={cardTitleStyle}>{t("orm")}</h3>
+          <li>
+            <Link href="https://www.prisma.io/docs/" target="_blank">
+              Prisma
+            </Link>
+          </li>
+        </ul>
+        <ul className={cardStyle}>
+          <h3 className={cardTitleStyle}>{t("authentication")}</h3>
+          <li>
+            <Link href="https://authjs.dev/" target="_blank">
+              Auth.js
+            </Link>
+          </li>
+        </ul>
+        <ul className={cardStyle}>
+          <h3 className={cardTitleStyle}>{t("styling")}</h3>
+          <li>
+            <Link href="https://tailwindcss.com/docs" target="_blank">
+              Tailwind CSS
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="https://github.com/pacocoursey/next-themes"
+              target="_blank"
+            >
+              Next Themes
+            </Link>
+          </li>
+        </ul>
+        <ul className={cardStyle}>
+          <h3 className={cardTitleStyle}>{t("forms")}</h3>
+          <li>
+            <Link href="https://react-hook-form.com/" target="_blank">
+              React Hook Form
+            </Link>
+          </li>
+          <li>
+            <Link href="https://zod.dev/" target="_blank">
+              Zod
+            </Link>
+          </li>
+        </ul>
+        <ul className={cardStyle}>
+          <h3 className={cardTitleStyle}>{t("internationalization")}</h3>
+          <li>
+            <Link href="https://next-intl-docs.vercel.app/" target="_blank">
+              NextIntl
+            </Link>
+          </li>
+        </ul>
+      </div>
+      <h2 className="text-2xl font-bold mt-8 mb-4">
+        {t("secondaryDependenciesTitle")}
+      </h2>
+      <div className="flex gap-4 flex-wrap">
+        <ul className={cardStyle}>
+          <h3 className={cardTitleStyle}>{t("utilityLibraries")}</h3>
+          <li>
+            <Link
+              href="https://github.com/react-hook-form/resolvers"
+              target="_blank"
+            >
+              @hookform/resolvers
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="https://www.radix-ui.com/docs/primitives/components/label"
+              target="_blank"
+            >
+              @radix-ui/react-label
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="https://www.radix-ui.com/docs/primitives/components/slot"
+              target="_blank"
+            >
+              @radix-ui/react-slot
+            </Link>
+          </li>
+          <li>
+            <Link href="https://github.com/joe-bell/cva" target="_blank">
+              class-variance-authority
+            </Link>
+          </li>
+          <li>
+            <Link href="https://github.com/lukeed/clsx" target="_blank">
+              clsx
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="https://github.com/dcastil/tailwind-merge"
+              target="_blank"
+            >
+              tailwind-merge
+            </Link>
+          </li>
+        </ul>
+        <ul className={cardStyle}>
+          <h3 className={cardTitleStyle}>{t("animations")}</h3>
+          <li>
+            <Link href="https://www.framer.com/motion/" target="_blank">
+              framer-motion
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="https://github.com/tailwindlabs/tailwindcss-animate"
+              target="_blank"
+            >
+              tailwindcss-animate
+            </Link>
+          </li>
+        </ul>
+        <ul className={cardStyle}>
+          <h3 className={cardTitleStyle}>{t("icons")}</h3>
+          <li>
+            <Link href="https://lucide.dev/" target="_blank">
+              lucide-react
+            </Link>
+          </li>
+        </ul>
+        <ul className={cardStyle}>
+          <h3 className={cardTitleStyle}>{t("security")}</h3>
+          <li>
+            <Link href="https://github.com/dcodeIO/bcrypt.js" target="_blank">
+              bcryptjs
+            </Link>
+          </li>
+        </ul>
+      </div>
+      <h2 className="text-2xl font-bold mt-8 mb-4">{t("enjoy")}</h2>
+    </Section>
   );
 };
 
