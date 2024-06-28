@@ -10,19 +10,24 @@ import {
 import { Input } from "@/components/ui/input";
 import { signInSchema } from "@/lib/zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { signIn } from "next-auth/react";
 import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import { z } from "zod";
 
-const SignUpForm = () => {
-  const methods = useForm<z.infer<typeof signInSchema>>({
+const SignInForm = () => {
+  const [error, setError] = useState<string | null>(null);
+  const form = useForm<z.infer<typeof signInSchema>>({
     resolver: zodResolver(signInSchema),
     defaultValues: {
       email: "",
       password: "",
     },
   });
+  const router = useRouter();
   const locale = useLocale();
   const t = useTranslations("App.Auth.SignInForm");
   const err = useTranslations("Errors");
@@ -32,38 +37,25 @@ const SignUpForm = () => {
     data
   ) => {
     console.log("data", data);
-    try {
-      const res = await fetch("/api/auth/signup", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
+    const result = await signIn("credentials", {
+      redirect: false,
+      email: data.email,
+      password: data.password,
+    });
 
-      if (!res.ok) {
-        const errorData = await res.json();
-        throw new Error(errorData.message);
-      }
-
-      const result = await res.json();
-      console.log("User signed in successfully", result);
-    } catch (error: unknown) {
-      console.error("signup", error);
-      if (error instanceof Error) {
-        methods.setError("email", { type: "manual", message: error.message });
-      } else {
-        methods.setError("email", { type: "manual", message: "Signup failed" });
-      }
+    if (result?.error) {
+      setError(result.error);
+    } else {
+      router.push("/");
     }
   };
 
   return (
-    <FormProvider {...methods}>
-      <form onSubmit={methods.handleSubmit(onSubmit)} className={formStyle}>
+    <FormProvider {...form}>
+      <form onSubmit={form.handleSubmit(onSubmit)} className={formStyle}>
         <h2 className="text-center text-xl font-semibold">{t("title")}</h2>
         <FormField
-          control={methods.control}
+          control={form.control}
           name="email"
           render={({ field }) => (
             <FormItem>
@@ -72,16 +64,16 @@ const SignUpForm = () => {
                 <Input placeholder={t("emailPlaceholder")} {...field} />
               </FormControl>
               <FormDescription>{t("emailDescription")}</FormDescription>
-              {methods.formState.errors.email?.message && (
+              {form.formState.errors.email?.message && (
                 <p className="text-sm font-medium text-destructive">
-                  {err(methods.formState.errors.email.message)}
+                  {err(form.formState.errors.email.message)}
                 </p>
               )}
             </FormItem>
           )}
         />
         <FormField
-          control={methods.control}
+          control={form.control}
           name="password"
           render={({ field }) => (
             <FormItem>
@@ -93,9 +85,9 @@ const SignUpForm = () => {
                   {...field}
                 />
               </FormControl>
-              {methods.formState.errors.password?.message && (
+              {form.formState.errors.password?.message && (
                 <p className="text-sm font-medium text-destructive">
-                  {err(methods.formState.errors.password.message)}
+                  {err(form.formState.errors.password.message)}
                 </p>
               )}
             </FormItem>
@@ -104,7 +96,9 @@ const SignUpForm = () => {
         <Button type="submit" className="w-fit self-end">
           {t("signInButton")}
         </Button>
-
+        {error && (
+          <p className="text-sm font-medium text-destructive">{error}</p>
+        )}
         <div className="mt-4 text-justify w-full">
           <p className="text-sm text-muted-foreground w-full flex justify-between gap-2">
             {t("forgotPasswordText")}
@@ -130,4 +124,4 @@ const SignUpForm = () => {
   );
 };
 
-export default SignUpForm;
+export default SignInForm;

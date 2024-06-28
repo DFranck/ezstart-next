@@ -12,7 +12,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         password: { label: "Password", type: "password" },
       },
       authorize: async (credentials) => {
-        // Valider les données d'entrée avec Zod
+        console.log("trying credentials signIn", credentials);
         try {
           const parsedData = await signInSchema.parseAsync(credentials);
 
@@ -20,12 +20,13 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             typeof parsedData.email !== "string" ||
             typeof parsedData.password !== "string"
           ) {
+            console.log("Invalid credentials");
             throw new Error("Invalid credentials");
           }
 
-          // Chercher l'utilisateur dans la base de données
+          console.log("parsedData", parsedData);
           const user = await db.user.findUnique({
-            where: { email: parsedData.email ?? "" }, // Utiliser une chaîne vide par défaut
+            where: { email: parsedData.email ?? "" },
           });
 
           if (user && (await compare(parsedData.password, user.password))) {
@@ -34,12 +35,13 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
               email: user.email,
               name: user.name,
               role: user.role,
-            }; // Adapter le retour pour correspondre à l'interface User de NextAuth
+            };
           }
 
+          console.log("Invalid email or password");
           throw new Error("Invalid email or password");
         } catch (error: any) {
-          console.error(error);
+          console.error("Error in authorize:", error);
           if (error.name === "ZodError") {
             throw new Error("Validation error");
           }
@@ -48,10 +50,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       },
     }),
   ],
-  pages: {
-    signIn: "/auth/signin",
-    signOut: "/auth/signout",
-  },
+
   callbacks: {
     async jwt({ token, user }) {
       // Add role to token on sign in

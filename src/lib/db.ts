@@ -1,17 +1,14 @@
+// src/lib/db.ts
 import { PrismaClient } from "@prisma/client";
 
-export const db = new PrismaClient();
-
-async function main() {
-  // ... you will write your Prisma Client queries here
+// Prevent multiple instances of Prisma Client in development
+declare global {
+  // eslint-disable-next-line no-var
+  var prisma: PrismaClient | undefined;
 }
 
-main()
-  .then(async () => {
-    await db.$disconnect();
-  })
-  .catch(async (e) => {
-    console.error(e);
-    await db.$disconnect();
-    process.exit(1);
-  });
+export const db = global.prisma || new PrismaClient();
+
+if (process.env.NODE_ENV !== "production") {
+  global.prisma = db;
+}

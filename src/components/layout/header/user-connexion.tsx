@@ -12,7 +12,8 @@ const UserConnexion = ({ className }: { className?: string }) => {
   const locale = useLocale();
   const session = useSession();
   const user = session.data?.user;
-  // console.log(session);
+  console.log(session);
+  console.log(user);
 
   const handleSignOut = async () => {
     await signOut({ redirect: true, callbackUrl: `/${locale}/` });
@@ -27,16 +28,11 @@ const UserConnexion = ({ className }: { className?: string }) => {
               <span className="">{t("signin")}</span>
             </Link>
           </Button>
-          {/* <Button asChild className="mx-2">
-            <Link href={`/${locale}/auth/signup`}>
-              <span className="hidden md:flex">{t("signup")}</span>
-            </Link>
-          </Button> */}
         </>
       )}
       {user && (
         <Button className="mx-2" onClick={handleSignOut}>
-          <span className="hidden md:flex">{t("logout")}</span>
+          <span className="">{t("logout")}</span>
         </Button>
       )}
     </div>
