@@ -33,8 +33,6 @@ npm run dev
 
 ## Custom Components
 
-## Nav Components
-
 ### Nav Component
 
 The `Nav` component is a reusable navigation component that adapts to different translations and links. It integrates with next-intl for translations and next/navigation for handling the current pathname. The component also includes accessibility features and allows for conditional styling based on the `active` prop.

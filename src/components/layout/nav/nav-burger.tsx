@@ -1,11 +1,10 @@
-import SideNav from "@/components/layout/nav/side-nav";
 import LocaleSwitcher from "@/providers/language/locale-switcher";
 import { ThemeSwitcher } from "@/providers/theme/theme-switcher";
 import { useLocale, useTranslations } from "next-intl";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import UserConnexion from "../header/user-connexion";
+import Nav from "./nav";
 const NavBurger = () => {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
@@ -59,11 +58,11 @@ const NavBurger = () => {
           className="fixed top-0 right-0 z-20 border shadow bg-background animate-slideInFromRight duration-200"
           id="burger-menu"
         >
-          <div className="inset-0 bg-black/50" aria-hidden="true" />
+          <div className="inset-0 bg-red/50" aria-hidden="true" />
           <div className="p-2 w-screen max-w-xs">
             <div>
               <button
-                className="rounded w-full p-5 flex justify-end hover:bg-accent"
+                className="rounded w-full p-5 flex justify-end hover:bg-accent duration-100"
                 onClick={() => setIsOpen(false)}
               >
                 <svg
@@ -82,39 +81,29 @@ const NavBurger = () => {
                 </svg>
               </button>
             </div>
-            <nav>
-              <ul
-                className="flex flex-col text-center"
-                onClick={() => setIsOpen(false)}
-              >
-                <div className="border border-border/50"></div>
-                {links.map((link, index) => (
-                  <React.Fragment key={index}>
-                    <li>
-                      {link === "Home" || link === "Accueil" ? (
-                        <Link href={`/${locale}`} className={linkStyle}>
-                          {link}
-                        </Link>
-                      ) : (
-                        <Link
-                          href={`/${locale}/${link.toLowerCase()}`}
-                          className={linkStyle}
-                        >
-                          {link}
-                        </Link>
-                      )}
-                    </li>
-                    <div className="border border-border/50"></div>
-                  </React.Fragment>
-                ))}
-                {pathname.includes("docs") && (
-                  <>
-                    <h3 className="text-xl font-semibold my-4">{t("docs")}</h3>
-                    <SideNav />
-                  </>
-                )}
-              </ul>
-            </nav>
+            <div>
+              <Nav
+                t="Header"
+                render="links"
+                root={[0]}
+                dir={"col"}
+                variant={"secondary"}
+                className="p-0"
+              />
+              {pathname.includes("docs") && (
+                <div className="md:hidden text-center">
+                  <h3 className="text-xl font-semibold my-4">{t("docs")}</h3>
+                  <Nav
+                    t="SideNav"
+                    render="links"
+                    path="docs"
+                    dir={"col"}
+                    active
+                    variant={"primary"}
+                  />
+                </div>
+              )}
+            </div>
             <div className="flex justify-between p-5">
               <span onClick={() => setIsOpen(false)}>
                 <UserConnexion />

@@ -20,7 +20,13 @@ const Header = ({ className }: { className?: string }) => {
     >
       <div className="flex justify-between md:grid md:grid-cols-3  items-center max-w-screen-2xl mx-auto text-foreground">
         <Logo />
-        <Nav t={"Header"} render={"links"} root={[0]} />
+        <Nav
+          t={"Header"}
+          render={"links"}
+          root={[0]}
+          dir={"row"}
+          className="hidden md:flex"
+        />
         <div className="hidden md:flex justify-end gap-2">
           <UserActions />
           <UserConnexion />

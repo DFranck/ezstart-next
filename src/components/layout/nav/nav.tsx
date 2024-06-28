@@ -7,15 +7,15 @@ import { usePathname } from "next/navigation";
 import React from "react";
 
 // Définition des variants de styles pour Nav
-const navVariants = cva("hidden ", {
+const navVariants = cva("", {
   variants: {
     pos: {
-      default: "justify-center items-center ",
+      default: "justify-center items-center",
       fixed: "md:fixed",
     },
     dir: {
-      row: "flex",
-      col: "md:block min-w-60 relative md:p-4 overflow-hidden text-elipsis",
+      row: "",
+      col: "md:block min-w-60 relative md:p-4 overflow-hidden text-ellipsis",
     },
   },
   defaultVariants: {
@@ -25,6 +25,45 @@ const navVariants = cva("hidden ", {
 });
 
 // Définition des variants de styles pour Link
+const linkVariants = cva("text-xl p-2 rounded", {
+  variants: {
+    variant: {
+      default: "",
+      primary: "block duration-100",
+      secondary: "p-6 block duration-100",
+    },
+    isActive: {
+      true: "",
+      false: "",
+    },
+  },
+  compoundVariants: [
+    {
+      variant: "primary",
+      isActive: true,
+      className: "bg-primary text-primary-foreground",
+    },
+    {
+      variant: "primary",
+      isActive: false,
+      className: "hover:bg-primary/50 hover:text-primary-foreground",
+    },
+    {
+      variant: "secondary",
+      isActive: true,
+      className: "bg-accent text-accent-foreground",
+    },
+    {
+      variant: "secondary",
+      isActive: false,
+      className: "hover:bg-accent rounded w-full text-center cursor-pointer ",
+    },
+  ],
+  defaultVariants: {
+    variant: "default",
+    isActive: false,
+  },
+});
 
 type NavProps = {
   t: string; // Translation key
@@ -33,6 +72,7 @@ type NavProps = {
   className?: string;
   path?: string; // Base path for non-root links
   active?: boolean;
+  variant?: VariantProps<typeof linkVariants>["variant"];
   pos?: VariantProps<typeof navVariants>["pos"]; // Type de navigation
   dir?: VariantProps<typeof navVariants>["dir"]; // Orientation
 };
@@ -44,7 +84,8 @@ const Nav: React.FC<NavProps> = ({
   className,
   path = "",
   pos,
-  active,
+  active = false,
+  variant = "default",
   dir,
 }) => {
   const locale = useLocale();
@@ -59,14 +100,13 @@ const Nav: React.FC<NavProps> = ({
 
   return (
     <nav
-      className={cn(navVariants({ dir }), className)}
+      className={cn("", navVariants({ dir }), className)}
       aria-label="Main navigation"
     >
       <ul
         className={cn(
           navVariants({ pos }),
-          "hidden md:flex",
-          dir === "col" ? "flex-col space-y-4" : "flex-row"
+          dir === "col" ? " flex flex-col space-y-4" : "flex flex-row"
         )}
       >
         {links.map((link, index) => {
@@ -78,18 +118,13 @@ const Nav: React.FC<NavProps> = ({
           const isActive = pathname.startsWith(linkPath);
 
           return (
-            <li key={`${link}-${index}`}>
+            <li key={`${link}-${index}`} className="w-full">
               <Link
                 href={linkPath}
                 aria-label={link}
                 className={cn(
-                  "p-2 rounded",
-                  isActive && active
-                    ? "bg-primary text-primary-foreground "
-                    : "",
-                  active && !isActive
-                    ? "hover:bg-primary/50 hover:text-primary-foreground duration-100"
-                    : ""
+                  "",
+                  linkVariants({ variant, isActive: active && isActive })
                 )}
               >
                 {link}
