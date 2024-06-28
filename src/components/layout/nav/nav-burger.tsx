@@ -1,11 +1,11 @@
-import SideNav from "@/features/side-nav";
+import SideNav from "@/components/layout/nav/side-nav";
 import LocaleSwitcher from "@/providers/language/locale-switcher";
 import { ThemeSwitcher } from "@/providers/theme/theme-switcher";
 import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useEffect, useRef, useState } from "react";
-import UserConnexion from "./user-connexion";
+import UserConnexion from "../header/user-connexion";
 const NavBurger = () => {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);

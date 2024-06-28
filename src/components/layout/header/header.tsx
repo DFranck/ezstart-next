@@ -1,12 +1,12 @@
 "use client";
 
+import NavBurger from "@/components/layout/nav/nav-burger";
 import useOnScroll from "@/hooks/useOnScroll";
 import { cn } from "@/lib/utils";
 import LocaleSwitcher from "@/providers/language/locale-switcher";
 import { ThemeSwitcher } from "@/providers/theme/theme-switcher";
+import Nav from "../nav/nav";
 import Logo from "./logo";
-import NavBurger from "./nav-burger";
-import Navigation from "./navigation";
 import UserActions from "./user-actions";
 import UserConnexion from "./user-connexion";
 
@@ -20,7 +20,7 @@ const Header = ({ className }: { className?: string }) => {
     >
       <div className="flex justify-between md:grid md:grid-cols-3  items-center max-w-screen-2xl mx-auto text-foreground">
         <Logo />
-        <Navigation />
+        <Nav t={"Header"} render={"links"} root={[0]} />
         <div className="hidden md:flex justify-end gap-2">
           <UserActions />
           <UserConnexion />

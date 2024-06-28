@@ -1,6 +1,7 @@
 "use client";
 
 import Section from "@/components/layout/section";
+import { Button } from "@/components/ui/button";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 
@@ -173,6 +174,12 @@ const GetStarted = () => {
         </ul>
       </div>
       <h2 className="text-2xl font-bold mt-8 mb-4">{t("enjoy")}</h2>
+      <div className="grid grid-cols-2 gap-4 w-full">
+        <Button variant={"outline"} className="">
+          prev
+        </Button>
+        <Button variant={"outline"}>next</Button>
+      </div>
     </Section>
   );
 };

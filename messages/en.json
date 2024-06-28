@@ -10,10 +10,12 @@
     "docs": "Documentation"
   },
   "SideNav": {
-    "getStarted": "Get Started",
-    "authentication": "Authentication",
-    "internationalization": "Internationalization",
-    "theming": "Theming"
+    "links": {
+      "getStarted": "Get Started",
+      "authentication": "Authentication",
+      "internationalization": "Internationalization",
+      "theming": "Theming"
+    }
   },
   "Footer": {
     "partnersTitle": "Partners",
