@@ -10,7 +10,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { signInSchema } from "@/lib/zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { signIn } from "next-auth/react";
+import { getSession, signIn } from "next-auth/react";
 import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -36,7 +36,6 @@ const SignInForm = () => {
   const onSubmit: SubmitHandler<z.infer<typeof signInSchema>> = async (
     data
   ) => {
-    console.log("data", data);
     const result = await signIn("credentials", {
       redirect: false,
       email: data.email,
@@ -46,7 +45,13 @@ const SignInForm = () => {
     if (result?.error) {
       setError(result.error);
     } else {
-      router.push("/");
+      const updatedSession = await getSession();
+      console.log("role of the user", updatedSession?.user.role);
+      if (updatedSession?.user.role === "admin") {
+        router.push(`/${locale}/admin`);
+      } else {
+        router.push(`/${locale}/user`);
+      }
     }
   };
 

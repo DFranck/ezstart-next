@@ -2,21 +2,17 @@
 import { authMiddleware } from "@/middlewares/auth-middleware";
 import intlMiddleware from "@/middlewares/intl-middleware";
 import { NextRequest } from "next/server";
-
 export default async function middleware(req: NextRequest) {
-  const intlResponse = await intlMiddleware(req);
-
+  const intlResponse = intlMiddleware(req);
   if (intlResponse.status !== 200) {
     return intlResponse;
   }
   const authResponse = await authMiddleware(req);
-
   if (authResponse.status !== 200) {
-    console.log("Unauthorized, redirecting");
+    // console.log("This path is unauthorized, redirecting");
     return authResponse;
   }
-  console.log("Authorized");
-
+  // console.log("This path is authorized");
   return intlResponse;
 }
 

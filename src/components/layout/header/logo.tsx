@@ -17,7 +17,6 @@ const Logo = ({ path = true }: { path?: boolean }) => {
   if (!title) return null;
 
   let cumulativePath = `/${locale}`;
-  console.log(cumulativePath);
 
   return (
     <div className="flex items-center">

@@ -12,7 +12,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         password: { label: "Password", type: "password" },
       },
       authorize: async (credentials) => {
-        console.log("trying credentials signIn", credentials);
+        // console.log("trying credentials signIn", credentials);
         try {
           const parsedData = await signInSchema.parseAsync(credentials);
 
@@ -58,13 +58,17 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         const userFromDb = await db.user.findUnique({
           where: { email: user.email ?? "" }, // Utiliser une chaîne vide par défaut
         });
-        token.role = userFromDb?.role || "user"; // Définit le rôle par défaut à "user" si aucun rôle n'est trouvé
+
+        token.role = userFromDb?.role; // Définit le rôle par défaut à "user" si aucun rôle n'est trouvé
       }
+      // console.log("The token generated is:", token);
       return token;
     },
     async session({ session, token }) {
       // Pass the role to the session object
       session.user.role = token.role as string;
+      // console.log("session", session);
+
       return session;
     },
   },

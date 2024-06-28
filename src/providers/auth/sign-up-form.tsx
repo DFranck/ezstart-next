@@ -31,7 +31,6 @@ const SignUpForm = () => {
   const onSubmit: SubmitHandler<z.infer<typeof signUpSchema>> = async (
     data
   ) => {
-    console.log("data", data);
     try {
       const res = await fetch("/api/auth/signup", {
         method: "POST",

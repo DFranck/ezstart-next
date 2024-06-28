@@ -7,23 +7,28 @@ export async function authMiddleware(req: NextRequest) {
   const locale = currentLocale;
   const pathname = req.nextUrl.pathname;
 
+  // Log cookies to ensure they are being passed correctly
+  // console.log("Cookies:", req.cookies);
+
   // Get the token
   const token = await getToken({
     req,
     secret: process.env.AUTH_SECRET as string,
-    salt: process.env.AUTH_SALT as string,
+    // salt: process.env.AUTH_SALT as string,
+    secureCookie: process.env.NODE_ENV === "production",
   });
-  console.log("token", token);
 
   // Redirect to signin if no token is present
   if (!token) {
+    console.log("No token found, redirecting to signin.");
     if (
       pathname.startsWith(`/${locale}/auth`) ||
       pathname === `/${locale}` ||
       pathname === `/${locale}/about` ||
       pathname.startsWith(`/${locale}/docs`)
-    )
+    ) {
       return NextResponse.next();
+    }
     const redirectUrl = new URL(`/${locale}/auth/signin`, req.url);
     redirectUrl.searchParams.set("callbackUrl", req.url);
     return NextResponse.redirect(redirectUrl);
@@ -36,5 +41,6 @@ export async function authMiddleware(req: NextRequest) {
   }
 
   // Allow access to other paths if authenticated
+  console.log("Token is valid, proceeding with request.");
   return NextResponse.next();
 }
