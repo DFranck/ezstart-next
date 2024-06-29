@@ -14,6 +14,7 @@
       "getStarted": "Commencer",
       "authentication": "Authentification",
       "internationalization": "Internationalisation",
+      "dbManagement": "Gestion de la base de données",
       "theming": "Thématisation"
     }
   },

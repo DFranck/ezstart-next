@@ -18,7 +18,7 @@ const Header = ({ className }: { className?: string }) => {
         "p-2 bg-background border-b shadow": scrollY > 0,
       })}
     >
-      <div className="flex justify-between md:grid md:grid-cols-3  items-center max-w-screen-2xl mx-auto text-foreground">
+      <div className="flex justify-between  items-center max-w-screen-2xl mx-auto text-foreground">
         <Logo />
         <Nav
           t={"Header"}

@@ -10,7 +10,7 @@ const navVariants = cva("", {
   variants: {
     dir: {
       row: "",
-      col: "md:block min-w-60 relative md:p-4",
+      col: "md:block w-fit relative md:p-4 min-w-max",
     },
   },
   defaultVariants: {
@@ -34,12 +34,12 @@ const ulVariants = cva("", {
   },
 });
 const linkVariants = cva(
-  "text-xl p-2 rounded duration-100 focus:outline-none focus:ring-2 focus:ring-offset-2",
+  "text-xl p-2 rounded duration-100 whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-offset-2",
   {
     variants: {
       variant: {
         default: "",
-        primary: "block ",
+        primary: "block",
         secondary: "p-6 block",
       },
       isActive: {
@@ -66,7 +66,7 @@ const linkVariants = cva(
       {
         variant: "secondary",
         isActive: false,
-        className: "hover:bg-accent rounded w-full text-center cursor-pointer ",
+        className: "hover:bg-accent rounded w-full text-center cursor-pointer",
       },
     ],
     defaultVariants: {
@@ -117,10 +117,10 @@ const Nav: React.FC<NavProps> = ({
 
   return (
     <nav
-      className={cn(navVariants({ dir }), {}, navClass)}
+      className={cn(navVariants({ dir }), navClass)}
       aria-label="Main navigation"
     >
-      <ul className={cn(ulVariants({ dir, pos }), {}, ulClass)}>
+      <ul className={cn(ulVariants({ dir, pos }), ulClass)}>
         {linkList.map((link, index) => {
           const linkPath = Array.isArray(rawLinks)
             ? root.includes(index)
@@ -136,7 +136,6 @@ const Nav: React.FC<NavProps> = ({
                 aria-label={link}
                 className={cn(
                   linkVariants({ variant, isActive: active && isActive }),
-                  {},
                   liClass
                 )}
               >
@@ -146,6 +145,15 @@ const Nav: React.FC<NavProps> = ({
           );
         })}
       </ul>
+      {dir === "col" && (
+        <ul className="invisible">
+          {linkList.map((link, index) => (
+            <li key={`${link}-${index}`} className="text-xl p-2">
+              {link}
+            </li>
+          ))}
+        </ul>
+      )}
     </nav>
   );
 };
