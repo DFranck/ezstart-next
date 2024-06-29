@@ -15,7 +15,7 @@ export async function authMiddleware(req: NextRequest) {
     req,
     secret: process.env.AUTH_SECRET as string,
     // salt: process.env.AUTH_SALT as string,
-    secureCookie: process.env.NODE_ENV === "production",
+    // secureCookie: process.env.NODE_ENV === "production",
   });
 
   // Redirect to signin if no token is present
