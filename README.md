@@ -81,9 +81,10 @@ AUTH_SALT=your_salt
 ```
 
 This enables a complete authentication system with Next.js: sign-up, sign-in, sign-out, and more.
-Complete documentation on NextAuth.js:https://next-auth.js.org/getting-started/introduction
 
-## Set up Remote Database
+Complete documentation on NextAuth.js: https://next-auth.js.org/getting-started/introduction
+
+## Set up Database ORM
 
 The project uses Prisma for database management, supporting PostgreSQL, SQLite, and MySQL. By default, it is configured for PostgreSQL in `.env.local`.
 
@@ -91,11 +92,11 @@ The project uses Prisma for database management, supporting PostgreSQL, SQLite, 
 DATABASE_URL="postgresql://janedoe:janedoe@localhost:5432/janedoe?schema=hello-prisma"
 ```
 
-Complete documentation on Prisma:https://www.prisma.io/docs/getting-started/setup-prisma/start-from-scratch/relational-databases-typescript-postgresql
+Complete documentation on Prisma: https://www.prisma.io/docs/getting-started/
 
 ## Translation (i18n) Setup
 
-The project uses NextIntl for localization. Set up your locales in the src/locales directory to support multiple languages.
+The project uses NextIntl for localization. Locale directory already set up with English and French language.
 
 Complete documentation on NextIntl: https://nextIntl.org
 
@@ -105,11 +106,10 @@ The project follows the Conventional Commits specification. This means all commi
 
 ```bash
 git add .
-git status
 npm run commit
 ```
 
-Configurer VSCode comme éditeur de texte par défaut pour Git :
+If you want to configurer VSCode like your default text editor for Git :
 
 ```bash
 git config --global core.editor "code --wait"
@@ -132,14 +132,12 @@ During the build process, database migration runs automatically. Ensure DATABASE
 ### Generate a production build with:
 
 ```bash
-Copy code
 npm run build
 ```
 
 To test the production build locally, run:
 
 ```bash
-Copy code
 npm run start
 ```
 
