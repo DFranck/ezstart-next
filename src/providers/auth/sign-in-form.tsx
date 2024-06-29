@@ -2,7 +2,6 @@
 import { Button } from "@/components/ui/button";
 import {
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -32,7 +31,7 @@ const SignInForm = () => {
   const t = useTranslations("App.Auth.SignInForm");
   const err = useTranslations("Errors");
   const formStyle =
-    "bg-accent border shadow rounded-md p-4 flex flex-col gap-4 ";
+    "bg-accent border shadow rounded-md p-4 flex flex-col gap-4 max-w-[400px] w-full mx-auto";
   const onSubmit: SubmitHandler<z.infer<typeof signInSchema>> = async (
     data
   ) => {
@@ -58,17 +57,34 @@ const SignInForm = () => {
   return (
     <FormProvider {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className={formStyle}>
-        <h2 className="text-center text-xl font-semibold">{t("title")}</h2>
+        <div>
+          <h2 className="text-center text-lg font-semibold">{t("title")}</h2>
+          <p className="text-muted-foreground text-xs text-center">
+            {t("subtitle")}
+          </p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 justify-center gap-2 text-center w-full">
+          <div className="border shadow rounded p-1 flex-grow">
+            Google coming soon
+          </div>
+          <div className="border shadow rounded p-1">Facebook coming soon</div>
+          <div className="border shadow rounded p-1">Github coming soon</div>
+        </div>
+        <div className="flex justify-between items-center gap-2 text-muted-foreground text-xs">
+          <span className="border w-full"></span>
+          {t("or")}
+          <span className="border w-full"></span>
+        </div>
         <FormField
           control={form.control}
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>{t("emailLabel")}</FormLabel>
+              <FormLabel className="sr-only">{t("emailLabel")}</FormLabel>
               <FormControl>
                 <Input placeholder={t("emailPlaceholder")} {...field} />
               </FormControl>
-              <FormDescription>{t("emailDescription")}</FormDescription>
+              {/* <FormDescription>{t("emailDescription")}</FormDescription> */}
               {form.formState.errors.email?.message && (
                 <p className="text-sm font-medium text-destructive">
                   {err(form.formState.errors.email.message)}
@@ -82,7 +98,7 @@ const SignInForm = () => {
           name="password"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>{t("passwordLabel")}</FormLabel>
+              <FormLabel className="sr-only">{t("passwordLabel")}</FormLabel>
               <FormControl>
                 <Input
                   type="password"
@@ -90,6 +106,7 @@ const SignInForm = () => {
                   {...field}
                 />
               </FormControl>
+
               {form.formState.errors.password?.message && (
                 <p className="text-sm font-medium text-destructive">
                   {err(form.formState.errors.password.message)}
@@ -98,22 +115,23 @@ const SignInForm = () => {
             </FormItem>
           )}
         />
-        <Button type="submit" className="w-fit self-end">
-          {t("signInButton")}
-        </Button>
-        {error && (
-          <p className="text-sm font-medium text-destructive">{error}</p>
-        )}
-        <div className="mt-4 text-justify w-full">
-          <p className="text-sm text-muted-foreground w-full flex justify-between gap-2">
-            {t("forgotPasswordText")}
+        <div>
+          <Button type="submit" className="w-full mt-2">
+            {t("signInButton")}
+          </Button>
+          <p className="text-sm text-muted-foreground w-full flex justify-between gap-2 mt-1">
             <Link
               href="/auth/forgot-password"
-              className="text-primary underline"
+              className="text-muted-foreground text-xs hover:underline w-full text-end"
             >
-              {t("resetPasswordLink")}
+              {t("forgotPasswordText")}
             </Link>
           </p>
+          {error && (
+            <p className="text-sm font-medium text-destructive">{error}</p>
+          )}
+        </div>
+        <div className="mt-4 text-justify text-xs w-full">
           <p className="text-sm text-muted-foreground w-full flex justify-between gap-2">
             {t("noAccountText")}
             <Link

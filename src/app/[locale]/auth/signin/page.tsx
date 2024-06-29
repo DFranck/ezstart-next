@@ -3,7 +3,7 @@ import SignInFrom from "@/providers/auth/sign-in-form";
 
 const page = () => {
   return (
-    <Section>
+    <Section className="px-4">
       <SignInFrom />
     </Section>
   );

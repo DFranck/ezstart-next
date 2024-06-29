@@ -2,7 +2,6 @@
 import { Button } from "@/components/ui/button";
 import {
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -27,7 +26,7 @@ const SignUpForm = () => {
   });
   const locale = useLocale();
   const formStyle =
-    "bg-accent border shadow rounded-md p-4 flex flex-col gap-4";
+    "bg-accent border shadow rounded-md p-4 flex flex-col gap-4 max-w-[400px] w-full mx-auto";
   const onSubmit: SubmitHandler<z.infer<typeof signUpSchema>> = async (
     data
   ) => {
@@ -60,17 +59,33 @@ const SignUpForm = () => {
   return (
     <FormProvider {...methods}>
       <form onSubmit={methods.handleSubmit(onSubmit)} className={formStyle}>
-        <h2 className="text-center text-xl font-semibold">{t("title")}</h2>
+        <div>
+          <h2 className="text-center text-lg font-semibold">{t("title")}</h2>
+          <p className="text-muted-foreground text-xs text-center">
+            {t("subtitle")}
+          </p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 justify-center gap-2 text-center w-full">
+          <div className="border shadow rounded p-1 flex-grow">
+            Google coming soon
+          </div>
+          <div className="border shadow rounded p-1">Facebook coming soon</div>
+          <div className="border shadow rounded p-1">Github coming soon</div>
+        </div>
+        <div className="flex justify-between items-center gap-2 text-muted-foreground text-xs">
+          <span className="border w-full"></span>
+          {t("or")}
+          <span className="border w-full"></span>
+        </div>
         <FormField
           control={methods.control}
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>{t("emailLabel")}</FormLabel>
+              <FormLabel className="sr-only">{t("emailLabel")}</FormLabel>
               <FormControl>
                 <Input placeholder={t("emailPlaceholder")} {...field} />
               </FormControl>
-              <FormDescription>{t("emailDescription")}</FormDescription>
               {methods.formState.errors.email?.message && (
                 <p className="text-sm font-medium text-destructive">
                   {err(methods.formState.errors.email.message)}
@@ -84,7 +99,7 @@ const SignUpForm = () => {
           name="password"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>{t("passwordLabel")}</FormLabel>
+              <FormLabel className="sr-only">{t("passwordLabel")}</FormLabel>
               <FormControl>
                 <Input
                   type="password"
@@ -100,11 +115,11 @@ const SignUpForm = () => {
             </FormItem>
           )}
         />
-        <Button type="submit" className="w-fit self-end">
+        <Button type="submit" className="w-full mt-2">
           {t("signUpButton")}
         </Button>
-        <div className="mt-4 text-center w-full">
-          <p className="text-sm text-muted-foreground opacity-0">signupform</p>
+        <div className="mt-4 text-center w-full text-xs">
+          {/* <p className="text-sm text-muted-foreground opacity-0">signupform</p> */}
           <p className="text-sm text-muted-foreground w-full flex justify-between gap-2">
             {t("hasAccountText")}{" "}
             <Link

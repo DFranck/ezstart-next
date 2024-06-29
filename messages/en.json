@@ -160,7 +160,9 @@
     },
     "Auth": {
       "SignInForm": {
-        "title": "Sign In",
+        "title": "Sign In to EzStart",
+        "subtitle": "Welcome back! Please sign in to continue",
+        "or": "or",
         "emailLabel": "Email",
         "emailPlaceholder": "Email",
         "emailDescription": "We’ll never share your email.",
@@ -174,6 +176,8 @@
       },
       "SignUpForm": {
         "title": "Sign Up",
+        "subtitle": "Welcome! Please fill in the details to get started.",
+        "or": "or",
         "emailLabel": "Email",
         "emailPlaceholder": "Email",
         "emailDescription": "We’ll never share your email.",

@@ -3,7 +3,7 @@ import SignUpForm from "@/providers/auth/sign-up-form";
 
 const page = () => {
   return (
-    <Section>
+    <Section className="px-4">
       <SignUpForm />
     </Section>
   );
