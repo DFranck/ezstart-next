@@ -1,4 +1,3 @@
-// src/middlewares/auth-middleware.ts
 import { getToken } from "next-auth/jwt";
 import { NextRequest, NextResponse } from "next/server";
 import { currentLocale } from "./intl-middleware";
@@ -7,18 +6,22 @@ export async function authMiddleware(req: NextRequest) {
   const locale = currentLocale;
   const pathname = req.nextUrl.pathname;
 
-  // Log cookies to ensure they are being passed correctly
-  // console.log("Cookies:", req.cookies);
-
-  // Get the token
-  const token = await getToken({
+  // Préparer les paramètres pour getToken
+  const tokenParams: any = {
     req,
     secret: process.env.AUTH_SECRET as string,
-    // salt: process.env.AUTH_SALT as string,
-    // secureCookie: process.env.NODE_ENV === "production",
-  });
+    secureCookie: process.env.NODE_ENV === "production",
+  };
 
-  // Redirect to signin if no token is present
+  // Inclure conditionnellement le salt si défini
+  if (process.env.AUTH_SALT) {
+    tokenParams.salt = process.env.AUTH_SALT as string;
+  }
+
+  // Obtenir le token
+  const token = await getToken(tokenParams);
+
+  // Rediriger vers la page de connexion si aucun token n'est présent
   if (!token) {
     console.log("No token found, redirecting to signin.");
     if (
@@ -34,13 +37,13 @@ export async function authMiddleware(req: NextRequest) {
     return NextResponse.redirect(redirectUrl);
   }
 
-  // Check for role-based access
+  // Vérifier l'accès basé sur les rôles
   if (pathname.startsWith(`/${locale}/admin`) && token.role !== "admin") {
     console.log("Not an admin, redirecting to unauthorized");
     return NextResponse.redirect(new URL(`/${locale}/unauthorized`, req.url));
   }
 
-  // Allow access to other paths if authenticated
+  // Autoriser l'accès aux autres chemins si authentifié
   console.log("Token is valid, proceeding with request.");
   return NextResponse.next();
 }
