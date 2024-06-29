@@ -13,13 +13,14 @@ export async function authMiddleware(req: NextRequest) {
     secureCookie: process.env.NODE_ENV === "production",
   };
 
-  // Inclure conditionnellement le salt si défini
-  if (process.env.AUTH_SALT) {
-    tokenParams.salt = process.env.AUTH_SALT as string;
-  }
+  // // Inclure conditionnellement le salt si défini
+  // if (process.env.AUTH_SALT) {
+  //   tokenParams.salt = process.env.AUTH_SALT as string;
+  // }
 
   // Obtenir le token
   const token = await getToken(tokenParams);
+  console.log("token", token);
 
   // Rediriger vers la page de connexion si aucun token n'est présent
   if (!token) {

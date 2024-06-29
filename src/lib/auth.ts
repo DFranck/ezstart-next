@@ -12,7 +12,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         password: { label: "Password", type: "password" },
       },
       authorize: async (credentials) => {
-        // console.log("trying credentials signIn", credentials);
+        console.log("trying credentials signIn", credentials);
         try {
           const parsedData = await signInSchema.parseAsync(credentials);
 
@@ -59,7 +59,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           where: { email: user.email ?? "" }, // Utiliser une chaîne vide par défaut
         });
 
-        token.role = userFromDb?.role; // Définit le rôle par défaut à "user" si aucun rôle n'est trouvé
+        token.role = userFromDb?.role || "user"; // Définit le rôle par défaut à "user" si aucun rôle n'est trouvé
       }
       // console.log("The token generated is:", token);
       return token;
@@ -73,4 +73,8 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     },
   },
   secret: process.env.AUTH_SECRET,
+  session: {
+    strategy: "jwt",
+    maxAge: 30 * 24 * 60 * 60, // Optional: Duration of session in seconds (default 30 days)
+  },
 });
