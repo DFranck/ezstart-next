@@ -3,7 +3,7 @@ import { ThemeSwitcher } from "@/providers/theme/theme-switcher";
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import UserConnexion from "../header/user-connexion";
+import UserConnexion from "./header/user-connexion";
 import Nav from "./nav";
 const NavBurger = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -81,14 +81,13 @@ const NavBurger = () => {
                 </svg>
               </button>
             </div>
-            <div>
+            <div onClick={() => setIsOpen(false)}>
               <Nav
                 t="Header"
                 render="links"
                 root={[0]}
                 dir={"col"}
                 variant={"secondary"}
-                className="p-0"
               />
               {pathname.includes("docs") && (
                 <div className="md:hidden text-center">

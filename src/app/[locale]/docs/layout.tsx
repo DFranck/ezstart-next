@@ -1,4 +1,4 @@
-import Nav from "@/components/layout/nav/nav";
+import Nav from "@/components/layout/nav";
 
 const layout = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -7,10 +7,10 @@ const layout = ({ children }: { children: React.ReactNode }) => {
         t="SideNav"
         render="links"
         path="docs"
-        pos={"fixed"}
         dir={"col"}
+        pos={"fixed"}
         active
-        className="hidden"
+        navClass="hidden"
         variant={"primary"}
       />
       <div className="w-full h-full flex bg-secondary text-secondary-foreground">

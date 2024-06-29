@@ -1,11 +1,11 @@
 "use client";
 
-import NavBurger from "@/components/layout/nav/nav-burger";
+import NavBurger from "@/components/layout/nav-burger";
 import useOnScroll from "@/hooks/useOnScroll";
 import { cn } from "@/lib/utils";
 import LocaleSwitcher from "@/providers/language/locale-switcher";
 import { ThemeSwitcher } from "@/providers/theme/theme-switcher";
-import Nav from "../nav/nav";
+import Nav from "../nav";
 import Logo from "./logo";
 import UserActions from "./user-actions";
 import UserConnexion from "./user-connexion";
@@ -25,7 +25,7 @@ const Header = ({ className }: { className?: string }) => {
           render={"links"}
           root={[0]}
           dir={"row"}
-          className="hidden md:flex"
+          navClass="hidden md:flex"
         />
         <div className="hidden md:flex justify-end gap-2">
           <UserActions />
