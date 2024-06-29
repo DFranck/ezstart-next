@@ -4,7 +4,6 @@ import { ArrowDown } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import UserConnexion from "./header/user-connexion";
 import Nav from "./nav";
 const NavBurger = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -109,9 +108,9 @@ const NavBurger = () => {
               )}
             </div>
             <div className="flex justify-between p-5">
-              <span onClick={() => setIsOpen(false)}>
+              {/* <span onClick={() => setIsOpen(false)}>
                 <UserConnexion />
-              </span>
+              </span> */}
               <div className="flex justify-end items-center gap-2 ">
                 <LocaleSwitcher />
                 <ThemeSwitcher />

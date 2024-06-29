@@ -28,13 +28,17 @@ const Header = ({ className }: { className?: string }) => {
           navClass="hidden md:flex "
           ulClass="gap-4"
         />
-        <div className="hidden md:flex justify-end gap-2">
-          <UserActions />
-          <UserConnexion />
-          <LocaleSwitcher />
-          <ThemeSwitcher />
+        <div className="flex gap-2">
+          <div className="hidden md:flex justify-end gap-2">
+            <UserActions />
+            <LocaleSwitcher />
+            <ThemeSwitcher />
+          </div>
+          <div className="flex gap-2">
+            <NavBurger />
+            <UserConnexion />
+          </div>
         </div>
-        <NavBurger />
       </div>
     </header>
   );
