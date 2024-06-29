@@ -47,7 +47,8 @@
       "Hero": {
         "title": " Welcome to EZ Start",
         "description": "EZ Start is my Boilerplate that provides a comprehensive and flexible starting point for your web development projects. Built with modern technologies and best practices, it helps you kickstart your development process with a robust foundation.",
-        "cta": "Get started"
+        "cta": "Get started",
+        "github": "Star on GitHub"
       },
       "FeaturesList": {
         "title": "Features",
@@ -96,6 +97,7 @@
       "GetStarted": {
         "title": "Get Started",
         "buttonText": "Get Started",
+        "github": "Star on GitHub",
         "content": [
           "To get started with My EZ Start Boilerplate, clone the repository and follow the setup instructions in the README file. Customize the configuration files to suit your project needs, and start building your application with ease.",
           "This boilerplate is designed to be flexible and extensible, allowing you to add features and modify existing ones to fit your specific requirements."

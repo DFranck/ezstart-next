@@ -15,7 +15,10 @@
       "authentication": "Authentification",
       "internationalization": "Internationalisation",
       "dbManagement": "Gestion de la base de données",
-      "theming": "Thématisation"
+      "theming": "Thématisation",
+      "stack": "Stack",
+      "components": "Composants",
+      "developerTools": "Outils de développement"
     }
   },
   "Footer": {
@@ -36,55 +39,57 @@
     "emailRequired": "L'email est requis",
     "invalidEmail": "Email invalide",
     "passwordRequired": "Le mot de passe est requis",
-    "passwordMin": "Le mot de passe doit contenir plus de 8 caractères",
-    "passwordMax": "Le mot de passe doit contenir moins de 32 caractères"
+    "passwordMin": "Le mot de passe doit comporter plus de 8 caractères",
+    "passwordMax": "Le mot de passe doit comporter moins de 32 caractères"
   },
   "App": {
     "Home": {
       "Hero": {
         "title": "Bienvenue sur EZ Start",
-        "description": "EZ Start est mon Boilerplate qui fournit un point de départ complet et flexible pour vos projets de développement web. Construit avec des technologies modernes et les meilleures pratiques, il vous aide à démarrer votre processus de développement avec une base solide.",
-        "cta": "Commencer"
+        "description": "EZ Start est ma Boilerplate qui offre un point de départ complet et flexible pour vos projets de développement web. Construit avec des technologies modernes et les meilleures pratiques, il vous aide à démarrer votre processus de développement avec une base solide.",
+        "cta": "Commencer",
+        "github": "Star sur GitHub"
       },
       "FeaturesList": {
         "title": "Fonctionnalités",
-        "description": "Découvrez les puissantes technologies et outils intégrés dans ce boilerplate, conçus pour améliorer votre flux de travail de développement et fournir des applications web de haute qualité.",
-        "docs": "Documentation Officielle",
+        "subtitle": "Explorez les fonctionnalités robustes de",
+        "description": "Explorez les fonctionnalités ci-dessous pour voir comment la boilerplate EzStart peut accélérer considérablement le lancement de votre projet.",
+        "docs": "Documentation officielle",
         "features": [
           {
             "title": "Stack de pointe",
-            "description": "Profitez de la puissance de Next.js 14 pour construire vos applications. Ez-start utilise TypeScript, Tailwind CSS et Prisma ORM pour offrir un environnement de développement moderne et efficace. Restez à la pointe avec les dernières technologies web, les meilleures pratiques et un SEO optimisé.",
-            "link": "https://nextjs.org/docs",
+            "description": "Exploitez la puissance de Next.js 14 pour construire vos applications. Ez-start utilise TypeScript, Tailwind CSS et Prisma ORM pour fournir un environnement de développement moderne et efficace. Restez à jour avec les dernières technologies web, les meilleures pratiques et un SEO optimisé.",
+            "link": "stack",
             "image": "StackSvg"
           },
           {
             "title": "Authentification sécurisée",
-            "description": "Implémentez une authentification sécurisée dans votre application avec NextAuth.js. Intégrez divers fournisseurs comme Google et GitHub pour assurer une gestion flexible et sécurisée des utilisateurs et des comptes.",
-            "link": "https://next-auth.js.org/getting-started/introduction",
+            "description": "Implémentez une authentification sécurisée dans votre application avec NextAuth.js. Cela permet l'intégration avec divers fournisseurs comme Google et GitHub, garantissant une authentification utilisateur flexible et sécurisée ainsi qu'une gestion des comptes.",
+            "link": "authentication",
             "image": "SecureSvg"
           },
           {
-            "title": "Portée globale avec i18n",
-            "description": "Étendez la portée de votre application à l'échelle mondiale avec Next-Intl pour une localisation sans faille. Gérez facilement les traductions et adressez-vous à un public diversifié en surmontant les barrières linguistiques.",
-            "link": "https://next-intl-docs.vercel.app/",
+            "title": "Portée mondiale avec l'internationalisation",
+            "description": "Étendez la portée de votre application à l'international avec Next-Intl pour une localisation transparente. Cette configuration vous permet de gérer facilement les traductions et de toucher un public diversifié en surmontant les barrières linguistiques.",
+            "link": "internationalization",
             "image": "GlobalSvg"
           },
           {
-            "title": "Gestion efficace des bases de données",
-            "description": "Intégrez Prisma pour une gestion simplifiée et performante de la base de données. Génération automatique des migrations, accès aux données type-safe et compatibilité avec PostgreSQL.",
-            "link": "https://www.prisma.io/docs/",
+            "title": "Gestion efficace de la base de données",
+            "description": "Intégrez Prisma pour une gestion simplifiée et efficace de la base de données. Générez des migrations automatiques, accédez aux données de manière typée et assurez la compatibilité avec PostgreSQL.",
+            "link": "dbmanagement",
             "image": "DbSvg"
           },
           {
             "title": "Bibliothèque de composants riche",
-            "description": "Utilisez les composants de Radix UI et Framer Motion pour créer des interfaces utilisateur dynamiques et accessibles. Construisez des interfaces sophistiquées et interactives avec facilité, soutenues par une bibliothèque de composants robuste comme ShadcnUI et Aceternity.",
-            "link": "https://shadcn.dev/docs",
+            "description": "Utilisez les composants Radix UI et Framer Motion pour créer des interfaces utilisateur dynamiques et accessibles. Construisez des interfaces sophistiquées et interactives avec facilité, soutenues par une bibliothèque de composants robuste comme ShadcnUI et Aceternity.",
+            "link": "components",
             "image": "ComponentSvg"
           },
           {
             "title": "Outils centrés sur le développeur",
-            "description": "Expérimentez un processus de développement simplifié avec ESLint, Prettier et TypeScript. Maintenez une haute qualité de code et une cohérence avec Tailwind CSS pour le style et Prisma pour la gestion de la base de données.",
-            "link": "https://github.com/pacocoursey/next-themes",
+            "description": "Expérimentez un processus de développement rationalisé avec ESLint, Prettier et TypeScript. Maintenez une haute qualité de code et une cohérence avec Tailwind CSS pour le style et Prisma pour la gestion des bases de données.",
+            "link": "developertools",
             "image": "CodeSvg"
           }
         ]
@@ -92,31 +97,32 @@
       "GetStarted": {
         "title": "Commencer",
         "buttonText": "Commencer",
+        "github": "Star sur GitHub",
         "content": [
-          "Pour commencer avec Mon Boilerplate EZ Start, clonez le dépôt et suivez les instructions d'installation dans le fichier README. Personnalisez les fichiers de configuration pour répondre aux besoins de votre projet et commencez à construire votre application avec facilité.",
-          "Ce boilerplate est conçu pour être flexible et extensible, vous permettant d'ajouter des fonctionnalités et de modifier les existantes pour répondre à vos exigences spécifiques."
+          "Pour commencer avec My EZ Start Boilerplate, clonez le dépôt et suivez les instructions de configuration dans le fichier README. Personnalisez les fichiers de configuration pour répondre aux besoins de votre projet et commencez à construire votre application facilement.",
+          "Cette boilerplate est conçu pour être flexible et extensible, vous permettant d'ajouter des fonctionnalités et de modifier celles existantes pour répondre à vos besoins spécifiques."
         ]
       }
     },
     "GetStarted": {
       "title": "Commencez avec EZ Start",
       "welcome": "Bienvenue 👋",
-      "intro": "My EZ Start est une boilerplate conçue pour démarrer rapidement vos projets Next.js avec des fonctionnalités avancées intégrées.",
+      "intro": "EZStart est une boilerplate conçu pour démarrer rapidement vos projets Next.js avec des fonctionnalités avancées intégrées.",
       "installationTitle": "Installation",
       "installationSteps": "git clone https://github.com/DFranck/my-ez-start.git\ncd my-ez-start\nnpm install\nnpm run dev",
-      "primaryDependenciesTitle": "Dépendances Primaires",
+      "primaryDependenciesTitle": "Dépendances principales",
       "framework": "Framework",
       "orm": "ORM",
       "authentication": "Authentification",
       "styling": "Style",
       "forms": "Formulaires",
       "internationalization": "Internationalisation",
-      "secondaryDependenciesTitle": "Dépendances Secondaires",
-      "utilityLibraries": "Bibliothèques Utilitaires",
+      "secondaryDependenciesTitle": "Dépendances secondaires",
+      "utilityLibraries": "Bibliothèques utilitaires",
       "animations": "Animations",
       "icons": "Icônes",
       "security": "Sécurité",
-      "enjoy": "Profitez-en!"
+      "enjoy": "Profitez-en !"
     },
     "About": {
       "title": "À propos de moi",
@@ -125,10 +131,10 @@
           "paragraph": "Bonjour, je suis Franck, un développeur web passionné avec une expertise dans la création d'applications web dynamiques et réactives. Avec une solide expérience en Next.js, React, TypeScript et Tailwind CSS, je m'efforce de créer des expériences numériques fluides et conviviales."
         },
         {
-          "paragraph": "Au fil des années, j'ai travaillé sur divers projets, allant de petits sites web personnels à des applications d'entreprise à grande échelle. Mon engagement envers l'apprentissage continu et l'amélioration m'a permis de rester à jour avec les dernières tendances et technologies de l'industrie."
+          "paragraph": "Au fil des ans, j'ai travaillé sur divers projets, allant de petits sites web personnels à de grandes applications d'entreprise. Mon engagement envers l'apprentissage continu et l'amélioration m'a permis de rester à jour avec les dernières tendances et technologies de l'industrie."
         },
         {
-          "paragraph": "Je suis toujours enthousiaste à l'idée de collaborer sur de nouveaux projets et de concrétiser des idées innovantes. N'hésitez pas à explorer mon portfolio et à me contacter sur LinkedIn et GitHub pour rester informé de mes derniers travaux et contributions."
+          "paragraph": "Je suis toujours excité de collaborer sur de nouveaux projets et de donner vie à des idées innovantes. N'hésitez pas à explorer mon portfolio et à me contacter sur LinkedIn et GitHub pour rester informé de mes derniers travaux et contributions."
         }
       ],
       "links": [
@@ -161,7 +167,7 @@
         "passwordLabel": "Mot de passe",
         "passwordPlaceholder": "Mot de passe",
         "signInButton": "Se connecter",
-        "noAccountText": "Vous n’avez pas de compte ?",
+        "noAccountText": "Vous n'avez pas de compte ?",
         "signUpLink": "S'inscrire",
         "forgotPasswordText": "Mot de passe oublié ?",
         "resetPasswordLink": "Réinitialisez-le ici"

@@ -34,7 +34,7 @@ const GetStarted = () => {
               />
             </svg>
           </div>{" "}
-          Star on GitHub
+          {t("github")}
         </Link>
       </Button>
       <div className="max-w-4xl">

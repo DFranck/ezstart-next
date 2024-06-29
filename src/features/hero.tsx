@@ -45,7 +45,7 @@ const Hero = () => {
                   />
                 </svg>
               </div>{" "}
-              Star on GitHub
+              {t("github")}
             </Link>
           </Button>
         </div>
