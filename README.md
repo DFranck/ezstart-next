@@ -1,158 +1,146 @@
 # My EZ Start
 
-My EZ Start is a boilerplate designed to quickly kickstart your Next.js projects with advanced integrated features.
+🌟 Kickstart Your Next.js Projects with Ease 🌟
+
+Empowering Developers: Leverage the power of Next.js 14, TypeScript, Tailwind CSS, and Prisma to build modern, high-performance applications. This boilerplate includes essential tools like ESLint, Prettier, NextAuth.js for authentication, Framer Motion for smooth animations, and NextIntl for seamless internationalization. Everything you need to start your Next.js project quickly and efficiently.
+
+Clone this project to use it as the foundation for your Next.js applications.
 
 ## Features
 
-- **Authentication**: Integration with NextAuth.js
-- **Multilingual Support**: Using NextIntl
-- **Theming**: Utilizing Tailwind CSS and Next Themes
-- **Form Management**: React Hook Form and Zod
-- **Animations**: Framer Motion
-- **ORM**: Prisma for database management
+Optimized for a great developer experience and flexibility, keeping only what you need:
 
-## Documentation
+- ⚡ **Next.js 14 with App Router support**
+- 🔥 **TypeScript** for robust type checking
+- 💎 **Tailwind CSS** for efficient styling
+- ✅ **Strict Mode** for TypeScript and React 18
+- 🔒 **Authentication** with NextAuth.js: Comprehensive user management including sign-up, sign-in, sign-out, and more
+- 🌐 **Internationalization (i18n)** with NextIntl for multilingual support
+- 📦 **Prisma ORM**: Type-safe database management compatible with PostgreSQL, SQLite, and MySQL
+- 📏 **ESLint**: Code linting with Next.js default and Airbnb configurations
+- 💖 **Prettier**: Code formatting for consistent style
+- 🔀 **React Hook Form**: Efficient form handling
+- 🔴 **Zod**: Powerful schema validation
+- 🖌️ **Radix UI and Framer Motion**: Dynamic and accessible UI components
+- 🔧 **PostCSS** for CSS transformation
+- 🔑 **Bcryptjs**: Secure password hashing
+- 🎨 **Lucide React**: Comprehensive icon library
+- 🛠️ **VSCode configuration**: Seamless development experience
+- 🔍 **SEO optimization**: Metadata, JSON-LD, and Open Graph tags
+- 📜 **Extensive documentation** for all features
+- 🔄 **Future integration**: Plans for testing tools like Jest and React Testing Library
+- 🚀 **Ready for modern web development**
 
-For detailed documentation on each feature, please refer to the following:
+### Built-in features from Next.js:
 
-- [Translations](src/app/docs/translations)
-- [Form Validation](src/app/docs/form-validation)
-- [Theming](src/app/docs/theming)
-- [Authentication](src/app/docs/authentication)
-- [Animations](src/app/docs/animations)
-- [Database Management](src/app/docs/database-management)
+- ☕ **Minify HTML & CSS**
+- 💨 **Live reload**
+- ✅ **Cache busting**
 
-## Installation
+## Philosophy
+
+Transparent and open, allowing you to tailor the setup to your needs.
+This boilerplate is for my personal use and i try to keep it as minimal and efficient as possible.  
+Dependencies are regularly updated.  
+Highly customizable.  
+Minimalist codebase.  
+SEO-friendly.  
+🚀 Production-ready.
+
+## Requirements
+
+- Node.js 20+ and npm
+
+## Getting Started
+
+Clone the repository and install the dependencies:
 
 ```bash
-git clone https://github.com/DFranck/my-ez-start.git
-cd my-ez-start
+git clone --depth=1 https://github.com/DFranck/my-ez-start.git my-project-name
+cd my-project-name
 npm install
 npm run dev
 ```
 
-## Stack
+To run the project locally in development mode with live reload:
 
-Next14  
-TypeScript  
-Tailwind CSS  
-Prisma  
-Shadcnui
-
-## Authentication
-
-Implement secure authentication in your application using NextAuth.js. This allows for integration with various providers like Google and GitHub, ensuring flexible and secure user authentication and account management.
-
-## Multilingual Support
-
-Expand your application's reach globally with Next-Intl for seamless localization. This setup enables you to manage translations effortlessly and cater to a diverse audience by breaking language barriers.
-
-## Database Management
-
-Utilize Tailwind CSS and Next Themes for efficient theming in your application. This setup allows for easy customization and responsive design, ensuring a consistent look and feel across different devices.
-
-## Form Management
-
-Manage your application's state efficiently with React Hook Form and Zod for validation. This combination ensures robust handling of form inputs and data validation, enhancing the reliability of your app.
-
-## Components & Libraries
-
-Utilize Framer Motion for creating dynamic and accessible animations. Build sophisticated and interactive animations with ease, enhancing the user experience of your application.
-
-## Developer-Centric Tools
-
-Integrate with Prisma for simplified and efficient database management. Generate automatic migrations, access type-safe data, and ensure compatibility with PostgreSQL.
-
-## Custom Components
-
-### Nav Component
-
-The `Nav` component is a reusable navigation component that adapts to different translations and links. It integrates with next-intl for translations and next/navigation for handling the current pathname. The component also includes accessibility features and allows for conditional styling based on the `active` prop.
-
-### Props
-
-- `t?: string`: The translation key (optional).
-- `render?: string`: The key to render an array or object from translations (optional).
-- `root?: number[]`: Indices for root links (only applicable if `links` is an array).
-- `links?: string[] | { [key: string]: string }`: Direct links array or object.
-- `path?: string`: Base path for non-root links.
-- `active?: boolean`: If true, applies active styles based on the current pathname.
-- `navClass?: string`: Custom class for the `nav` element.
-- `ulClass?: string`: Custom class for the `ul` element.
-- `liClass?: string`: Custom class for the `li` elements.
-- `variant?: "default" | "primary" | "secondary"`: Style variant for links.
-- `pos?: "default" | "fixed"`: Position type for the `ul` element.
-- `dir?: "row" | "col"`: Direction of the navigation items.
-
-#### Example Usage
-
-To use the `Nav` component, import it and pass the necessary `t`, `render`, `root`, `className`, `path`, `pos`, `dir`, and `active` props:
-
-```jsx
-import Nav from "./Nav";
-
-const Header = () => {
-  return <Nav t="Header" render="links" root={[0]} />;
-};
-
-export default Header;
-
-or
-
-import Nav from "@/components/layout/nav/nav";
-
-const layout = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <div className="mt-[88px] flex w-full h-full">
-      <Nav
-        t="SideNav"
-        render="links"
-        path="docs"
-        pos={"fixed"}
-        dir={"col"}
-        active
-      />
-      <div className="w-full h-full flex bg-secondary text-secondary-foreground">
-        {children}
-      </div>
-    </div>
-  );
-};
-
-export default layout;
+```bash
+npm run dev
 ```
 
-##### Localization
+Open http://localhost:3000 in your browser to see your project.
 
-The Nav component uses the useLocale hook from next-intl to determine the current locale and adjust the links accordingly. Ensure that your translation files include the necessary links for each locale.
+## Set up Authentication
 
-##### Accessibility
+Configure NextAuth.js by setting up the necessary environment variables in `.env.local`:
 
-The nav element includes an aria-label for screen readers.
-Each Link includes an aria-label to provide meaningful descriptions.
-
-##### Styling
-
-The component includes basic styling classes for layout and positioning. You can customize the styles as needed by modifying the class names or adding new styles.
-
-##### Example Translation File
-
-Ensure your translation file includes the necessary structure and keys Array or Object. Here is an example:
-
+```bash
+AUTH_URL=http://localhost:3000
+AUTH_SECRET=your_secret_key
+AUTH_SALT=your_salt
 ```
-{
-  "Header": {
-    "title": "EzStart",
-    "links": ["Home", "About"]
-  },
 
-  "SideNav": {
-    "links": {
-      "getStarted": "Get Started",
-      "authentication": "Authentication",
-      "internationalization": "Internationalization",
-      "theming": "Theming"
-    }
-  },
-}
+This enables a complete authentication system with Next.js: sign-up, sign-in, sign-out, and more.
+Complete documentation on NextAuth.js:https://next-auth.js.org/getting-started/introduction
+
+## Set up Remote Database
+
+The project uses Prisma for database management, supporting PostgreSQL, SQLite, and MySQL. By default, it is configured for PostgreSQL in `.env.local`.
+
+```bash
+DATABASE_URL="postgresql://janedoe:janedoe@localhost:5432/janedoe?schema=hello-prisma"
 ```
+
+Complete documentation on Prisma:https://www.prisma.io/docs/getting-started/setup-prisma/start-from-scratch/relational-databases-typescript-postgresql
+
+## Translation (i18n) Setup
+
+The project uses NextIntl for localization. Set up your locales in the src/locales directory to support multiple languages.
+
+Complete documentation on NextIntl: https://nextIntl.org
+
+## Commit Message Format
+
+The project follows the Conventional Commits specification. This means all commit messages should adhere to this format. To help you, the project uses Commitizen, an interactive CLI for crafting commit messages:
+
+```bash
+npm run commit
+```
+
+This approach allows for automatic generation of a CHANGELOG file and versioning based on commit types included in a release.
+
+## Testing
+
+Placeholder for future integration: Unit tests with Vitest/Jest and React Testing Library.
+
+## Integration & E2E Testing
+
+Placeholder for future integration: Integration and E2E tests.
+
+## Deploy to Production
+
+During the build process, database migration runs automatically. Ensure DATABASE_URL is set in your environment variables.
+
+### Generate a production build with:
+
+```bash
+Copy code
+npm run build
+```
+
+To test the production build locally, run:
+
+```bash
+Copy code
+npm run start
+```
+
+This starts a local server with the production build. Open http://localhost:3000 to see your project.
+
+## Contributions
+
+Contributions are welcome. Open an issue if you have questions or find bugs. Suggestions for improvements are also appreciated.
+
+## License
+
+Licensed under the MIT License, Copyright © 2024

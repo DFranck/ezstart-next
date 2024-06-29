@@ -7,7 +7,8 @@
     "build": "prisma generate && next build",
     "postinstall": "prisma generate",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "commit": "cz"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.6.0",
@@ -36,6 +37,7 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "commitizen": "^4.3.0",
     "eslint": "^8",
     "eslint-config-next": "14.2.4",
     "postcss": "^8",

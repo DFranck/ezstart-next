@@ -12,7 +12,7 @@ import SecureSvg from "@/components/svgs/secure-svg";
 import StackSvg from "@/components/svgs/stack-svg";
 import TypescriptSvg from "@/components/svgs/typescript-svg";
 import { GlareCard } from "@/components/ui/glare-card";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 import React from "react";
 
@@ -32,6 +32,7 @@ const svgComponents: { [key: string]: React.FC<{ className?: string }> } = {
 
 const FeaturesList = () => {
   const t = useTranslations("App.Home.FeaturesList");
+  const locale = useLocale();
   const features = t.raw("features") as {
     title: string;
     description: string;
@@ -55,8 +56,7 @@ const FeaturesList = () => {
             <React.Fragment key={index}>
               <li key={index} className="relative">
                 <Link
-                  href={feature.link}
-                  target="_blank"
+                  href={`/${locale}/docs/${feature.link}`}
                   rel="noopener noreferrer"
                 >
                   <GlareCard className="p-4">
