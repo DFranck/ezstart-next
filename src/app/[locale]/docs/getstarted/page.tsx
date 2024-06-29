@@ -1,8 +1,14 @@
 "use client";
 
 import Section from "@/components/layout/section";
+import AuthSvg from "@/components/svgs/auth-svg";
+import NextIntl from "@/components/svgs/intl-svg";
 import NextSvg from "@/components/svgs/next-svg";
+import PrismaSvg from "@/components/svgs/prisma-svg";
+import ReactHookFormSvg from "@/components/svgs/react-hook-form-svg";
 import ReactSvg from "@/components/svgs/react-svg";
+import TailwindSvg from "@/components/svgs/tailwind-svg";
+import ZodSvg from "@/components/svgs/zod-svg";
 import { Button } from "@/components/ui/button";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
@@ -43,7 +49,8 @@ const GetStarted = () => {
         </ul>
         <ul className={cardStyle}>
           <h3 className={cardTitleStyle}>{t("orm")}</h3>
-          <li>
+          <li className={liStyle}>
+            <PrismaSvg className="w-6" />
             <Link href="https://www.prisma.io/docs/" target="_blank">
               Prisma
             </Link>
@@ -51,7 +58,8 @@ const GetStarted = () => {
         </ul>
         <ul className={cardStyle}>
           <h3 className={cardTitleStyle}>{t("authentication")}</h3>
-          <li>
+          <li className={liStyle}>
+            <AuthSvg className="w-6" />
             <Link href="https://authjs.dev/" target="_blank">
               Auth.js
             </Link>
@@ -59,12 +67,14 @@ const GetStarted = () => {
         </ul>
         <ul className={cardStyle}>
           <h3 className={cardTitleStyle}>{t("styling")}</h3>
-          <li>
+          <li className={liStyle}>
+            <TailwindSvg className="w-6" />
             <Link href="https://tailwindcss.com/docs" target="_blank">
               Tailwind CSS
             </Link>
           </li>
-          <li>
+          <li className={liStyle}>
+            <NextSvg className="w-6" />
             <Link
               href="https://github.com/pacocoursey/next-themes"
               target="_blank"
@@ -75,12 +85,14 @@ const GetStarted = () => {
         </ul>
         <ul className={cardStyle}>
           <h3 className={cardTitleStyle}>{t("forms")}</h3>
-          <li>
+          <li className={liStyle}>
+            <ReactHookFormSvg className="w-6" />
             <Link href="https://react-hook-form.com/" target="_blank">
               React Hook Form
             </Link>
           </li>
-          <li>
+          <li className={liStyle}>
+            <ZodSvg className="w-6" />
             <Link href="https://zod.dev/" target="_blank">
               Zod
             </Link>
@@ -88,7 +100,8 @@ const GetStarted = () => {
         </ul>
         <ul className={cardStyle}>
           <h3 className={cardTitleStyle}>{t("internationalization")}</h3>
-          <li>
+          <li className={liStyle}>
+            <NextIntl className="w-6" />
             <Link href="https://next-intl-docs.vercel.app/" target="_blank">
               NextIntl
             </Link>
@@ -101,7 +114,7 @@ const GetStarted = () => {
       <div className="flex gap-4 flex-wrap">
         <ul className={cardStyle}>
           <h3 className={cardTitleStyle}>{t("utilityLibraries")}</h3>
-          <li>
+          <li className={liStyle}>
             <Link
               href="https://github.com/react-hook-form/resolvers"
               target="_blank"
@@ -109,7 +122,7 @@ const GetStarted = () => {
               @hookform/resolvers
             </Link>
           </li>
-          <li>
+          <li className={liStyle}>
             <Link
               href="https://www.radix-ui.com/docs/primitives/components/label"
               target="_blank"
@@ -117,7 +130,7 @@ const GetStarted = () => {
               @radix-ui/react-label
             </Link>
           </li>
-          <li>
+          <li className={liStyle}>
             <Link
               href="https://www.radix-ui.com/docs/primitives/components/slot"
               target="_blank"
@@ -125,17 +138,17 @@ const GetStarted = () => {
               @radix-ui/react-slot
             </Link>
           </li>
-          <li>
+          <li className={liStyle}>
             <Link href="https://github.com/joe-bell/cva" target="_blank">
               class-variance-authority
             </Link>
           </li>
-          <li>
+          <li className={liStyle}>
             <Link href="https://github.com/lukeed/clsx" target="_blank">
               clsx
             </Link>
           </li>
-          <li>
+          <li className={liStyle}>
             <Link
               href="https://github.com/dcastil/tailwind-merge"
               target="_blank"
@@ -146,12 +159,12 @@ const GetStarted = () => {
         </ul>
         <ul className={cardStyle}>
           <h3 className={cardTitleStyle}>{t("animations")}</h3>
-          <li>
+          <li className={liStyle}>
             <Link href="https://www.framer.com/motion/" target="_blank">
               framer-motion
             </Link>
           </li>
-          <li>
+          <li className={liStyle}>
             <Link
               href="https://github.com/tailwindlabs/tailwindcss-animate"
               target="_blank"
@@ -162,7 +175,7 @@ const GetStarted = () => {
         </ul>
         <ul className={cardStyle}>
           <h3 className={cardTitleStyle}>{t("icons")}</h3>
-          <li>
+          <li className={liStyle}>
             <Link href="https://lucide.dev/" target="_blank">
               lucide-react
             </Link>
@@ -170,7 +183,7 @@ const GetStarted = () => {
         </ul>
         <ul className={cardStyle}>
           <h3 className={cardTitleStyle}>{t("security")}</h3>
-          <li>
+          <li className={liStyle}>
             <Link href="https://github.com/dcodeIO/bcrypt.js" target="_blank">
               bcryptjs
             </Link>
