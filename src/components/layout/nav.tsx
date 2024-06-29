@@ -125,7 +125,7 @@ const Nav: React.FC<NavProps> = ({
           const linkPath = Array.isArray(rawLinks)
             ? root.includes(index)
               ? `/${locale}`
-              : `/${locale}${path}/${link.toLowerCase()}`
+              : `/${locale}/${path}/${link.toLowerCase()}`
             : `/${locale}/${path}/${linkKeys[index].toLowerCase()}`;
           const isActive = pathname.startsWith(linkPath);
 
