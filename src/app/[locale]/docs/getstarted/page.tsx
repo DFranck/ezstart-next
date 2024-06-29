@@ -1,6 +1,8 @@
 "use client";
 
 import Section from "@/components/layout/section";
+import NextSvg from "@/components/svgs/next-svg";
+import ReactSvg from "@/components/svgs/react-svg";
 import { Button } from "@/components/ui/button";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
@@ -8,9 +10,9 @@ import Link from "next/link";
 const GetStarted = () => {
   const t = useTranslations("App.GetStarted");
   const cardStyle =
-    "bg-card text-card-foreground list-disc p-4 pl-6 rounded border shadow flex flex-col flex-grow";
+    "bg-card text-card-foreground list-disc p-4 gap-2 pl-6 rounded border shadow flex flex-col flex-grow";
   const cardTitleStyle = "text-center text-xl font-semibold mb-2";
-
+  const liStyle = "flex gap-2";
   return (
     <Section className="">
       <h1 className="text-3xl font-bold mb-4">{t("title")}</h1>
@@ -26,12 +28,14 @@ const GetStarted = () => {
       <div className="flex gap-4 flex-wrap">
         <ul className={cardStyle}>
           <h3 className={cardTitleStyle}>{t("framework")}</h3>
-          <li>
+          <li className={liStyle}>
+            <NextSvg className="w-6" />
             <Link href="https://nextjs.org/docs" target="_blank">
               Next.js
             </Link>
           </li>
-          <li>
+          <li className={liStyle}>
+            <ReactSvg className="w-6" />
             <Link href="https://react.dev/" target="_blank">
               React
             </Link>
