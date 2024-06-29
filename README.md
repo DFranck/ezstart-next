@@ -33,11 +33,35 @@ npm run dev
 
 ## Stack
 
-Next14
-Typescript
-Tailwind
-Prisma
+Next14  
+TypeScript  
+Tailwind CSS  
+Prisma  
 Shadcnui
+
+## Authentication
+
+Implement secure authentication in your application using NextAuth.js. This allows for integration with various providers like Google and GitHub, ensuring flexible and secure user authentication and account management.
+
+## Multilingual Support
+
+Expand your application's reach globally with Next-Intl for seamless localization. This setup enables you to manage translations effortlessly and cater to a diverse audience by breaking language barriers.
+
+## Database Management
+
+Utilize Tailwind CSS and Next Themes for efficient theming in your application. This setup allows for easy customization and responsive design, ensuring a consistent look and feel across different devices.
+
+## Form Management
+
+Manage your application's state efficiently with React Hook Form and Zod for validation. This combination ensures robust handling of form inputs and data validation, enhancing the reliability of your app.
+
+## Components & Libraries
+
+Utilize Framer Motion for creating dynamic and accessible animations. Build sophisticated and interactive animations with ease, enhancing the user experience of your application.
+
+## Developer-Centric Tools
+
+Integrate with Prisma for simplified and efficient database management. Generate automatic migrations, access type-safe data, and ensure compatibility with PostgreSQL.
 
 ## Custom Components
 
