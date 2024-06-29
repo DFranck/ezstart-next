@@ -48,62 +48,45 @@
       },
       "FeaturesList": {
         "title": "Features",
-        "description": "Explore the powerful technologies and tools integrated into this boilerplate, designed to enhance your development workflow and deliver high-quality web applications.",
+        "subtitle": "Explore the Robust Features of",
+        "description": "Explore the features below to see how the my-ez-start boilerplate can significantly accelerate your project launch.",
         "docs": "Offical Documentation",
         "features": [
           {
-            "title": "Next.js Framework",
-            "description": "Enjoy the power and flexibility of Next.js for server-side rendering, static site generation, and client-side rendering.",
+            "title": "Cutting-Edge Stack",
+            "description": "Leverage the power of Next.js 14 for building your applications. Ez-start employs TypeScript, Tailwind CSS, and Prisma ORM to provide a modern and efficient development environment. Stay ahead with the latest web technologies, best practices, and optimized SEO.",
             "link": "https://nextjs.org/docs",
-            "image": "NextSvg"
+            "image": "StackSvg"
           },
           {
-            "title": "TypeScript Support",
-            "description": "Benefit from TypeScript's type-checking and autocompletion for a more robust and maintainable codebase.",
-            "link": "https://www.typescriptlang.org/docs/",
-            "image": "TypescriptSvg"
-          },
-          {
-            "title": "Prisma ORM",
-            "description": "Easily manage your database with Prisma, a next-generation ORM that provides powerful data modeling and querying capabilities.",
-            "link": "https://www.prisma.io/docs/",
-            "image": "PrismaSvg"
-          },
-          {
-            "title": "NextAuth Authentication",
-            "description": "Secure your application with NextAuth, a flexible and easy-to-implement authentication solution.",
+            "title": "Secure Authentication",
+            "description": "Implement secure authentication in your application using NextAuth.js. This allows for integration with various providers like Google and GitHub, ensuring flexible and secure user authentication and account management.",
             "link": "https://next-auth.js.org/getting-started/introduction",
-            "image": "AuthSvg"
+            "image": "SecureSvg"
           },
           {
-            "title": "Internationalization",
-            "description": "Reach a global audience with built-in support for multiple languages using next-intl.",
+            "title": "Global Reach with i18n",
+            "description": "Expand your application's reach globally with Next-Intl for seamless localization. This setup enables you to manage translations effortlessly and cater to a diverse audience by breaking language barriers.",
             "link": "https://next-intl-docs.vercel.app/",
-            "image": "NextIntl"
+            "image": "GlobalSvg"
           },
           {
-            "title": "Theme Management",
-            "description": "Customize your application's appearance with next-themes, allowing for easy theme switching.",
+            "title": "Efficient Database Management",
+            "description": "Integrate with Prisma for simplified and efficient database management. Generate automatic migrations, access type-safe data, and ensure compatibility with PostgreSQL.",
+            "link": "https://www.prisma.io/docs/",
+            "image": "DbSvg"
+          },
+          {
+            "title": "Rich Component Library",
+            "description": "Utilize Radix UI components and Framer Motion for creating dynamic and accessible user interfaces. Build sophisticated and interactive UIs with ease, backed by a robust component library like ShadcnUI and Aceternity.",
+            "link": "https://shadcn.dev/docs",
+            "image": "ComponentSvg"
+          },
+          {
+            "title": "Developer-Centric Tools",
+            "description": "Experience a streamlined development process with ESLint, Prettier, and TypeScript. Maintain high code quality and consistency with Tailwind CSS for styling and Prisma for database management.",
             "link": "https://github.com/pacocoursey/next-themes",
-            "image": "NextSvg"
-          },
-          {
-            "title": "Security",
-            "description": "Protect user data with bcryptjs for password hashing and JWT token verification.",
-            "link": "https://github.com/dcodeIO/bcrypt.js",
-            "image": ""
-          },
-          {
-            "title": "Styling",
-            "description": "Create beautiful user interfaces with Tailwind CSS, a utility-first CSS framework.",
-            "link": "https://tailwindcss.com/docs",
-            "image": "https://tailwindcss.com/_next/static/media/tailwindcss-mark.3c5441fc7a190fb1800d4a5c7f07ba4b1345a9c8.svg"
-          },
-          {
-            "title": "Code Quality",
-            "description": "Maintain high code quality with ESLint and Prettier integrations.",
-            "link": "https://eslint.org/docs/latest/user-guide/getting-started",
-            "image": ""
+            "image": "CodeSvg"
           }
         ]
       },

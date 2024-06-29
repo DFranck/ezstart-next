@@ -6,7 +6,7 @@ export default function home() {
   return (
     <>
       <Hero />
-      <FeaturesList variant="bg" />
+      <FeaturesList />
       <GetStarted />
     </>
   );
