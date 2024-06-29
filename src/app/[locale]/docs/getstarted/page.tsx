@@ -20,7 +20,7 @@ const GetStarted = () => {
   const cardTitleStyle = "text-center text-xl font-semibold mb-2";
   const liStyle = "flex gap-2";
   return (
-    <Section className="">
+    <Section className="px-4">
       <h1 className="text-3xl font-bold mb-4">{t("title")}</h1>
       <p className="mb-4">{t("welcome")}</p>
       <p className="mb-4">{t("intro")}</p>
@@ -31,7 +31,7 @@ const GetStarted = () => {
       <h2 className="text-2xl font-bold mt-8 mb-4">
         {t("primaryDependenciesTitle")}
       </h2>
-      <div className="flex gap-4 flex-wrap">
+      <div className="flex gap-4 flex-wrap w-full">
         <ul className={cardStyle}>
           <h3 className={cardTitleStyle}>{t("framework")}</h3>
           <li className={liStyle}>
@@ -111,7 +111,7 @@ const GetStarted = () => {
       <h2 className="text-2xl font-bold mt-8 mb-4">
         {t("secondaryDependenciesTitle")}
       </h2>
-      <div className="flex gap-4 flex-wrap">
+      <div className="flex gap-4 flex-wrap w-full">
         <ul className={cardStyle}>
           <h3 className={cardTitleStyle}>{t("utilityLibraries")}</h3>
           <li className={liStyle}>

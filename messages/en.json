@@ -55,7 +55,7 @@
           {
             "title": "Cutting-Edge Stack",
             "description": "Leverage the power of Next.js 14 for building your applications. Ez-start employs TypeScript, Tailwind CSS, and Prisma ORM to provide a modern and efficient development environment. Stay ahead with the latest web technologies, best practices, and optimized SEO.",
-            "link": "https://nextjs.org/docs",
+            "link": "https://github.com/DFranck/my-ez-start/##stack",
             "image": "StackSvg"
           },
           {

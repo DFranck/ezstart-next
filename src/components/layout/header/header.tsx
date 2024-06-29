@@ -25,7 +25,8 @@ const Header = ({ className }: { className?: string }) => {
           render={"links"}
           root={[0]}
           dir={"row"}
-          navClass="hidden md:flex"
+          navClass="hidden md:flex "
+          ulClass="gap-4"
         />
         <div className="hidden md:flex justify-end gap-2">
           <UserActions />

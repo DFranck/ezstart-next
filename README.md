@@ -31,6 +31,14 @@ npm install
 npm run dev
 ```
 
+## Stack
+
+Next14
+Typescript
+Tailwind
+Prisma
+Shadcnui
+
 ## Custom Components
 
 ### Nav Component

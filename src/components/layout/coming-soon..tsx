@@ -6,9 +6,9 @@ type ComingSoonProps = {
 
 const ComingSoon: React.FC<ComingSoonProps> = ({ message }) => {
   return (
-    <div className="flex flex-col items-center justify-center h-full text-center p-8 bg-gray-50 border border-gray-200 rounded-lg shadow-md">
-      <h2 className="text-2xl font-bold text-gray-700">Coming Soon</h2>
-      <p className="text-gray-500 mt-2">
+    <div className="flex flex-col items-center justify-center h-full text-center p-8 text-muted-foreground">
+      <h2 className="text-2xl font-bold ">Coming Soon</h2>
+      <p className=" mt-2">
         {message || "This page is under construction. Please check back later!"}
       </p>
       <div className="mt-4">
