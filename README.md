@@ -2,7 +2,7 @@
 
 🌟 Kickstart Your Next.js Projects with Ease 🌟
 
-Empowering Developers: Leverage the power of Next.js 14, TypeScript, Tailwind CSS, and Prisma to build modern, high-performance applications. This boilerplate includes essential tools like ESLint, Prettier, NextAuth.js for authentication, Framer Motion for smooth animations, and NextIntl for seamless internationalization. Everything you need to start your Next.js project quickly and efficiently.
+Empowering Developers: Leverage the power of Next.js 14, TypeScript, Tailwind CSS, Shadcn, and Prisma to build modern, high-performance applications. This boilerplate includes essential tools like ESLint, Prettier, NextAuth.js for authentication, Framer Motion for smooth animations, and NextIntl for seamless internationalization. Everything you need to start your Next.js project quickly and efficiently.
 
 Clone this project to use it as the foundation for your Next.js applications.
 
@@ -14,6 +14,7 @@ Optimized for a great developer experience and flexibility, keeping only what yo
 - 🔥 **TypeScript** for robust type checking
 - 💎 **Tailwind CSS** for efficient styling
 - ✅ **Strict Mode** for TypeScript and React 18
+- ✨ **ShadcnUI** to display powerful components 
 - 🔒 **Authentication** with NextAuth.js: Comprehensive user management including sign-up, sign-in, sign-out, and more
 - 🌐 **Internationalization (i18n)** with NextIntl for multilingual support
 - 📦 **Prisma ORM**: Type-safe database management compatible with PostgreSQL, SQLite, and MySQL
@@ -59,7 +60,6 @@ Clone the repository and install the dependencies:
 git clone --depth=1 https://github.com/DFranck/my-ez-start.git my-project-name
 cd my-project-name
 npm install
-npm run dev
 ```
 
 To run the project locally in development mode with live reload:
@@ -75,7 +75,7 @@ Open http://localhost:3000 in your browser to see your project.
 Configure NextAuth.js by setting up the necessary environment variables in `.env.local`:
 
 ```bash
-AUTH_URL=http://localhost:3000
+NEXTAUTH_URL=http://localhost:3000
 AUTH_SECRET=your_secret_key
 AUTH_SALT=your_salt
 ```
