@@ -104,7 +104,15 @@ Complete documentation on NextIntl: https://nextIntl.org
 The project follows the Conventional Commits specification. This means all commit messages should adhere to this format. To help you, the project uses Commitizen, an interactive CLI for crafting commit messages:
 
 ```bash
+git add .
+git status
 npm run commit
+```
+
+Configurer VSCode comme éditeur de texte par défaut pour Git :
+
+```bash
+git config --global core.editor "code --wait"
 ```
 
 This approach allows for automatic generation of a CHANGELOG file and versioning based on commit types included in a release.
