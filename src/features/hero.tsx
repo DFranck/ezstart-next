@@ -8,8 +8,8 @@ const Hero = () => {
   const t = useTranslations("App.Home.Hero");
   const locale = useLocale();
   return (
-    <AuroraBackground className="text-foreground w-full h-fit pt-28 pb-10 md:h-screen">
-      <Section className="max-w-4xl text-justify md:text-center gap-10 px-4">
+    <AuroraBackground className="text-foreground w-full pt-28 pb-10 h-screen">
+      <Section className="max-w-4xl text-justify md:text-center gap-20 md:gap-10 px-4">
         <h1 className="text-3xl md:text-7xl font-bold text-center">
           {t("title")}
         </h1>

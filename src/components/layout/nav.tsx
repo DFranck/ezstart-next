@@ -21,7 +21,7 @@ const ulVariants = cva("", {
   variants: {
     dir: {
       row: "flex flex-row",
-      col: "flex flex-col space-y-4",
+      col: "flex flex-col md:space-y-4",
     },
     pos: {
       default: "justify-center items-center",
@@ -34,13 +34,13 @@ const ulVariants = cva("", {
   },
 });
 const linkVariants = cva(
-  "text-xl p-2 rounded duration-100 whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-offset-2",
+  "text-lg p-2 rounded duration-100 whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-offset-2 w-full block text-center",
   {
     variants: {
       variant: {
         default: "",
-        primary: "block",
-        secondary: "p-6 block",
+        primary: "",
+        secondary: "",
       },
       isActive: {
         true: "",
@@ -117,7 +117,7 @@ const Nav: React.FC<NavProps> = ({
 
   return (
     <nav
-      className={cn(navVariants({ dir }), navClass)}
+      className={cn(navVariants({ dir }), "w-full md:w-fit", navClass)}
       aria-label="Main navigation"
     >
       <ul className={cn(ulVariants({ dir, pos }), ulClass)}>
@@ -146,9 +146,9 @@ const Nav: React.FC<NavProps> = ({
         })}
       </ul>
       {dir === "col" && (
-        <ul className="invisible">
+        <ul className={cn(pos === "fixed" ? "invisible" : "hidden")}>
           {linkList.map((link, index) => (
-            <li key={`${link}-${index}`} className="text-xl p-2">
+            <li key={`${link}-${index}`} className="text-lg p-2">
               {link}
             </li>
           ))}

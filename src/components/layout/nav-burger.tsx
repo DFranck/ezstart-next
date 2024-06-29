@@ -1,5 +1,6 @@
 import LocaleSwitcher from "@/providers/language/locale-switcher";
 import { ThemeSwitcher } from "@/providers/theme/theme-switcher";
+import { ArrowDown } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
@@ -55,7 +56,7 @@ const NavBurger = () => {
       {isOpen && (
         <div
           ref={menuRef}
-          className="fixed top-0 right-0 z-20 border shadow bg-background animate-slideInFromRight duration-200"
+          className="fixed top-0 right-0 z-20 border shadow bg-background animate-slideInFromRight duration-200 "
           id="burger-menu"
         >
           <div className="inset-0 bg-red/50" aria-hidden="true" />
@@ -91,7 +92,11 @@ const NavBurger = () => {
               />
               {pathname.includes("docs") && (
                 <div className="md:hidden text-center">
-                  <h3 className="text-xl font-semibold my-4">{t("docs")}</h3>
+                  <h3 className="text-xl font-semibold py-4 text-primary flex justify-center gap-2 items-center bg-accent/20 border-t">
+                    <ArrowDown />
+                    {t("docs")}
+                    <ArrowDown />
+                  </h3>
                   <Nav
                     t="SideNav"
                     render="links"
