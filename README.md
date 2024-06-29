@@ -37,16 +37,20 @@ npm run dev
 
 The `Nav` component is a reusable navigation component that adapts to different translations and links. It integrates with next-intl for translations and next/navigation for handling the current pathname. The component also includes accessibility features and allows for conditional styling based on the `active` prop.
 
-#### Props
+### Props
 
-- `t` (string): The translation key used to identify the translation section.
-- `render` (string): The key within the translation section for the array or object of links to display.
-- `root` (array of numbers, optional): The indices of the links that should be displayed at the root (only applicable if `render` is an array). Default is an empty array.
-- `className` (string, optional): Additional CSS classes for styling.
-- `path` (string, optional): Base path for non-root links. Default is an empty string.
-- `active` (boolean, optional): If true, applies active styles based on the current pathname. Default is false.
-- `pos` (string, optional): Positioning type (`default` or `fixed`). Default is `default`.
-- `dir` (string, optional): The orientation of the navigation (`row` or `col`). Default is `row`.
+- `t?: string`: The translation key (optional).
+- `render?: string`: The key to render an array or object from translations (optional).
+- `root?: number[]`: Indices for root links (only applicable if `links` is an array).
+- `links?: string[] | { [key: string]: string }`: Direct links array or object.
+- `path?: string`: Base path for non-root links.
+- `active?: boolean`: If true, applies active styles based on the current pathname.
+- `navClass?: string`: Custom class for the `nav` element.
+- `ulClass?: string`: Custom class for the `ul` element.
+- `liClass?: string`: Custom class for the `li` elements.
+- `variant?: "default" | "primary" | "secondary"`: Style variant for links.
+- `pos?: "default" | "fixed"`: Position type for the `ul` element.
+- `dir?: "row" | "col"`: Direction of the navigation items.
 
 #### Example Usage
 
