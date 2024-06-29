@@ -19,3 +19,7 @@ export const signUpSchema = object({
     .min(8, "passwordMin")
     .max(32, "passwordMax"),
 });
+
+export const nameSchema = object({
+  name: string({ required_error: "nameRequired" }).min(1, "nameRequired"),
+});
