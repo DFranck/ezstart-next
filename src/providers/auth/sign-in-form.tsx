@@ -1,4 +1,5 @@
 "use client";
+import Loader from "@/components/loader";
 import { Button } from "@/components/ui/button";
 import {
   FormControl,
@@ -7,6 +8,7 @@ import {
   FormLabel,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { cn } from "@/lib/utils";
 import { signInSchema } from "@/lib/zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { getSession, signIn } from "next-auth/react";
@@ -19,6 +21,7 @@ import { z } from "zod";
 
 const SignInForm = () => {
   const [error, setError] = useState<string | null>(null);
+  const [isFetching, setIsFetching] = useState(false);
   const form = useForm<z.infer<typeof signInSchema>>({
     resolver: zodResolver(signInSchema),
     defaultValues: {
@@ -35,6 +38,7 @@ const SignInForm = () => {
   const onSubmit: SubmitHandler<z.infer<typeof signInSchema>> = async (
     data
   ) => {
+    setIsFetching(true);
     const result = await signIn("credentials", {
       redirect: false,
       email: data.email,
@@ -45,6 +49,7 @@ const SignInForm = () => {
       setError(result.error);
     } else {
       const updatedSession = await getSession();
+      setIsFetching(false);
       console.log("role of the user", updatedSession?.user.role);
       if (updatedSession?.user.role === "admin") {
         router.push(`/${locale}/admin`);
@@ -116,8 +121,11 @@ const SignInForm = () => {
           )}
         />
         <div>
-          <Button type="submit" className="w-full mt-2">
-            {t("signInButton")}
+          <Button
+            type="submit"
+            className={cn("w-full mt-2 text-sm", { "text-destructive": error })}
+          >
+            {!error ? isFetching ? <Loader /> : t("signInButton") : error}
           </Button>
           <p className="text-sm text-muted-foreground w-full flex justify-between gap-2 mt-1">
             <Link
@@ -127,9 +135,9 @@ const SignInForm = () => {
               {t("forgotPasswordText")}
             </Link>
           </p>
-          {error && (
+          {/* {error && (
             <p className="text-sm font-medium text-destructive">{error}</p>
-          )}
+          )} */}
         </div>
         <div className="mt-4 text-justify text-xs w-full">
           <p className="text-sm text-muted-foreground w-full flex justify-between gap-2">

@@ -30,7 +30,16 @@ const UpdateUserForm = () => {
   const onSubmit = async (data: z.infer<typeof nameSchema>) => {
     const { name } = data;
     const email = session?.user?.email;
-
+    const handleUpdateUser = async () => {
+      const newSession = {
+        ...session,
+        user: {
+          ...session?.user,
+          email: email,
+        },
+      };
+      await update(newSession);
+    };
     if (!name) {
       console.log("Name is required");
       return;
@@ -51,6 +60,7 @@ const UpdateUserForm = () => {
       }
 
       console.log("User name updated successfully");
+      handleUpdateUser;
     } catch (error) {
       console.error("Failed to update name:", error);
       if (error instanceof Error) {

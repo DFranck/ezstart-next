@@ -118,7 +118,7 @@ const SignUpForm = () => {
             </FormItem>
           )}
         />
-        <Button type="submit" className="w-full mt-2">
+        <Button type="submit" className="w-full mt-2 text-sm">
           {t("signUpButton")}
         </Button>
         <div className="mt-4 text-center w-full text-xs">
