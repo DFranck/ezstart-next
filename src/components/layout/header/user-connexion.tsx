@@ -16,8 +16,6 @@ const UserConnexion = ({ className }: { className?: string }) => {
   const session = useSession();
   const dropdownRef = useRef<HTMLUListElement>(null);
   const user = session.data?.user;
-  console.log("user", user?.role);
-
   const liStyle = "py-2 px-4 cursor-pointer hover:bg-accent text-sm";
   const handleKeyDown = (event: React.KeyboardEvent<HTMLButtonElement>) => {
     if (event.key === "Enter" || event.key === " ") {

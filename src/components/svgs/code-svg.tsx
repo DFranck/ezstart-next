@@ -30,7 +30,7 @@ const CodeSvg = ({
           stroke={
             fill ? `hsl(var(--${fill}))` : `hsl(var(--primary-foreground))`
           }
-          stroke-width="66.6667"
+          strokeWidth="66.6667"
           stroke-linecap="round"
           stroke-linejoin="round"
         />
@@ -39,7 +39,7 @@ const CodeSvg = ({
           stroke={
             fill ? `hsl(var(--${fill}))` : `hsl(var(--primary-foreground))`
           }
-          stroke-width="66.6667"
+          strokeWidth="66.6667"
           stroke-linecap="round"
           stroke-linejoin="round"
         />
@@ -48,7 +48,7 @@ const CodeSvg = ({
           stroke={
             fill ? `hsl(var(--${fill}))` : `hsl(var(--primary-foreground))`
           }
-          stroke-width="66.6667"
+          strokeWidth="66.6667"
           stroke-linecap="round"
           stroke-linejoin="round"
         />

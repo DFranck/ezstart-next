@@ -30,7 +30,7 @@ const GlobalSvg = ({
           stroke={
             fill ? `hsl(var(--${fill}))` : `hsl(var(--primary-foreground))`
           }
-          stroke-width="50"
+          strokeWidth="50"
           stroke-linecap="round"
           stroke-linejoin="round"
         />
@@ -39,7 +39,7 @@ const GlobalSvg = ({
           stroke={
             fill ? `hsl(var(--${fill}))` : `hsl(var(--primary-foreground))`
           }
-          stroke-width="50"
+          strokeWidth="50"
           stroke-linecap="round"
           stroke-linejoin="round"
         />
@@ -48,7 +48,7 @@ const GlobalSvg = ({
           stroke={
             fill ? `hsl(var(--${fill}))` : `hsl(var(--primary-foreground))`
           }
-          stroke-width="50"
+          strokeWidth="50"
           stroke-linecap="round"
           stroke-linejoin="round"
         />
@@ -57,7 +57,7 @@ const GlobalSvg = ({
           stroke={
             fill ? `hsl(var(--${fill}))` : `hsl(var(--primary-foreground))`
           }
-          stroke-width="50"
+          strokeWidth="50"
           stroke-linecap="round"
           stroke-linejoin="round"
         />
@@ -66,7 +66,7 @@ const GlobalSvg = ({
           stroke={
             fill ? `hsl(var(--${fill}))` : `hsl(var(--primary-foreground))`
           }
-          stroke-width="50"
+          strokeWidth="50"
           stroke-linecap="round"
           stroke-linejoin="round"
         />
