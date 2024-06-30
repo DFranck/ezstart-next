@@ -7,7 +7,9 @@
     "signin": "Sign in",
     "signup": "Sign up",
     "logout": "Sign out",
-    "docs": "Documentation"
+    "docs": "Documentation",
+    "dashboard": "Dashboard",
+    "admin": "Admin"
   },
   "SideNav": {
     "links": {

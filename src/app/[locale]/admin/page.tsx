@@ -1,5 +1,5 @@
 import ComingSoon from "@/components/layout/coming-soon.";
-import { Section } from "lucide-react";
+import Section from "@/components/layout/section";
 
 const page = () => {
   return (

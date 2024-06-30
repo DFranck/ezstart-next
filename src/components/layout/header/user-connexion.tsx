@@ -16,6 +16,8 @@ const UserConnexion = ({ className }: { className?: string }) => {
   const session = useSession();
   const dropdownRef = useRef<HTMLUListElement>(null);
   const user = session.data?.user;
+  console.log("user", user?.role);
+
   const liStyle = "py-2 px-4 cursor-pointer hover:bg-accent text-sm";
   const handleKeyDown = (event: React.KeyboardEvent<HTMLButtonElement>) => {
     if (event.key === "Enter" || event.key === " ") {
@@ -64,7 +66,7 @@ const UserConnexion = ({ className }: { className?: string }) => {
             )}
           >
             <li className={liStyle}>
-              <Link href={`/${locale}/user`}>{t("dashboard")}</Link>
+              <Link href={`/${locale}/${user.role}`}>{t("dashboard")}</Link>
             </li>
             <div className="border border-border/50"></div>
             <Button className=" mt-2 w-full" onClick={handleSignOut}>
@@ -78,7 +80,7 @@ const UserConnexion = ({ className }: { className?: string }) => {
     <div className={cn("md:flex items-center", className)}>
       {!user && (
         <>
-          <Button asChild className="mx-2">
+          <Button asChild className="">
             <Link href={`/${locale}/auth/signin`}>
               <span className="">{t("signin")}</span>
             </Link>
