@@ -32,7 +32,7 @@ const GlobalSvg = ({
           }
           strokeWidth="50"
           stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeLinejoin="round"
         />
         <path
           d="M266.666 100H299.999C234.999 294.667 234.999 505.333 299.999 700H266.666"
@@ -41,7 +41,7 @@ const GlobalSvg = ({
           }
           strokeWidth="50"
           stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeLinejoin="round"
         />
         <path
           d="M500 100C565 294.667 565 505.333 500 700"
@@ -50,7 +50,7 @@ const GlobalSvg = ({
           }
           strokeWidth="50"
           stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeLinejoin="round"
         />
         <path
           d="M100 533.333V500C294.667 565 505.333 565 700 500V533.333"
@@ -59,7 +59,7 @@ const GlobalSvg = ({
           }
           strokeWidth="50"
           stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeLinejoin="round"
         />
         <path
           d="M100 300.003C294.667 235.003 505.333 235.003 700 300.003"
@@ -68,7 +68,7 @@ const GlobalSvg = ({
           }
           strokeWidth="50"
           stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeLinejoin="round"
         />
       </svg>
     </div>

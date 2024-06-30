@@ -21,7 +21,7 @@ const ulVariants = cva("", {
   variants: {
     dir: {
       row: "flex flex-row",
-      col: "flex flex-col md:space-y-4",
+      col: "flex flex-col gap-2",
     },
     pos: {
       default: "justify-center items-center",
@@ -34,7 +34,7 @@ const ulVariants = cva("", {
   },
 });
 const linkVariants = cva(
-  "text-lg p-2 rounded duration-100 whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-offset-2 w-full block text-center",
+  "text-lg md:p-2 rounded duration-100 whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-offset-2 w-full block text-center",
   {
     variants: {
       variant: {

@@ -14,11 +14,11 @@
   "SideNav": {
     "links": {
       "getStarted": "Get Started",
+      "stack": "The Stack",
       "authentication": "Authentication",
       "internationalization": "Internationalization",
       "dbManagement": "Database Management",
       "theming": "Theming",
-      "stack": "Stack",
       "components": "Components",
       "developerTools": "Developer Tools"
     }
@@ -111,8 +111,15 @@
       "welcome": "Welcome 👋",
       "intro": "My EZ Start is a boilerplate designed to quickly kickstart your Next.js projects with advanced integrated features.",
       "installationTitle": "Installation",
-      "installationSteps": "git clone https://github.com/DFranck/my-ez-start.git\ncd my-ez-start\nnpm install\nnpm run dev",
+      "installationSteps": "git clone https://github.com/DFranck/my-ez-start.git\ncd my-ez-start\nnpm install",
+      "setupTitle": "Setup environment",
+      "setupSteps": "DATABASE_URL=`postgresql://username:password@localhost:5432/mydatabase` \nAUTH_SECRET=your_secret_key \nAUTH_SALT=your_salt",
+      "setupTitle2": "Secret & Salt generation",
+      "setupSteps2": "node -e `console.log(require('crypto').randomBytes(32).toString('hex'))` \nor \nopenssl rand -base64 32",
+      "startTitle": "Start development",
+      "startSteps": "npm run dev",
       "primaryDependenciesTitle": "Primary Dependencies",
+      "primaryDependenciesSubtitle": "You can find below the primary dependencies used in this boilerplate and their official documentation.",
       "framework": "Framework",
       "orm": "ORM",
       "authentication": "Authentication",
@@ -124,7 +131,8 @@
       "animations": "Animations",
       "icons": "Icons",
       "security": "Security",
-      "enjoy": "Enjoy!"
+      "enjoy": "Enjoy!",
+      "enjoyDescription": "You can enjoy know or take a look the documentation of this boilerplate."
     },
     "About": {
       "title": "About Me",

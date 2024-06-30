@@ -9,17 +9,19 @@ import ReactHookFormSvg from "@/components/svgs/react-hook-form-svg";
 import ReactSvg from "@/components/svgs/react-svg";
 import TailwindSvg from "@/components/svgs/tailwind-svg";
 import ZodSvg from "@/components/svgs/zod-svg";
-import { useTranslations } from "next-intl";
+import { Button } from "@/components/ui/button";
+import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 
 const GetStarted = () => {
   const t = useTranslations("App.GetStarted");
+  const locale = useLocale();
   const cardStyle =
     "bg-card text-card-foreground list-disc p-4 gap-2 pl-6 rounded border shadow flex flex-col flex-grow";
   const cardTitleStyle = "text-center text-xl font-semibold mb-2";
   const liStyle = "flex gap-2";
   return (
-    <Section className="px-4 md:px-10 lg:px-20 ">
+    <Section className="px-4 md:px-10 lg:px-20 max-w-5xl mx-auto">
       <h1 className="text-3xl font-bold mb-4">{t("title")}</h1>
       <p className="mb-4">{t("welcome")}</p>
       <p className="mb-4">{t("intro")}</p>
@@ -29,9 +31,31 @@ const GetStarted = () => {
           {t("installationSteps")}
         </code>
       </pre>
-      <h2 className="text-2xl font-bold mt-8 mb-4">
+      <h2 className="text-2xl font-bold mt-8 mb-4">{t("setupTitle")}</h2>
+      <pre className="bg-background p-4 rounded w-full text-accent-foreground border shadow overflow-x-auto">
+        <code className="md:whitespace-pre-wrap break-words">
+          {t("setupSteps")}
+        </code>
+      </pre>
+      <h2 className="text-2xl font-bold mt-8 mb-4">{t("setupTitle2")}</h2>
+      <pre className="bg-background p-4 rounded w-full text-accent-foreground border shadow overflow-x-auto">
+        <code className="md:whitespace-pre-wrap break-words">
+          {t("setupSteps2")}
+        </code>
+      </pre>
+      <h2 className="text-2xl font-bold mt-8 mb-4">{t("startTitle")}</h2>
+      <pre className="bg-background p-4 rounded w-full text-accent-foreground border shadow overflow-x-auto">
+        <code className="md:whitespace-pre-wrap break-words">
+          {t("startSteps")}
+        </code>
+      </pre>
+
+      <h2 className="text-2xl font-bold mt-8 mb-2">
         {t("primaryDependenciesTitle")}
       </h2>
+      <p className="text-muted-foreground text-sm mb-4">
+        {t("primaryDependenciesSubtitle")}
+      </p>
       <div className="flex gap-4 flex-wrap w-full">
         <ul className={cardStyle}>
           <h3 className={cardTitleStyle}>{t("framework")}</h3>
@@ -109,95 +133,14 @@ const GetStarted = () => {
           </li>
         </ul>
       </div>
-      <h2 className="text-2xl font-bold mt-8 mb-4">
-        {t("secondaryDependenciesTitle")}
-      </h2>
-      <div className="flex gap-4 flex-wrap w-full">
-        <ul className={cardStyle}>
-          <h3 className={cardTitleStyle}>{t("utilityLibraries")}</h3>
-          <li className={liStyle}>
-            <Link
-              href="https://github.com/react-hook-form/resolvers"
-              target="_blank"
-            >
-              @hookform/resolvers
-            </Link>
-          </li>
-          <li className={liStyle}>
-            <Link
-              href="https://www.radix-ui.com/docs/primitives/components/label"
-              target="_blank"
-            >
-              @radix-ui/react-label
-            </Link>
-          </li>
-          <li className={liStyle}>
-            <Link
-              href="https://www.radix-ui.com/docs/primitives/components/slot"
-              target="_blank"
-            >
-              @radix-ui/react-slot
-            </Link>
-          </li>
-          <li className={liStyle}>
-            <Link href="https://github.com/joe-bell/cva" target="_blank">
-              class-variance-authority
-            </Link>
-          </li>
-          <li className={liStyle}>
-            <Link href="https://github.com/lukeed/clsx" target="_blank">
-              clsx
-            </Link>
-          </li>
-          <li className={liStyle}>
-            <Link
-              href="https://github.com/dcastil/tailwind-merge"
-              target="_blank"
-            >
-              tailwind-merge
-            </Link>
-          </li>
-        </ul>
-        <ul className={cardStyle}>
-          <h3 className={cardTitleStyle}>{t("animations")}</h3>
-          <li className={liStyle}>
-            <Link href="https://www.framer.com/motion/" target="_blank">
-              framer-motion
-            </Link>
-          </li>
-          <li className={liStyle}>
-            <Link
-              href="https://github.com/tailwindlabs/tailwindcss-animate"
-              target="_blank"
-            >
-              tailwindcss-animate
-            </Link>
-          </li>
-        </ul>
-        <ul className={cardStyle}>
-          <h3 className={cardTitleStyle}>{t("icons")}</h3>
-          <li className={liStyle}>
-            <Link href="https://lucide.dev/" target="_blank">
-              lucide-react
-            </Link>
-          </li>
-        </ul>
-        <ul className={cardStyle}>
-          <h3 className={cardTitleStyle}>{t("security")}</h3>
-          <li className={liStyle}>
-            <Link href="https://github.com/dcodeIO/bcrypt.js" target="_blank">
-              bcryptjs
-            </Link>
-          </li>
-        </ul>
-      </div>
+
       <h2 className="text-2xl font-bold mt-8 mb-4">{t("enjoy")}</h2>
-      {/* <div className="grid grid-cols-2 gap-4 w-full">
-        <Button variant={"outline"} className="">
-          prev
+      <p>{t("enjoyDescription")}</p>
+      <div className="grid grid-cols-2 gap-4 w-full mt-10">
+        <Button variant={"outline"} className="col-start-2">
+          <Link href={`/${locale}/docs/stack`}>Look the Stack</Link>
         </Button>
-        <Button variant={"outline"}>next</Button>
-      </div> */}
+      </div>
     </Section>
   );
 };

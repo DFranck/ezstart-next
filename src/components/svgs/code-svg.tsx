@@ -32,7 +32,7 @@ const CodeSvg = ({
           }
           strokeWidth="66.6667"
           stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeLinejoin="round"
         />
         <path
           d="M566.667 266.667L700 400L566.667 533.333"
@@ -41,7 +41,7 @@ const CodeSvg = ({
           }
           strokeWidth="66.6667"
           stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeLinejoin="round"
         />
         <path
           d="M466.667 133.333L328.63 648.493"
@@ -50,7 +50,7 @@ const CodeSvg = ({
           }
           strokeWidth="66.6667"
           stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeLinejoin="round"
         />
       </svg>
     </div>

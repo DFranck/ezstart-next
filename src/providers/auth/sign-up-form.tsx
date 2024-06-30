@@ -11,12 +11,14 @@ import { signUpSchema } from "@/lib/zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import { z } from "zod";
 
 const SignUpForm = () => {
   const t = useTranslations("App.Auth.SignUpForm");
   const err = useTranslations("Errors");
+  const router = useRouter();
   const methods = useForm<z.infer<typeof signUpSchema>>({
     resolver: zodResolver(signUpSchema),
     defaultValues: {
@@ -46,6 +48,7 @@ const SignUpForm = () => {
 
       const result = await res.json();
       console.log("User signed up successfully", result);
+      router.push(`/${locale}/auth/signin`);
     } catch (error: unknown) {
       console.error("signup", error);
       if (error instanceof Error) {

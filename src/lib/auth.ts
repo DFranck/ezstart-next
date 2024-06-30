@@ -53,22 +53,19 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
   callbacks: {
     async jwt({ token, user }) {
-      // Add role to token on sign in
+      // Add user information to token on sign in
       if (user) {
-        const userFromDb = await db.user.findUnique({
-          where: { email: user.email ?? "" }, // Utiliser une chaîne vide par défaut
-        });
-
-        token.role = userFromDb?.role || "user"; // Définit le rôle par défaut à "user" si aucun rôle n'est trouvé
+        token.name = user.name || "";
+        token.email = user.email || "";
+        token.role = user.role || "user";
       }
-      // console.log("The token generated is:", token);
       return token;
     },
     async session({ session, token }) {
-      // Pass the role to the session object
-      session.user.role = token.role as string;
-      // console.log("session", session);
-
+      // Pass user information to session object
+      session.user.name = token.name || "";
+      session.user.email = token.email || "";
+      session.user.role = token.role || "user";
       return session;
     },
   },

@@ -21,7 +21,6 @@ export async function authMiddleware(req: NextRequest) {
   // Obtenir le token
   const token = await getToken(tokenParams);
   console.log("token", token);
-
   // Rediriger vers la page de connexion si aucun token n'est présent
   if (!token) {
     console.log("No token found, redirecting to signin.");
