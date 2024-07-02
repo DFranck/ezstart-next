@@ -1,4 +1,5 @@
 "use client";
+import TextLoader from "@/components/loader";
 import GithubSvg from "@/components/svgs/github-svg";
 import GoogleSvg from "@/components/svgs/google-svg";
 import { Button } from "@/components/ui/button";
@@ -15,14 +16,16 @@ import { signIn } from "next-auth/react";
 import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import { z } from "zod";
 
 const SignUpForm = () => {
   const t = useTranslations("App.Auth.SignUpForm");
   const err = useTranslations("Errors");
+  const [isFetching, setIsFetching] = useState(false);
   const router = useRouter();
-  const methods = useForm<z.infer<typeof signUpSchema>>({
+  const from = useForm<z.infer<typeof signUpSchema>>({
     resolver: zodResolver(signUpSchema),
     defaultValues: {
       email: "",
@@ -35,6 +38,7 @@ const SignUpForm = () => {
   const onSubmit: SubmitHandler<z.infer<typeof signUpSchema>> = async (
     data
   ) => {
+    setIsFetching(true);
     try {
       const res = await fetch("/api/auth/signup", {
         method: "POST",
@@ -45,26 +49,28 @@ const SignUpForm = () => {
       });
 
       if (!res.ok) {
+        setIsFetching(false);
         const errorData = await res.json();
         throw new Error(errorData.message);
       }
 
       const result = await res.json();
       console.log("User signed up successfully", result);
+      setIsFetching(false);
       router.push(`/${locale}/auth/signin`);
     } catch (error: unknown) {
       console.error("signup", error);
       if (error instanceof Error) {
-        methods.setError("email", { type: "manual", message: error.message });
+        from.setError("email", { type: "manual", message: error.message });
       } else {
-        methods.setError("email", { type: "manual", message: "Signup failed" });
+        from.setError("email", { type: "manual", message: "Signup failed" });
       }
     }
   };
 
   return (
-    <FormProvider {...methods}>
-      <form onSubmit={methods.handleSubmit(onSubmit)} className={formStyle}>
+    <FormProvider {...from}>
+      <form onSubmit={from.handleSubmit(onSubmit)} className={formStyle}>
         <div>
           <h2 className="text-center text-lg font-semibold">{t("title")}</h2>
           <p className="text-muted-foreground text-xs text-center">
@@ -73,29 +79,31 @@ const SignUpForm = () => {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 justify-center gap-2 text-center w-full">
           <Button
-            className="border shadow rounded p-1 bg-white"
-            variant={"outline"}
+            className="border shadow rounded p-1 bg-card hover:bg-card/50"
             type="button"
             onClick={() => signIn("google")}
           >
             <GoogleSvg className="w-8" background="transparent" />
           </Button>
-          {/* <div className="border shadow rounded p-1">Facebook coming soon</div> */}
           <Button
-            className="border shadow rounded p-1 bg-black hover:bg-black/80"
+            className="border shadow rounded p-1 bg-card hover:bg-card/50"
             type="button"
             onClick={() => signIn("github")}
           >
-            <GithubSvg className="w-8" background="transparent" />
+            <GithubSvg
+              className="w-8"
+              background="transparent"
+              fill="foreground"
+            />
           </Button>
         </div>
         <div className="flex justify-between items-center gap-2 text-muted-foreground text-xs">
-          <span className="border w-full"></span>
+          <span className="border border-muted-foreground/20 w-full"></span>
           {t("or")}
-          <span className="border w-full"></span>
+          <span className="border border-muted-foreground/20 w-full"></span>
         </div>
         <FormField
-          control={methods.control}
+          control={from.control}
           name="email"
           render={({ field }) => (
             <FormItem>
@@ -103,16 +111,16 @@ const SignUpForm = () => {
               <FormControl>
                 <Input placeholder={t("emailPlaceholder")} {...field} />
               </FormControl>
-              {methods.formState.errors.email?.message && (
+              {from.formState.errors.email?.message && (
                 <p className="text-sm font-medium text-destructive">
-                  {err(methods.formState.errors.email.message)}
+                  {err(from.formState.errors.email.message)}
                 </p>
               )}
             </FormItem>
           )}
         />
         <FormField
-          control={methods.control}
+          control={from.control}
           name="password"
           render={({ field }) => (
             <FormItem>
@@ -124,19 +132,18 @@ const SignUpForm = () => {
                   {...field}
                 />
               </FormControl>
-              {methods.formState.errors.password?.message && (
+              {from.formState.errors.password?.message && (
                 <p className="text-sm font-medium text-destructive">
-                  {err(methods.formState.errors.password.message)}
+                  {err(from.formState.errors.password.message)}
                 </p>
               )}
             </FormItem>
           )}
         />
         <Button type="submit" className="w-full mt-2 text-sm">
-          {t("signUpButton")}
+          {isFetching ? <TextLoader /> : t("signUpButton")}
         </Button>
         <div className="mt-4 text-center w-full text-xs">
-          {/* <p className="text-sm text-muted-foreground opacity-0">signupform</p> */}
           <p className="text-sm text-muted-foreground w-full flex justify-between gap-2">
             {t("hasAccountText")}{" "}
             <Link

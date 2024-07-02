@@ -41,7 +41,9 @@
     "invalidEmail": "Invalid email",
     "passwordRequired": "Password is required",
     "passwordMin": "Password must be more than 8 characters",
-    "passwordMax": "Password must be less than 32 characters"
+    "passwordMax": "Password must be less than 32 characters",
+    "User with this email already exists": "User aldready exit",
+    "Configuration": "Email ou mdp incorect"
   },
   "App": {
     "Home": {

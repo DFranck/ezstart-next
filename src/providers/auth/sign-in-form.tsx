@@ -48,7 +48,9 @@ const SignInForm = () => {
     });
 
     if (result?.error) {
-      setError(result.error);
+      console.log(result);
+      setError(err("Configuration"));
+      setIsFetching(false);
     } else {
       const updatedSession = await getSession();
       setIsFetching(false);
@@ -134,20 +136,29 @@ const SignInForm = () => {
           )}
         />
         <div>
-          <Button
-            type="submit"
-            className={cn("w-full mt-2 text-sm", { "text-destructive": error })}
-          >
-            {!error ? isFetching ? <Loader /> : t("signInButton") : error}
+          <Button type="submit" className={cn("w-full mt-2 text-sm")}>
+            {isFetching ? <Loader /> : t("signInButton")}
           </Button>
-          <p className="text-sm text-muted-foreground w-full flex justify-between gap-2 mt-1">
-            <Link
-              href="/auth/forgot-password"
-              className="text-muted-foreground text-xs hover:underline w-full text-end"
-            >
-              {t("forgotPasswordText")}
-            </Link>
-          </p>
+          <div className={cn("grid  mt-1", { "grid-cols-2": error })}>
+            {error && (
+              <div className="flex gap-1 items-center">
+                <span className="bg-destructive rounded-full p-1 text-destructive-foreground w-4 h-4 flex justify-center items-center text-xs">
+                  !
+                </span>
+                <p className="text-destructive text-sm font-normal text-start">
+                  {error}
+                </p>
+              </div>
+            )}
+            <p className="text-sm text-muted-foreground w-full flex justify-between gap-2 items-center">
+              <Link
+                href="/auth/forgot-password"
+                className="text-muted-foreground text-xs hover:underline w-full text-end"
+              >
+                {t("forgotPasswordText")}
+              </Link>
+            </p>
+          </div>
           {/* {error && (
             <p className="text-sm font-medium text-destructive">{error}</p>
           )} */}
