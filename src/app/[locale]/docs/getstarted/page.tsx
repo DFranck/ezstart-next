@@ -22,8 +22,8 @@ const GetStarted = () => {
   return (
     <Section className="px-4 md:px-10 lg:px-20 max-w-5xl mx-auto">
       <h1>{t("title")}</h1>
-      <p className="mb-4">{t("welcome")}</p>
-      <p className="mb-4">{t("intro")}</p>
+      <p>{t("welcome")}</p>
+      <p>{t("intro")}</p>
       <h2>{t("installationTitle")}</h2>
       <pre className="bg-background p-4 rounded w-full text-accent-foreground border shadow overflow-x-auto">
         <code className="md:whitespace-pre-wrap break-words">

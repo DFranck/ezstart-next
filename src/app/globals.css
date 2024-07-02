@@ -61,6 +61,12 @@
     @apply text-3xl md:text-5xl font-bold mb-8 text-center;
   }
   h2 {
-    @apply text-2xl font-bold mt-8 mb-4;
+    @apply text-2xl font-bold mt-8 mb-4 text-center;
+  }
+  h3 {
+    @apply text-xl font-bold mt-8 mb-4 text-center;
+  }
+  p {
+    @apply font-extralight text-lg md:text-xl text-justify md:text-center;
   }
 }

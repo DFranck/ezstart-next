@@ -46,9 +46,7 @@ const FeaturesList = () => {
       <h2 className="md:text-3xl">
         {t("subtitle")} <span className="">EzStart</span>
       </h2>
-      <p className="font-extralight text-base md:text-xl mb-20">
-        {t("description")}
-      </p>
+      <p className="mb-10">{t("description")}</p>
       <ul className="grid grid-cols-1 gap-5 md:grid-cols-3 mx-auto max-w-screen-lg text-justify">
         {features.map((feature, index) => {
           const SvgComponent = svgComponents[feature.image];
@@ -62,7 +60,7 @@ const FeaturesList = () => {
                   <GlareCard className="p-4">
                     {SvgComponent && <SvgComponent className={"h-12 w-12"} />}
                     <h3 className="mt-2 text-lg font-bold">{feature.title}</h3>
-                    <p className="mt-2 text-muted-foreground">
+                    <p className="mt-2 text-muted-foreground text-sm md:text-base text-justify">
                       {feature.description}
                     </p>
                   </GlareCard>

@@ -16,12 +16,10 @@ const About = () => {
     <Section className="pt-40 px-4">
       <h1>{t("title")}</h1>
       <div className="max-w-3xl flex flex-col gap-10 text-justify md:text-center">
-        <ul>
+        <ul className="flex flex-col gap-8 text-lg md:text-xl">
           {content.map((item, index) => (
             <li key={index}>
-              <p className="text-lg md:text-xl font-light mb-6">
-                {item.paragraph}
-              </p>
+              <p>{item.paragraph}</p>
             </li>
           ))}
         </ul>
