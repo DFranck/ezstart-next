@@ -2,9 +2,10 @@ import { cn } from "@/lib/utils";
 import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 const Logo = ({
-  path = true,
+  path = undefined,
   className,
 }: {
   path?: boolean;
@@ -15,10 +16,26 @@ const Logo = ({
   const locale = useLocale();
   const pathname = usePathname();
   const pathSegments = pathname.slice(3).split("/").filter(Boolean);
-  // const [isPath, setIsPath] = useState(path);
-  // useEffect(() => {
-  //   setIsPath(path);
-  // }, [path]);
+  const [showPath, setShowPath] = useState(path ?? true);
+
+  const handleResize = () => {
+    if (window.innerWidth >= 768) {
+      setShowPath(true);
+    } else {
+      setShowPath(false);
+    }
+  };
+
+  useEffect(() => {
+    if (path !== undefined) {
+      setShowPath(path);
+    } else {
+      handleResize();
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }
+  }, [path]);
+
   if (!title) return null;
 
   let cumulativePath = `/${locale}`;
@@ -30,9 +47,11 @@ const Logo = ({
         href={`/${locale}/`}
       >
         <span className="sr-only">Logo</span>
-        <h1 className="text-xl xl:text-2xl font-semibold pr-0.5">{title}</h1>
+        <h1 className="text-xl md:text-xl xl:text-2xl font-semibold pr-0.5 mb-0.5">
+          {title}
+        </h1>
       </Link>
-      {path &&
+      {showPath &&
         pathSegments.map((segment, index) => {
           cumulativePath += `/${segment}`;
           return (

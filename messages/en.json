@@ -14,12 +14,11 @@
   "SideNav": {
     "links": {
       "getStarted": "Get Started",
-      "testlinjk": "testlinjk",
-      "authentication": "Authentication",
-      "internationalization": "Internationalization",
-      "dbManagement": "Database Management",
-      "theming": "Theming",
       "components": "Components",
+      "theming": "Theming",
+      "internationalization": "Internationalization",
+      "authentication": "Authentication",
+      "dbManagement": "Database Management",
       "developerTools": "Developer Tools"
     }
   },

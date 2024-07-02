@@ -9,7 +9,6 @@ import ReactHookFormSvg from "@/components/svgs/react-hook-form-svg";
 import ReactSvg from "@/components/svgs/react-svg";
 import TailwindSvg from "@/components/svgs/tailwind-svg";
 import ZodSvg from "@/components/svgs/zod-svg";
-import { Button } from "@/components/ui/button";
 import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 
@@ -22,7 +21,7 @@ const GetStarted = () => {
   const liStyle = "flex gap-2";
   return (
     <Section className="px-4 md:px-10 lg:px-20 max-w-5xl mx-auto">
-      <h1 className="text-3xl font-bold mb-4">{t("title")}</h1>
+      <h1>{t("title")}</h1>
       <p className="mb-4">{t("welcome")}</p>
       <p className="mb-4">{t("intro")}</p>
       <h2 className="text-2xl font-bold mt-8 mb-4">{t("installationTitle")}</h2>
@@ -136,11 +135,6 @@ const GetStarted = () => {
 
       <h2 className="text-2xl font-bold mt-8 mb-4">{t("enjoy")}</h2>
       <p>{t("enjoyDescription")}</p>
-      <div className="grid grid-cols-2 gap-4 w-full mt-10">
-        <Button variant={"outline"} className="col-start-2">
-          <Link href={`/${locale}/docs/stack`}>Look the Stack</Link>
-        </Button>
-      </div>
     </Section>
   );
 };

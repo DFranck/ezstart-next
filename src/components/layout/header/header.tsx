@@ -19,7 +19,7 @@ const Header = ({ className }: { className?: string }) => {
       })}
     >
       <div className="flex justify-between  items-center max-w-screen-2xl mx-auto text-foreground">
-        <Logo path={true} className="" />
+        <Logo />
         <Nav
           t={"Header"}
           render={"links"}

@@ -14,7 +14,7 @@ const About = () => {
   }[];
   return (
     <Section className="pt-40 px-4">
-      <h1 className="text-3xl md:text-5xl font-bold mb-8">{t("title")}</h1>
+      <h1>{t("title")}</h1>
       <div className="max-w-3xl flex flex-col gap-10 text-justify md:text-center">
         <ul>
           {content.map((item, index) => (
