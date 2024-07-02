@@ -1,4 +1,3 @@
-import ComingSoon from "@/components/layout/coming-soon.";
 import Section from "@/components/layout/section";
 import { auth } from "@/lib/auth";
 import UpdateUserForm from "@/providers/auth/update-user-form";
@@ -15,11 +14,7 @@ const UserPage = async () => {
     );
   }
 
-  return (
-    <Section>
-      <ComingSoon message="User page is under construction. Stay tuned for updates!" />
-    </Section>
-  );
+  return <Section>Hello{session.user.name}</Section>;
 };
 
 export default UserPage;

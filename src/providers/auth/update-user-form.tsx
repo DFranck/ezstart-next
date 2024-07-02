@@ -30,20 +30,6 @@ const UpdateUserForm = () => {
   const onSubmit = async (data: z.infer<typeof nameSchema>) => {
     const { name } = data;
     const email = session?.user?.email;
-    const handleUpdateUser = async () => {
-      const newSession = {
-        ...session,
-        user: {
-          ...session?.user,
-          email: email,
-        },
-      };
-      await update(newSession);
-    };
-    if (!name) {
-      console.log("Name is required");
-      return;
-    }
 
     try {
       const res = await fetch("/api/auth/update-name", {
@@ -58,9 +44,22 @@ const UpdateUserForm = () => {
         const errorData = await res.json();
         throw new Error(errorData.message);
       }
+      const handleUpdateUser = async () => {
+        console.log("User", session?.user);
 
+        const newSession = {
+          ...session,
+          user: {
+            ...session?.user,
+            name: name,
+          },
+        };
+        await update(newSession);
+        console.log("Updated Session on server-side:", newSession);
+      };
+
+      handleUpdateUser();
       console.log("User name updated successfully");
-      handleUpdateUser;
     } catch (error) {
       console.error("Failed to update name:", error);
       if (error instanceof Error) {

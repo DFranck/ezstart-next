@@ -69,9 +69,12 @@ const SignInForm = () => {
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 justify-center gap-2 text-center w-full">
-          <div className="border shadow rounded p-1 flex-grow">
+          <Button
+            className="border shadow rounded p-1 flex-grow"
+            onClick={() => signIn("google")}
+          >
             Google coming soon
-          </div>
+          </Button>
           <div className="border shadow rounded p-1">Facebook coming soon</div>
           <div className="border shadow rounded p-1">Github coming soon</div>
         </div>

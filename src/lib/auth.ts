@@ -1,11 +1,16 @@
 import { compare } from "bcryptjs";
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import GoogleProvider from "next-auth/providers/google";
 import { db } from "./db";
 import { signInSchema } from "./zod"; // Assurez-vous que le schéma Zod est correctement configuré
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID ?? "",
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET ?? "",
+    }),
     CredentialsProvider({
       credentials: {
         email: { label: "Email", type: "email" },
@@ -50,7 +55,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       },
     }),
   ],
-
+  secret: process.env.AUTH_SECRET,
   callbacks: {
     async jwt({ token, user, trigger, session }) {
       if (trigger === "update" && session) {
@@ -63,16 +68,15 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       }
       return token;
     },
-    async session({ session, token, user }) {
+    async session({ session, token }) {
       session.user.name = token.name || "";
       session.user.email = token.email || "";
       session.user.role = token.role || "user";
       return session;
     },
   },
-  secret: process.env.AUTH_SECRET,
   session: {
     strategy: "jwt",
-    maxAge: 30 * 24 * 60 * 60, // Optional: Duration of session in seconds (default 30 days)
+    maxAge: 30 * 24 * 60 * 60,
   },
 });
