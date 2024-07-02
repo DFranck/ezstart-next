@@ -1,4 +1,6 @@
 "use client";
+import GithubSvg from "@/components/svgs/github-svg";
+import GoogleSvg from "@/components/svgs/google-svg";
 import { Button } from "@/components/ui/button";
 import {
   FormControl,
@@ -9,6 +11,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { signUpSchema } from "@/lib/zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { signIn } from "next-auth/react";
 import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -68,12 +71,23 @@ const SignUpForm = () => {
             {t("subtitle")}
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 justify-center gap-2 text-center w-full">
-          <div className="border shadow rounded p-1 flex-grow">
-            Google coming soon
-          </div>
-          <div className="border shadow rounded p-1">Facebook coming soon</div>
-          <div className="border shadow rounded p-1">Github coming soon</div>
+        <div className="grid grid-cols-1 md:grid-cols-2 justify-center gap-2 text-center w-full">
+          <Button
+            className="border shadow rounded p-1 bg-white"
+            variant={"outline"}
+            type="button"
+            onClick={() => signIn("google")}
+          >
+            <GoogleSvg className="w-8" background="transparent" />
+          </Button>
+          {/* <div className="border shadow rounded p-1">Facebook coming soon</div> */}
+          <Button
+            className="border shadow rounded p-1 bg-black hover:bg-black/80"
+            type="button"
+            onClick={() => signIn("github")}
+          >
+            <GithubSvg className="w-8" background="transparent" />
+          </Button>
         </div>
         <div className="flex justify-between items-center gap-2 text-muted-foreground text-xs">
           <span className="border w-full"></span>

@@ -1,5 +1,7 @@
 "use client";
 import Loader from "@/components/loader";
+import GithubSvg from "@/components/svgs/github-svg";
+import GoogleSvg from "@/components/svgs/google-svg";
 import { Button } from "@/components/ui/button";
 import {
   FormControl,
@@ -68,19 +70,22 @@ const SignInForm = () => {
             {t("subtitle")}
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 justify-center gap-2 text-center w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 justify-center gap-2 text-center w-full">
           <Button
-            className="border shadow rounded p-1 flex-grow"
+            className="border shadow rounded p-1 bg-white"
+            variant={"outline"}
+            type="button"
             onClick={() => signIn("google")}
           >
-            Google coming soon
+            <GoogleSvg className="w-8" background="transparent" />
           </Button>
-          <div className="border shadow rounded p-1">Facebook coming soon</div>
+          {/* <div className="border shadow rounded p-1">Facebook coming soon</div> */}
           <Button
-            className="border shadow rounded p-1"
+            className="border shadow rounded p-1 bg-black hover:bg-black/80"
+            type="button"
             onClick={() => signIn("github")}
           >
-            Github coming soon
+            <GithubSvg className="w-8" background="transparent" />
           </Button>
         </div>
         <div className="flex justify-between items-center gap-2 text-muted-foreground text-xs">
