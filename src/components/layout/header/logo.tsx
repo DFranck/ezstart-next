@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
-import { useLocale, useTranslations } from "next-intl";
+import { useLocale } from "next-intl";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -7,12 +8,16 @@ import { useEffect, useState } from "react";
 const Logo = ({
   path = undefined,
   className,
+  logoText,
+  logoImageSrc,
+  logoImageAlt = "Logo",
 }: {
   path?: boolean;
   className?: string;
+  logoText?: string;
+  logoImageSrc?: string;
+  logoImageAlt?: string;
 }) => {
-  const t = useTranslations("Header");
-  const title = t("title");
   const locale = useLocale();
   const pathname = usePathname();
   const pathSegments = pathname.slice(3).split("/").filter(Boolean);
@@ -36,8 +41,6 @@ const Logo = ({
     }
   }, [path]);
 
-  if (!title) return null;
-
   let cumulativePath = `/${locale}`;
 
   return (
@@ -47,9 +50,17 @@ const Logo = ({
         href={`/${locale}/`}
       >
         <span className="sr-only">Logo</span>
-        <h1 className="text-xl md:text-xl xl:text-2xl font-semibold pr-0.5 mb-0.5">
-          {title}
-        </h1>
+        {logoImageSrc ? (
+          <Image
+            src={logoImageSrc}
+            alt={logoImageAlt}
+            className="h-8 w-auto md:h-10"
+          />
+        ) : (
+          <h1 className="text-xl md:text-xl xl:text-2xl font-semibold pr-0.5 mb-0.5">
+            {logoText}
+          </h1>
+        )}
       </Link>
       {showPath &&
         pathSegments.map((segment, index) => {

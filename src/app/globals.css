@@ -60,4 +60,7 @@
   h1 {
     @apply text-3xl md:text-5xl font-bold mb-8 text-center;
   }
+  h2 {
+    @apply text-2xl font-bold mt-8 mb-4;
+  }
 }

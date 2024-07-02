@@ -42,10 +42,10 @@ const FeaturesList = () => {
 
   return (
     <Section className="text-justify md:text-center px-4 ">
-      <h2 className="text-primary text-xl font-bold  my-4">{t("title")}</h2>
-      <h3 className="text-xl md:text-3xl font-bold mb-2">
+      <h3 className="text-primary text-xl font-bold my-4">{t("title")}</h3>
+      <h2 className="md:text-3xl">
         {t("subtitle")} <span className="">EzStart</span>
-      </h3>
+      </h2>
       <p className="font-extralight text-base md:text-xl mb-20">
         {t("description")}
       </p>

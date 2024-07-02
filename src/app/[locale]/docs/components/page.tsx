@@ -13,12 +13,12 @@ const ComponentPage = () => {
         them in the components folder or more in their own website
       </p>
 
-      <h2 className="font-bold text-xl">EzStart Components</h2>
+      <h2>EzStart Components</h2>
       <p className="text-muted-foreground">
         I create some components for my projects in the same systeme of shadcnui
         but i adding some features like auto translation display
       </p>
-      <h2 className="font-bold text-xl">Commponents</h2>
+      <h2>Commponents</h2>
       <ul className="flex gap-4 justify-center">
         <li className="flex gap-4 justify-center">
           <Button>
