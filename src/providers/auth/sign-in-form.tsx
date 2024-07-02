@@ -76,7 +76,12 @@ const SignInForm = () => {
             Google coming soon
           </Button>
           <div className="border shadow rounded p-1">Facebook coming soon</div>
-          <div className="border shadow rounded p-1">Github coming soon</div>
+          <Button
+            className="border shadow rounded p-1"
+            onClick={() => signIn("github")}
+          >
+            Github coming soon
+          </Button>
         </div>
         <div className="flex justify-between items-center gap-2 text-muted-foreground text-xs">
           <span className="border w-full"></span>
