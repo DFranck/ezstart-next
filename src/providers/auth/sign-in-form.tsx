@@ -1,5 +1,7 @@
 "use client";
+import ErrorForm from "@/components/errorForm";
 import Loader from "@/components/loader";
+import PasswordInput from "@/components/passwordInput";
 import GithubSvg from "@/components/svgs/github-svg";
 import GoogleSvg from "@/components/svgs/google-svg";
 import { Button } from "@/components/ui/button";
@@ -49,7 +51,7 @@ const SignInForm = () => {
 
     if (result?.error) {
       console.log(result);
-      setError(err("Configuration"));
+      setError(err("configuration"));
       setIsFetching(false);
     } else {
       const updatedSession = await getSession();
@@ -74,26 +76,24 @@ const SignInForm = () => {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 justify-center gap-2 text-center w-full">
           <Button
-            className="border shadow rounded p-1 bg-white"
-            variant={"outline"}
+            className="border shadow rounded p-1 bg-white hover:bg-white/80"
             type="button"
             onClick={() => signIn("google")}
           >
             <GoogleSvg className="w-8" background="transparent" />
           </Button>
-          {/* <div className="border shadow rounded p-1">Facebook coming soon</div> */}
           <Button
-            className="border shadow rounded p-1 bg-black hover:bg-black/80"
+            className="border shadow rounded p-1 bg-black hover:bg-black/80 dark:hover:bg-black/60"
             type="button"
             onClick={() => signIn("github")}
           >
             <GithubSvg className="w-8" background="transparent" />
           </Button>
         </div>
-        <div className="flex justify-between items-center gap-2 text-muted-foreground text-xs">
-          <span className="border w-full"></span>
+        <div className="flex justify-between items-center gap-2 text-muted-foreground text-xs mt-2">
+          <span className="border border-muted-foreground/20 w-full"></span>
           {t("or")}
-          <span className="border w-full"></span>
+          <span className="border border-muted-foreground/20 w-full"></span>
         </div>
         <FormField
           control={form.control}
@@ -104,11 +104,8 @@ const SignInForm = () => {
               <FormControl>
                 <Input placeholder={t("emailPlaceholder")} {...field} />
               </FormControl>
-              {/* <FormDescription>{t("emailDescription")}</FormDescription> */}
               {form.formState.errors.email?.message && (
-                <p className="text-sm font-medium text-destructive">
-                  {err(form.formState.errors.email.message)}
-                </p>
+                <ErrorForm name="email" form={form} />
               )}
             </FormItem>
           )}
@@ -120,48 +117,41 @@ const SignInForm = () => {
             <FormItem>
               <FormLabel className="sr-only">{t("passwordLabel")}</FormLabel>
               <FormControl>
-                <Input
-                  type="password"
+                <PasswordInput
+                  field={field}
                   placeholder={t("passwordPlaceholder")}
-                  {...field}
+                  label={t("passwordLabel")}
                 />
               </FormControl>
 
               {form.formState.errors.password?.message && (
-                <p className="text-sm font-medium text-destructive">
-                  {err(form.formState.errors.password.message)}
-                </p>
+                <ErrorForm name="password" form={form} />
               )}
             </FormItem>
           )}
         />
         <div>
-          <Button type="submit" className={cn("w-full mt-2 text-sm")}>
+          <Button type="submit" className={cn("w-full mt-2 text-sm h-fit p-1")}>
             {isFetching ? <Loader /> : t("signInButton")}
           </Button>
-          <div className={cn("grid  mt-1", { "grid-cols-2": error })}>
-            {error && (
-              <div className="flex gap-1 items-center">
-                <span className="bg-destructive rounded-full p-1 text-destructive-foreground w-4 h-4 flex justify-center items-center text-xs">
-                  !
-                </span>
-                <p className="text-destructive text-sm font-normal text-start">
-                  {error}
-                </p>
-              </div>
-            )}
-            <p className="text-sm text-muted-foreground w-full flex justify-between gap-2 items-center">
-              <Link
-                href="/auth/forgot-password"
-                className="text-muted-foreground text-xs hover:underline w-full text-end"
-              >
-                {t("forgotPasswordText")}
-              </Link>
-            </p>
-          </div>
-          {/* {error && (
-            <p className="text-sm font-medium text-destructive">{error}</p>
-          )} */}
+          <p className="text-sm text-muted-foreground w-full flex justify-between gap-2 items-center mt-1">
+            <Link
+              href="/auth/signin/forgot-password"
+              className="text-muted-foreground text-xs hover:underline w-full text-end"
+            >
+              {t("forgotPasswordText")}
+            </Link>
+          </p>
+          {error && (
+            <div className="flex gap-1 items-center">
+              <span className="bg-destructive rounded-full p-1 text-destructive-foreground w-4 h-4 flex justify-center items-center text-xs">
+                !
+              </span>
+              <p className="text-destructive text-sm font-semibold text-start">
+                {error}
+              </p>
+            </div>
+          )}
         </div>
         <div className="mt-4 text-justify text-xs w-full">
           <p className="text-sm text-muted-foreground w-full flex justify-between gap-2">

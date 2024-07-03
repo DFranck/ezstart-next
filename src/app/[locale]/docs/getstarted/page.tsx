@@ -24,32 +24,32 @@ const GetStarted = () => {
       <h1>{t("title")}</h1>
       <p>{t("welcome")}</p>
       <p>{t("intro")}</p>
-      <h2>{t("installationTitle")}</h2>
+      <h2 className="mt-8 mb-4 ">{t("installationTitle")}</h2>
       <pre className="bg-background p-4 rounded w-full text-accent-foreground border shadow overflow-x-auto">
         <code className="md:whitespace-pre-wrap break-words">
           {t("installationSteps")}
         </code>
       </pre>
-      <h2>{t("setupTitle")}</h2>
+      <h2 className="mt-8 mb-4 ">{t("setupTitle")}</h2>
       <pre className="bg-background p-4 rounded w-full text-accent-foreground border shadow overflow-x-auto">
         <code className="md:whitespace-pre-wrap break-words">
           {t("setupSteps")}
         </code>
       </pre>
-      <h2>{t("setupTitle2")}</h2>
+      <h2 className="mt-8 mb-4 ">{t("setupTitle2")}</h2>
       <pre className="bg-background p-4 rounded w-full text-accent-foreground border shadow overflow-x-auto">
         <code className="md:whitespace-pre-wrap break-words">
           {t("setupSteps2")}
         </code>
       </pre>
-      <h2>{t("startTitle")}</h2>
+      <h2 className="mt-8 mb-4 ">{t("startTitle")}</h2>
       <pre className="bg-background p-4 rounded w-full text-accent-foreground border shadow overflow-x-auto">
         <code className="md:whitespace-pre-wrap break-words">
           {t("startSteps")}
         </code>
       </pre>
 
-      <h2>{t("primaryDependenciesTitle")}</h2>
+      <h2 className="mt-8 mb-4 ">{t("primaryDependenciesTitle")}</h2>
       <p className="text-muted-foreground text-sm mb-4">
         {t("primaryDependenciesSubtitle")}
       </p>
@@ -131,7 +131,7 @@ const GetStarted = () => {
         </ul>
       </div>
 
-      <h2>{t("enjoy")}</h2>
+      <h2 className="mt-8 mb-4 ">{t("enjoy")}</h2>
       <p>{t("enjoyDescription")}</p>
     </Section>
   );

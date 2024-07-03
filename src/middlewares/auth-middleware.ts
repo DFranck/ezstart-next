@@ -12,12 +12,6 @@ export async function authMiddleware(req: NextRequest) {
     secret: process.env.AUTH_SECRET as string,
     secureCookie: process.env.NODE_ENV === "production",
   };
-
-  // // Inclure conditionnellement le salt si défini
-  // if (process.env.AUTH_SALT) {
-  //   tokenParams.salt = process.env.AUTH_SALT as string;
-  // }
-
   // Obtenir le token
   const token = await getToken(tokenParams);
   console.log("token", token);
@@ -42,7 +36,13 @@ export async function authMiddleware(req: NextRequest) {
     console.log("Not an admin, redirecting to unauthorized");
     return NextResponse.redirect(new URL(`/${locale}/unauthorized`, req.url));
   }
-
+  if (pathname.startsWith(`/${locale}/auth`)) {
+    if (token.role === "admin") {
+      return NextResponse.redirect(new URL(`/${locale}/admin`, req.url));
+    } else {
+      return NextResponse.redirect(new URL(`/${locale}/user`, req.url));
+    }
+  }
   // Autoriser l'accès aux autres chemins si authentifié
   console.log("Token is valid, proceeding with request.");
   return NextResponse.next();

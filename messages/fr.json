@@ -36,11 +36,15 @@
     "dark": "Sombre"
   },
   "Errors": {
-    "emailRequired": "L'email est requis",
-    "invalidEmail": "Email invalide",
-    "passwordRequired": "Le mot de passe est requis",
-    "passwordMin": "Le mot de passe doit comporter plus de 8 caractères",
-    "passwordMax": "Le mot de passe doit comporter moins de 32 caractères"
+    "emailRequired": "L'adresse e-mail est obligatoire.",
+    "invalidEmail": "Adresse e-mail invalide.",
+    "passwordRequired": "Le mot de passe est obligatoire.",
+    "passwordMin": "Le mot de passe doit contenir plus de 8 caractères.",
+    "passwordMax": "Le mot de passe doit contenir moins de 32 caractères.",
+    "userExists": "L'utilisateur existe déjà.",
+    "configuration": "Adresse e-mail ou mot de passe incorrect.",
+    "notfound": "Utilisateur non trouvé.",
+    "passwordsdonotmatch": "Les mots de passe ne correspondent pas."
   },
   "App": {
     "Home": {

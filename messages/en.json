@@ -37,13 +37,15 @@
     "dark": "Dark"
   },
   "Errors": {
-    "emailRequired": "Email is required",
-    "invalidEmail": "Invalid email",
-    "passwordRequired": "Password is required",
-    "passwordMin": "Password must be more than 8 characters",
-    "passwordMax": "Password must be less than 32 characters",
-    "User with this email already exists": "User aldready exit",
-    "Configuration": "Email ou mdp incorect"
+    "emailRequired": "Email is required.",
+    "invalidEmail": "Invalid email address.",
+    "passwordRequired": "Password is required.",
+    "passwordMin": "Password must be more than 8 characters.",
+    "passwordMax": "Password must be less than 32 characters.",
+    "userExists": "User already exists.",
+    "configuration": "Incorrect email or password.",
+    "notfound": "User not found.",
+    "passwordsdonotmatch": "Passwords do not match."
   },
   "App": {
     "Home": {
@@ -183,10 +185,11 @@
         "noAccountText": "Don’t have an account?",
         "signUpLink": "Sign Up",
         "forgotPasswordText": "Forgot your password?",
-        "resetPasswordLink": "Reset it here"
+        "resetPasswordLink": "Reset it here",
+        "back": "Back to signin"
       },
       "SignUpForm": {
-        "title": "Sign Up",
+        "title": "Sign Up to EzStart",
         "subtitle": "Welcome! Please fill in the details to get started.",
         "or": "or",
         "emailLabel": "Email",
@@ -194,6 +197,8 @@
         "emailDescription": "We’ll never share your email.",
         "passwordLabel": "Password",
         "passwordPlaceholder": "Password",
+        "confirmPasswordLabel": "Confirm Password",
+        "confirmPasswordPlaceholder": "Confirm Password",
         "signUpButton": "Sign Up",
         "hasAccountText": "Already have an account?",
         "signInLink": "Sign In"

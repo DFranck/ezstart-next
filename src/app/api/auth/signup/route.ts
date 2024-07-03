@@ -40,10 +40,7 @@ export async function POST(req: NextRequest) {
     }
 
     if (error.code === "P2002" && error.meta?.target?.includes("email")) {
-      return NextResponse.json(
-        { message: "User with this email already exists" },
-        { status: 409 }
-      );
+      return NextResponse.json({ message: "userExists" }, { status: 409 });
     }
 
     return NextResponse.json(
