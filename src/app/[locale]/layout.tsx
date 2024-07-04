@@ -1,5 +1,5 @@
+import Header from "@/components/header";
 import Footer from "@/components/layout/footer/footer";
-import Header from "@/components/layout/header/header";
 import Main from "@/components/layout/main";
 import { cn } from "@/lib/utils";
 import Providers from "@/providers/providers";
@@ -29,7 +29,8 @@ export default async function RootLayout({
         className={cn(inter.className, "min-h-screen flex flex-col h-full")}
       >
         <Providers messages={messages}>
-          <Header className="fixed" />
+          {/* <Header className="fixed" /> */}
+          <Header />
           <Main>{children}</Main>
           <Footer />
         </Providers>

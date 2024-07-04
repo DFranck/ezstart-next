@@ -2,10 +2,12 @@
 "use client";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import SignInLink from "@/features/sign-in-button";
 import { cn } from "@/lib/utils";
+import { LogOut, Settings } from "lucide-react";
 import { signOut, useSession } from "next-auth/react";
 import { useLocale, useTranslations } from "next-intl";
-import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { Button } from "../../ui/button";
 
@@ -63,11 +65,34 @@ const UserConnexion = ({ className }: { className?: string }) => {
               "absolute top-10 p-2 right-0 z-10 bg-background border shadow rounded animate-fadeIn duration-200"
             )}
           >
-            <li className={liStyle}>
-              <Link href={`/${locale}/${user.role}`}>{t("dashboard")}</Link>
+            <li className="flex">
+              {user.image ? (
+                <Image
+                  src={user.image}
+                  width={50}
+                  height={50}
+                  alt={user.name ?? ""}
+                />
+              ) : (
+                <Avatar
+                  className="cursor-pointer relative w-9 h-9"
+                  onClick={handleOpen}
+                  onKeyDown={handleKeyDown}
+                >
+                  <AvatarImage src={"https://github.com/shadcn.png"} />
+                  <AvatarFallback>{user.name ?? ""}</AvatarFallback>
+                </Avatar>
+              )}
+              {user.name ? ` ${user.name}` : ""}
+              {user.email ? ` ${user.email}` : ""}
+            </li>
+            <li>
+              <Settings />
+              géter son compte
             </li>
             <div className="border border-border/50"></div>
             <Button className=" mt-2 w-full" onClick={handleSignOut}>
+              <LogOut />
               <span className="">{t("logout")}</span>
             </Button>
           </ul>
@@ -75,16 +100,8 @@ const UserConnexion = ({ className }: { className?: string }) => {
       </div>
     );
   return (
-    <div className={cn("md:flex items-center", className)}>
-      {!user && (
-        <>
-          <Button asChild className="">
-            <Link href={`/${locale}/auth/signin`}>
-              <span className="">{t("signin")}</span>
-            </Link>
-          </Button>
-        </>
-      )}
+    <div className={cn("items-center hidden md:flex", className)}>
+      {!user && <SignInLink />}
     </div>
   );
 };

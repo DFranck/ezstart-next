@@ -1,4 +1,10 @@
 {
+  "Components": {
+    "SignInLink": {
+      "title": "Sign In",
+      "description": "Sign in to your account"
+    }
+  },
   "Header": {
     "title": "EzStart",
     "links": ["Home", "About"],

@@ -1,13 +1,15 @@
-import LocaleSwitcher from "@/providers/language/locale-switcher";
-import { ThemeSwitcher } from "@/providers/theme/theme-switcher";
 import { ArrowDown } from "lucide-react";
+import { useSession } from "next-auth/react";
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+import UserAction from "../user-actions";
 import Nav from "./nav";
 const NavBurger = () => {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
+  const { data: session } = useSession();
+  const user = session?.user;
   const pathname = usePathname();
   const t = useTranslations("Header");
   const links = t.raw("links") as string[];
@@ -108,13 +110,12 @@ const NavBurger = () => {
               )}
             </div>
             <div className="flex justify-between p-5">
-              {/* <span onClick={() => setIsOpen(false)}>
-                <UserConnexion />
-              </span> */}
+              {/* {!user && <SignInLink />}
               <div className="flex justify-end items-center gap-2 ">
                 <LocaleSwitcher />
                 <ThemeSwitcher />
-              </div>
+              </div> */}
+              <UserAction />
             </div>
           </div>
         </div>
