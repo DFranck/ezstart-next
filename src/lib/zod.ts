@@ -46,3 +46,19 @@ export const passwordSchema = object({
     .min(8, "passwordMin")
     .max(32, "passwordMax"),
 });
+
+export const resetCodeSchema = object({
+  resetCode: string().min(6, { message: "codeRequired" }),
+});
+
+export const newPasswordSchema = object({
+  password: string()
+    .min(8, { message: "passwordMin" })
+    .max(32, { message: "passwordMax" }),
+  confirmPassword: string()
+    .min(8, { message: "passwordMin" })
+    .max(32, { message: "passwordMax" }),
+}).refine((data) => data.password === data.confirmPassword, {
+  message: "passwordsdonotmatch",
+  path: ["confirmPassword"],
+});

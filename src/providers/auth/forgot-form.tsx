@@ -11,7 +11,6 @@ import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { emailSchema } from "@/lib/zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { getSession } from "next-auth/react";
 import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -49,23 +48,23 @@ const ForgotForm = () => {
       setError(err(`${resultData.message}`));
       setIsFetching(false);
     } else {
-      const updatedSession = await getSession();
       setIsFetching(false);
-      console.log("role of the user", updatedSession?.user.role);
-      if (updatedSession?.user.role === "admin") {
-        router.push(`/${locale}/admin`);
-      } else {
-        router.push(`/${locale}/user`);
-      }
+      router.push(`/${locale}/auth/signin/verify-reset-code`);
+      // Here you can handle what happens next, like showing a message to check their email.
     }
   };
 
   return (
     <FormProvider {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className={formStyle}>
-        <h2 className="text-center text-lg font-semibold ">
-          {t("forgotPasswordText")}
-        </h2>
+        <div>
+          <h2 className="text-center text-lg font-semibold ">
+            {t("forgotTitle")}
+          </h2>
+          <p className="text-muted-foreground text-xs text-center">
+            {t("forgotDescription")}
+          </p>
+        </div>
         <FormField
           control={form.control}
           name="email"
@@ -85,7 +84,7 @@ const ForgotForm = () => {
         />
         <div>
           <Button type="submit" className={cn("w-full mt-2 text-sm h-fit p-1")}>
-            {isFetching ? <Loader /> : t("signInButton")}
+            {isFetching ? <Loader /> : t("forgotLink")}
           </Button>
           <div className={cn("grid  mt-1", { "grid-cols-2": error })}>
             {error && (

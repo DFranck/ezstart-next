@@ -185,8 +185,20 @@
         "noAccountText": "Don’t have an account?",
         "signUpLink": "Sign Up",
         "forgotPasswordText": "Forgot your password?",
-        "resetPasswordLink": "Reset it here",
-        "back": "Back to signin"
+        "back": "Back to signin",
+        "forgotTitle": "Forgot your password?",
+        "forgotDescription": "Enter your email address and we'll send you a link to reset your password.",
+        "forgotLink": "Reset your password",
+        "resetPasswordTitle": "Reset your password",
+        "resetPasswordDescription": "You can now reset your password",
+        "resetPasswordButton": "Reset Password",
+        "confirmPasswordLabel": "Confirm Password",
+        "confirmPasswordPlaceholder": "Confirm Password",
+        "verifyCodeTitle": "Verify the code",
+        "verifyCodeDescription": "Enter the code we just sent you.",
+        "resetCodePlaceholder": "Code",
+        "resetCodeLabel": "Code",
+        "verifyCodeButton": "Verify Code"
       },
       "SignUpForm": {
         "title": "Sign Up to EzStart",
