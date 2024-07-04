@@ -10,6 +10,7 @@ import { Input } from "@/components/ui/input";
 import { nameSchema } from "@/lib/zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import { z } from "zod";
@@ -22,6 +23,7 @@ const UpdateUserForm = () => {
       name: "",
     },
   });
+  const router = useRouter();
 
   useEffect(() => {
     console.log("Session on client-side:", session);
@@ -44,21 +46,14 @@ const UpdateUserForm = () => {
         const errorData = await res.json();
         throw new Error(errorData.message);
       }
-      const handleUpdateUser = async () => {
-        console.log("User", session?.user);
-
-        const newSession = {
-          ...session,
-          user: {
-            ...session?.user,
-            name: name,
-          },
-        };
-        await update(newSession);
-        console.log("Updated Session on server-side:", newSession);
-      };
-
-      handleUpdateUser();
+      await update({
+        ...session,
+        user: {
+          ...session?.user,
+          name: name,
+        },
+      });
+      router.refresh();
       console.log("User name updated successfully");
     } catch (error) {
       console.error("Failed to update name:", error);
@@ -69,14 +64,13 @@ const UpdateUserForm = () => {
       }
     }
   };
+
   return (
     <FormProvider {...form}>
       <form
-        action=""
         className="bg-accent border shadow rounded-md p-4 flex flex-col gap-4"
         onSubmit={form.handleSubmit(onSubmit)}
       >
-        <p>Whats your name?</p>
         <FormField
           name="name"
           control={form.control}
@@ -89,6 +83,9 @@ const UpdateUserForm = () => {
             </FormItem>
           )}
         />
+        {form.formState.errors.name && (
+          <p className="text-red-500">{form.formState.errors.name.message}</p>
+        )}
         <Button type="submit">Valider</Button>
       </form>
     </FormProvider>

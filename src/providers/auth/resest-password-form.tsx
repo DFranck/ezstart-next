@@ -73,96 +73,99 @@ const ResetPasswordForm = () => {
   };
 
   return (
-    <div className="bg-accent border shadow rounded-md p-4 flex flex-col gap-4 max-w-[400px] w-full mx-auto">
-      <FormProvider {...passwordForm}>
-        <form onSubmit={passwordForm.handleSubmit(handlePasswordSubmit)}>
-          <div>
-            <h2 className="text-center text-lg font-semibold ">
-              {t("resetPasswordTitle")}
-            </h2>
-            <p className="text-muted-foreground text-xs text-center">
-              {t("resetPasswordDescription")}
-            </p>
-          </div>
-          <FormField
-            control={passwordForm.control}
-            name="password"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel className="sr-only">{t("passwordLabel")}</FormLabel>
-                <FormControl>
-                  <PasswordInput
-                    field={field}
-                    placeholder={t("passwordPlaceholder")}
-                    label={t("passwordLabel")}
-                  />
-                </FormControl>
-                {passwordForm.formState.errors.password?.message && (
-                  <p className="text-sm font-medium text-destructive">
-                    {err(passwordForm.formState.errors.password.message)}
-                  </p>
-                )}
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={passwordForm.control}
-            name="confirmPassword"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel className="sr-only">
-                  {t("confirmPasswordLabel")}
-                </FormLabel>
-                <FormControl>
-                  <PasswordInput
-                    field={field}
-                    placeholder={t("confirmPasswordPlaceholder")}
-                    label={t("confirmPasswordLabel")}
-                  />
-                </FormControl>
-                {passwordForm.formState.errors.confirmPassword?.message && (
-                  <p className="text-sm font-medium text-destructive">
-                    {err(passwordForm.formState.errors.confirmPassword.message)}
-                  </p>
-                )}
-              </FormItem>
-            )}
-          />
+    <FormProvider {...passwordForm}>
+      <form
+        onSubmit={passwordForm.handleSubmit(handlePasswordSubmit)}
+        className="bg-accent border shadow rounded-md p-4 flex flex-col gap-4 max-w-[400px] w-full mx-auto"
+      >
+        <div>
+          <h2 className="text-center text-lg font-semibold ">
+            {t("resetPasswordTitle")}
+          </h2>
+          <p className="text-muted-foreground text-xs text-center">
+            {t("resetPasswordDescription")}
+          </p>
+        </div>
+        <FormField
+          control={passwordForm.control}
+          name="password"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel className="sr-only">{t("passwordLabel")}</FormLabel>
+              <FormControl>
+                <PasswordInput
+                  field={field}
+                  placeholder={t("passwordPlaceholder")}
+                  label={t("passwordLabel")}
+                />
+              </FormControl>
+              {passwordForm.formState.errors.password?.message && (
+                <p className="text-sm font-medium text-destructive">
+                  {err(passwordForm.formState.errors.password.message)}
+                </p>
+              )}
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={passwordForm.control}
+          name="confirmPassword"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel className="sr-only">
+                {t("confirmPasswordLabel")}
+              </FormLabel>
+              <FormControl>
+                <PasswordInput
+                  field={field}
+                  placeholder={t("confirmPasswordPlaceholder")}
+                  label={t("confirmPasswordLabel")}
+                />
+              </FormControl>
+              {passwordForm.formState.errors.confirmPassword?.message && (
+                <p className="text-sm font-medium text-destructive">
+                  {err(passwordForm.formState.errors.confirmPassword.message)}
+                </p>
+              )}
+            </FormItem>
+          )}
+        />
+        <div>
           <Button type="submit" className={cn("w-full mt-2 text-sm h-fit p-1")}>
             {isFetching ? <Loader /> : t("resetPasswordButton")}
           </Button>
-        </form>
-      </FormProvider>
-      {error && (
-        <div className="flex gap-1 items-center mt-2">
-          <span className="bg-destructive rounded-full p-1 text-destructive-foreground w-4 h-4 flex justify-center items-center text-xs">
-            !
-          </span>
-          <p className="text-destructive text-sm font-normal text-start">
-            {error}
+          <p className="text-sm text-muted-foreground w-full flex justify-between gap-2 mt-2">
+            <Link
+              href="/auth/signin"
+              className="text-muted-foreground text-xs hover:underline w-full text-end"
+            >
+              {t("back")}
+            </Link>
           </p>
         </div>
-      )}
-      <div className="mt-4 text-justify text-xs w-full">
-        <p className="text-sm text-muted-foreground w-full flex justify-between gap-2">
-          {t("noAccountText")}
-          <Link
-            href={`/${locale}/auth/signup`}
-            className="text-primary underline"
-          >
-            {t("signUpLink")}
-          </Link>
-        </p>
-        <p className="text-sm text-muted-foreground w-full flex justify-between gap-2 mt-2">
-          <Link
-            href="/auth/signin"
-            className="text-muted-foreground text-xs hover:underline w-full text-end"
-          >
-            {t("back")}
-          </Link>
-        </p>
-      </div>
-    </div>
+        {error && (
+          <div className="flex gap-1 items-center mt-2">
+            <span className="bg-destructive rounded-full p-1 text-destructive-foreground w-4 h-4 flex justify-center items-center text-xs">
+              !
+            </span>
+            <p className="text-destructive text-sm font-normal text-start">
+              {error}
+            </p>
+          </div>
+        )}
+        <div className="mt-4 text-justify text-xs w-full">
+          <p className="text-sm text-muted-foreground w-full flex justify-between gap-2">
+            {t("noAccountText")}
+            <Link
+              href={`/${locale}/auth/signup`}
+              className="text-primary underline"
+            >
+              {t("signUpLink")}
+            </Link>
+          </p>
+        </div>
+      </form>
+    </FormProvider>
   );
 };
 

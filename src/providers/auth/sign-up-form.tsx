@@ -27,11 +27,7 @@ const SignUpForm = () => {
   const router = useRouter();
   const locale = useLocale();
   const t = useTranslations("App.Auth.SignUpForm");
-  const [showPassword, setShowPassword] = useState(false);
 
-  const toggleShowPassword = () => {
-    setShowPassword(!showPassword);
-  };
   const form = useForm<z.infer<typeof signUpSchema>>({
     resolver: zodResolver(signUpSchema),
     defaultValues: {

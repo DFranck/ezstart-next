@@ -8,7 +8,8 @@ const UserPage = async () => {
     console.log(session);
     return (
       <Section>
-        <h2 className="text-2xl font-bold mb-10">Welcome!</h2>
+        <h2 className="text-2xl font-bold">Welcome!</h2>
+        <p className="mb-5">What&#39;s your name?</p>
         <UpdateUserForm />
       </Section>
     );
