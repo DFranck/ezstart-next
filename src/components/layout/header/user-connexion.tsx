@@ -2,7 +2,6 @@
 "use client";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import SignInLink from "@/features/sign-in-button";
 import { cn } from "@/lib/utils";
 import { LogOut, Settings } from "lucide-react";
 import { signOut, useSession } from "next-auth/react";
@@ -99,11 +98,6 @@ const UserConnexion = ({ className }: { className?: string }) => {
         )}
       </div>
     );
-  return (
-    <div className={cn("items-center hidden md:flex", className)}>
-      {!user && <SignInLink />}
-    </div>
-  );
 };
 
 export default UserConnexion;

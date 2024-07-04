@@ -32,7 +32,7 @@ const ForgotForm = () => {
   const t = useTranslations("App.Auth.SignInForm");
   const err = useTranslations("Errors");
   const formStyle =
-    "bg-accent border shadow rounded-md p-4 flex flex-col gap-4 w-[400px] mx-auto flex-grow";
+    "bg-accent border shadow rounded-md p-4 flex flex-col gap-4 max-w-[400px] mx-auto";
   const onSubmit: SubmitHandler<z.infer<typeof emailSchema>> = async (data) => {
     setIsFetching(true);
     const result = await fetch("/api/auth/forgot", {
@@ -49,7 +49,7 @@ const ForgotForm = () => {
       setIsFetching(false);
     } else {
       setIsFetching(false);
-      router.push(`/${locale}/auth/signin/verify-reset-code`);
+      router.push(`/${locale}/auth/sign-in/verify-reset-code`);
       // Here you can handle what happens next, like showing a message to check their email.
     }
   };
@@ -99,7 +99,7 @@ const ForgotForm = () => {
             )}
             <p className="text-sm text-muted-foreground w-full flex justify-between gap-2 items-center">
               <Link
-                href="/auth/signin"
+                href="/auth/sign-in"
                 className="text-muted-foreground text-xs hover:underline w-full text-end"
               >
                 {t("back")}
@@ -111,7 +111,7 @@ const ForgotForm = () => {
           <p className="text-sm text-muted-foreground w-full flex justify-between gap-2">
             {t("noAccountText")}
             <Link
-              href={`/${locale}/auth/signup`}
+              href={`/${locale}/auth/sign-up`}
               className="text-primary underline"
             >
               {t("signUpLink")}

@@ -6,7 +6,7 @@ import { useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
 import { useEffect, useRef, useState } from "react";
 
-export function ThemeSwitcher() {
+export function ThemeSwitcher({ className }: { className?: string }) {
   const [isMounted, setIsMounted] = useState(false);
   const { theme, setTheme } = useTheme();
   const t = useTranslations("Theme");
@@ -53,7 +53,10 @@ export function ThemeSwitcher() {
     return null;
   }
   return (
-    <div className="relative text-foreground" onBlur={handleBlur}>
+    <div
+      className={cn("relative text-foreground", className)}
+      onBlur={handleBlur}
+    >
       <button
         ref={buttonRef}
         aria-haspopup="true"

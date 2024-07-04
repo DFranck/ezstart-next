@@ -1,22 +1,18 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { useState } from "react";
 
 const Burger = ({
-  onclick,
+  setIsOpen,
+  isOpen,
   className,
 }: {
-  onclick?: () => void;
+  setIsOpen: (isOpen: boolean) => void;
+  isOpen: boolean;
   className?: string;
 }) => {
-  const [isOpen, setIsOpen] = useState(false);
-
   const handleClick = () => {
     setIsOpen(!isOpen);
-    if (onclick) {
-      onclick();
-    }
   };
   return (
     <div

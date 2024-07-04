@@ -68,7 +68,7 @@ const ResetPasswordForm = () => {
     } else {
       setIsFetching(false);
       console.log("Password reset successfully", resultData);
-      router.push(`/${locale}/auth/signin`);
+      router.push(`/${locale}/auth/sign-in`);
     }
   };
 
@@ -136,7 +136,7 @@ const ResetPasswordForm = () => {
           </Button>
           <p className="text-sm text-muted-foreground w-full flex justify-between gap-2 mt-2">
             <Link
-              href="/auth/signin"
+              href="/auth/sign-in"
               className="text-muted-foreground text-xs hover:underline w-full text-end"
             >
               {t("back")}
@@ -157,7 +157,7 @@ const ResetPasswordForm = () => {
           <p className="text-sm text-muted-foreground w-full flex justify-between gap-2">
             {t("noAccountText")}
             <Link
-              href={`/${locale}/auth/signup`}
+              href={`/${locale}/auth/sign-up`}
               className="text-primary underline"
             >
               {t("signUpLink")}

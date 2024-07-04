@@ -165,7 +165,7 @@ const SignUpForm = () => {
           <p className="text-sm text-muted-foreground w-full flex justify-between gap-2">
             {t("hasAccountText")}{" "}
             <Link
-              href={`/${locale}/auth/signin`}
+              href={`/${locale}/auth/sign-in`}
               className="text-primary underline"
             >
               {t("signInLink")}
