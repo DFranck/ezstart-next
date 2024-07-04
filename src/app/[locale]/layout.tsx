@@ -1,4 +1,4 @@
-import Header from "@/components/header";
+import Header from "@/components/header/header";
 import Footer from "@/components/layout/footer/footer";
 import Main from "@/components/layout/main";
 import { cn } from "@/lib/utils";

@@ -1,12 +1,15 @@
 "use client";
+import Burger from "@/components/header/burger";
+import Nav from "@/components/header/nav";
+import UserMenu from "@/components/header/user-menu";
 import { cn } from "@/lib/utils";
+import LocaleSwitcher from "@/providers/language/locale-switcher";
+import { ThemeSwitcher } from "@/providers/theme/theme-switcher";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { useState } from "react";
-import Burger from "./burger";
-import UserConnexion from "./layout/header/user-connexion";
-import Nav from "./nav";
-import UserAction from "./user-actions";
+import UserAuthLinks from "./user-auth-links";
+import UserNav from "./user-nav";
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,15 +24,28 @@ export const Header = () => {
               EzStart
             </div>
           </Link>
-          <Nav className="hidden lg:flex" />
-          <UserAction className="hidden lg:flex" />
-          <div className="flex items-center gap-4">
+          {!user ? (
+            <Nav className="hidden lg:flex" />
+          ) : (
+            <UserNav className="hidden lg:flex" />
+          )}
+          {!user && (
+            <UserAuthLinks setIsOpen={setIsOpen} className="hidden lg:flex" />
+          )}
+
+          <div className="flex items-center gap-2">
+            {!user && (
+              <>
+                <LocaleSwitcher />
+                <ThemeSwitcher />
+              </>
+            )}
             <Burger
               setIsOpen={setIsOpen}
               isOpen={isOpen}
               className="block lg:hidden"
             />
-            <UserConnexion />
+            <UserMenu />
           </div>
         </div>
         <div
@@ -39,7 +55,7 @@ export const Header = () => {
           )}
         >
           <Nav />
-          <UserAction setIsOpen={setIsOpen} />
+          {!user && <UserAuthLinks setIsOpen={setIsOpen} />}
         </div>
       </div>
     </header>

@@ -3,7 +3,7 @@ import { useSession } from "next-auth/react";
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import UserAction from "../user-actions";
+import UserAction from "../header/user-actions";
 import Nav from "./nav";
 const NavBurger = () => {
   const [isOpen, setIsOpen] = useState(false);
