@@ -93,7 +93,9 @@ const UserMen = ({ className }: { className?: string }) => {
           >
             <li>
               <Link
-                href={`/${locale}/${user.role === "admin" ? "admin" : "user"}`}
+                href={`/${locale}/${
+                  user.role === "admin" ? "dashboard" : "profile"
+                }`}
                 className={liStyle}
               >
                 {user.image ? (
@@ -119,7 +121,7 @@ const UserMen = ({ className }: { className?: string }) => {
               </Link>
             </li>
             <li>
-              <Link href={`/${locale}/user/account`} className={liStyle}>
+              <Link href={`/${locale}/settings`} className={liStyle}>
                 <span className="w-9 h-9 flex justify-center items-center">
                   <Settings className="w-4 h-4" />
                 </span>
