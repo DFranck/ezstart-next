@@ -58,9 +58,9 @@ const SignInForm = () => {
       setIsFetching(false);
       console.log("role of the user", updatedSession?.user.role);
       if (updatedSession?.user.role === "admin") {
-        router.push(`/${locale}/admin`);
+        router.push(`/${locale}/dashboard`);
       } else {
-        router.push(`/${locale}/user`);
+        router.push(`/${locale}/profile`);
       }
     }
   };
