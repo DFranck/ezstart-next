@@ -1,6 +1,6 @@
 import Section from "@/components/layout/section";
+import UpdateUserForm from "@/features/auth/update-user-form";
 import { auth } from "@/lib/auth";
-import UpdateUserForm from "@/providers/auth/update-user-form";
 
 const UserPage = async () => {
   const session = await auth();

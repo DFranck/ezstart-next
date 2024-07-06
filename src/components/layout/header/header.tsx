@@ -1,7 +1,7 @@
 "use client";
-import Burger from "@/components/header/burger";
-import Nav from "@/components/header/nav";
-import UserMenu from "@/components/header/user-menu";
+import Burger from "@/components/layout/header/burger";
+import Nav from "@/components/layout/header/nav";
+import UserMenu from "@/components/layout/header/user-menu";
 import useOnScroll from "@/hooks/useOnScroll";
 import { cn } from "@/lib/utils";
 import LocaleSwitcher from "@/providers/language/locale-switcher";
@@ -23,9 +23,9 @@ export const Header = () => {
   const user = session?.user;
   return (
     <header
-      className={cn("px-3 py-6 lg:py-5 z-10 fixed w-full", {
-        "bg-background": isOpen || scrollY > 0,
-        "p-2": scrollY > 0,
+      className={cn("p-6 z-10 fixed w-full", {
+        "bg-background": isOpen || pathname !== `/${locale}`,
+        "p-2 bg-background": scrollY > 0,
       })}
     >
       <div className="mx-auto max-w-screen-lg">

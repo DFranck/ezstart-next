@@ -19,14 +19,13 @@ export async function authMiddleware(req: NextRequest) {
   if (!token) {
     console.log("No token found, redirecting to signin.");
     if (
-      pathname.startsWith(`/${locale}/auth`) ||
-      pathname === `/${locale}` ||
+      pathname.startsWith(`/${locale}`) ||
       pathname === `/${locale}/about` ||
       pathname.startsWith(`/${locale}/docs`)
     ) {
       return NextResponse.next();
     }
-    const redirectUrl = new URL(`/${locale}/auth/signin`, req.url);
+    const redirectUrl = new URL(`/${locale}/sign-in`, req.url);
     redirectUrl.searchParams.set("callbackUrl", req.url);
     return NextResponse.redirect(redirectUrl);
   }

@@ -59,7 +59,7 @@ const SignUpForm = () => {
       const result = await res.json();
       console.log("User signed up successfully", result);
       setIsFetching(false);
-      router.push(`/${locale}/auth/signin`);
+      router.push(`/${locale}/sign-in`);
     } catch (error: unknown) {
       console.error("signup", error);
       if (error instanceof Error) {
@@ -165,7 +165,7 @@ const SignUpForm = () => {
           <p className="text-sm text-muted-foreground w-full flex justify-between gap-2">
             {t("hasAccountText")}{" "}
             <Link
-              href={`/${locale}/auth/sign-in`}
+              href={`/${locale}/sign-in`}
               className="text-primary underline"
             >
               {t("signInLink")}

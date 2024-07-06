@@ -1,10 +1,10 @@
 import Section from "@/components/layout/section";
-import ForgotForm from "../../../../../providers/auth/forgot-form";
+import VerifyCodeForm from "@/features/auth/verify-code-form";
 
 const page = () => {
   return (
     <Section className="px-4 w-screen h-screen absolute top-0 left-0 bg-background">
-      <ForgotForm />
+      <VerifyCodeForm />
     </Section>
   );
 };

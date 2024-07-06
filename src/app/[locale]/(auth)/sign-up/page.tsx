@@ -1,5 +1,5 @@
 import Section from "@/components/layout/section";
-import SignUpForm from "@/providers/auth/sign-up-form";
+import SignUpForm from "@/features/auth/sign-up-form";
 
 const page = () => {
   return (

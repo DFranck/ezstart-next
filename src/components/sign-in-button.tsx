@@ -7,7 +7,7 @@ const SignInLink = () => {
   const t = useTranslations("Components.SignInLink");
   return (
     <Button asChild className="">
-      <Link href={`/${locale}/auth/signin`}>
+      <Link href={`/${locale}/sign-in`}>
         <LogIn className="mr-2 w-4" />
         <span className="sr-only">{t("description")}</span>
         {t("title")}

@@ -51,9 +51,7 @@ const VerifyCodeForm = () => {
       setIsFetching(false);
     } else {
       setIsFetching(false);
-      router.push(
-        `/${locale}/auth/sign-in/reset-password?code=${data.resetCode}`
-      );
+      router.push(`/${locale}/sign-in/reset-password?code=${data.resetCode}`);
       console.log("Code verified", resultData);
     }
   };
@@ -105,10 +103,7 @@ const VerifyCodeForm = () => {
       <div className="mt-4 text-justify text-xs w-full">
         <p className="text-sm text-muted-foreground w-full flex justify-between gap-2">
           {t("noAccountText")}
-          <Link
-            href={`/${locale}/auth/sign-up`}
-            className="text-primary underline"
-          >
+          <Link href={`/${locale}/sign-up`} className="text-primary underline">
             {t("signUpLink")}
           </Link>
         </p>

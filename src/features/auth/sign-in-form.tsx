@@ -136,7 +136,7 @@ const SignInForm = () => {
           </Button>
           <p className="text-sm text-muted-foreground w-full flex justify-between gap-2 items-center mt-1">
             <Link
-              href="/auth/sign-in/forgot-password"
+              href={`/${locale}/sign-in/forgot-password`}
               className="text-muted-foreground text-xs hover:underline w-full text-end"
             >
               {t("forgotPasswordText")}
@@ -157,7 +157,7 @@ const SignInForm = () => {
           <p className="text-sm text-muted-foreground w-full flex justify-between gap-2">
             {t("noAccountText")}
             <Link
-              href={`/${locale}/auth/sign-up`}
+              href={`/${locale}/sign-up`}
               className="text-primary underline"
             >
               {t("signUpLink")}

@@ -49,7 +49,7 @@ const ForgotForm = () => {
       setIsFetching(false);
     } else {
       setIsFetching(false);
-      router.push(`/${locale}/auth/sign-in/verify-reset-code`);
+      router.push(`/${locale}sign-in/verify-reset-code`);
       // Here you can handle what happens next, like showing a message to check their email.
     }
   };
@@ -99,7 +99,7 @@ const ForgotForm = () => {
             )}
             <p className="text-sm text-muted-foreground w-full flex justify-between gap-2 items-center">
               <Link
-                href="/auth/sign-in"
+                href={`/${locale}/sign-in`}
                 className="text-muted-foreground text-xs hover:underline w-full text-end"
               >
                 {t("back")}
@@ -111,7 +111,7 @@ const ForgotForm = () => {
           <p className="text-sm text-muted-foreground w-full flex justify-between gap-2">
             {t("noAccountText")}
             <Link
-              href={`/${locale}/auth/sign-up`}
+              href={`/${locale}/sign-up`}
               className="text-primary underline"
             >
               {t("signUpLink")}

@@ -1,6 +1,6 @@
-import FeaturesList from "@/features/features-list";
-import GetStarted from "@/features/get-started";
-import Hero from "@/features/hero";
+import FeaturesList from "@/components/features-list";
+import GetStarted from "@/components/get-started";
+import Hero from "@/components/hero";
 
 export default function home() {
   return (
