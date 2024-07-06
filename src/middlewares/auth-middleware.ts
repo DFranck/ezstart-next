@@ -6,43 +6,56 @@ export async function authMiddleware(req: NextRequest) {
   const locale = currentLocale;
   const pathname = req.nextUrl.pathname;
 
-  // Préparer les paramètres pour getToken
+  const authPath = [
+    // paths unauthorized if logged in
+    `/${locale}/sign-in`,
+    `/${locale}/sign-up`,
+    `/${locale}/forgot-password`,
+    `/${locale}/reset-password`,
+    `/${locale}/verify-reset-code`,
+    `/${locale}/update-name`,
+    `/${locale}/update-roles`,
+  ];
+  const visitPath = [
+    // paths always authorized
+    `/${locale}/about`,
+    `/${locale}/docs`,
+    `/${locale}/unauthorized`,
+  ];
+
+  const adminPath = [
+    // paths for admin
+    `/${locale}/admin`,
+  ];
   const tokenParams: any = {
     req,
     secret: process.env.AUTH_SECRET as string,
     secureCookie: process.env.NODE_ENV === "production",
   };
-  // Obtenir le token
   const token = await getToken(tokenParams);
-  console.log("token", token);
-  // Rediriger vers la page de connexion si aucun token n'est présent
   if (!token) {
-    console.log("No token found, redirecting to signin.");
     if (
-      pathname.startsWith(`/${locale}`) ||
-      pathname === `/${locale}/about` ||
-      pathname.startsWith(`/${locale}/docs`)
+      visitPath.some((path) => pathname.startsWith(path)) ||
+      authPath.some((path) => pathname.startsWith(path)) ||
+      pathname === `/${locale}`
     ) {
       return NextResponse.next();
     }
-    const redirectUrl = new URL(`/${locale}/sign-in`, req.url);
-    redirectUrl.searchParams.set("callbackUrl", req.url);
-    return NextResponse.redirect(redirectUrl);
+    return NextResponse.redirect(new URL(`/${locale}/sign-in`, req.url));
   }
-
-  // Vérifier l'accès basé sur les rôles
-  if (pathname.startsWith(`/${locale}/admin`) && token.role !== "admin") {
-    console.log("Not an admin, redirecting to unauthorized");
-    return NextResponse.redirect(new URL(`/${locale}/unauthorized`, req.url));
-  }
-  if (pathname.startsWith(`/${locale}/auth`)) {
+  if (authPath.some((path) => pathname.startsWith(path))) {
     if (token.role === "admin") {
-      return NextResponse.redirect(new URL(`/${locale}/admin`, req.url));
+      return NextResponse.redirect(new URL(`/${locale}/dashboard`, req.url));
     } else {
-      return NextResponse.redirect(new URL(`/${locale}/user`, req.url));
+      return NextResponse.redirect(new URL(`/${locale}/profile`, req.url));
     }
   }
-  // Autoriser l'accès aux autres chemins si authentifié
+
+  if (adminPath.some((path) => pathname.startsWith(path))) {
+    if (token.role !== "admin") {
+      return NextResponse.redirect(new URL(`/${locale}/unauthorized`, req.url));
+    }
+  }
   console.log("Token is valid, proceeding with request.");
   return NextResponse.next();
 }

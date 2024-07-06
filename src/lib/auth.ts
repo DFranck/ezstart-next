@@ -5,7 +5,7 @@ import GitHubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
 import { db } from "./db";
 import { signInSchema } from "./zod"; // Assurez-vous que le schéma Zod est correctement configuré
-
+// const locale = useLocale();
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
     GoogleProvider({
@@ -60,6 +60,9 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       },
     }),
   ],
+  // pages: {
+  //   signIn: `/${locale}/sign-in`,
+  // },
   secret: process.env.AUTH_SECRET,
   callbacks: {
     async jwt({ token, user, trigger, session }) {

@@ -136,7 +136,7 @@ const SignInForm = () => {
           </Button>
           <p className="text-sm text-muted-foreground w-full flex justify-between gap-2 items-center mt-1">
             <Link
-              href={`/${locale}/sign-in/forgot-password`}
+              href={`/${locale}/forgot-password`}
               className="text-muted-foreground text-xs hover:underline w-full text-end"
             >
               {t("forgotPasswordText")}

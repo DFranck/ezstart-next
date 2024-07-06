@@ -92,7 +92,10 @@ const UserMen = ({ className }: { className?: string }) => {
             )}
           >
             <li>
-              <Link href={`/${locale}/user`} className={liStyle}>
+              <Link
+                href={`/${locale}/${user.role === "admin" ? "admin" : "user"}`}
+                className={liStyle}
+              >
                 {user.image ? (
                   <Image
                     src={user.image}

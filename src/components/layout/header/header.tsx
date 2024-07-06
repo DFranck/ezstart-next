@@ -12,7 +12,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import UserAuthLinks from "./user-auth-links";
-import UserNav from "./user-nav";
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -35,11 +34,7 @@ export const Header = () => {
               EzStart
             </div>
           </Link>
-          {!user ? (
-            <Nav className="hidden lg:flex" />
-          ) : (
-            <UserNav className="hidden lg:flex" />
-          )}
+          <Nav className="hidden lg:flex" />
           {!user && (
             <UserAuthLinks setIsOpen={setIsOpen} className="hidden lg:flex" />
           )}

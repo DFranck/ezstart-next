@@ -51,7 +51,7 @@ const VerifyCodeForm = () => {
       setIsFetching(false);
     } else {
       setIsFetching(false);
-      router.push(`/${locale}/sign-in/reset-password?code=${data.resetCode}`);
+      router.push(`/${locale}/reset-password?code=${data.resetCode}`);
       console.log("Code verified", resultData);
     }
   };

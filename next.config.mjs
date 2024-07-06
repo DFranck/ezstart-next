@@ -9,7 +9,7 @@ const nextConfig = {
       "tailwindcss.com",
       "w7.pngwing",
       "lh3.googleusercontent.com",
-      "github.com",
+      "avatars.githubusercontent.com",
     ],
   },
 };
