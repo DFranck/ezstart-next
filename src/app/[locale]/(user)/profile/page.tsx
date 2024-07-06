@@ -1,5 +1,12 @@
+import ComingSoon from "@/components/layout/coming-soon.";
+import Section from "@/components/layout/section";
+
 const Profile = () => {
-  return <div>Profile</div>;
+  return (
+    <Section>
+      <ComingSoon />
+    </Section>
+  );
 };
 
 export default Profile;
