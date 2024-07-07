@@ -62,7 +62,10 @@ const LocaleSwitcher = () => {
     return null;
   }
   return (
-    <div className="relative text-foreground" onBlur={handleBlur}>
+    <div
+      className="relative text-foreground opacity-60 hover:opacity-100"
+      onBlur={handleBlur}
+    >
       <button
         ref={buttonRef}
         aria-haspopup="true"

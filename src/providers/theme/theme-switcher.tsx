@@ -54,7 +54,10 @@ export function ThemeSwitcher({ className }: { className?: string }) {
   }
   return (
     <div
-      className={cn("relative text-foreground", className)}
+      className={cn(
+        "relative text-foreground opacity-60 hover:opacity-100",
+        className
+      )}
       onBlur={handleBlur}
     >
       <button
@@ -73,7 +76,7 @@ export function ThemeSwitcher({ className }: { className?: string }) {
           ref={dropdownRef}
           tabIndex={-1}
           className={cn(
-            "absolute top-10 right-0 z-20 bg-background border shadow rounded animate-fadeIn duration-200"
+            "absolute top-10 right-0 z-20 bg-background border shadow rounded animate-fadeIn duration-1000"
           )}
         >
           <li

@@ -78,17 +78,15 @@ const UserMen = ({ className }: { className?: string }) => {
               onKeyDown={handleKeyDown}
             >
               <AvatarImage src={"https://github.com/shadcn.png"} />
-              <AvatarFallback>{user.name ?? ""}</AvatarFallback>
             </Avatar>
           )}
-          <AvatarFallback>{user.name ?? ""}</AvatarFallback>
         </Avatar>
         {isOpen && (
           <ul
             ref={dropdownRef}
             tabIndex={-1}
             className={cn(
-              "absolute top-10 right-0 z-20 bg-background border shadow rounded  duration-200 min-w-[300px] w-fit p-2"
+              "absolute top-10 right-0 z-20 bg-background border shadow rounded  duration-200 min-w-[300px] w-fit p-2 space-y-2"
             )}
           >
             <li>
@@ -104,10 +102,10 @@ const UserMen = ({ className }: { className?: string }) => {
                     width={36}
                     height={36}
                     alt={user.name ?? ""}
-                    className="w-9 h-9 flex justify-center items-center"
+                    className="w-9 h-9 flex justify-center items-center rounded-full"
                   />
                 ) : (
-                  <Avatar className="w-9 h-9">
+                  <Avatar className="w-9 h-9 rounded-full">
                     <AvatarImage src={"https://github.com/shadcn.png"} />
                     <AvatarFallback>{user.name ?? ""}</AvatarFallback>
                   </Avatar>

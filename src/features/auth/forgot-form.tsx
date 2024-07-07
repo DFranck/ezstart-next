@@ -49,7 +49,7 @@ const ForgotForm = () => {
       setIsFetching(false);
     } else {
       setIsFetching(false);
-      router.push(`/${locale}sign-in/verify-reset-code`);
+      router.push(`/${locale}/verify-reset-code`);
       // Here you can handle what happens next, like showing a message to check their email.
     }
   };
