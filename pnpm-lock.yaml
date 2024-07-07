@@ -20,6 +20,9 @@ dependencies:
   '@radix-ui/react-slot':
     specifier: ^1.1.0
     version: 1.1.0(@types/react@18.3.3)(react@18.3.1)
+  '@types/prop-types':
+    specifier: ^15.7.12
+    version: 15.7.12
   bcryptjs:
     specifier: ^2.4.3
     version: 2.4.3
