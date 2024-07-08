@@ -34,7 +34,14 @@ export const Header = () => {
               EzStart
             </div>
           </Link>
-          <Nav className="hidden lg:flex" />
+          <Nav
+            navClass="hidden lg:flex"
+            t={"header"}
+            render={"nav"}
+            root={[0]}
+            dir={"row"}
+          />
+
           {!user && (
             <UserAuthLinks setIsOpen={setIsOpen} className="hidden lg:flex" />
           )}
@@ -56,11 +63,32 @@ export const Header = () => {
         </div>
         <div
           className={cn(
-            "transition-all duration-500 ease-in-out overflow-hidden",
+            "transition-all duration-500 ease-in-out  mt-2 lg:hidden",
             { "max-h-0": !isOpen, "max-h-screen": isOpen }
           )}
         >
-          <Nav />
+          <Nav
+            navClass="block bg-accent text-accent-foreground p-2 border-b border-primary"
+            liClass="text-left p-2"
+            t={"header"}
+            render={"nav"}
+            root={[0]}
+            dir={"col"}
+            variant={"primary"}
+            setIsOpen={setIsOpen}
+          />
+
+          <Nav
+            t="SideNav"
+            navClass="p-2 bg-secondary text-secondary-foreground border-b border-primary"
+            liClass="text-right p-2"
+            render="links"
+            path="docs"
+            dir={"col"}
+            active
+            variant={"primary"}
+            setIsOpen={setIsOpen}
+          />
           {!user && <UserAuthLinks setIsOpen={setIsOpen} />}
         </div>
       </div>

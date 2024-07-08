@@ -5,7 +5,7 @@
       "description": "Sign in to your account"
     }
   },
-  "Header": {
+  "header": {
     "title": "EzStart",
     "links": ["Home", "About"],
     "cta": "",
@@ -15,7 +15,12 @@
     "logout": "Sign out",
     "docs": "Documentation",
     "dashboard": "Dashboard",
-    "admin": "Admin"
+    "admin": "Admin",
+    "nav": {
+      "home": "Home",
+      "about": "About",
+      "docs": "Docs"
+    }
   },
   "SideNav": {
     "links": {
