@@ -16,11 +16,7 @@
     "docs": "Documentation",
     "dashboard": "Dashboard",
     "admin": "Admin",
-    "nav": {
-      "home": "Home",
-      "about": "About",
-      "docs": "Docs"
-    }
+    "nav": ["Home", "About", "docs"]
   },
   "SideNav": {
     "links": {

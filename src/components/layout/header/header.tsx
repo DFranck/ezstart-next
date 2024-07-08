@@ -76,6 +76,7 @@ export const Header = () => {
             root={[0]}
             dir={"col"}
             variant={"primary"}
+            setIsOpen={setIsOpen}
           />
           <Nav
             t="SideNav"
@@ -86,7 +87,8 @@ export const Header = () => {
             dir={"col"}
             active
             variant={"primary"}
-          />{" "}
+            setIsOpen={setIsOpen}
+          />
           {!user && <UserAuthLinks setIsOpen={setIsOpen} />}
         </div>
       </div>

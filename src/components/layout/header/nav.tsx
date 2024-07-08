@@ -7,7 +7,7 @@ const navVariants = cva("", {
   variants: {
     dir: {
       row: "",
-      col: "md:block w-fit relative md:p-4 min-w-max",
+      col: "lg:block w-fit relative lg:p-4 min-w-max",
     },
   },
   defaultVariants: {
@@ -22,7 +22,7 @@ const ulVariants = cva("", {
     },
     pos: {
       default: "justify-center items-center",
-      fixed: "md:fixed",
+      fixed: "lg:fixed",
     },
   },
   defaultVariants: {
@@ -31,7 +31,7 @@ const ulVariants = cva("", {
   },
 });
 const linkVariants = cva(
-  "text-lg md:p-2 rounded duration-100 whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-offset-2 w-full block text-center",
+  "text-lg lg:p-2 rounded duration-100 whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-offset-2 w-full block text-center",
   {
     variants: {
       variant: {
@@ -85,6 +85,7 @@ type NavProps = {
   variant?: VariantProps<typeof linkVariants>["variant"];
   pos?: VariantProps<typeof ulVariants>["pos"];
   dir?: VariantProps<typeof navVariants>["dir"];
+  setIsOpen?: (value: boolean) => void;
 };
 
 const Nav = ({
@@ -100,6 +101,7 @@ const Nav = ({
   active = false,
   variant = "default",
   dir,
+  setIsOpen,
 }: NavProps) => {
   const locale = useLocale();
   const pathname = usePathname();
@@ -110,6 +112,7 @@ const Nav = ({
 
   const linkList = Array.isArray(rawLinks) ? rawLinks : Object.values(rawLinks);
   const linkKeys = Array.isArray(rawLinks) ? linkList : Object.keys(rawLinks);
+
   return (
     <>
       <nav
@@ -120,13 +123,18 @@ const Nav = ({
           {linkList.map((link, index) => {
             const linkPath = Array.isArray(rawLinks)
               ? root.includes(index)
-                ? `/${locale}`
-                : `/${locale}/${path}/${link.toLowerCase()}`
+                ? `/${locale}/`
+                : `/${locale}/${link.toLowerCase()}`
               : `/${locale}/${path}/${linkKeys[index].toLowerCase()}`;
             const isActive = pathname.startsWith(linkPath);
+            console.log(linkPath);
 
             return (
-              <li key={`${link}-${index}`} className={cn("w-full")}>
+              <li
+                key={`${link}-${index}`}
+                className={cn("w-full")}
+                onClick={() => setIsOpen?.(false)}
+              >
                 <Link
                   href={linkPath}
                   aria-label={link}
@@ -144,7 +152,11 @@ const Nav = ({
         {dir === "col" && (
           <ul className={cn(pos === "fixed" ? "invisible" : "hidden")}>
             {linkList.map((link, index) => (
-              <li key={`${link}-${index}`} className="text-lg p-2">
+              <li
+                key={`${link}-${index}`}
+                className="text-lg p-2"
+                onClick={() => setIsOpen?.(false)}
+              >
                 {link}
               </li>
             ))}

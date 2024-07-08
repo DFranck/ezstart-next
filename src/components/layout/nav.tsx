@@ -10,7 +10,7 @@ const navVariants = cva("", {
   variants: {
     dir: {
       row: "",
-      col: "md:block w-fit relative md:p-4 min-w-max",
+      col: "lg:block w-fit relative md:p-4 min-w-max",
     },
   },
   defaultVariants: {
@@ -25,7 +25,7 @@ const ulVariants = cva("", {
     },
     pos: {
       default: "justify-center items-center",
-      fixed: "md:fixed",
+      fixed: "lg:fixed",
     },
   },
   defaultVariants: {
@@ -34,7 +34,7 @@ const ulVariants = cva("", {
   },
 });
 const linkVariants = cva(
-  "text-lg md:p-2 rounded duration-100 whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-offset-2 w-full block text-center",
+  "text-lg lg:p-2 rounded duration-100 whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-offset-2 w-full block text-center",
   {
     variants: {
       variant: {

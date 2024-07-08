@@ -10,7 +10,7 @@ const layout = ({ children }: { children: React.ReactNode }) => {
         dir={"col"}
         pos={"fixed"}
         active
-        navClass="hidden"
+        navClass="hidden lg:flex"
         variant={"primary"}
       />
       <div className="w-full h-full flex bg-secondary text-secondary-foreground">

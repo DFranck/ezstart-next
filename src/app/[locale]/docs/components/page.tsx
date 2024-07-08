@@ -31,6 +31,11 @@ const ComponentPage = () => {
             <Link href="/docs/components/logo">Logo.tsx</Link>
           </Button>
         </li>
+        <li className="flex gap-4 justify-center">
+          <Button>
+            <Link href="/docs/components/carousel-3d">Carousel3D.tsx</Link>
+          </Button>
+        </li>
       </ul>
     </Section>
   );
