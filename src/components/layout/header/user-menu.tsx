@@ -14,7 +14,7 @@ import { useEffect, useRef, useState } from "react";
 import UserAuthLogout from "./user-auth-logout";
 
 const UserMen = ({ className }: { className?: string }) => {
-  const t = useTranslations("Header");
+  const t = useTranslations("header");
   const [isOpen, setIsOpen] = useState(false);
   const locale = useLocale();
   const session = useSession();

@@ -20,6 +20,7 @@ export const Header = () => {
   const scrollY = useOnScroll();
   const { data: session } = useSession();
   const user = session?.user;
+  console.log(isOpen);
   return (
     <header
       className={cn("p-6 z-10 fixed w-full", {
@@ -63,32 +64,29 @@ export const Header = () => {
         </div>
         <div
           className={cn(
-            "transition-all duration-500 ease-in-out  mt-2 lg:hidden",
+            "transition-all duration-500 ease-in-out mt-2 lg:hidden overflow-hidden",
             { "max-h-0": !isOpen, "max-h-screen": isOpen }
           )}
         >
           <Nav
-            navClass="block bg-accent text-accent-foreground p-2 border-b border-primary"
+            navClass="bg-accent text-accent-foreground p-2 border-b border-primary"
             liClass="text-left p-2"
             t={"header"}
             render={"nav"}
             root={[0]}
             dir={"col"}
             variant={"primary"}
-            setIsOpen={setIsOpen}
           />
-
           <Nav
             t="SideNav"
-            navClass="p-2 bg-secondary text-secondary-foreground border-b border-primary"
+            navClass="bg-accent text-accent-foreground p-2 border-b border-primary"
             liClass="text-right p-2"
             render="links"
             path="docs"
             dir={"col"}
             active
             variant={"primary"}
-            setIsOpen={setIsOpen}
-          />
+          />{" "}
           {!user && <UserAuthLinks setIsOpen={setIsOpen} />}
         </div>
       </div>

@@ -3,7 +3,6 @@ import { cva, VariantProps } from "class-variance-authority";
 import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
 const navVariants = cva("", {
   variants: {
     dir: {
@@ -15,7 +14,6 @@ const navVariants = cva("", {
     dir: "row",
   },
 });
-
 const ulVariants = cva("", {
   variants: {
     dir: {
@@ -32,7 +30,6 @@ const ulVariants = cva("", {
     pos: "default",
   },
 });
-
 const linkVariants = cva(
   "text-lg md:p-2 rounded duration-100 whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-offset-2 w-full block text-center",
   {
@@ -75,21 +72,19 @@ const linkVariants = cva(
     },
   }
 );
-
 type NavProps = {
-  t?: string;
-  render?: string;
-  root?: number[];
-  links?: string[] | { [key: string]: string };
-  path?: string;
-  active?: boolean;
-  navClass?: string;
-  ulClass?: string;
-  liClass?: string;
+  t?: string; // Translation key
+  render?: string; // Display array or object key
+  root?: number[]; // Root indices (only applicable if d is an array)
+  links?: string[] | { [key: string]: string }; // Direct links array or object
+  path?: string; // Base path for non-root links
+  active?: boolean; // If true, applies active styles based on the current pathname
+  navClass?: string; // Custom class
+  ulClass?: string; // Custom class
+  liClass?: string; // Custom class
   variant?: VariantProps<typeof linkVariants>["variant"];
   pos?: VariantProps<typeof ulVariants>["pos"];
   dir?: VariantProps<typeof navVariants>["dir"];
-  setIsOpen?: (value: boolean) => void;
 };
 
 const Nav = ({
@@ -105,7 +100,6 @@ const Nav = ({
   active = false,
   variant = "default",
   dir,
-  setIsOpen,
 }: NavProps) => {
   const locale = useLocale();
   const pathname = usePathname();
@@ -119,22 +113,20 @@ const Nav = ({
   return (
     <>
       <nav
-        className={cn(navVariants({ dir }), "w-full md:w-fit", navClass)}
+        className={cn(navVariants({ dir }), "w-full lg:w-fit", navClass)}
         aria-label="Main navigation"
       >
         <ul className={cn(ulVariants({ dir, pos }), ulClass)}>
           {linkList.map((link, index) => {
-            const linkPath = root.includes(index)
-              ? `/${locale}`
-              : `/${locale}${path ? `/${path}` : ""}/${link.toLowerCase()}`;
+            const linkPath = Array.isArray(rawLinks)
+              ? root.includes(index)
+                ? `/${locale}`
+                : `/${locale}/${path}/${link.toLowerCase()}`
+              : `/${locale}/${path}/${linkKeys[index].toLowerCase()}`;
             const isActive = pathname.startsWith(linkPath);
 
             return (
-              <li
-                key={`${link}-${index}`}
-                className={cn("w-full")}
-                onClick={() => setIsOpen?.(false)}
-              >
+              <li key={`${link}-${index}`} className={cn("w-full")}>
                 <Link
                   href={linkPath}
                   aria-label={link}
@@ -152,11 +144,7 @@ const Nav = ({
         {dir === "col" && (
           <ul className={cn(pos === "fixed" ? "invisible" : "hidden")}>
             {linkList.map((link, index) => (
-              <li
-                key={`${link}-${index}`}
-                className="text-lg p-2"
-                onClick={() => setIsOpen?.(false)}
-              >
+              <li key={`${link}-${index}`} className="text-lg p-2">
                 {link}
               </li>
             ))}
