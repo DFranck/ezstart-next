@@ -8,9 +8,10 @@ import bgImg from "../../public/assets/imgs/devnobg.png";
 type Carousel3DProps = {
   imgNum?: number;
   children?: ReactNode;
+  stopOnHover?: boolean;
 };
 
-const Carousel3D = ({ imgNum = 5, children }: Carousel3DProps) => {
+const Carousel3D = ({ imgNum = 5, children, stopOnHover }: Carousel3DProps) => {
   const [isMouseOver, setIsMouseOver] = React.useState(false);
   const items = Array.from({ length: imgNum }, (_, i) => i + 1);
   const childrenArray = React.Children.toArray(children) as ReactElement[];
@@ -56,10 +57,10 @@ const Carousel3D = ({ imgNum = 5, children }: Carousel3DProps) => {
               "--position": position.toString(),
             }}
             onMouseEnter={() => {
-              setIsMouseOver(true);
+              if (stopOnHover) setIsMouseOver(true);
             }}
             onMouseLeave={() => {
-              setIsMouseOver(false);
+              if (stopOnHover) setIsMouseOver(false);
             }}
             role="img"
             aria-label={`Image ${position}`}
