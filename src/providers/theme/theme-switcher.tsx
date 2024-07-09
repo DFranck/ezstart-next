@@ -9,7 +9,7 @@ import { useEffect, useRef, useState } from "react";
 export function ThemeSwitcher({ className }: { className?: string }) {
   const [isMounted, setIsMounted] = useState(false);
   const { theme, setTheme } = useTheme();
-  const t = useTranslations("Theme");
+  const t = useTranslations("theme");
   const [isOpen, setIsOpen] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const dropdownRef = useRef<HTMLUListElement>(null);

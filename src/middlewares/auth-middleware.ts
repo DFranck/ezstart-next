@@ -56,6 +56,5 @@ export async function authMiddleware(req: NextRequest) {
       return NextResponse.redirect(new URL(`/${locale}/unauthorized`, req.url));
     }
   }
-  console.log("Token is valid, proceeding with request.");
   return NextResponse.next();
 }

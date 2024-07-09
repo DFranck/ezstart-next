@@ -22,7 +22,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         password: { label: "Password", type: "password" },
       },
       authorize: async (credentials) => {
-        console.log("trying credentials signIn", credentials);
         try {
           const parsedData = await signInSchema.parseAsync(credentials);
 
@@ -30,11 +29,9 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             typeof parsedData.email !== "string" ||
             typeof parsedData.password !== "string"
           ) {
-            console.log("Invalid credentials");
             throw new Error("Invalid credentials");
           }
 
-          console.log("parsedData", parsedData);
           const user = await db.user.findUnique({
             where: { email: parsedData.email ?? "" },
           });
@@ -48,7 +45,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             };
           }
 
-          console.log("Invalid email or password");
           throw new Error("Invalid email or password");
         } catch (error: any) {
           console.error("Error in authorize:", error);

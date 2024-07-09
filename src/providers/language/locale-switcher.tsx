@@ -7,7 +7,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useRef, useState, useTransition } from "react";
 
 const LocaleSwitcher = () => {
-  const t = useTranslations("Locale");
+  const t = useTranslations("locale");
   const [isMounted, setIsMounted] = useState(false);
   const [isPending, startTransition] = useTransition();
   const [isOpen, setIsOpen] = useState(false);

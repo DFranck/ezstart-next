@@ -124,53 +124,51 @@
       },
       "dev-tools": {
         "title": "Developer Tools",
-        "description": "A collection of tools to assist developers in efficiently managing and enhancing their projects.",
+        "description": "A collection of tools to assist developers in efficiently managing and enhancing their projects. If you start with EZ Start, you can use these tools to enhance your development experience without confusing yourself, if not you can find configuration options in th 'Developer Tools' section.",
         "sections": {
           "nav-links": {
             "update-app-name": "Update App Name",
             "": ""
           },
-          "updateAppName": {
+          "update-app-name": {
             "title": "Update App Name",
             "description": "The 'Update App Name' tool allows developers to easily update the application's name across various files and configurations within the project.",
-            "sections": {
-              "overview": {
-                "title": "Overview",
-                "content": "The 'Update App Name' tool is designed to help developers easily update the application's name across various files and configurations in their project. This ensures consistency and saves time, especially when rebranding or cloning projects."
-              },
-              "features": {
-                "title": "Features",
-                "content": [
-                  "Automatic updates in critical files like package.json, README.md, and translation files.",
-                  "Simple configuration to define the new application name and paths to be updated.",
-                  "Robust handling of string replacements to ensure all instances of the old name are updated."
-                ]
-              },
-              "howItWorks": {
-                "title": "How It Works",
-                "content": "The script scans the following files and updates the application name:\n1. package.json: Updates the name field.\n2. README.md: Replaces all instances of the old name with the new name.\n3. Translation files: Updates the meta-title and meta-description fields in JSON files located in the messages directory."
-              },
-              "configuration": {
-                "title": "Configuration",
-                "content": "You can customize the new application name and specify the paths to the files to be updated."
-              },
-              "exampleUsage": {
-                "title": "Example Usage",
-                "content": [
-                  {
-                    "title": "Configuration",
-                    "description": "First, define the old and new application names:",
-                    "code": "// updateAppName.js\nconst fs = require('fs');\nconst path = require('path');\n\n// Application name to update\nconst newAppName = 'EzStart - The Ultimate Boilerplate for Modern Web Development'; // Replace with the desired name\nconst oldAppName = 'Your Application Name'; // Replace with the current name of the application in README\n\n// Paths to the files\nconst packageJsonFilePath = path.join(__dirname, 'package.json');\nconst readmeFilePath = path.join(__dirname, 'README.md');\nconst i18nFolderPath = path.join(__dirname, 'messages');\n\n// Update package.json\nconst packageJson = JSON.parse(fs.readFileSync(packageJsonFilePath, 'utf-8'));\npackageJson.name = newAppName.toLowerCase().replace(/[^a-z0-9-._~]/g, '-');\nfs.writeFileSync(packageJsonFilePath, JSON.stringify(packageJson, null, 2));\n\n// Update README.md\nlet readmeContent = fs.readFileSync(readmeFilePath, 'utf-8');\nreadmeContent = readmeContent.replace(new RegExp(oldAppName, 'g'), newAppName);\nfs.writeFileSync(readmeFilePath, readmeContent);\n\n// Update translation files if the directory exists\nif (fs.existsSync(i18nFolderPath)) {\n  fs.readdirSync(i18nFolderPath).forEach((file) => {\n    const filePath = path.join(i18nFolderPath, file);\n    let fileContent = fs.readFileSync(filePath, 'utf-8');\n    const updatedContent = fileContent.replace(\n      /('meta-title'\\s*:\\s*')[^']*(')/,\n      `$1${newAppName}$2`\n    );\n    fs.writeFileSync(filePath, updatedContent);\n  });\n} else {\n  console.log(\n    `The folder ${i18nFolderPath} does not exist, skipping translation update.`\n  );\n}\n\nconsole.log(`App name updated to ${newAppName} successfully!`);",
-                    "language": "javascript"
-                  },
-                  {
-                    "title": "Running the Script",
-                    "description": "To use this script, simply run it with Node.js:",
-                    "code": "node updateAppName.js",
-                    "language": "bash"
-                  }
-                ]
-              }
+            "features": {
+              "title": "Features",
+              "content": [
+                "Automatic updates in critical files like <code>package.json</code>, <code>README.md</code>, and translation files.",
+                "Simple configuration to define the new application name and paths to be updated.",
+                "Robust handling of string replacements to ensure all instances of the old name are updated."
+              ]
+            },
+            "howItWorks": {
+              "title": "How It Works",
+              "content": [
+                "<code>package.json</code>: Updates the <code>name</code> field.",
+                "<code>README.md</code>: Replaces all instances of the old name with the new name.",
+                "Translation files: Updates the <code>meta-title</code> and <code>meta-description</code> fields in JSON files located in the <code>messages</code> directory."
+              ]
+            },
+            "configuration": {
+              "title": "Configuration",
+              "content": "You can customize the new application name and specify the paths to the files to be updated."
+            },
+            "exampleUsage": {
+              "title": "Example Usage",
+              "content": [
+                {
+                  "title": "Configuration",
+                  "description": "First, define the old and new application names:",
+                  "code": "// updateAppName.js\nconst fs = require('fs');\nconst path = require('path');\n\n// Application name to update\nconst newAppName = 'EzStart - The Ultimate Boilerplate for Modern Web Development'; // Replace with the desired name\nconst oldAppName = 'Your Application Name'; // Replace with the current name of the application in README\n\n// Paths to the files\nconst packageJsonFilePath = path.join(__dirname, 'package.json');\nconst readmeFilePath = path.join(__dirname, 'README.md');\nconst i18nFolderPath = path.join(__dirname, 'messages');\n\n// Update package.json\nconst packageJson = JSON.parse(fs.readFileSync(packageJsonFilePath, 'utf-8'));\npackageJson.name = newAppName.toLowerCase().replace(/[^a-z0-9-._~]/g, '-');\nfs.writeFileSync(packageJsonFilePath, JSON.stringify(packageJson, null, 2));\n\n// Update README.md\nlet readmeContent = fs.readFileSync(readmeFilePath, 'utf-8');\nreadmeContent = readmeContent.replace(new RegExp(oldAppName, 'g'), newAppName);\nfs.writeFileSync(readmeFilePath, readmeContent);\n\n// Update translation files if the directory exists\nif (fs.existsSync(i18nFolderPath)) {\n  fs.readdirSync(i18nFolderPath).forEach((file) => {\n    const filePath = path.join(i18nFolderPath, file);\n    let fileContent = fs.readFileSync(filePath, 'utf-8');\n    const updatedContent = fileContent.replace(\n      /('meta-title'\\s*:\\s*')[^']*(')/,\n      `$1${newAppName}$2`\n    );\n    fs.writeFileSync(filePath, updatedContent);\n  });\n} else {\n  console.log(\n    `The folder ${i18nFolderPath} does not exist, skipping translation update.`\n  );\n}\n\nconsole.log(`App name updated to ${newAppName} successfully!`);",
+                  "language": "javascript"
+                },
+                {
+                  "title": "Running the Script",
+                  "description": "To use this script, simply run it with Node.js:",
+                  "code": "node updateAppName.js",
+                  "language": "bash"
+                }
+              ]
             }
           }
         }

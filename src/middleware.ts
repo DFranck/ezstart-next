@@ -9,10 +9,8 @@ export default async function middleware(req: NextRequest) {
   }
   const authResponse = await authMiddleware(req);
   if (authResponse.status !== 200) {
-    // console.log("This path is unauthorized, redirecting");
     return authResponse;
   }
-  // console.log("This path is authorized");
   return intlResponse;
 }
 

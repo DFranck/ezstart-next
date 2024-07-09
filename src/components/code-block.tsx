@@ -1,12 +1,23 @@
-// src/components/code-block.tsx
+// src/components/CodeBlock.tsx
+import { cn } from "@/lib/utils";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { solarizedlight } from "react-syntax-highlighter/dist/esm/styles/prism";
 
-const CodeBlock = ({ code, language }: { code: string; language: string }) => {
+const CodeBlock = ({
+  code,
+  language,
+  className,
+}: {
+  code: string;
+  language: string;
+  className?: string;
+}) => {
   return (
-    <SyntaxHighlighter language={language} style={solarizedlight}>
-      {code}
-    </SyntaxHighlighter>
+    <div className={cn("w-full overflow-auto max-h-80", className)}>
+      <SyntaxHighlighter language={language} style={solarizedlight}>
+        {code}
+      </SyntaxHighlighter>
+    </div>
   );
 };
 

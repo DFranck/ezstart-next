@@ -4,8 +4,6 @@ export async function GET() {
   return NextResponse.json({ message: "This route is for update username" });
 }
 export async function POST(req: NextRequest) {
-  console.log("req", req);
-
   if (req.method !== "POST") {
     return NextResponse.json(
       { message: "Method not allowed" },

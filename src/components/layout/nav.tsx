@@ -109,14 +109,10 @@ const Nav = ({
   const locale = useLocale();
   const pathname = usePathname();
   const intl = useTranslations(t || "");
-  console.log("links", t);
-  console.log("render", render);
-  console.log(t, render);
 
   const rawLinks = t && render ? intl.raw(render) : links;
 
   if (!rawLinks) return null;
-  console.log("rawLinks", rawLinks);
 
   const linkList = Array.isArray(rawLinks) ? rawLinks : Object.values(rawLinks);
   const linkKeys = Array.isArray(rawLinks) ? linkList : Object.keys(rawLinks);

@@ -62,12 +62,10 @@ const ResetPasswordForm = () => {
     });
     const resultData = await result.json();
     if (!result?.ok) {
-      console.log(resultData.message);
       setError(err(`${resultData.message}`));
       setIsFetching(false);
     } else {
       setIsFetching(false);
-      console.log("Password reset successfully", resultData);
       router.push(`/${locale}/sign-in`);
     }
   };

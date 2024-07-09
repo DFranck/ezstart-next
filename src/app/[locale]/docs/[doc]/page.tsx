@@ -12,8 +12,8 @@ const DynamicPageContent = ({
   return (
     <>
       <h1>{t("title")} Content</h1>
-      <p>{t("description")}</p>
-      <UpdateAppName />
+      <p className="mb-10">{t("description")}</p>
+      {doc === "dev-tools" && <UpdateAppName />}
       {/* Ajoutez d'autres conditions pour d'autres pages dynamiques */}
     </>
   );
