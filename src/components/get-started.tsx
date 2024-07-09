@@ -4,7 +4,7 @@ import { useTranslations } from "next-intl";
 import Link from "next/link";
 
 const GetStarted = () => {
-  const t = useTranslations("App.Home.GetStarted");
+  const t = useTranslations("pages.home.sections.get-started");
   const content = t.raw("content") as string[];
 
   return (

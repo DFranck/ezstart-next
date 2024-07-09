@@ -2,7 +2,7 @@ import { useTranslations } from "next-intl";
 import Link from "next/link";
 
 const FooterLinks = ({ locale }: { locale: string }) => {
-  const t = useTranslations("Footer");
+  const t = useTranslations("footer");
   const links = t.raw("links") as string[];
   //links in the json must be an array
   if (!links || links.length === 0) return null;

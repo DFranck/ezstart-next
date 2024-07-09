@@ -1,4 +1,4 @@
-# EzStart
+# Your New App Name
 
 🌟 Kickstart Your Next.js Projects with Ease 🌟
 

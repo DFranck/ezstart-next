@@ -1,6 +1,6 @@
 "use client";
 import ErrorForm from "@/components/errorForm";
-import TextLoader from "@/components/loader";
+import UserAuth from "@/components/layout/header/user-auth";
 import PasswordInput from "@/components/passwordInput";
 import GithubSvg from "@/components/svgs/github-svg";
 import GoogleSvg from "@/components/svgs/google-svg";
@@ -158,9 +158,7 @@ const SignUpForm = () => {
             </FormItem>
           )}
         />
-        <Button type="submit" className="w-full mt-2 text-sm h-fit p-1 mb-5">
-          {isFetching ? <TextLoader /> : t("signUpButton")}
-        </Button>
+        <UserAuth />
         <div className="mt-4 text-center w-full text-xs">
           <p className="text-sm text-muted-foreground w-full flex justify-between gap-2">
             {t("hasAccountText")}{" "}

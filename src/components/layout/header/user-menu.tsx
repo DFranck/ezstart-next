@@ -11,7 +11,7 @@ import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import UserAuthLogout from "./user-auth-logout";
+import UserAuth from "./user-auth";
 
 const UserMen = ({ className }: { className?: string }) => {
   const t = useTranslations("header");
@@ -127,7 +127,7 @@ const UserMen = ({ className }: { className?: string }) => {
               </Link>
             </li>
             <li>
-              <UserAuthLogout className={liStyle} />
+              <UserAuth className={liStyle} />
             </li>
             <li className="flex justify-end gap-2">
               <LocaleSwitcher />

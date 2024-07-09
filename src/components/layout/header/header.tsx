@@ -1,26 +1,26 @@
 "use client";
 import Burger from "@/components/layout/header/burger";
-import Nav from "@/components/layout/header/nav";
 import UserMenu from "@/components/layout/header/user-menu";
+import Nav from "@/components/layout/nav";
 import useOnScroll from "@/hooks/useOnScroll";
 import { cn } from "@/lib/utils";
 import LocaleSwitcher from "@/providers/language/locale-switcher";
 import { ThemeSwitcher } from "@/providers/theme/theme-switcher";
 import { useSession } from "next-auth/react";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import UserAuthLinks from "./user-auth-links";
+import UserAuth from "./user-auth";
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
   const locale = useLocale();
   const scrollY = useOnScroll();
+  const t = useTranslations("header");
   const { data: session } = useSession();
   const user = session?.user;
-  console.log(isOpen);
   return (
     <header
       className={cn("p-6 z-10 fixed w-full border-b", {
@@ -31,20 +31,19 @@ export const Header = () => {
       <div className="mx-auto max-w-screen-lg">
         <div className="flex flex-wrap items-center justify-between">
           <Link href="/">
-            <div className="flex items-center text-xl font-semibold">
-              EzStart
-            </div>
+            <h2 className="flex items-center text-xl font-semibold">
+              {t("app-title")}
+            </h2>
           </Link>
           <Nav
             navClass="hidden lg:flex"
             t={"header"}
-            render={"nav"}
+            render={"nav-links"}
             root={[0]}
             dir={"row"}
           />
-
           {!user && (
-            <UserAuthLinks setIsOpen={setIsOpen} className="hidden lg:flex" />
+            <UserAuth setIsOpen={setIsOpen} className="hidden lg:flex" />
           )}
 
           <div className="flex items-center gap-2">
@@ -72,24 +71,26 @@ export const Header = () => {
             navClass="bg-accent text-accent-foreground p-2 border-b border-primary"
             liClass="text-left p-2"
             t={"header"}
-            render={"nav"}
+            render={"nav-links"}
             root={[0]}
             dir={"col"}
             variant={"primary"}
             setIsOpen={setIsOpen}
           />
-          <Nav
-            t="SideNav"
-            navClass="bg-accent text-accent-foreground p-2 border-b border-primary"
-            liClass="text-right p-2"
-            render="links"
-            path="docs"
-            dir={"col"}
-            active
-            variant={"primary"}
-            setIsOpen={setIsOpen}
-          />
-          {!user && <UserAuthLinks setIsOpen={setIsOpen} />}
+          {pathname.includes(`/${locale}/docs`) && (
+            <Nav
+              t="pages.docs"
+              navClass="bg-accent text-accent-foreground p-2 border-b border-primary"
+              liClass="text-right p-2"
+              render="nav-links"
+              path="docs"
+              dir={"col"}
+              active
+              variant={"primary"}
+              setIsOpen={setIsOpen}
+            />
+          )}
+          {!user && <UserAuth />}
         </div>
       </div>
     </header>

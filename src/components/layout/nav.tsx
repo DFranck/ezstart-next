@@ -1,16 +1,14 @@
 "use client";
 import { cn } from "@/lib/utils";
-import { cva, type VariantProps } from "class-variance-authority";
+import { cva, VariantProps } from "class-variance-authority";
 import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React from "react";
-
 const navVariants = cva("", {
   variants: {
     dir: {
       row: "",
-      col: "lg:block w-fit relative md:p-4 min-w-max",
+      col: "lg:block w-fit relative lg:p-4 min-w-max",
     },
   },
   defaultVariants: {
@@ -75,7 +73,6 @@ const linkVariants = cva(
     },
   }
 );
-
 type NavProps = {
   t?: string; // Translation key
   render?: string; // Display array or object key
@@ -87,11 +84,13 @@ type NavProps = {
   ulClass?: string; // Custom class
   liClass?: string; // Custom class
   variant?: VariantProps<typeof linkVariants>["variant"];
+  anchorLinks?: boolean; // If true, uses anchor links
   pos?: VariantProps<typeof ulVariants>["pos"];
   dir?: VariantProps<typeof navVariants>["dir"];
+  setIsOpen?: (value: boolean) => void;
 };
 
-const Nav: React.FC<NavProps> = ({
+const Nav = ({
   t,
   render,
   root = [],
@@ -101,10 +100,12 @@ const Nav: React.FC<NavProps> = ({
   liClass = "",
   path = "",
   pos,
+  anchorLinks = false,
   active = false,
   variant = "default",
   dir,
-}) => {
+  setIsOpen,
+}: NavProps) => {
   const locale = useLocale();
   const pathname = usePathname();
   const intl = useTranslations(t || "");
@@ -116,45 +117,53 @@ const Nav: React.FC<NavProps> = ({
   const linkKeys = Array.isArray(rawLinks) ? linkList : Object.keys(rawLinks);
 
   return (
-    <nav
-      className={cn(navVariants({ dir }), "w-full md:w-fit", navClass)}
-      aria-label="Main navigation"
-    >
-      <ul className={cn(ulVariants({ dir, pos }), ulClass)}>
-        {linkList.map((link, index) => {
-          const linkPath = Array.isArray(rawLinks)
-            ? root.includes(index)
-              ? `/${locale}`
-              : `/${locale}/${path}/${link.toLowerCase()}`
-            : `/${locale}/${path}/${linkKeys[index].toLowerCase()}`;
-          const isActive = pathname.startsWith(linkPath);
+    <>
+      <nav
+        className={cn(navVariants({ dir }), "w-full lg:w-fit", navClass)}
+        aria-label="Main navigation"
+      >
+        <ul className={cn(ulVariants({ dir, pos }), ulClass)}>
+          {linkList.map((link, index) => {
+            const linkPath = anchorLinks
+              ? `#${linkKeys[index].toLowerCase()}`
+              : `/${path}/${linkKeys[index].toLowerCase()}`;
+            const isActive = pathname.startsWith(linkPath);
 
-          return (
-            <li key={`${link}-${index}`} className={cn("w-full", liClass)}>
-              <Link
-                href={linkPath}
-                aria-label={link}
-                className={cn(
-                  linkVariants({ variant, isActive: active && isActive }),
-                  liClass
-                )}
+            return (
+              <li
+                key={`${link}-${index}`}
+                className={cn("w-full")}
+                onClick={() => setIsOpen?.(false)}
+              >
+                <Link
+                  href={linkPath}
+                  aria-label={link}
+                  className={cn(
+                    linkVariants({ variant, isActive: active && isActive }),
+                    liClass
+                  )}
+                >
+                  {link}
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+        {dir === "col" && (
+          <ul className={cn(pos === "fixed" ? "invisible" : "hidden")}>
+            {linkList.map((link, index) => (
+              <li
+                key={`${link}-${index}`}
+                className="text-lg p-2"
+                onClick={() => setIsOpen?.(false)}
               >
                 {link}
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
-      {dir === "col" && (
-        <ul className={cn(pos === "fixed" ? "invisible" : "hidden")}>
-          {linkList.map((link, index) => (
-            <li key={`${link}-${index}`} className="text-lg p-2">
-              {link}
-            </li>
-          ))}
-        </ul>
-      )}
-    </nav>
+              </li>
+            ))}
+          </ul>
+        )}
+      </nav>
+    </>
   );
 };
 

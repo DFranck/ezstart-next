@@ -10,16 +10,16 @@ import "../globals.css";
 const inter = Inter({ subsets: ["latin"] });
 export async function generateMetadata({ params: { locale } }: any) {
   const messages = (await getMessages(locale)) as any;
-  const appTitle = messages.app["appTitle"] as string;
-  const appDescription = messages.app["appDescription"].replace(
-    "{appTitle}",
-    appTitle
+  const metaTitle = messages.app["meta-title"] as string;
+  const metaDescription = messages.app["meta-description"].replace(
+    /{meta-title}/g,
+    metaTitle
   ) as string;
 
-  console.log(appTitle, appDescription);
+  console.log(metaTitle, metaDescription);
   return {
-    title: appTitle,
-    description: appDescription,
+    title: metaTitle,
+    description: metaDescription,
   };
 }
 export default async function RootLayout({

@@ -31,7 +31,7 @@ const svgComponents: { [key: string]: React.FC<{ className?: string }> } = {
 };
 
 const FeaturesList = () => {
-  const t = useTranslations("App.Home.FeaturesList");
+  const t = useTranslations("pages.home.sections");
   const locale = useLocale();
   const features = t.raw("features") as {
     title: string;

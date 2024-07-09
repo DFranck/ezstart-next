@@ -1,6 +1,6 @@
 "use client";
 import ErrorForm from "@/components/errorForm";
-import Loader from "@/components/loader";
+import UserAuth from "@/components/layout/header/user-auth";
 import PasswordInput from "@/components/passwordInput";
 import GithubSvg from "@/components/svgs/github-svg";
 import GoogleSvg from "@/components/svgs/google-svg";
@@ -12,7 +12,6 @@ import {
   FormLabel,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { cn } from "@/lib/utils";
 import { signInSchema } from "@/lib/zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { getSession, signIn } from "next-auth/react";
@@ -131,9 +130,7 @@ const SignInForm = () => {
           )}
         />
         <div>
-          <Button type="submit" className={cn("w-full mt-2 text-sm h-fit p-1")}>
-            {isFetching ? <Loader /> : t("signInButton")}
-          </Button>
+          <UserAuth />
           <p className="text-sm text-muted-foreground w-full flex justify-between gap-2 items-center mt-1">
             <Link
               href={`/${locale}/forgot-password`}

@@ -1,13 +1,20 @@
 import Nav from "@/components/layout/nav";
 
-const Layout = ({ children }: { children: React.ReactNode }) => {
+const Layout = ({
+  children,
+  params: { doc },
+}: {
+  children: React.ReactNode;
+  params: { doc: string };
+}) => {
   return (
     <div className="mt-[88px] flex w-full h-full">
       <aside className="flex">
         <Nav
           t="pages.docs"
-          render="nav-links"
-          path="docs"
+          render={`${doc}.sections`}
+          path={`docs/${doc}`}
+          anchorLinks={true}
           dir={"col"}
           pos={"fixed"}
           active

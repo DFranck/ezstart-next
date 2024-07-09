@@ -1,17 +1,11 @@
 {
   "app": {
-    "appTitle": "EzStart",
-    "appDescription": "Welcome to EzStart!"
-  },
-  "Components": {
-    "SignInLink": {
-      "title": "Sign In",
-      "description": "Sign in to your account"
-    }
+    "meta-title": "EzStart - The Ultimate Boilerplate for Modern Web Development",
+    "meta-description": "Jumpstart your web development projects with {meta-title}, a comprehensive and flexible boilerplate. Built with modern technologies and best practices, {meta-title} provides a robust foundation for creating high-performance, scalable web applications. Perfect for developers looking to streamline their workflow and enhance productivity."
   },
   "header": {
-    "title": "EzStart",
-    "links": ["Home", "About"],
+    "app-title": "EzStart",
+    "nav-links": ["Home", "About"],
     "cta": "",
     "user": "",
     "signin": "Sign in",
@@ -19,60 +13,26 @@
     "logout": "Sign out",
     "docs": "Documentation",
     "dashboard": "Dashboard",
-    "admin": "Admin",
-    "nav": ["Home", "About", "docs"]
+    "admin": "Admin"
   },
-  "SideNav": {
-    "links": {
-      "getStarted": "Get Started",
-      "components": "Components",
-      "theming": "Theming",
-      "internationalization": "Internationalization",
-      "authentication": "Authentication",
-      "dbManagement": "Database Management",
-      "developerTools": "Developer Tools"
-    }
-  },
-  "Footer": {
+  "footer": {
     "partnersTitle": "Partners",
     "partners": "",
     "linksTitle": "Links",
     "links": "",
     "copyright": "Copyright © 2024. All rights reserved."
   },
-  "Locale": {
-    "language": { "en": "English", "fr": "French" }
-  },
-  "Theme": {
-    "light": "Light",
-    "dark": "Dark"
-  },
-  "Errors": {
-    "emailRequired": "Email is required.",
-    "invalidEmail": "Invalid email address.",
-    "passwordRequired": "Password is required.",
-    "passwordMin": "Password must be more than 8 characters.",
-    "passwordMax": "Password must be less than 32 characters.",
-    "userExists": "User already exists.",
-    "configuration": "Incorrect email or password.",
-    "notfound": "User not found.",
-    "passwordsdonotmatch": "Passwords do not match."
-  },
-  "App": {
-    "appTitle": "EzStart",
-    "appDescription": "Welcome to {appTitle}!",
-    "Home": {
-      "Hero": {
-        "title": " Welcome to EZ Start",
-        "description": "EZ Start is my Boilerplate that provides a comprehensive and flexible starting point for your web development projects. Built with modern technologies and best practices, it helps you kickstart your development process with a robust foundation.",
-        "cta": "Get started",
-        "github": "Star on GitHub"
-      },
-      "FeaturesList": {
-        "title": "Features",
-        "subtitle": "Explore the Robust Features of",
-        "description": "Explore the features below to see how the my-ez-start boilerplate can significantly accelerate your project launch.",
-        "docs": "Offical Documentation",
+  "pages": {
+    "home": {
+      "page-title": "Home",
+      "page-description": "Welcome to EzStart!",
+      "sections": {
+        "hero": {
+          "title": "EZ Start",
+          "description": "EZ Start is my Boilerplate that provides a comprehensive and flexible starting point for your web development projects. Built with modern technologies and best practices, it helps you kickstart your development process with a robust foundation.",
+          "cta": "Get Started",
+          "github": "Star on GitHub"
+        },
         "features": [
           {
             "title": "Cutting-Edge Stack",
@@ -110,47 +70,95 @@
             "link": "developertools",
             "image": "CodeSvg"
           }
-        ]
-      },
-      "GetStarted": {
-        "title": "Get Started",
-        "buttonText": "Get Started",
-        "github": "Star on GitHub",
-        "content": [
-          "To get started with My EZ Start Boilerplate, clone the repository and follow the setup instructions in the README file. Customize the configuration files to suit your project needs, and start building your application with ease.",
-          "This boilerplate is designed to be flexible and extensible, allowing you to add features and modify existing ones to fit your specific requirements."
-        ]
+        ],
+        "get-started": {
+          "title": "Get Started",
+          "buttonText": "Get Started",
+          "github": "Star on GitHub",
+          "content": [
+            "To get started with My EZ Start Boilerplate, clone the repository and follow the setup instructions in the README file. Customize the configuration files to suit your project needs, and start building your application with ease.",
+            "This boilerplate is designed to be flexible and extensible, allowing you to add features and modify existing ones to fit your specific requirements."
+          ]
+        }
       }
     },
-    "GetStarted": {
-      "title": "Get Started with EZ Start",
-      "welcome": "Welcome 👋",
-      "intro": "My EZ Start is a boilerplate designed to quickly kickstart your Next.js projects with advanced integrated features.",
-      "installationTitle": "Installation",
-      "installationSteps": "git clone https://github.com/DFranck/my-ez-start.git\ncd my-ez-start\nnpm install",
-      "setupTitle": "Setup environment",
-      "setupSteps": "DATABASE_URL=`postgresql://username:password@localhost:5432/mydatabase` \nAUTH_SECRET=your_secret_key \nAUTH_SALT=your_salt",
-      "setupTitle2": "Secret & Salt generation",
-      "setupSteps2": "node -e `console.log(require('crypto').randomBytes(32).toString('hex'))` \nor \nopenssl rand -base64 32",
-      "startTitle": "Start development",
-      "startSteps": "npm run dev",
-      "primaryDependenciesTitle": "Primary Dependencies",
-      "primaryDependenciesSubtitle": "You can find below the primary dependencies used in this boilerplate and their official documentation.",
-      "framework": "Framework",
-      "orm": "ORM",
-      "authentication": "Authentication",
-      "styling": "Styling",
-      "forms": "Forms",
-      "internationalization": "Internationalization",
-      "secondaryDependenciesTitle": "Secondary Dependencies",
-      "utilityLibraries": "Utility Libraries",
-      "animations": "Animations",
-      "icons": "Icons",
-      "security": "Security",
-      "enjoy": "Enjoy!",
-      "enjoyDescription": "You can enjoy know or take a look the documentation of this boilerplate."
+    "docs": {
+      "nav-links": {
+        "get-started": "Get Started",
+        "dev-tools": "Developer Tools",
+        "components": "Components",
+        "internationalization": "Internationalization",
+        "authentication": "Authentication",
+        "dbManagement": "Database Management"
+      },
+      "getStarted": {
+        "sections": {
+          "": ""
+        },
+        "title": "Get Started with EZ Start",
+        "welcome": "Welcome 👋",
+        "intro": "My EZ Start is a boilerplate designed to quickly kickstart your Next.js projects with advanced integrated features.",
+        "installationTitle": "Installation",
+        "installationSteps": "git clone https://github.com/DFranck/my-ez-start.git\ncd my-ez-start\nnpm install",
+        "setupTitle": "Setup environment",
+        "setupSteps": "DATABASE_URL=`postgresql://username:password@localhost:5432/mydatabase` \nAUTH_SECRET=your_secret_key \nAUTH_SALT=your_salt",
+        "setupTitle2": "Secret & Salt generation",
+        "setupSteps2": "node -e `console.log(require('crypto').randomBytes(32).toString('hex'))` \nor \nopenssl rand -base64 32",
+        "startTitle": "Start development",
+        "startSteps": "npm run dev",
+        "primaryDependenciesTitle": "Primary Dependencies",
+        "primaryDependenciesSubtitle": "You can find below the primary dependencies used in this boilerplate and their official documentation.",
+        "framework": "Framework",
+        "orm": "ORM",
+        "authentication": "Authentication",
+        "styling": "Styling",
+        "forms": "Forms",
+        "internationalization": "Internationalization",
+        "secondaryDependenciesTitle": "Secondary Dependencies",
+        "utilityLibraries": "Utility Libraries",
+        "animations": "Animations",
+        "icons": "Icons",
+        "security": "Security",
+        "enjoy": "Enjoy!",
+        "enjoyDescription": "You can enjoy know or take a look the documentation of this boilerplate."
+      },
+      "dev-tools": {
+        "title": "Developer Tools",
+        "description": "Dev tools for developers",
+        "sections": {
+          "updateAppName": "Update App Name"
+        }
+      },
+      "components": {
+        "title": "Components",
+        "description": "Components for developers",
+        "sections": {
+          "": ""
+        }
+      },
+      "internationalization": {
+        "title": "Internationalization",
+        "description": "Internationalization for developers",
+        "sections": {
+          "": ""
+        }
+      },
+      "authentication": {
+        "title": "Authentication",
+        "description": "Authentication for developers",
+        "sections": {
+          "": ""
+        }
+      },
+      "dbManagement": {
+        "title": "Database Management",
+        "description": "Database management for developers",
+        "sections": {
+          "": ""
+        }
+      }
     },
-    "About": {
+    "about": {
       "title": "About Me",
       "content": [
         {
@@ -184,8 +192,8 @@
         }
       ]
     },
-    "Auth": {
-      "SignInForm": {
+    "auth": {
+      "signInForm": {
         "title": "Sign In to EzStart",
         "subtitle": "Welcome back! Please sign in to continue",
         "or": "or",
@@ -213,7 +221,7 @@
         "resetCodeLabel": "Code",
         "verifyCodeButton": "Verify Code"
       },
-      "SignUpForm": {
+      "signUpForm": {
         "title": "Sign Up to EzStart",
         "subtitle": "Welcome! Please fill in the details to get started.",
         "or": "or",
@@ -229,5 +237,24 @@
         "signInLink": "Sign In"
       }
     }
+  },
+  "errors": {
+    "emailRequired": "Email is required.",
+    "invalidEmail": "Invalid email address.",
+    "passwordRequired": "Password is required.",
+    "passwordMin": "Password must be more than 8 characters.",
+    "passwordMax": "Password must be less than 32 characters.",
+    "userExists": "User already exists.",
+    "configuration": "Incorrect email or password.",
+    "notfound": "User not found.",
+    "passwordsdonotmatch": "Passwords do not match."
+  },
+
+  "locale": {
+    "language": { "en": "English", "fr": "French" }
+  },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark"
   }
 }
