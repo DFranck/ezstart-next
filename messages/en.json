@@ -1,4 +1,8 @@
 {
+  "app": {
+    "appTitle": "EzStart",
+    "appDescription": "Welcome to EzStart!"
+  },
   "Components": {
     "SignInLink": {
       "title": "Sign In",
@@ -55,6 +59,8 @@
     "passwordsdonotmatch": "Passwords do not match."
   },
   "App": {
+    "appTitle": "EzStart",
+    "appDescription": "Welcome to {appTitle}!",
     "Home": {
       "Hero": {
         "title": " Welcome to EZ Start",

@@ -23,7 +23,7 @@ export const Header = () => {
   console.log(isOpen);
   return (
     <header
-      className={cn("p-6 z-10 fixed w-full", {
+      className={cn("p-6 z-10 fixed w-full border-b", {
         "bg-background": isOpen || pathname !== `/${locale}`,
         "p-2 bg-background": scrollY > 0,
       })}

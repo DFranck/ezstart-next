@@ -1,4 +1,4 @@
-# My EZ Start
+# EzStart
 
 🌟 Kickstart Your Next.js Projects with Ease 🌟
 
@@ -14,7 +14,7 @@ Optimized for a great developer experience and flexibility, keeping only what yo
 - 🔥 **TypeScript** for robust type checking
 - 💎 **Tailwind CSS** for efficient styling
 - ✅ **Strict Mode** for TypeScript and React 18
-- ✨ **ShadcnUI** to display powerful components 
+- ✨ **ShadcnUI** to display powerful components
 - 🔒 **Authentication** with NextAuth.js: Comprehensive user management including sign-up, sign-in, sign-out, and more
 - 🌐 **Internationalization (i18n)** with NextIntl for multilingual support
 - 📦 **Prisma ORM**: Type-safe database management compatible with PostgreSQL, SQLite, and MySQL

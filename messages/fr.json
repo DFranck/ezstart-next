@@ -47,6 +47,8 @@
     "passwordsdonotmatch": "Les mots de passe ne correspondent pas."
   },
   "App": {
+    "app-title": "EzStart",
+    "app-description": "Welcome to My Awesome App!",
     "Home": {
       "Hero": {
         "title": "Bienvenue sur EZ Start",
