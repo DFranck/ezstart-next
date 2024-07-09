@@ -126,7 +126,11 @@ const Nav = ({
           {linkList.map((link, index) => {
             const linkPath = anchorLinks
               ? `#${linkKeys[index].toLowerCase()}`
-              : `/${path}/${linkKeys[index].toLowerCase()}`;
+              : Array.isArray(rawLinks)
+              ? root.includes(index)
+                ? `/${locale}/`
+                : `/${locale}/${link.toLowerCase()}`
+              : `/${locale}/${path}/${linkKeys[index].toLowerCase()}`;
             const isActive = pathname.startsWith(linkPath);
 
             return (
