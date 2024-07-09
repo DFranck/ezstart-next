@@ -41,11 +41,14 @@ const GetStarted = () => {
         </h2>
         <CodeBlock code={t("sections.setup-env.steps")} language="bash" />
       </Section>
-      <Section id="environment-variables" className="py-0">
+      {/* <Section id="environment-variables" className="py-0">
         <h2 className="mt-8 mb-4 ">{t("sections.setup-env.title")}</h2>
         <ul className="space-y-4">
           {environmentVariables.map((env, index) => (
-            <li key={index} className="mb-4">
+            <li
+              key={index}
+              className="mb-4 overflow-auto break-words whitespace-pre-wrap"
+            >
               <strong>{env.name}</strong>: {env.description}
               {env.link && (
                 <p>
@@ -62,7 +65,7 @@ const GetStarted = () => {
             </li>
           ))}
         </ul>
-      </Section>
+      </Section> */}
       <Section id="start" className="py-0">
         <h2 className="mt-8 mb-4 ">{t("sections.start.title")}</h2>
         <CodeBlock code={t("sections.start.steps")} language="bash" />
