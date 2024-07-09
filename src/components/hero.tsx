@@ -18,7 +18,7 @@ const Hero = () => {
         </p>
         <div className="flex flex-col sm:flex-row justify-center sm:gap-4">
           <Button asChild className="mb-6 text-lg px-8 py-6 font-bold">
-            <Link href={`/${locale}/docs/getstarted`}>{t("cta")}</Link>
+            <Link href={`/${locale}/docs/get-started`}>{t("cta")}</Link>
           </Button>
           <Button
             asChild

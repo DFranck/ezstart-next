@@ -23,9 +23,9 @@ export const Header = () => {
   const user = session?.user;
   return (
     <header
-      className={cn("p-6 z-10 fixed w-full border-b", {
+      className={cn("p-6 z-10 fixed w-full ", {
         "bg-background": isOpen || pathname !== `/${locale}`,
-        "p-2 bg-background": scrollY > 0,
+        "p-2 bg-background border-b": scrollY > 0,
       })}
     >
       <div className="mx-auto max-w-screen-lg">
