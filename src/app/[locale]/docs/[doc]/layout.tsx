@@ -21,7 +21,7 @@ const Layout = ({
           variant={"primary"}
         />
       </aside>
-      <div className="h-full flex items-center justify-center flex-col flex-grow w-full relative py-10 px-4 bg-secondary text-secondary-foreground">
+      <div className="h-full flex items-center justify-center flex-col flex-grow w-full relative bg-secondary text-secondary-foreground">
         {children}
       </div>
     </div>

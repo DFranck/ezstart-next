@@ -13,8 +13,12 @@ const CodeBlock = ({
   className?: string;
 }) => {
   return (
-    <div className={cn("w-full overflow-auto max-h-80", className)}>
-      <SyntaxHighlighter language={language} style={solarizedlight}>
+    <div className={cn("w-full overflow-auto break-words max-h-80", className)}>
+      <SyntaxHighlighter
+        language={language}
+        style={solarizedlight}
+        wrapLongLines={true}
+      >
         {code}
       </SyntaxHighlighter>
     </div>

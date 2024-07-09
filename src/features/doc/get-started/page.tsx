@@ -10,12 +10,11 @@ import ReactHookFormSvg from "@/components/svgs/react-hook-form-svg";
 import ReactSvg from "@/components/svgs/react-svg";
 import TailwindSvg from "@/components/svgs/tailwind-svg";
 import ZodSvg from "@/components/svgs/zod-svg";
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
 
 const GetStarted = () => {
   const t = useTranslations("pages.docs.get-started");
-  const locale = useLocale();
   const cardStyle =
     "bg-card text-card-foreground list-disc p-4 gap-2 pl-6 rounded border shadow flex flex-col flex-grow";
   const cardTitleStyle = "text-center text-xl font-semibold mb-2";
@@ -165,8 +164,10 @@ const GetStarted = () => {
           </ul>
         </div>
       </Section>
-      <h2 className="mt-8 mb-4 ">{t("sections.enjoy.title")}</h2>
-      <p>{t("sections.enjoy.description")}</p>
+      <Section>
+        <h2 className="mt-8 mb-4 ">{t("sections.enjoy.title")}</h2>
+        <p>{t("sections.enjoy.description")}</p>
+      </Section>
     </>
   );
 };

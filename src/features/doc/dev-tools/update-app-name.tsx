@@ -1,4 +1,5 @@
 import CodeBlock from "@/components/code-block";
+import Section from "@/components/layout/section";
 import { useTranslations } from "next-intl";
 
 const UpdateAppName = () => {
@@ -12,32 +13,40 @@ const UpdateAppName = () => {
     language: string;
   }[];
   return (
-    <div className="documentation-section">
-      <h2>{t("title")}</h2>
-      <p>{t("description")}</p>
-      <h3>{t("features.title")}</h3>
-      <ul>
-        {features.map((feature, index) => (
-          <li key={index} dangerouslySetInnerHTML={{ __html: feature }} />
-        ))}
-      </ul>
-      <h3>{t("howItWorks.title")}</h3>
-      <ul>
-        {howItWorks.map((item, index) => (
-          <li key={index} dangerouslySetInnerHTML={{ __html: item }} />
-        ))}
-      </ul>
-      <h3>{t("configuration.title")}</h3>
-      <p>{t("configuration.content")}</p>
+    <>
+      <Section id="update-app-name" className="pt-0">
+        <h2>{t("title")}</h2>
+        <p>{t("description")}</p>
+      </Section>
+      <Section className="pt-0">
+        <h3>{t("features.title")}</h3>
+        <ul>
+          {features.map((feature, index) => (
+            <li key={index} dangerouslySetInnerHTML={{ __html: feature }} />
+          ))}
+        </ul>
+      </Section>
+      <Section className="pt-0">
+        <h3>{t("howItWorks.title")}</h3>
+        <ul>
+          {howItWorks.map((item, index) => (
+            <li key={index} dangerouslySetInnerHTML={{ __html: item }} />
+          ))}
+        </ul>
+      </Section>
+      <Section className="pt-0">
+        <h3>{t("configuration.title")}</h3>
+        <p>{t("configuration.content")}</p>
+      </Section>
       <h3>{t("exampleUsage.title")}</h3>
       {exampleUsage.map((example, index) => (
-        <div key={index}>
+        <Section key={index}>
           <h4>{example.title}</h4>
           <p>{example.description}</p>
           <CodeBlock code={example.code} language={example.language} />
-        </div>
+        </Section>
       ))}
-    </div>
+    </>
   );
 };
 
