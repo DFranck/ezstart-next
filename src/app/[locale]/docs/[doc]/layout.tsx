@@ -8,21 +8,20 @@ const Layout = ({
   params: { doc: string };
 }) => {
   return (
-    <div className="mt-[88px] flex w-full h-full">
+    <div className="flex w-full h-full">
       <aside className="flex">
         <Nav
-          t="pages.docs"
-          render={`${doc}.sections`}
-          path={`docs/${doc}`}
+          t={`pages.docs.${doc}.sections`}
+          render={`nav-links`}
           anchorLinks={true}
           dir={"col"}
           pos={"fixed"}
           active
-          navClass="hidden lg:flex bg-blue-500"
+          navClass="hidden lg:flex bg-input"
           variant={"primary"}
         />
       </aside>
-      <div className="w-full h-full flex bg-secondary text-secondary-foreground">
+      <div className="h-full flex items-center justify-center flex-col flex-grow w-full relative py-10 px-4 bg-secondary text-secondary-foreground">
         {children}
       </div>
     </div>

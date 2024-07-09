@@ -1,14 +1,21 @@
 "use client";
-import { useParams } from "next/navigation";
+import UpdateAppName from "@/features/doc/dev-tools/update-app-name";
+import { useTranslations } from "next-intl";
 
-const DynamicPageContent = () => {
-  const { dynamicPage } = useParams();
+const DynamicPageContent = ({
+  params: { doc },
+}: {
+  params: { doc: string };
+}) => {
+  const t = useTranslations(`pages.docs.${doc}`);
 
   return (
-    <div>
-      <h1>{dynamicPage} Content</h1>
+    <>
+      <h1>{t("title")} Content</h1>
+      <p>{t("description")}</p>
+      <UpdateAppName />
       {/* Ajoutez d'autres conditions pour d'autres pages dynamiques */}
-    </div>
+    </>
   );
 };
 

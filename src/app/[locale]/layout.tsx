@@ -15,8 +15,6 @@ export async function generateMetadata({ params: { locale } }: any) {
     /{meta-title}/g,
     metaTitle
   ) as string;
-
-  console.log(metaTitle, metaDescription);
   return {
     title: metaTitle,
     description: metaDescription,

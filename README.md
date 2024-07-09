@@ -1,4 +1,4 @@
-# Your New App Name
+# EzStart - The Ultimate Boilerplate for Modern Web Development
 
 🌟 Kickstart Your Next.js Projects with Ease 🌟
 
