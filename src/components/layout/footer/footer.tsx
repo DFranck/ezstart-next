@@ -6,7 +6,7 @@ import FooterPartner from "./footer-partner";
 
 const Footer = () => {
   const locale = useLocale();
-  const t = useTranslations("footer");
+  const t = useTranslations("layout.footer");
   return (
     <footer className="bg-primary text-primary-foreground">
       <div className="flex flex-col">

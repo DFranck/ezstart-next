@@ -2,10 +2,10 @@
 import Burger from "@/components/layout/header/burger";
 import UserMenu from "@/components/layout/header/user-menu";
 import Nav from "@/components/layout/nav";
+import LocaleSwitcher from "@/features/internationalization/locale-switcher";
+import { ThemeSwitcher } from "@/features/theme/theme-switcher";
 import useOnScroll from "@/hooks/useOnScroll";
 import { cn } from "@/lib/utils";
-import LocaleSwitcher from "@/providers/language/locale-switcher";
-import { ThemeSwitcher } from "@/providers/theme/theme-switcher";
 import { useSession } from "next-auth/react";
 import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
@@ -18,7 +18,7 @@ export const Header = () => {
   const pathname = usePathname();
   const locale = useLocale();
   const scrollY = useOnScroll();
-  const t = useTranslations("header");
+  const t = useTranslations("layout.header");
   const { data: session } = useSession();
   const user = session?.user;
   return (
@@ -37,7 +37,7 @@ export const Header = () => {
           </Link>
           <Nav
             navClass="hidden lg:flex"
-            t={"header"}
+            t={"layout.header"}
             render={"nav-links"}
             root={[0]}
             dir={"row"}
@@ -70,7 +70,7 @@ export const Header = () => {
           <Nav
             navClass="bg-accent text-accent-foreground p-2 border-b border-primary"
             liClass="text-left p-2"
-            t={"header"}
+            t={"layout.header"}
             render={"nav-links"}
             root={[0]}
             dir={"col"}

@@ -3,7 +3,7 @@ import ForgotForm from "@/features/auth/forgot-form";
 import SignInForm from "@/features/auth/sign-in-form";
 import SignUpForm from "@/features/auth/sign-up-form";
 import VerifyCodeForm from "@/features/auth/verify-code-form";
-import ResetPasswordForm from "@/providers/auth/resest-password-form";
+import ResetPasswordForm from "@/features/auth/resest-password-form";
 import { useParams } from "next/navigation";
 
 const FormPage = () => {

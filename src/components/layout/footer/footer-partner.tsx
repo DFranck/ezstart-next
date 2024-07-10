@@ -1,7 +1,7 @@
 import { useTranslations } from "next-intl";
 
 const FooterPartner = () => {
-  const t = useTranslations("footer");
+  const t = useTranslations("layout.footer");
   const partners = t.raw("partners") as string[];
   //partners in the json must be an array
   if (!partners || partners.length === 0) return null;

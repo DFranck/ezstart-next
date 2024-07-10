@@ -1,27 +1,69 @@
 {
   "app": {
     "meta-title": "EzStart - Le Boilerplate Ultime pour le Développement Web Moderne",
-    "meta-description": "Lancez vos projets de développement web avec {meta-title}, un boilerplate complet et flexible. Construit avec des technologies modernes et les meilleures pratiques, {meta-title} fournit une base robuste pour créer des applications web performantes et évolutives. Parfait pour les développeurs cherchant à optimiser leur flux de travail et à améliorer leur productivité."
+    "meta-description": "Lancez vos projets de développement web avec {meta-title}, un boilerplate complet et flexible. Construit avec des technologies modernes et les meilleures pratiques, {meta-title} fournit une base robuste pour créer des applications web performantes et évolutives. Parfait pour les développeurs cherchant à optimiser leur flux de travail et à améliorer leur productivité.",
+    "locale": {
+      "language": { "en": "Anglais", "fr": "Français" }
+    },
+    "theme": {
+      "light": "Clair",
+      "dark": "Sombre"
+    },
+    "errors": {
+      "emailRequired": "L'email est requis.",
+      "invalidEmail": "Adresse email invalide.",
+      "passwordRequired": "Le mot de passe est requis.",
+      "passwordMin": "Le mot de passe doit comporter plus de 8 caractères.",
+      "passwordMax": "Le mot de passe doit comporter moins de 32 caractères.",
+      "userExists": "L'utilisateur existe déjà.",
+      "configuration": "Email ou mot de passe incorrect.",
+      "notfound": "Utilisateur non trouvé.",
+      "passwordsdonotmatch": "Les mots de passe ne correspondent pas."
+    },
+    "auth": {
+      "sign-in": "Se connecter",
+      "sign-up": "S'inscrire",
+      "sign-out": "Se déconnecter",
+      "forms": {
+        "or": "or",
+        "email-label": "Email",
+        "email-placeholder": "Email",
+        "password-label": "Mot de passe",
+        "password-placeholder": "Mot de passe",
+        "confirm-password-label": "Confirmez le mot de passe",
+        "confirm-password-placeholder": "Confirmez le mot de passe",
+        "sign-in-form": {
+          "title": "Connexion à EzStart",
+          "subtitle": "Bienvenue! Veuillez vous connecter pour continuer.",
+          "forgot-password": "Mot de passe oublie?",
+          "no-account": "Vous n'avez pas de compte?"
+        },
+        "sign-up-form": {
+          "title": "Inscription à EzStart",
+          "subtitle": "Bienvenue! Veuillez vous inscrire pour commencer.",
+          "already-have-account": "Vous avez deja un compte?"
+        }
+      }
+    }
   },
-  "header": {
-    "app-title": "EzStart",
-    "nav-links": ["Accueil", "Docs"],
-    "cta": "",
-    "user": "",
-    "signin": "Se connecter",
-    "signup": "S'inscrire",
-    "logout": "Se déconnecter",
-    "docs": "Documentation",
-    "dashboard": "Tableau de bord",
-    "admin": "Admin"
-  },
-  "footer": {
-    "partnersTitle": "Partenaires",
-    "partners": "",
-    "linksTitle": "Liens",
-    "links": "",
-    "copyright": "Copyright © 2024. Tous droits réservés.",
-    "owner": "Conception & développement par "
+  "layout": {
+    "header": {
+      "app-title": "EzStart",
+      "nav-links": ["Accueil", "Docs"],
+      "cta": "",
+      "user": "",
+      "docs": "Documentation",
+      "dashboard": "Tableau de bord",
+      "admin": "Admin"
+    },
+    "footer": {
+      "partnersTitle": "Partenaires",
+      "partners": "",
+      "linksTitle": "Liens",
+      "links": "",
+      "copyright": "Copyright © 2024. Tous droits réservés.",
+      "owner": "Conception & développement par "
+    }
   },
   "pages": {
     "home": {
@@ -737,70 +779,7 @@
             }
           }
         }
-      },
-      "auth": {
-        "signInForm": {
-          "title": "Connexion à EzStart",
-          "subtitle": "Bienvenue ! Veuillez vous connecter pour continuer",
-          "or": "ou",
-          "emailLabel": "Email",
-          "emailPlaceholder": "Email",
-          "emailDescription": "Nous ne partagerons jamais votre email.",
-          "passwordLabel": "Mot de passe",
-          "passwordPlaceholder": "Mot de passe",
-          "signInButton": "Se connecter",
-          "noAccountText": "Vous n'avez pas de compte ?",
-          "signUpLink": "S'inscrire",
-          "forgotPasswordText": "Mot de passe oublié ?",
-          "back": "Retour à la connexion",
-          "forgotTitle": "Mot de passe oublié ?",
-          "forgotDescription": "Entrez votre adresse email et nous vous enverrons un lien pour réinitialiser votre mot de passe.",
-          "forgotLink": "Réinitialiser votre mot de passe",
-          "resetPasswordTitle": "Réinitialiser votre mot de passe",
-          "resetPasswordDescription": "Vous pouvez maintenant réinitialiser votre mot de passe",
-          "resetPasswordButton": "Réinitialiser le mot de passe",
-          "confirmPasswordLabel": "Confirmez le mot de passe",
-          "confirmPasswordPlaceholder": "Confirmez le mot de passe",
-          "verifyCodeTitle": "Vérifiez le code",
-          "verifyCodeDescription": "Entrez le code que nous venons de vous envoyer.",
-          "resetCodePlaceholder": "Code",
-          "resetCodeLabel": "Code",
-          "verifyCodeButton": "Vérifier le code"
-        },
-        "signUpForm": {
-          "title": "Inscription à EzStart",
-          "subtitle": "Bienvenue ! Veuillez remplir les détails pour commencer.",
-          "or": "ou",
-          "emailLabel": "Email",
-          "emailPlaceholder": "Email",
-          "emailDescription": "Nous ne partagerons jamais votre email.",
-          "passwordLabel": "Mot de passe",
-          "passwordPlaceholder": "Mot de passe",
-          "confirmPasswordLabel": "Confirmez le mot de passe",
-          "confirmPasswordPlaceholder": "Confirmez le mot de passe",
-          "signUpButton": "S'inscrire",
-          "hasAccountText": "Vous avez déjà un compte ?",
-          "signInLink": "Se connecter"
-        }
       }
     }
-  },
-  "errors": {
-    "emailRequired": "L'email est requis.",
-    "invalidEmail": "Adresse email invalide.",
-    "passwordRequired": "Le mot de passe est requis.",
-    "passwordMin": "Le mot de passe doit comporter plus de 8 caractères.",
-    "passwordMax": "Le mot de passe doit comporter moins de 32 caractères.",
-    "userExists": "L'utilisateur existe déjà.",
-    "configuration": "Email ou mot de passe incorrect.",
-    "notfound": "Utilisateur non trouvé.",
-    "passwordsdonotmatch": "Les mots de passe ne correspondent pas."
-  },
-  "locale": {
-    "language": { "en": "Anglais", "fr": "Français" }
-  },
-  "theme": {
-    "light": "Clair",
-    "dark": "Sombre"
   }
 }

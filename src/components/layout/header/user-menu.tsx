@@ -2,9 +2,9 @@
 "use client";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import LocaleSwitcher from "@/features/internationalization/locale-switcher";
+import { ThemeSwitcher } from "@/features/theme/theme-switcher";
 import { cn } from "@/lib/utils";
-import LocaleSwitcher from "@/providers/language/locale-switcher";
-import { ThemeSwitcher } from "@/providers/theme/theme-switcher";
 import { Settings } from "lucide-react";
 import { signOut, useSession } from "next-auth/react";
 import { useLocale, useTranslations } from "next-intl";
@@ -14,7 +14,7 @@ import { useEffect, useRef, useState } from "react";
 import UserAuth from "./user-auth";
 
 const UserMen = ({ className }: { className?: string }) => {
-  const t = useTranslations("header");
+  const t = useTranslations("layout.header");
   const [isOpen, setIsOpen] = useState(false);
   const locale = useLocale();
   const session = useSession();

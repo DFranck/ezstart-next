@@ -18,7 +18,7 @@ const UserAuth = ({
   const { data: session } = useSession();
   const pathname = usePathname();
   const user = session?.user;
-  const t = useTranslations("header");
+  const t = useTranslations("app.auth");
 
   const handleClick = () => {
     if (setIsOpen) {
@@ -45,7 +45,7 @@ const UserAuth = ({
         <ul className="flex flex-row items-center gap-x-4 text-lg font-medium [&amp;_li:not(:last-child):hover]:opacity-100 [&amp;_li:not(:last-child)]:opacity-60">
           <li>
             <Link href={`/${locale}/sign-in`} onClick={handleClick}>
-              Se connecter
+              {t("sign-in")}
             </Link>
           </li>
           <li>
@@ -54,7 +54,7 @@ const UserAuth = ({
               href={`/${locale}/sign-up`}
               onClick={handleClick}
             >
-              S&#39;inscrire
+              {t("sign-up")}
             </Link>
           </li>
         </ul>
@@ -63,13 +63,13 @@ const UserAuth = ({
   } else if (!user && pathname === `/${locale}/sign-in`) {
     return (
       <Button type="submit" className={cn("w-full mt-2 text-sm h-fit p-1")}>
-        {t("signInButton")}
+        {t("sign-in")}
       </Button>
     );
   } else if (!user && pathname === `/${locale}/sign-up`) {
     return (
       <Button type="submit" className={cn("w-full mt-2 text-sm h-fit p-1")}>
-        {t("signUpButton")}
+        {t("sign-up")}
       </Button>
     );
   } else if (user) {
@@ -78,7 +78,7 @@ const UserAuth = ({
         <span className="w-9 h-9 flex justify-center items-center">
           <LogOut className="w-4 h-4" />
         </span>
-        <span>logout</span>
+        <span>{t("sign-out")}</span>
       </div>
     );
   }

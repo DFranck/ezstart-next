@@ -14,7 +14,7 @@ import {
 } from "react";
 
 const LocaleSwitcher = () => {
-  const t = useTranslations("locale");
+  const t = useTranslations("app.locale");
   const [isMounted, setIsMounted] = useState(false);
   const [isPending, startTransition] = useTransition();
   const [isOpen, setIsOpen] = useState(false);

@@ -2,10 +2,10 @@ import Footer from "@/components/layout/footer/footer";
 import Header from "@/components/layout/header/header";
 import Main from "@/components/layout/main";
 import { cn } from "@/lib/utils";
-import Providers from "@/providers/providers";
 import { getMessages } from "next-intl/server";
 import { Inter } from "next/font/google";
 import "../globals.css";
+import Provider from "../provider";
 
 const inter = Inter({ subsets: ["latin"] });
 export async function generateMetadata({ params: { locale } }: any) {
@@ -34,11 +34,11 @@ export default async function RootLayout({
       <body
         className={cn(inter.className, "min-h-screen flex flex-col h-full")}
       >
-        <Providers messages={messages}>
+        <Provider messages={messages}>
           <Header />
           <Main>{children}</Main>
           <Footer />
-        </Providers>
+        </Provider>
       </body>
     </html>
   );

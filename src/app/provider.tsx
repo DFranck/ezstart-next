@@ -1,9 +1,9 @@
 import { AbstractIntlMessages } from "next-intl";
 import React from "react";
-import { AuthProvider } from "./auth/session-provider";
-import LanguageProvider from "./language/language-provider";
-import { ThemeProvider } from "./theme/theme-provider";
-const Providers = ({
+import { AuthProvider } from "../features/auth/session-provider";
+import LanguageProvider from "../features/internationalization/language-provider";
+import { ThemeProvider } from "../features/theme/theme-provider";
+const Provider = ({
   children,
   messages,
 }: {
@@ -24,4 +24,4 @@ const Providers = ({
   );
 };
 
-export default Providers;
+export default Provider;

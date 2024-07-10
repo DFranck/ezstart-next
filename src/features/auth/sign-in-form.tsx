@@ -34,7 +34,8 @@ const SignInForm = () => {
   });
   const router = useRouter();
   const locale = useLocale();
-  const t = useTranslations("App.Auth.SignInForm");
+  const tForm = useTranslations("app.auth.forms.sign-in-form");
+  const tAuth = useTranslations("app.auth");
   const err = useTranslations("Errors");
   const formStyle =
     "bg-accent border shadow rounded-md p-4 flex flex-col gap-4 max-w-[400px] w-full mx-auto";
@@ -68,9 +69,11 @@ const SignInForm = () => {
     <FormProvider {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className={formStyle}>
         <div>
-          <h2 className="text-center text-lg font-semibold">{t("title")}</h2>
+          <h2 className="text-center text-lg font-semibold">
+            {tForm("title")}
+          </h2>
           <p className="text-muted-foreground text-xs text-center">
-            {t("subtitle")}
+            {tForm("subtitle")}
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 justify-center gap-2 text-center w-full">
@@ -91,7 +94,7 @@ const SignInForm = () => {
         </div>
         <div className="flex justify-between items-center gap-2 text-muted-foreground text-xs mt-2">
           <span className="border border-muted-foreground/20 w-full"></span>
-          {t("or")}
+          {tAuth("forms.or")}
           <span className="border border-muted-foreground/20 w-full"></span>
         </div>
         <FormField
@@ -99,9 +102,14 @@ const SignInForm = () => {
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="sr-only">{t("emailLabel")}</FormLabel>
+              <FormLabel className="sr-only">
+                {tAuth("forms.email-label")}
+              </FormLabel>
               <FormControl>
-                <Input placeholder={t("emailPlaceholder")} {...field} />
+                <Input
+                  placeholder={tAuth("forms.email-placeholder")}
+                  {...field}
+                />
               </FormControl>
               {form.formState.errors.email?.message && (
                 <ErrorForm name="email" form={form} />
@@ -114,12 +122,14 @@ const SignInForm = () => {
           name="password"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="sr-only">{t("passwordLabel")}</FormLabel>
+              <FormLabel className="sr-only">
+                {tAuth("forms.password-label")}
+              </FormLabel>
               <FormControl>
                 <PasswordInput
                   field={field}
-                  placeholder={t("passwordPlaceholder")}
-                  label={t("passwordLabel")}
+                  placeholder={tAuth("forms.password-placeholder")}
+                  label={tAuth("forms.password-label")}
                 />
               </FormControl>
 
@@ -136,7 +146,7 @@ const SignInForm = () => {
               href={`/${locale}/forgot-password`}
               className="text-muted-foreground text-xs hover:underline w-full text-end"
             >
-              {t("forgotPasswordText")}
+              {tForm("forgot-password")}
             </Link>
           </p>
           {error && (
@@ -152,12 +162,12 @@ const SignInForm = () => {
         </div>
         <div className="mt-4 text-justify text-xs w-full">
           <p className="text-sm text-muted-foreground w-full flex justify-between gap-2">
-            {t("noAccountText")}
+            {tForm("no-account")}
             <Link
               href={`/${locale}/sign-up`}
               className="text-primary underline"
             >
-              {t("signUpLink")}
+              {tAuth("sign-up")}
             </Link>
           </p>
         </div>

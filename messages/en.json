@@ -1,27 +1,69 @@
 {
   "app": {
     "meta-title": "EzStart - The Ultimate Boilerplate for Modern Web Development",
-    "meta-description": "Jumpstart your web development projects with {meta-title}, a comprehensive and flexible boilerplate. Built with modern technologies and best practices, {meta-title} provides a robust foundation for creating high-performance, scalable web applications. Perfect for developers looking to streamline their workflow and enhance productivity."
+    "meta-description": "Jumpstart your web development projects with {meta-title}, a comprehensive and flexible boilerplate. Built with modern technologies and best practices, {meta-title} provides a robust foundation for creating high-performance, scalable web applications. Perfect for developers looking to streamline their workflow and enhance productivity.",
+    "locale": {
+      "language": { "en": "English", "fr": "French" }
+    },
+    "theme": {
+      "light": "Light",
+      "dark": "Dark"
+    },
+    "errors": {
+      "emailRequired": "Email is required.",
+      "invalidEmail": "Invalid email address.",
+      "passwordRequired": "Password is required.",
+      "passwordMin": "Password must be more than 8 characters.",
+      "passwordMax": "Password must be less than 32 characters.",
+      "userExists": "User already exists.",
+      "configuration": "Incorrect email or password.",
+      "notfound": "User not found.",
+      "passwordsdonotmatch": "Passwords do not match."
+    },
+    "auth": {
+      "sign-in": "Sign In",
+      "sign-up": "Sign Up",
+      "sign-out": "Sign Out",
+      "forms": {
+        "or": "or",
+        "email-label": "Email",
+        "email-placeholder": "Email",
+        "password-label": "Password",
+        "password-placeholder": "Password",
+        "confirm-password-label": "Confirm Password",
+        "confirm-password-placeholder": "Confirm Password",
+        "sign-in-form": {
+          "title": "Sign In to EzStart",
+          "subtitle": "Welcome back! Please sign in to continue",
+          "forgot-password": "Forgot Password?",
+          "no-account": "Don't have an account?"
+        },
+        "sign-up-form": {
+          "title": "Sign Up to EzStart",
+          "subtitle": "Welcome! Please fill in the details to get started.",
+          "already-have-account": "Already have an account?"
+        }
+      }
+    }
   },
-  "header": {
-    "app-title": "EzStart",
-    "nav-links": ["Home", "Docs"],
-    "cta": "",
-    "user": "",
-    "signin": "Sign in",
-    "signup": "Sign up",
-    "logout": "Sign out",
-    "docs": "Documentation",
-    "dashboard": "Dashboard",
-    "admin": "Admin"
-  },
-  "footer": {
-    "partnersTitle": "Partners",
-    "partners": "",
-    "linksTitle": "Links",
-    "links": "",
-    "copyright": "Copyright © 2024. All rights reserved.",
-    "owner": "Design & develpe by "
+  "layout": {
+    "header": {
+      "app-title": "EzStart",
+      "nav-links": ["Home", "Docs"],
+      "cta": "",
+      "user": "",
+      "docs": "Documentation",
+      "dashboard": "Dashboard",
+      "admin": "Admin"
+    },
+    "footer": {
+      "partnersTitle": "Partners",
+      "partners": "",
+      "linksTitle": "Links",
+      "links": "",
+      "copyright": "Copyright © 2024. All rights reserved.",
+      "owner": "Design & develpe by "
+    }
   },
   "pages": {
     "home": {
@@ -738,70 +780,7 @@
             }
           }
         }
-      },
-      "auth": {
-        "signInForm": {
-          "title": "Sign In to EzStart",
-          "subtitle": "Welcome back! Please sign in to continue",
-          "or": "or",
-          "emailLabel": "Email",
-          "emailPlaceholder": "Email",
-          "emailDescription": "We’ll never share your email.",
-          "passwordLabel": "Password",
-          "passwordPlaceholder": "Password",
-          "signInButton": "Sign In",
-          "noAccountText": "Don’t have an account?",
-          "signUpLink": "Sign Up",
-          "forgotPasswordText": "Forgot your password?",
-          "back": "Back to signin",
-          "forgotTitle": "Forgot your password?",
-          "forgotDescription": "Enter your email address and we'll send you a link to reset your password.",
-          "forgotLink": "Reset your password",
-          "resetPasswordTitle": "Reset your password",
-          "resetPasswordDescription": "You can now reset your password",
-          "resetPasswordButton": "Reset Password",
-          "confirmPasswordLabel": "Confirm Password",
-          "confirmPasswordPlaceholder": "Confirm Password",
-          "verifyCodeTitle": "Verify the code",
-          "verifyCodeDescription": "Enter the code we just sent you.",
-          "resetCodePlaceholder": "Code",
-          "resetCodeLabel": "Code",
-          "verifyCodeButton": "Verify Code"
-        },
-        "signUpForm": {
-          "title": "Sign Up to EzStart",
-          "subtitle": "Welcome! Please fill in the details to get started.",
-          "or": "or",
-          "emailLabel": "Email",
-          "emailPlaceholder": "Email",
-          "emailDescription": "We’ll never share your email.",
-          "passwordLabel": "Password",
-          "passwordPlaceholder": "Password",
-          "confirmPasswordLabel": "Confirm Password",
-          "confirmPasswordPlaceholder": "Confirm Password",
-          "signUpButton": "Sign Up",
-          "hasAccountText": "Already have an account?",
-          "signInLink": "Sign In"
-        }
       }
     }
-  },
-  "errors": {
-    "emailRequired": "Email is required.",
-    "invalidEmail": "Invalid email address.",
-    "passwordRequired": "Password is required.",
-    "passwordMin": "Password must be more than 8 characters.",
-    "passwordMax": "Password must be less than 32 characters.",
-    "userExists": "User already exists.",
-    "configuration": "Incorrect email or password.",
-    "notfound": "User not found.",
-    "passwordsdonotmatch": "Passwords do not match."
-  },
-  "locale": {
-    "language": { "en": "English", "fr": "French" }
-  },
-  "theme": {
-    "light": "Light",
-    "dark": "Dark"
   }
 }
