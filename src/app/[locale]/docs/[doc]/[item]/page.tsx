@@ -9,15 +9,6 @@ const componentMap: { [key: string]: React.ComponentType } = {
   // Ajoutez d'autres composants ici
 };
 
-export const renderComponent = (componentName: string | undefined) => {
-  if (!componentName || !componentMap[componentName]) {
-    return null;
-  }
-
-  const Component = componentMap[componentName];
-  return <Component />;
-};
-
 const ItemPage = ({ params }: { params: { doc: string; item: string } }) => {
   const t = useTranslations(`pages.docs.${params.doc}.items.${params.item}`);
 
@@ -29,7 +20,14 @@ const ItemPage = ({ params }: { params: { doc: string; item: string } }) => {
     "step-code"?: string;
   }[];
   const displayComponentName = t.raw("display.component") as string;
+  const renderComponent = (componentName: string | undefined) => {
+    if (!componentName || !componentMap[componentName]) {
+      return null;
+    }
 
+    const Component = componentMap[componentName];
+    return <Component />;
+  };
   return (
     <>
       <h1>{t("title")}</h1>
