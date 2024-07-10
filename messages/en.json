@@ -514,7 +514,160 @@
       "authentication": {
         "title": "Authentication",
         "description": "Authentication for developers",
-        "items": {}
+        "items": {
+          "auth-provider": {
+            "title": "Auth Provider",
+            "description": "Provider for handling user authentication and session management.",
+            "files": {
+              "title": "Files concerned",
+              "description": "The following file will be concerned:",
+              "code-links": {
+                "src/providers/auth-provider.tsx": "https://github.com/DFranck/my-ez-start/blob/master/src/providers/auth-provider.tsx"
+              }
+            },
+            "display": {
+              "title": "Display",
+              "component": "",
+              "target": ""
+            },
+            "features": {
+              "title": "Features",
+              "content": [
+                "Handles user authentication and session management.",
+                "Integrates with various authentication providers like Google and GitHub.",
+                "Utilizes NextAuth for robust authentication."
+              ]
+            },
+            "example-usage": {
+              "title": "Example Usage",
+              "description": "Here's how to use the AuthProvider component:",
+              "steps": [
+                {
+                  "step-title": "Basic Usage",
+                  "step-description": "Wrap your application with the AuthProvider component.",
+                  "step-code": "import { AuthProvider } from '@/providers/auth-provider';\n\nconst MyApp = ({ Component, pageProps }) => {\n  return (\n    <AuthProvider>\n      <Component {...pageProps} />\n    </AuthProvider>\n  );\n};\n\nexport default MyApp;"
+                }
+              ],
+              "language": "typescript"
+            }
+          },
+          "auth-middleware": {
+            "title": "Auth Middleware",
+            "description": "Middleware for handling access control based on authentication status.",
+            "files": {
+              "title": "Files concerned",
+              "description": "The following file will be concerned:",
+              "code-links": {
+                "src/middleware/auth-middleware.ts": "https://github.com/DFranck/my-ez-start/blob/master/src/middleware/auth-middleware.ts"
+              }
+            },
+            "display": {
+              "title": "Display",
+              "component": "",
+              "target": ""
+            },
+            "features": {
+              "title": "Features",
+              "content": [
+                "Controls access to routes based on authentication status.",
+                "Redirects unauthorized users to the sign-in page.",
+                "Allows customization of paths and access rules."
+              ]
+            },
+            "example-usage": {
+              "title": "Example Usage",
+              "description": "Here's how to configure and use the auth middleware:",
+              "steps": [
+                {
+                  "step-title": "Basic Configuration",
+                  "step-description": "Set up the auth middleware in your Next.js project.",
+                  "step-code": "import { authMiddleware } from '@/middleware/auth-middleware';\n\nexport default function middleware(req) {\n  return authMiddleware(req);\n}"
+                }
+              ],
+              "language": "typescript"
+            }
+          },
+          "auth-schemas": {
+            "title": "Auth Schemas",
+            "description": "Validation schemas for authentication forms using Zod.",
+            "files": {
+              "title": "Files concerned",
+              "description": "The following files will be concerned:",
+              "code-links": {
+                "src/schemas/auth-schemas.ts": "https://github.com/DFranck/my-ez-start/blob/master/src/schemas/auth-schemas.ts"
+              }
+            },
+            "display": {
+              "title": "Display",
+              "component": "",
+              "target": ""
+            },
+            "features": {
+              "title": "Features",
+              "content": [
+                "Validates sign-in and sign-up forms.",
+                "Provides detailed error messages for form validation.",
+                "Ensures data integrity and security."
+              ]
+            },
+            "example-usage": {
+              "title": "Example Usage",
+              "description": "Here's how to use the validation schemas:",
+              "steps": [
+                {
+                  "step-title": "Basic Usage",
+                  "step-description": "Import and use the schemas in your form components.",
+                  "step-code": "import { signInSchema, signUpSchema } from '@/schemas/auth-schemas';\n\nconst SignInForm = () => {\n  const form = useForm({\n    resolver: zodResolver(signInSchema),\n  });\n  // ...form implementation\n};"
+                }
+              ],
+              "language": "typescript"
+            }
+          },
+          "auth-forms": {
+            "title": "Authentication Forms",
+            "description": "Components for sign-in, sign-up, and other authentication-related forms.",
+            "files": {
+              "title": "Files concerned",
+              "description": "The following files will be concerned:",
+              "code-links": {
+                "src/features/auth/sign-in-form.tsx": "https://github.com/DFranck/my-ez-start/blob/master/src/features/auth/sign-in-form.tsx",
+                "src/features/auth/sign-up-form.tsx": "https://github.com/DFranck/my-ez-start/blob/master/src/features/auth/sign-up-form.tsx",
+                "src/features/auth/forgot-form.tsx": "https://github.com/DFranck/my-ez-start/blob/master/src/features/auth/forgot-form.tsx",
+                "src/features/auth/verify-code-form.tsx": "https://github.com/DFranck/my-ez-start/blob/master/src/features/auth/verify-code-form.tsx"
+              }
+            },
+            "display": {
+              "title": "Display",
+              "component": "",
+              "target": ""
+            },
+            "features": {
+              "title": "Features",
+              "content": [
+                "Pre-built components for sign-in and sign-up forms.",
+                "Integration with NextAuth for authentication.",
+                "Form validation using Zod."
+              ]
+            },
+            "example-usage": {
+              "title": "Example Usage",
+              "description": "Here's how to use the authentication forms:",
+              "steps": [
+                {
+                  "step-title": "Sign-In Form",
+                  "step-description": "Import and use the SignInForm component.",
+                  "step-code": "import SignInForm from '@/features/auth/sign-in-form';\n\nconst SignInPage = () => {\n  return <SignInForm />;\n};\n\nexport default SignInPage;"
+                },
+                {
+                  "step-title": "Sign-Up Form",
+                  "step-description": "Import and use the SignUpForm component.",
+                  "step-code": "import SignUpForm from '@/features/auth/sign-up-form';\n\nconst SignUpPage = () => {\n  return <SignUpForm />;\n};\n\nexport default SignUpPage;"
+                }
+              ],
+              "language": "typescript"
+            }
+          }
+        }
       },
       "db-management": {
         "title": "Database Management",
