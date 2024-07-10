@@ -1,6 +1,5 @@
 "use client";
 import ErrorForm from "@/components/errorForm";
-import UserAuth from "@/components/layout/header/user-auth";
 import PasswordInput from "@/components/passwordInput";
 import GithubSvg from "@/components/svgs/github-svg";
 import GoogleSvg from "@/components/svgs/google-svg";
@@ -12,6 +11,7 @@ import {
   FormLabel,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import UserAuth from "@/features/auth/user-auth";
 import { signInSchema } from "@/lib/zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { getSession, signIn } from "next-auth/react";

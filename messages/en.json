@@ -32,6 +32,7 @@
         "password-placeholder": "Password",
         "confirm-password-label": "Confirm Password",
         "confirm-password-placeholder": "Confirm Password",
+
         "sign-in-form": {
           "title": "Sign In to EzStart",
           "subtitle": "Welcome back! Please sign in to continue",
@@ -42,6 +43,27 @@
           "title": "Sign Up to EzStart",
           "subtitle": "Welcome! Please fill in the details to get started.",
           "already-have-account": "Already have an account?"
+        },
+        "forgot-form": {
+          "title": "Forgot your password?",
+          "subtitle": "Enter your email address and we'll send you a code to reset your password.",
+          "back": "Back to Sign In",
+          "send": "Get my reset code",
+          "no-account": "Don't have an account?"
+        },
+        "verify-code-form": {
+          "title": "Verify Code",
+          "subtitle": "Enter the code that was sent to your email.",
+          "back": "Back to Sign In",
+          "verify": "Verify",
+          "resend": "Resend Code",
+          "verify-code-label": "Code",
+          "verify-code-placeholder": "Code"
+        },
+        "reset-password-form": {
+          "title": "Reset your Password",
+          "subtitle": "Enter your new password.",
+          "reset": "Reset"
         }
       }
     }
@@ -49,20 +71,14 @@
   "layout": {
     "header": {
       "app-title": "EzStart",
-      "nav-links": ["Home", "Docs"],
-      "cta": "",
-      "user": "",
-      "docs": "Documentation",
-      "dashboard": "Dashboard",
-      "admin": "Admin"
+      "nav-links": ["Home", "Docs"]
     },
     "footer": {
-      "partnersTitle": "Partners",
-      "partners": "",
-      "linksTitle": "Links",
-      "links": "",
       "copyright": "Copyright © 2024. All rights reserved.",
-      "owner": "Design & develpe by "
+      "owner": "Designed & Coded by "
+    },
+    "user-menu": {
+      "settings": "Settings"
     }
   },
   "pages": {
@@ -72,24 +88,24 @@
       "sections": {
         "hero": {
           "title": "EzStart",
-          "description": "EZ Start is my Boilerplate that provides a comprehensive and flexible starting point for your web development projects. Built with modern technologies and best practices, it helps you kickstart your development process with a robust foundation.",
+          "description": "EZ Start is a Boilerplate that provides a comprehensive and flexible starting point for your web development projects. Built with modern technologies and best practices, it helps you kickstart your development process with a robust foundation.",
           "cta": "Get Started",
           "github": "Star on GitHub"
         },
         "features": {
           "title": "Features",
-          "subtitle": "Built your next powerfull app",
-          "description": "EzStart is designed to be flexible and extensible, allowing you to add features and modify existing ones to fit your specific needs.",
+          "subtitle": "Built your next powerfull app with ",
+          "description": "These features are already available and integrated for all users of this boilerplate. If only certain features interest you, you can find them in the application documentation. The documentation is currently being written; if you need more information, don't hesitate to contact me.",
           "content": [
             {
               "title": "Cutting-Edge Stack",
-              "description": "Leverage the power of Next.js 14 for building your applications. Ez-start employs TypeScript, Tailwind CSS, and Prisma ORM to provide a modern and efficient development environment. Stay ahead with the latest web technologies, best practices, and optimized SEO.",
+              "description": "Leverage the power of Next.js 14 to build your applications. Ez-start employs TypeScript, Tailwind CSS, Prisma ORM, and more to provide a modern and efficient development environment. Stay ahead with the latest web technologies, best practices, and optimized SEO.",
               "link": "stack",
               "image": "StackSvg"
             },
             {
               "title": "Secure Authentication",
-              "description": "Implement secure authentication in your application using NextAuth.js. This allows for integration with various providers like Google and GitHub, ensuring flexible and secure user authentication and account management.",
+              "description": "Implement secure authentication in your application using Auth.js, the latest version of Next-Auth.js. This allows for integration with various providers such as Google and GitHub, ensuring flexible and secure user authentication and account management.",
               "link": "authentication",
               "image": "SecureSvg"
             },
@@ -101,21 +117,21 @@
             },
             {
               "title": "Efficient Database Management",
-              "description": "Integrate with Prisma for simplified and efficient database management. Generate automatic migrations, access type-safe data, and ensure compatibility with PostgreSQL.",
+              "description": "Integrate Prisma for simplified and efficient database management. Generate automatic migrations, access type-safe data, and ensure compatibility with PostgreSQL, SQLite, and MySQL.",
               "link": "dbmanagement",
               "image": "DbSvg"
             },
             {
               "title": "Rich Component Library",
-              "description": "Utilize Radix UI components and Framer Motion for creating dynamic and accessible user interfaces. Build sophisticated and interactive UIs with ease, backed by a robust component library like ShadcnUI and Aceternity.",
+              "description": "Galvanized by the components of shadcn/ui to create dynamic and accessible user interfaces. This boilerplate includes custom components designed to fully integrate translation with Next-Intl for effortless internationalization.",
               "link": "components",
               "image": "ComponentSvg"
             },
             {
-              "title": "Developer-Centric Tools",
-              "description": "Experience a streamlined development process with ESLint, Prettier, and TypeScript. Maintain high code quality and consistency with Tailwind CSS for styling and Prisma for database management.",
-              "link": "developertools",
-              "image": "CodeSvg"
+              "title": "Payment with Stripe",
+              "description": "Integration of secure payment with Stripe for smooth and reliable transaction management. This upcoming implementation will allow users to make secure payments, with full support for major credit cards and popular payment methods.",
+              "link": "payment",
+              "image": "PaymentSvg"
             }
           ]
         },

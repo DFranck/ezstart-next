@@ -1,6 +1,5 @@
 "use client";
 import ErrorForm from "@/components/errorForm";
-import UserAuth from "@/components/layout/header/user-auth";
 import PasswordInput from "@/components/passwordInput";
 import GithubSvg from "@/components/svgs/github-svg";
 import GoogleSvg from "@/components/svgs/google-svg";
@@ -12,6 +11,7 @@ import {
   FormLabel,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import UserAuth from "@/features/auth/user-auth";
 import { signUpSchema } from "@/lib/zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signIn } from "next-auth/react";
@@ -27,6 +27,8 @@ const SignUpForm = () => {
   const router = useRouter();
   const locale = useLocale();
   const t = useTranslations("App.Auth.SignUpForm");
+  const tAuth = useTranslations("app.auth");
+  const tForm = useTranslations("app.auth.forms.sign-up-form");
 
   const form = useForm<z.infer<typeof signUpSchema>>({
     resolver: zodResolver(signUpSchema),
@@ -77,9 +79,11 @@ const SignUpForm = () => {
         className="bg-accent border shadow rounded-md p-4 flex flex-col gap-4 max-w-[400px] w-full mx-auto"
       >
         <div>
-          <h2 className="text-center text-lg font-semibold">{t("title")}</h2>
+          <h2 className="text-center text-lg font-semibold">
+            {tForm("title")}
+          </h2>
           <p className="text-muted-foreground text-xs text-center">
-            {t("subtitle")}
+            {tForm("subtitle")}
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 justify-center gap-2 text-center w-full">
@@ -100,7 +104,7 @@ const SignUpForm = () => {
         </div>
         <div className="flex justify-between items-center gap-2 text-muted-foreground text-xs mt-2">
           <span className="border border-muted-foreground/20 w-full"></span>
-          {t("or")}
+          {tAuth("forms.or")}
           <span className="border border-muted-foreground/20 w-full"></span>
         </div>
         <FormField
@@ -108,9 +112,14 @@ const SignUpForm = () => {
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="sr-only">{t("emailLabel")}</FormLabel>
+              <FormLabel className="sr-only">
+                {tAuth("forms.email-label")}
+              </FormLabel>
               <FormControl>
-                <Input placeholder={t("emailPlaceholder")} {...field} />
+                <Input
+                  placeholder={tAuth("forms.email-placeholder")}
+                  {...field}
+                />
               </FormControl>
               {form.formState.errors.email?.message && (
                 <ErrorForm name="email" form={form} />
@@ -123,12 +132,14 @@ const SignUpForm = () => {
           name="password"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="sr-only">{t("passwordLabel")}</FormLabel>
+              <FormLabel className="sr-only">
+                {tAuth("forms.password-label")}
+              </FormLabel>
               <FormControl>
                 <PasswordInput
                   field={field}
-                  placeholder={t("passwordPlaceholder")}
-                  label={t("passwordLabel")}
+                  placeholder={tAuth("forms.password-placeholder")}
+                  label={tAuth("forms.password-label")}
                 />
               </FormControl>
               {form.formState.errors.password?.message && (
@@ -143,13 +154,13 @@ const SignUpForm = () => {
           render={({ field }) => (
             <FormItem>
               <FormLabel className="sr-only">
-                {t("confirmPasswordLabel")}
+                {tAuth("forms.confirm-password-label")}
               </FormLabel>
               <FormControl>
                 <PasswordInput
                   field={field}
-                  placeholder={t("confirmPasswordPlaceholder")}
-                  label={t("confirmPasswordLabel")}
+                  placeholder={tAuth("forms.confirm-password-placeholder")}
+                  label={tAuth("forms.confirm-password-label")}
                 />
               </FormControl>
               {form.formState.errors.confirmPassword?.message && (
@@ -161,12 +172,12 @@ const SignUpForm = () => {
         <UserAuth />
         <div className="mt-4 text-center w-full text-xs">
           <p className="text-sm text-muted-foreground w-full flex justify-between gap-2">
-            {t("hasAccountText")}{" "}
+            {tForm("already-have-account")}{" "}
             <Link
               href={`/${locale}/sign-in`}
               className="text-primary underline"
             >
-              {t("signInLink")}
+              {tAuth("sign-in")}
             </Link>
           </p>
         </div>

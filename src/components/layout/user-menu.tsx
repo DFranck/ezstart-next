@@ -11,10 +11,10 @@ import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import UserAuth from "./user-auth";
+import UserAuth from "../../features/auth/user-auth";
 
 const UserMen = ({ className }: { className?: string }) => {
-  const t = useTranslations("layout.header");
+  const t = useTranslations("layout.user-menu");
   const [isOpen, setIsOpen] = useState(false);
   const locale = useLocale();
   const session = useSession();
@@ -123,7 +123,7 @@ const UserMen = ({ className }: { className?: string }) => {
                 <span className="w-9 h-9 flex justify-center items-center">
                   <Settings className="w-4 h-4" />
                 </span>
-                <span>géter son compte</span>
+                <span>{t("settings")}</span>
               </Link>
             </li>
             <li>

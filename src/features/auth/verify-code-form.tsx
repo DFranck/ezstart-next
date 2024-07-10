@@ -22,7 +22,7 @@ const VerifyCodeForm = () => {
   const [error, setError] = useState<string | null>(null);
   const [isFetching, setIsFetching] = useState(false);
   const locale = useLocale();
-  const t = useTranslations("App.Auth.SignInForm");
+  const tForm = useTranslations("app.auth.forms.verify-code-form");
   const err = useTranslations("Errors");
   const router = useRouter();
 
@@ -62,10 +62,10 @@ const VerifyCodeForm = () => {
         <form onSubmit={codeForm.handleSubmit(handleCodeSubmit)}>
           <div>
             <h2 className="text-center text-lg font-semibold ">
-              {t("verifyCodeTitle")}
+              {tForm("title")}
             </h2>
             <p className="text-muted-foreground text-xs text-center">
-              {t("verifyCodeDescription")}
+              {tForm("subtitle")}
             </p>
           </div>
           <FormField
@@ -73,9 +73,14 @@ const VerifyCodeForm = () => {
             name="resetCode"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="sr-only">{t("resetCodeLabel")}</FormLabel>
+                <FormLabel className="sr-only">
+                  {tForm("verify-code-label")}
+                </FormLabel>
                 <FormControl>
-                  <Input placeholder={t("resetCodePlaceholder")} {...field} />
+                  <Input
+                    placeholder={tForm("verify-code-placeholder")}
+                    {...field}
+                  />
                 </FormControl>
                 {codeForm.formState.errors.resetCode?.message && (
                   <p className="text-sm font-medium text-destructive">
@@ -86,7 +91,7 @@ const VerifyCodeForm = () => {
             )}
           />
           <Button type="submit" className={cn("w-full mt-2 text-sm h-fit p-1")}>
-            {isFetching ? <Loader /> : t("verifyCodeButton")}
+            {isFetching ? <Loader /> : tForm("verify")}
           </Button>
         </form>
       </FormProvider>
@@ -101,18 +106,12 @@ const VerifyCodeForm = () => {
         </div>
       )}
       <div className="mt-4 text-justify text-xs w-full">
-        <p className="text-sm text-muted-foreground w-full flex justify-between gap-2">
-          {t("noAccountText")}
-          <Link href={`/${locale}/sign-up`} className="text-primary underline">
-            {t("signUpLink")}
-          </Link>
-        </p>
         <p className="text-sm text-muted-foreground w-full flex justify-between gap-2 mt-2">
           <Link
             href="/auth/sign-in"
             className="text-muted-foreground text-xs hover:underline w-full text-end"
           >
-            {t("back")}
+            {tForm("back")}
           </Link>
         </p>
       </div>

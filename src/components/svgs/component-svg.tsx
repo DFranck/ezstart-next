@@ -30,7 +30,7 @@ const ComponentSvg = ({
           stroke={
             fill ? `hsl(var(--${fill}))` : `hsl(var(--primary-foreground))`
           }
-          strokeWidth="66.6667"
+          strokeWidth="30"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
@@ -39,7 +39,7 @@ const ComponentSvg = ({
           stroke={
             fill ? `hsl(var(--${fill}))` : `hsl(var(--primary-foreground))`
           }
-          strokeWidth="66.6667"
+          strokeWidth="30"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
@@ -48,7 +48,7 @@ const ComponentSvg = ({
           stroke={
             fill ? `hsl(var(--${fill}))` : `hsl(var(--primary-foreground))`
           }
-          strokeWidth="66.6667"
+          strokeWidth="30"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
@@ -57,7 +57,7 @@ const ComponentSvg = ({
           stroke={
             fill ? `hsl(var(--${fill}))` : `hsl(var(--primary-foreground))`
           }
-          strokeWidth="66.6667"
+          strokeWidth="30"
           strokeLinecap="round"
           strokeLinejoin="round"
         />

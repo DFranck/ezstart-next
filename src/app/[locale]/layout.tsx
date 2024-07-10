@@ -1,5 +1,5 @@
-import Footer from "@/components/layout/footer/footer";
-import Header from "@/components/layout/header/header";
+import Footer from "@/components/layout/footer";
+import Header from "@/components/layout/header";
 import Main from "@/components/layout/main";
 import { cn } from "@/lib/utils";
 import { getMessages } from "next-intl/server";

@@ -16,6 +16,8 @@ import { GlareCard } from "@/components/ui/glare-card";
 import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 import React from "react";
+import PaymentSvg from "./svgs/payment-svg";
+import StripeSvg from "./svgs/stripe-svg";
 
 const svgComponents: { [key: string]: React.FC<{ className?: string }> } = {
   AuthSvg,
@@ -29,6 +31,8 @@ const svgComponents: { [key: string]: React.FC<{ className?: string }> } = {
   DbSvg,
   ComponentSvg,
   CodeSvg,
+  StripeSvg,
+  PaymentSvg,
 };
 
 const FeaturesList = () => {

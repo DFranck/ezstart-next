@@ -12,7 +12,6 @@ import { cn } from "@/lib/utils";
 import { newPasswordSchema } from "@/lib/zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useLocale, useTranslations } from "next-intl";
-import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
@@ -23,6 +22,8 @@ const ResetPasswordForm = () => {
   const [isFetching, setIsFetching] = useState(false);
   const locale = useLocale();
   const t = useTranslations("App.Auth.SignInForm");
+  const tForm = useTranslations("app.auth.forms.reset-password-form");
+  const tAuth = useTranslations("app.auth");
   const err = useTranslations("Errors");
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -78,10 +79,10 @@ const ResetPasswordForm = () => {
       >
         <div>
           <h2 className="text-center text-lg font-semibold ">
-            {t("resetPasswordTitle")}
+            {tForm("title")}
           </h2>
           <p className="text-muted-foreground text-xs text-center">
-            {t("resetPasswordDescription")}
+            {tForm("subtitle")}
           </p>
         </div>
         <FormField
@@ -89,12 +90,14 @@ const ResetPasswordForm = () => {
           name="password"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="sr-only">{t("passwordLabel")}</FormLabel>
+              <FormLabel className="sr-only">
+                {tAuth("forms.password-label")}
+              </FormLabel>
               <FormControl>
                 <PasswordInput
                   field={field}
-                  placeholder={t("passwordPlaceholder")}
-                  label={t("passwordLabel")}
+                  placeholder={tAuth("forms.password-placeholder")}
+                  label={tAuth("forms.password-label")}
                 />
               </FormControl>
               {passwordForm.formState.errors.password?.message && (
@@ -111,13 +114,13 @@ const ResetPasswordForm = () => {
           render={({ field }) => (
             <FormItem>
               <FormLabel className="sr-only">
-                {t("confirmPasswordLabel")}
+                {tAuth("forms.confirm-password-label")}
               </FormLabel>
               <FormControl>
                 <PasswordInput
                   field={field}
-                  placeholder={t("confirmPasswordPlaceholder")}
-                  label={t("confirmPasswordLabel")}
+                  placeholder={tAuth("forms.confirm-password-placeholder")}
+                  label={tAuth("forms.confirm-password-label")}
                 />
               </FormControl>
               {passwordForm.formState.errors.confirmPassword?.message && (
@@ -128,19 +131,9 @@ const ResetPasswordForm = () => {
             </FormItem>
           )}
         />
-        <div>
-          <Button type="submit" className={cn("w-full mt-2 text-sm h-fit p-1")}>
-            {isFetching ? <Loader /> : t("resetPasswordButton")}
-          </Button>
-          <p className="text-sm text-muted-foreground w-full flex justify-between gap-2 mt-2">
-            <Link
-              href="/auth/sign-in"
-              className="text-muted-foreground text-xs hover:underline w-full text-end"
-            >
-              {t("back")}
-            </Link>
-          </p>
-        </div>
+        <Button type="submit" className={cn("w-full mt-2 text-sm h-fit p-1")}>
+          {isFetching ? <Loader /> : tForm("reset")}
+        </Button>
         {error && (
           <div className="flex gap-1 items-center mt-2">
             <span className="bg-destructive rounded-full p-1 text-destructive-foreground w-4 h-4 flex justify-center items-center text-xs">
@@ -151,17 +144,6 @@ const ResetPasswordForm = () => {
             </p>
           </div>
         )}
-        <div className="mt-4 text-justify text-xs w-full">
-          <p className="text-sm text-muted-foreground w-full flex justify-between gap-2">
-            {t("noAccountText")}
-            <Link
-              href={`/${locale}/sign-up`}
-              className="text-primary underline"
-            >
-              {t("signUpLink")}
-            </Link>
-          </p>
-        </div>
       </form>
     </FormProvider>
   );

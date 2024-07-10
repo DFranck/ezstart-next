@@ -29,7 +29,8 @@ const ForgotForm = () => {
   });
   const router = useRouter();
   const locale = useLocale();
-  const t = useTranslations("App.Auth.SignInForm");
+  const tForm = useTranslations("app.auth.forms.forgot-form");
+  const tAuth = useTranslations("app.auth");
   const err = useTranslations("Errors");
   const formStyle =
     "bg-accent border shadow rounded-md p-4 flex flex-col gap-4 max-w-[400px] mx-auto";
@@ -59,10 +60,10 @@ const ForgotForm = () => {
       <form onSubmit={form.handleSubmit(onSubmit)} className={formStyle}>
         <div>
           <h2 className="text-center text-lg font-semibold ">
-            {t("forgotTitle")}
+            {tForm("title")}
           </h2>
           <p className="text-muted-foreground text-xs text-center">
-            {t("forgotDescription")}
+            {tForm("subtitle")}
           </p>
         </div>
         <FormField
@@ -70,9 +71,14 @@ const ForgotForm = () => {
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="sr-only">{t("emailLabel")}</FormLabel>
+              <FormLabel className="sr-only">
+                {tAuth("forms.email-label")}
+              </FormLabel>
               <FormControl>
-                <Input placeholder={t("emailPlaceholder")} {...field} />
+                <Input
+                  placeholder={tAuth("forms.email-placeholder")}
+                  {...field}
+                />
               </FormControl>
               {form.formState.errors.email?.message && (
                 <p className="text-sm font-medium text-destructive">
@@ -84,7 +90,7 @@ const ForgotForm = () => {
         />
         <div>
           <Button type="submit" className={cn("w-full mt-2 text-sm h-fit p-1")}>
-            {isFetching ? <Loader /> : t("forgotLink")}
+            {isFetching ? <Loader /> : tForm("send")}
           </Button>
           <div className={cn("grid  mt-1", { "grid-cols-2": error })}>
             {error && (
@@ -102,19 +108,19 @@ const ForgotForm = () => {
                 href={`/${locale}/sign-in`}
                 className="text-muted-foreground text-xs hover:underline w-full text-end"
               >
-                {t("back")}
+                {tForm("back")}
               </Link>
             </p>
           </div>
         </div>
         <div className="mt-4 text-justify text-xs w-full">
           <p className="text-sm text-muted-foreground w-full flex justify-between gap-2">
-            {t("noAccountText")}
+            {tForm("no-account")}
             <Link
               href={`/${locale}/sign-up`}
               className="text-primary underline"
             >
-              {t("signUpLink")}
+              {tAuth("sign-up")}
             </Link>
           </p>
         </div>

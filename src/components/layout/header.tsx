@@ -1,7 +1,7 @@
 "use client";
-import Burger from "@/components/layout/header/burger";
-import UserMenu from "@/components/layout/header/user-menu";
+import Burger from "@/components/burger";
 import Nav from "@/components/layout/nav";
+import UserMenu from "@/components/layout/user-menu";
 import LocaleSwitcher from "@/features/internationalization/locale-switcher";
 import { ThemeSwitcher } from "@/features/theme/theme-switcher";
 import useOnScroll from "@/hooks/useOnScroll";
@@ -11,7 +11,7 @@ import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import UserAuth from "./user-auth";
+import UserAuth from "../../features/auth/user-auth";
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);

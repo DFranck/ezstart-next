@@ -42,6 +42,27 @@
           "title": "Inscription à EzStart",
           "subtitle": "Bienvenue! Veuillez vous inscrire pour commencer.",
           "already-have-account": "Vous avez deja un compte?"
+        },
+        "forgot-form": {
+          "title": "Mot de passe oublie?",
+          "subtitle": "Entrez votre adresse email et nous vous enverrons un code pour reinitialiser votre mot de passe.",
+          "back": "Retourner à la connexion",
+          "send": "Recevoir mon code",
+          "no-account": "Vous n'avez pas de compte?"
+        },
+        "verify-code-form": {
+          "title": "Vérification du code",
+          "subtitle": "Entrez le code que nous avons envoyé à votre adresse email.",
+          "resend": "Renvoyer le code",
+          "verify-code-label": "Code",
+          "verify-code-placeholder": "Code",
+          "verify": "Vérifier",
+          "back": "Retourner à la connexion"
+        },
+        "reset-password-form": {
+          "title": "Réinitialiser votre mot de passe",
+          "subtitle": "Vous pouvez maintenant réinitialiser votre mot de passe.",
+          "reset": "Réinitialiser"
         }
       }
     }
@@ -49,20 +70,14 @@
   "layout": {
     "header": {
       "app-title": "EzStart",
-      "nav-links": ["Accueil", "Docs"],
-      "cta": "",
-      "user": "",
-      "docs": "Documentation",
-      "dashboard": "Tableau de bord",
-      "admin": "Admin"
+      "nav-links": ["Accueil", "Docs"]
     },
     "footer": {
-      "partnersTitle": "Partenaires",
-      "partners": "",
-      "linksTitle": "Liens",
-      "links": "",
       "copyright": "Copyright © 2024. Tous droits réservés.",
-      "owner": "Conception & développement par "
+      "owner": "Designé & Codé par "
+    },
+    "user-menu": {
+      "settings": "Paramètres"
     }
   },
   "pages": {
@@ -72,24 +87,24 @@
       "sections": {
         "hero": {
           "title": "EzStart",
-          "description": "EZ Start est mon boilerplate qui fournit un point de départ complet et flexible pour vos projets de développement web. Construit avec des technologies modernes et les meilleures pratiques, il vous aide à démarrer votre processus de développement avec une base solide.",
+          "description": "EZ Start est une boilerplate qui fournit un point de départ complet et flexible pour vos projets de développement web. Construit avec des technologies modernes et les meilleures pratiques, il vous aide à démarrer votre processus de développement avec une base solide.",
           "cta": "Commencer",
           "github": "Étoile sur GitHub"
         },
         "features": {
           "title": "Fonctionnalités",
-          "subtitle": "Créez votre prochaine application puissante avec",
-          "description": "Ces fonctionnalités sont disponibles pour tous les utilisateurs. Cliquez sur une fonctionnalité pour voir les decriptifs.",
+          "subtitle": "Créez votre prochaine application avec ",
+          "description": "Ces fonctionnalités sont déja disponibles et intégrées pour tous les utilisateurs de cette boilerplate. Si seulement certaines features vous interessent, vous pouvez les trouver dans la documentation de l'application, la documentation est en cours de rédaction s'il vous manque des informations n'hésitez pas à me contacter.",
           "content": [
             {
               "title": "Stack de Pointe",
-              "description": "Exploitez la puissance de Next.js 14 pour créer vos applications. Ez-start utilise TypeScript, Tailwind CSS et Prisma ORM pour offrir un environnement de développement moderne et efficace. Restez à la pointe avec les dernières technologies web, les meilleures pratiques et un SEO optimisé.",
-              "link": "stack",
+              "description": "Exploitez la puissance de Next.js 14 pour créer vos applications. Ez-start utilise TypeScript, Tailwind CSS et Prisma ORM et bien plus pour offrir un environnement de développement moderne et efficace. Restez à la pointe avec les dernières technologies web, les meilleures pratiques et un SEO optimisé.",
+              "link": "/",
               "image": "StackSvg"
             },
             {
               "title": "Authentification Sécurisée",
-              "description": "Implémentez une authentification sécurisée dans votre application en utilisant NextAuth.js. Cela permet une intégration avec divers fournisseurs tels que Google et GitHub, garantissant une authentification utilisateur flexible et sécurisée ainsi qu'une gestion des comptes.",
+              "description": "Implémentez une authentification sécurisée dans votre application en utilisant Auth.js, la dernière version de Next-Auth.js. Cela permet une intégration avec divers fournisseurs tels que Google et GitHub, garantissant une authentification utilisateur flexible et sécurisée ainsi qu'une gestion des comptes.",
               "link": "authentication",
               "image": "SecureSvg"
             },
@@ -100,22 +115,22 @@
               "image": "GlobalSvg"
             },
             {
-              "title": "Gestion Efficace de la Base de Données",
-              "description": "Intégrez Prisma pour une gestion simplifiée et efficace de la base de données. Générez des migrations automatiques, accédez à des données typées et assurez la compatibilité avec PostgreSQL.",
-              "link": "dbmanagement",
+              "title": "Gestion de la Base de Données",
+              "description": "Integrez Prisma pour une gestion simplifiée et efficace de la base de données. Générez des migrations automatiques, accédez à des données typées et assurez la compatibilité avec PostgreSQL, SQLite et MySQL.",
+              "link": "db-management",
               "image": "DbSvg"
             },
             {
-              "title": "Bibliothèque de Composants Riches",
-              "description": "Utilisez les composants Radix UI et Framer Motion pour créer des interfaces utilisateur dynamiques et accessibles. Construisez des interfaces sophistiquées et interactives avec facilité, soutenues par une bibliothèque de composants robuste comme ShadcnUI et Aceternity.",
+              "title": "Composants Personnalisés",
+              "description": "Galvanisé par les composants de shadcn/ui pour créer des interfaces utilisateur dynamiques et accessibles. Cette boilerplate inclut des composants personnalisés conçus afin d'integrer pleinement la traduction avec Next-Intl pour une internationalisation sans effort.",
               "link": "components",
               "image": "ComponentSvg"
             },
             {
-              "title": "Outils Centrés sur les Développeurs",
-              "description": "Profitez d'un processus de développement rationalisé avec ESLint, Prettier et TypeScript. Maintenez une haute qualité de code et une cohérence avec Tailwind CSS pour le style et Prisma pour la gestion de la base de données.",
-              "link": "developertools",
-              "image": "CodeSvg"
+              "title": "Paiement avec Stripe",
+              "description": "Intégration du paiement sécurisé avec Stripe pour une gestion des transactions fluide et fiable. Cette prochaine implémentation permettra aux utilisateurs de réaliser des paiements en toute sécurité, avec une prise en charge complète des principales cartes de crédit et des méthodes de paiement populaires.",
+              "link": "payment",
+              "image": "PaymentSvg"
             }
           ]
         },
