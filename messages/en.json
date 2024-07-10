@@ -84,7 +84,7 @@
     },
     "docs": {
       "title": "EzStart Documentation",
-      "description": "Comprehensive guide and reference for using EzStart. Learn how to leverage the features and components of EzStart to streamline your development process. This",
+      "description": "Comprehensive guide and reference for using EzStart. Learn how to leverage the features and components of EzStart to streamline your development process.",
       "sections": {
         "primary-dependencies": {
           "title": "Primary Dependencies",
@@ -122,7 +122,7 @@
           },
           "setup-env": {
             "title": "Setup environment",
-            "steps": "DATABASE_URL=`postgresql://username:password@localhost:5432/mydatabase` \nAUTH_URL=http://localhost:3000 \nAUTH_SECRET=your_secret_key \nAUTH_SALT=your_salt \nGOOGLE_CLIENT_ID=YOUR_GOOGLE_CLIENT_ID \nGOOGLE_CLIENT_SECRET=YOUR_GOOGLE_CLIENT_SECRET \nGITHUB_CLIENT_ID=YOUR_GITHUB_CLIENT_ID \nGITHUB_CLIENT_SECRET=YOUR_GITHUB_CLIENT_SECRET \nMAILJET_API_SECRET=YOUR_MAILJET_API_SECRET \nMAILJET_API_KEY=YOUR_MAILJET_API_KEY"
+            "steps": "DATABASE_URL=`postgresql://username:password@localhost:5432/mydatabase`\nAUTH_URL=http://localhost:3000\nAUTH_SECRET=your_secret_key\nAUTH_SALT=your_salt\nGOOGLE_CLIENT_ID=YOUR_GOOGLE_CLIENT_ID\nGOOGLE_CLIENT_SECRET=YOUR_GOOGLE_CLIENT_SECRET\nGITHUB_CLIENT_ID=YOUR_GITHUB_CLIENT_ID\nGITHUB_CLIENT_SECRET=YOUR_GITHUB_CLIENT_SECRET\nMAILJET_API_SECRET=YOUR_MAILJET_API_SECRET\nMAILJET_API_KEY=YOUR_MAILJET_API_KEY"
           },
           "environment-variables": {
             "title": "Environment Variables",
@@ -185,13 +185,13 @@
           },
           "enjoy": {
             "title": "Enjoy!",
-            "description": "You can enjoy know or take a look the documentation of this boilerplate."
+            "description": "You can enjoy now or take a look the documentation of this boilerplate."
           }
         }
       },
       "dev-tools": {
         "title": "Developer Tools",
-        "description": "A collection of tools to assist developers in efficiently managing and enhancing their projects. If you start with EZ Start, you can use these tools to enhance your development experience without confusing yourself, if not you can find configuration options in th 'Developer Tools' section.",
+        "description": "A collection of tools to assist developers in efficiently managing and enhancing their projects. If you start with EZ Start, you can use these tools to enhance your development experience without confusing yourself, if not you can find configuration options in the 'Developer Tools' section.",
         "items": {
           "update-app-name": {
             "title": "Update App Name",
@@ -237,87 +237,197 @@
       "components": {
         "title": "Components",
         "description": "Components for developers",
-        "items": {}
+        "items": {
+          "nav": {
+            "title": "Navigation",
+            "description": "A versatile navigation component for developers, designed to handle dynamic links and paths effortlessly. It supports translation, dynamic paths, and different layouts for various navigation needs.",
+            "files": {
+              "title": "Files concerned",
+              "description": "The following file will be concerned:",
+              "code-links": {
+                "src/components/layout/nav.tsx": "https://github.com/DFranck/my-ez-start/blob/master/src/components/layout/nav.tsx"
+              }
+            },
+            "features": {
+              "title": "Features",
+              "content": [
+                "Supports dynamic link generation based on translation keys or direct links array/object.",
+                "Responsive design with different layouts (row and column) for various screen sizes.",
+                "Automatic active link highlighting based on the current pathname.",
+                "Customizable through various props including custom classes, variants, and direction (row or column)."
+              ]
+            },
+            "example-usage": {
+              "title": "Example Usage",
+              "description": "Here's how to use the Nav component:",
+              "steps": [
+                {
+                  "step-title": "Basic Usage",
+                  "step-description": "Import the Nav component and use it in your layout.",
+                  "step-code": "import Nav from \"@/components/layout/nav\";\n\nconst MyLayout = () => {\n  return (\n    <div>\n      <Nav \n        t=\"pages.docs\" \n        render=\"nav-links\" \n        path=\"docs\" \n        active \n        variant=\"primary\" \n        dir=\"col\" \n        pos=\"fixed\" \n        navClass=\"my-custom-nav-class\" \n        ulClass=\"my-custom-ul-class\" \n        liClass=\"my-custom-li-class\" \n      />\n    </div>\n  );\n};\n\nexport default MyLayout;"
+                },
+                {
+                  "step-title": "Using Direct Links",
+                  "step-description": "You can also provide direct links instead of using translation keys.",
+                  "step-code": "import Nav from \"@/components/layout/nav\";\n\nconst MyLayout = () => {\n  const links = [\"Home\", \"About\", \"Contact\"];\n  return (\n    <div>\n      <Nav \n        links={links} \n        path=\"\" \n        active \n        variant=\"primary\" \n        dir=\"row\" \n        pos=\"default\" \n        navClass=\"my-custom-nav-class\" \n        ulClass=\"my-custom-ul-class\" \n        liClass=\"my-custom-li-class\" \n      />\n    </div>\n  );\n};\n\nexport default MyLayout;"
+                }
+              ],
+              "language": "typescript"
+            }
+          },
+          "section": {
+            "title": "Section",
+            "description": "A flexible section component for wrapping content with optional background image and additional styling.",
+            "files": {
+              "title": "Files concerned",
+              "description": "The following file will be concerned:",
+              "code-links": {
+                "src/components/layout/section.tsx": "https://github.com/DFranck/my-ez-start/blob/master/src/components/layout/section.tsx"
+              }
+            },
+            "features": {
+              "title": "Features",
+              "content": [
+                "Allows wrapping of content with additional styling and layout options.",
+                "Supports background images with customizable size, repeat, and position.",
+                "Optional id for linking to specific sections within a page."
+              ]
+            },
+            "example-usage": {
+              "title": "Example Usage",
+              "description": "Here's how to use the Section component:",
+              "steps": [
+                {
+                  "step-title": "Basic Usage",
+                  "step-description": "Import the Section component and use it to wrap your content.",
+                  "step-code": "import Section from \"@/components/layout/section\";\n\nconst MyComponent = () => {\n  return (\n    <Section className=\"my-custom-class\" id=\"my-section\">\n      <h1>My Section</h1>\n      <p>This is a section with custom styling.</p>\n    </Section>\n  );\n};\n\nexport default MyComponent;"
+                },
+                {
+                  "step-title": "Using Background Image",
+                  "step-description": "You can also provide a background image to the Section component.",
+                  "step-code": "import Section from \"@/components/layout/section\";\n\nconst MyComponent = () => {\n  return (\n    <Section bgImg=\"/path/to/image.jpg\" className=\"my-custom-class\" id=\"my-section\">\n      <h1>My Section</h1>\n      <p>This is a section with a background image.</p>\n    </Section>\n  );\n};\n\nexport default MyComponent;"
+                }
+              ],
+              "language": "typescript"
+            }
+          },
+          "carousel3d": {
+            "title": "3D Carousel",
+            "description": "A 3D Carousel component that displays rotating images or content in a 3D space. Supports keyboard navigation and pausing on hover.",
+            "files": {
+              "title": "Files concerned",
+              "description": "The following file will be concerned:",
+              "code-links": {
+                "src/components/carousel3d.tsx": "https://github.com/DFranck/my-ez-start/blob/master/src/components/carousel3d.tsx"
+              }
+            },
+            "display": {
+              "title": "Display",
+              "component": "<Carousel3D />"
+            },
+            "features": {
+              "title": "Features",
+              "content": [
+                "Supports rotating images or content in a 3D space.",
+                "Keyboard navigation for accessibility.",
+                "Option to pause rotation on hover.",
+                "Customizable number of items and content via props."
+              ]
+            },
+            "example-usage": {
+              "title": "Example Usage",
+              "description": "Here's how to use the Carousel3D component:",
+              "steps": [
+                {
+                  "step-title": "Basic Usage",
+                  "step-description": "Import the Carousel3D component and use it to display rotating images.",
+                  "step-code": "import Carousel3D from \"@/components/carousel3d\";\n\nconst MyComponent = () => {\n  return (\n    <Carousel3D imgNum={5} stopOnHover={true}>\n      <img src=\"/path/to/image1.jpg\" alt=\"Image 1\" />\n      <img src=\"/path/to/image2.jpg\" alt=\"Image 2\" />\n      <img src=\"/path/to/image3.jpg\" alt=\"Image 3\" />\n    </Carousel3D>\n  );\n};\n\nexport default MyComponent;"
+                }
+              ],
+              "language": "typescript"
+            }
+          }
+        },
+        "internationalization": {
+          "title": "Internationalization",
+          "description": "Internationalization for developers",
+          "items": {}
+        },
+        "authentication": {
+          "title": "Authentication",
+          "description": "Authentication for developers",
+          "items": {}
+        },
+        "db-management": {
+          "title": "Database Management",
+          "description": "Database management for developers",
+          "items": {}
+        }
       },
-      "internationalization": {
-        "title": "Internationalization",
-        "description": "Internationalization for developers",
-        "items": {}
-      },
-      "authentication": {
-        "title": "Authentication",
-        "description": "Authentication for developers",
-        "items": {}
-      },
-      "db-management": {
-        "title": "Database Management",
-        "description": "Database management for developers",
-        "items": {}
+      "auth": {
+        "signInForm": {
+          "title": "Sign In to EzStart",
+          "subtitle": "Welcome back! Please sign in to continue",
+          "or": "or",
+          "emailLabel": "Email",
+          "emailPlaceholder": "Email",
+          "emailDescription": "We’ll never share your email.",
+          "passwordLabel": "Password",
+          "passwordPlaceholder": "Password",
+          "signInButton": "Sign In",
+          "noAccountText": "Don’t have an account?",
+          "signUpLink": "Sign Up",
+          "forgotPasswordText": "Forgot your password?",
+          "back": "Back to signin",
+          "forgotTitle": "Forgot your password?",
+          "forgotDescription": "Enter your email address and we'll send you a link to reset your password.",
+          "forgotLink": "Reset your password",
+          "resetPasswordTitle": "Reset your password",
+          "resetPasswordDescription": "You can now reset your password",
+          "resetPasswordButton": "Reset Password",
+          "confirmPasswordLabel": "Confirm Password",
+          "confirmPasswordPlaceholder": "Confirm Password",
+          "verifyCodeTitle": "Verify the code",
+          "verifyCodeDescription": "Enter the code we just sent you.",
+          "resetCodePlaceholder": "Code",
+          "resetCodeLabel": "Code",
+          "verifyCodeButton": "Verify Code"
+        },
+        "signUpForm": {
+          "title": "Sign Up to EzStart",
+          "subtitle": "Welcome! Please fill in the details to get started.",
+          "or": "or",
+          "emailLabel": "Email",
+          "emailPlaceholder": "Email",
+          "emailDescription": "We’ll never share your email.",
+          "passwordLabel": "Password",
+          "passwordPlaceholder": "Password",
+          "confirmPasswordLabel": "Confirm Password",
+          "confirmPasswordPlaceholder": "Confirm Password",
+          "signUpButton": "Sign Up",
+          "hasAccountText": "Already have an account?",
+          "signInLink": "Sign In"
+        }
       }
     },
-    "auth": {
-      "signInForm": {
-        "title": "Sign In to EzStart",
-        "subtitle": "Welcome back! Please sign in to continue",
-        "or": "or",
-        "emailLabel": "Email",
-        "emailPlaceholder": "Email",
-        "emailDescription": "We’ll never share your email.",
-        "passwordLabel": "Password",
-        "passwordPlaceholder": "Password",
-        "signInButton": "Sign In",
-        "noAccountText": "Don’t have an account?",
-        "signUpLink": "Sign Up",
-        "forgotPasswordText": "Forgot your password?",
-        "back": "Back to signin",
-        "forgotTitle": "Forgot your password?",
-        "forgotDescription": "Enter your email address and we'll send you a link to reset your password.",
-        "forgotLink": "Reset your password",
-        "resetPasswordTitle": "Reset your password",
-        "resetPasswordDescription": "You can now reset your password",
-        "resetPasswordButton": "Reset Password",
-        "confirmPasswordLabel": "Confirm Password",
-        "confirmPasswordPlaceholder": "Confirm Password",
-        "verifyCodeTitle": "Verify the code",
-        "verifyCodeDescription": "Enter the code we just sent you.",
-        "resetCodePlaceholder": "Code",
-        "resetCodeLabel": "Code",
-        "verifyCodeButton": "Verify Code"
-      },
-      "signUpForm": {
-        "title": "Sign Up to EzStart",
-        "subtitle": "Welcome! Please fill in the details to get started.",
-        "or": "or",
-        "emailLabel": "Email",
-        "emailPlaceholder": "Email",
-        "emailDescription": "We’ll never share your email.",
-        "passwordLabel": "Password",
-        "passwordPlaceholder": "Password",
-        "confirmPasswordLabel": "Confirm Password",
-        "confirmPasswordPlaceholder": "Confirm Password",
-        "signUpButton": "Sign Up",
-        "hasAccountText": "Already have an account?",
-        "signInLink": "Sign In"
-      }
-    }
-  },
-  "errors": {
-    "emailRequired": "Email is required.",
-    "invalidEmail": "Invalid email address.",
-    "passwordRequired": "Password is required.",
-    "passwordMin": "Password must be more than 8 characters.",
-    "passwordMax": "Password must be less than 32 characters.",
-    "userExists": "User already exists.",
-    "configuration": "Incorrect email or password.",
-    "notfound": "User not found.",
-    "passwordsdonotmatch": "Passwords do not match."
-  },
+    "errors": {
+      "emailRequired": "Email is required.",
+      "invalidEmail": "Invalid email address.",
+      "passwordRequired": "Password is required.",
+      "passwordMin": "Password must be more than 8 characters.",
+      "passwordMax": "Password must be less than 32 characters.",
+      "userExists": "User already exists.",
+      "configuration": "Incorrect email or password.",
+      "notfound": "User not found.",
+      "passwordsdonotmatch": "Passwords do not match."
+    },
 
-  "locale": {
-    "language": { "en": "English", "fr": "French" }
-  },
-  "theme": {
-    "light": "Light",
-    "dark": "Dark"
+    "locale": {
+      "language": { "en": "English", "fr": "French" }
+    },
+    "theme": {
+      "light": "Light",
+      "dark": "Dark"
+    }
   }
 }
