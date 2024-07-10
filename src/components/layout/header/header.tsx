@@ -31,7 +31,7 @@ export const Header = () => {
       <div className="mx-auto max-w-screen-lg">
         <div className="flex flex-wrap items-center justify-between">
           <Link href="/">
-            <h2 className="flex items-center text-xl font-semibold">
+            <h2 className="flex items-center text-xl font-semibold my-0">
               {t("app-title")}
             </h2>
           </Link>

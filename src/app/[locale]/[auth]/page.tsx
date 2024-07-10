@@ -31,9 +31,9 @@ const FormPage = () => {
   }
 
   return (
-    <div>
+    <>
       <FormComponent />
-    </div>
+    </>
   );
 };
 

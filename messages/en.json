@@ -5,7 +5,7 @@
   },
   "header": {
     "app-title": "EzStart",
-    "nav-links": ["Home", "About"],
+    "nav-links": ["Home", "Docs"],
     "cta": "",
     "user": "",
     "signin": "Sign in",
@@ -83,13 +83,27 @@
       }
     },
     "docs": {
+      "title": "EzStart Documentation",
+      "description": "Comprehensive guide and reference for using EzStart. Learn how to leverage the features and components of EzStart to streamline your development process. This",
+      "sections": {
+        "primary-dependencies": {
+          "title": "Primary Dependencies",
+          "description": "You can find below the primary dependencies used in this boilerplate and their official documentation.",
+          "framework": "Framework",
+          "orm": "ORM",
+          "authentication": "Authentication",
+          "styling": "Styling",
+          "forms": "Forms",
+          "internationalization": "Internationalization"
+        }
+      },
       "nav-links": {
         "get-started": "Get Started",
         "dev-tools": "Developer Tools",
         "components": "Components",
         "internationalization": "Internationalization",
         "authentication": "Authentication",
-        "dbManagement": "Database Management"
+        "db-management": "Database Management"
       },
       "get-started": {
         "title": "Get Started with EzStart",
@@ -169,16 +183,6 @@
             "title": "Start development",
             "steps": "npm run dev"
           },
-          "primary-dependencies": {
-            "title": "Primary Dependencies",
-            "description": "You can find below the primary dependencies used in this boilerplate and their official documentation.",
-            "framework": "Framework",
-            "orm": "ORM",
-            "authentication": "Authentication",
-            "styling": "Styling",
-            "forms": "Forms",
-            "internationalization": "Internationalization"
-          },
           "enjoy": {
             "title": "Enjoy!",
             "description": "You can enjoy know or take a look the documentation of this boilerplate."
@@ -188,14 +192,20 @@
       "dev-tools": {
         "title": "Developer Tools",
         "description": "A collection of tools to assist developers in efficiently managing and enhancing their projects. If you start with EZ Start, you can use these tools to enhance your development experience without confusing yourself, if not you can find configuration options in th 'Developer Tools' section.",
-        "sections": {
-          "nav-links": {
-            "update-app-name": "Update App Name",
-            "": ""
-          },
+        "items": {
           "update-app-name": {
             "title": "Update App Name",
-            "description": "The 'Update App Name' tool allows developers to easily update the application's name across various files and configurations within the project.",
+            "description": "Tool to update the app name across various files",
+            "files": {
+              "title": "Files concerned",
+              "description": "The following files will be concerned:",
+              "code-links": {
+                "updateAppName.js": "https://github.com/DFranck/my-ez-start/blob/master/updateAppName.js",
+                "package.json": "https://github.com/DFranck/my-ez-start/blob/master/package.json",
+                "README.md": "https://github.com/DFranck/my-ez-start/blob/master/README.md",
+                "src/app/[locale]/layout.tsx": "https://github.com/DFranck/my-ez-start/blob/master/src/app/[locale]/layout.tsx"
+              }
+            },
             "features": {
               "title": "Features",
               "content": [
@@ -204,34 +214,22 @@
                 "Robust handling of string replacements to ensure all instances of the old name are updated."
               ]
             },
-            "howItWorks": {
-              "title": "How It Works",
-              "content": [
-                "<code>package.json</code>: Updates the <code>name</code> field.",
-                "<code>README.md</code>: Replaces all instances of the old name with the new name.",
-                "Translation files: Updates the <code>meta-title</code> and <code>meta-description</code> fields in JSON files located in the <code>messages</code> directory."
-              ]
-            },
-            "configuration": {
-              "title": "Configuration",
-              "content": "You can customize the new application name and specify the paths to the files to be updated."
-            },
-            "exampleUsage": {
+            "example-usage": {
               "title": "Example Usage",
-              "content": [
+              "description": "Here's how to use & run the script:",
+              "steps": [
                 {
-                  "title": "Configuration",
-                  "description": "First, define the old and new application names:",
-                  "code": "// updateAppName.js\nconst fs = require('fs');\nconst path = require('path');\n\n// Application name to update\nconst newAppName = 'EzStart - The Ultimate Boilerplate for Modern Web Development'; // Replace with the desired name\nconst oldAppName = 'Your Application Name'; // Replace with the current name of the application in README\n\n// Paths to the files\nconst packageJsonFilePath = path.join(__dirname, 'package.json');\nconst readmeFilePath = path.join(__dirname, 'README.md');\nconst i18nFolderPath = path.join(__dirname, 'messages');\n\n// Update package.json\nconst packageJson = JSON.parse(fs.readFileSync(packageJsonFilePath, 'utf-8'));\npackageJson.name = newAppName.toLowerCase().replace(/[^a-z0-9-._~]/g, '-');\nfs.writeFileSync(packageJsonFilePath, JSON.stringify(packageJson, null, 2));\n\n// Update README.md\nlet readmeContent = fs.readFileSync(readmeFilePath, 'utf-8');\nreadmeContent = readmeContent.replace(new RegExp(oldAppName, 'g'), newAppName);\nfs.writeFileSync(readmeFilePath, readmeContent);\n\n// Update translation files if the directory exists\nif (fs.existsSync(i18nFolderPath)) {\n  fs.readdirSync(i18nFolderPath).forEach((file) => {\n    const filePath = path.join(i18nFolderPath, file);\n    let fileContent = fs.readFileSync(filePath, 'utf-8');\n    const updatedContent = fileContent.replace(\n      /('meta-title'\\s*:\\s*')[^']*(')/,\n      `$1${newAppName}$2`\n    );\n    fs.writeFileSync(filePath, updatedContent);\n  });\n} else {\n  console.log(\n    `The folder ${i18nFolderPath} does not exist, skipping translation update.`\n  );\n}\n\nconsole.log(`App name updated to ${newAppName} successfully!`);",
-                  "language": "javascript"
+                  "step-title": "Provide new name",
+                  "step-description": "Replace <code>newAppName</code> with the new application name in the <code>updateAppName.js</code> file.",
+                  "step-code": "const newAppName = \"EzStart - The Ultimate Boilerplate for Modern Web Development\"; // Replace with the desired name\nconst oldAppName = \"Your Application Name\"; // Replace with the current name of the application in the README"
                 },
                 {
-                  "title": "Running the Script",
-                  "description": "To use this script, simply run it with Node.js:",
-                  "code": "node updateAppName.js",
-                  "language": "bash"
+                  "step-title": "Run script",
+                  "step-description": "Run the script using Node.js: <code>node updateAppName.js</code>.",
+                  "step-code": "node updateAppName.js"
                 }
-              ]
+              ],
+              "language": "bash"
             }
           }
         }
@@ -239,65 +237,23 @@
       "components": {
         "title": "Components",
         "description": "Components for developers",
-        "sections": {
-          "": ""
-        }
+        "items": {}
       },
       "internationalization": {
         "title": "Internationalization",
         "description": "Internationalization for developers",
-        "sections": {
-          "": ""
-        }
+        "items": {}
       },
       "authentication": {
         "title": "Authentication",
         "description": "Authentication for developers",
-        "sections": {
-          "": ""
-        }
+        "items": {}
       },
-      "dbManagement": {
+      "db-management": {
         "title": "Database Management",
         "description": "Database management for developers",
-        "sections": {
-          "": ""
-        }
+        "items": {}
       }
-    },
-    "about": {
-      "title": "About Me",
-      "content": [
-        {
-          "paragraph": "Hi, I'm Franck, a passionate web developer with expertise in creating dynamic and responsive web applications. With a strong background in Next.js, React, TypeScript, and Tailwind CSS, I strive to build seamless and user-friendly digital experiences."
-        },
-        {
-          "paragraph": "Over the years, I've worked on various projects, ranging from small personal websites to large-scale enterprise applications. My commitment to continuous learning and improvement has allowed me to stay updated with the latest industry trends and technologies."
-        },
-        {
-          "paragraph": "I'm always excited to collaborate on new projects and bring innovative ideas to life. Feel free to explore my portfolio and connect with me on LinkedIn and GitHub to stay updated with my latest work and contributions."
-        }
-      ],
-      "links": [
-        {
-          "name": "View My Portfolio",
-          "href": "https://dfranck.netlify.app/",
-          "target": "_blank",
-          "rel": "noreferrer noopener"
-        },
-        {
-          "name": "Connect with Me on LinkedIn",
-          "href": "https://www.linkedin.com/in/franck-dufournet-239446151/",
-          "target": "_blank",
-          "rel": "noreferrer noopener"
-        },
-        {
-          "name": "Check Out My GitHub",
-          "href": "https://github.com/DFranck",
-          "target": "_blank",
-          "rel": "noreferrer noopener"
-        }
-      ]
     },
     "auth": {
       "signInForm": {

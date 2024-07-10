@@ -1,8 +1,9 @@
 import Nav from "@/components/layout/nav";
+import Pathname from "@/components/pathname";
 
-const Layout = ({ children }: { children: React.ReactNode }) => {
+const DocsLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="mt-[88px] flex w-full h-full">
+    <div className="mt-[88px] flex w-full h-full ">
       <aside className="flex">
         <Nav
           t="pages.docs"
@@ -15,9 +16,12 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           variant={"primary"}
         />
       </aside>
-      <div className="w-full h-full flex">{children}</div>
+      <div className="w-full h-full flex flex-col bg-secondary text-secondary-foreground px-4">
+        <Pathname />
+        {children}
+      </div>
     </div>
   );
 };
 
-export default Layout;
+export default DocsLayout;
