@@ -5,7 +5,7 @@ import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 
 const Hero = () => {
-  const t = useTranslations("App.Home.Hero");
+  const t = useTranslations("pages.home.sections.hero");
   const locale = useLocale();
   return (
     <AuroraBackground className="text-foreground w-full pt-28 pb-10 h-screen">

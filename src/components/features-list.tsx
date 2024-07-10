@@ -1,4 +1,5 @@
 "use client";
+
 import Section from "@/components/layout/section";
 import AuthSvg from "@/components/svgs/auth-svg";
 import CodeSvg from "@/components/svgs/code-svg";
@@ -31,14 +32,15 @@ const svgComponents: { [key: string]: React.FC<{ className?: string }> } = {
 };
 
 const FeaturesList = () => {
-  const t = useTranslations("pages.home.sections");
+  const t = useTranslations("pages.home.sections.features");
   const locale = useLocale();
-  const features = t.raw("features") as {
-    title: string;
-    description: string;
-    link: string;
-    image: string;
-  }[];
+  const features = t.raw("content");
+  console.log("Features type:", typeof features);
+  console.log("Features content:", features);
+  // Check if features is an array
+  if (!Array.isArray(features)) {
+    return <p>Loading features...</p>; // Or any other fallback UI
+  }
 
   return (
     <Section className="text-justify md:text-center px-4 ">

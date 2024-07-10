@@ -4,7 +4,14 @@ import { cn } from "@/lib/utils";
 import { GlobeIcon } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname, useRouter } from "next/navigation";
-import { useEffect, useRef, useState, useTransition } from "react";
+import {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  useTransition,
+} from "react";
 
 const LocaleSwitcher = () => {
   const t = useTranslations("locale");
@@ -17,50 +24,63 @@ const LocaleSwitcher = () => {
   const liStyle = "py-2 px-4 cursor-pointer hover:bg-accent text-sm";
   const buttonRef = useRef<HTMLButtonElement>(null);
   const dropdownRef = useRef<HTMLUListElement>(null);
-  const content = t.raw("language") as { [key: string]: string };
-  const languages = Object.entries(content);
+
+  const content = useMemo(
+    () => t.raw("language") as { [key: string]: string },
+    [t]
+  );
+  const languages = useMemo(() => Object.entries(content), [content]);
 
   useEffect(() => {
     setIsMounted(true);
   }, []);
 
-  const onValueChange = (nextLocale: string) => {
-    const newPath = pathname.replace(localeActive, nextLocale);
-    startTransition(() => {
-      router.push(newPath);
-    });
-    setIsOpen(false);
-  };
-
-  const handleOpen = () => {
-    setIsOpen(!isOpen);
-  };
-
-  const handleKeyDown = (event: React.KeyboardEvent<HTMLButtonElement>) => {
-    if (event.key === "Enter" || event.key === " ") {
-      event.preventDefault();
-      handleOpen();
-    } else if (event.key === "Escape") {
+  const onValueChange = useCallback(
+    (nextLocale: string) => {
+      const newPath = pathname.replace(localeActive, nextLocale);
+      startTransition(() => {
+        router.push(newPath);
+      });
       setIsOpen(false);
-    }
-  };
+    },
+    [localeActive, pathname, router]
+  );
 
-  const handleBlur = (event: React.FocusEvent<HTMLDivElement>) => {
+  const handleOpen = useCallback(() => {
+    setIsOpen((prev) => !prev);
+  }, []);
+
+  const handleKeyDown = useCallback(
+    (event: React.KeyboardEvent<HTMLButtonElement>) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        handleOpen();
+      } else if (event.key === "Escape") {
+        setIsOpen(false);
+      }
+    },
+    [handleOpen]
+  );
+
+  const handleBlur = useCallback((event: React.FocusEvent<HTMLDivElement>) => {
     if (
       dropdownRef.current &&
       !dropdownRef.current.contains(event.relatedTarget as Node)
     ) {
       setIsOpen(false);
     }
-  };
+  }, []);
+
   useEffect(() => {
     if (isOpen && dropdownRef.current) {
       dropdownRef.current.focus();
     }
   }, [isOpen]);
+
   if (!isMounted) {
     return null;
   }
+
   return (
     <div
       className="relative text-foreground opacity-60 hover:opacity-100"

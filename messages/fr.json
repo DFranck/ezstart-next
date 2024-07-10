@@ -1,194 +1,806 @@
 {
-  "Header": {
-    "title": "EzStart",
-    "links": ["Accueil", "À propos"],
+  "app": {
+    "meta-title": "EzStart - Le Boilerplate Ultime pour le Développement Web Moderne",
+    "meta-description": "Lancez vos projets de développement web avec {meta-title}, un boilerplate complet et flexible. Construit avec des technologies modernes et les meilleures pratiques, {meta-title} fournit une base robuste pour créer des applications web performantes et évolutives. Parfait pour les développeurs cherchant à optimiser leur flux de travail et à améliorer leur productivité."
+  },
+  "header": {
+    "app-title": "EzStart",
+    "nav-links": ["Accueil", "Docs"],
     "cta": "",
     "user": "",
     "signin": "Se connecter",
     "signup": "S'inscrire",
     "logout": "Se déconnecter",
-    "docs": "Documentation"
+    "docs": "Documentation",
+    "dashboard": "Tableau de bord",
+    "admin": "Admin"
   },
-  "SideNav": {
-    "links": {
-      "getStarted": "Commencer",
-      "authentication": "Authentification",
-      "internationalization": "Internationalisation",
-      "dbManagement": "Gestion de la base de données",
-      "theming": "Thématisation",
-      "stack": "Stack",
-      "components": "Composants",
-      "developerTools": "Outils de développement"
-    }
-  },
-  "Footer": {
+  "footer": {
     "partnersTitle": "Partenaires",
     "partners": "",
     "linksTitle": "Liens",
     "links": "",
-    "copyright": "Copyright © 2024. Tous droits réservés."
+    "copyright": "Copyright © 2024. Tous droits réservés.",
+    "owner": "Conception & développement par "
   },
-  "Locale": {
-    "language": { "en": "Anglais", "fr": "Français" }
+  "pages": {
+    "home": {
+      "page-title": "Accueil",
+      "page-description": "Bienvenue sur EzStart !",
+      "sections": {
+        "hero": {
+          "title": "EzStart",
+          "description": "EZ Start est mon boilerplate qui fournit un point de départ complet et flexible pour vos projets de développement web. Construit avec des technologies modernes et les meilleures pratiques, il vous aide à démarrer votre processus de développement avec une base solide.",
+          "cta": "Commencer",
+          "github": "Étoile sur GitHub"
+        },
+        "features": {
+          "title": "Fonctionnalités",
+          "subtitle": "Créez votre prochaine application puissante avec",
+          "description": "Ces fonctionnalités sont disponibles pour tous les utilisateurs. Cliquez sur une fonctionnalité pour voir les decriptifs.",
+          "content": [
+            {
+              "title": "Stack de Pointe",
+              "description": "Exploitez la puissance de Next.js 14 pour créer vos applications. Ez-start utilise TypeScript, Tailwind CSS et Prisma ORM pour offrir un environnement de développement moderne et efficace. Restez à la pointe avec les dernières technologies web, les meilleures pratiques et un SEO optimisé.",
+              "link": "stack",
+              "image": "StackSvg"
+            },
+            {
+              "title": "Authentification Sécurisée",
+              "description": "Implémentez une authentification sécurisée dans votre application en utilisant NextAuth.js. Cela permet une intégration avec divers fournisseurs tels que Google et GitHub, garantissant une authentification utilisateur flexible et sécurisée ainsi qu'une gestion des comptes.",
+              "link": "authentication",
+              "image": "SecureSvg"
+            },
+            {
+              "title": "Portée Globale avec i18n",
+              "description": "Étendez la portée de votre application au niveau mondial avec Next-Intl pour une localisation fluide. Cette configuration vous permet de gérer les traductions facilement et de répondre à un public diversifié en supprimant les barrières linguistiques.",
+              "link": "internationalization",
+              "image": "GlobalSvg"
+            },
+            {
+              "title": "Gestion Efficace de la Base de Données",
+              "description": "Intégrez Prisma pour une gestion simplifiée et efficace de la base de données. Générez des migrations automatiques, accédez à des données typées et assurez la compatibilité avec PostgreSQL.",
+              "link": "dbmanagement",
+              "image": "DbSvg"
+            },
+            {
+              "title": "Bibliothèque de Composants Riches",
+              "description": "Utilisez les composants Radix UI et Framer Motion pour créer des interfaces utilisateur dynamiques et accessibles. Construisez des interfaces sophistiquées et interactives avec facilité, soutenues par une bibliothèque de composants robuste comme ShadcnUI et Aceternity.",
+              "link": "components",
+              "image": "ComponentSvg"
+            },
+            {
+              "title": "Outils Centrés sur les Développeurs",
+              "description": "Profitez d'un processus de développement rationalisé avec ESLint, Prettier et TypeScript. Maintenez une haute qualité de code et une cohérence avec Tailwind CSS pour le style et Prisma pour la gestion de la base de données.",
+              "link": "developertools",
+              "image": "CodeSvg"
+            }
+          ]
+        },
+        "get-started": {
+          "title": "Commencer",
+          "buttonText": "Commencer",
+          "github": "Étoile sur GitHub",
+          "content": [
+            "Pour commencer avec My EZ Start Boilerplate, clonez le dépôt et suivez les instructions de configuration dans le fichier README. Personnalisez les fichiers de configuration pour répondre aux besoins de votre projet et commencez à créer votre application en toute simplicité.",
+            "Ce boilerplate est conçu pour être flexible et extensible, vous permettant d'ajouter des fonctionnalités et de modifier les existantes pour répondre à vos exigences spécifiques."
+          ]
+        }
+      }
+    },
+    "docs": {
+      "title": "Documentation EzStart",
+      "description": "Guide complet et référence pour utiliser EzStart. Apprenez à exploiter les fonctionnalités et les composants d'EzStart pour rationaliser votre processus de développement.",
+      "sections": {
+        "primary-dependencies": {
+          "title": "Dépendances Principales",
+          "description": "Vous trouverez ci-dessous les principales dépendances utilisées dans ce boilerplate et leur documentation officielle.",
+          "framework": "Framework",
+          "orm": "ORM",
+          "authentication": "Authentification",
+          "styling": "Stylisation",
+          "forms": "Formulaires",
+          "internationalization": "Internationalisation"
+        }
+      },
+      "nav-links": {
+        "get-started": "Commencer",
+        "dev-tools": "Outils de Développement",
+        "components": "Composants",
+        "internationalization": "Internationalisation",
+        "authentication": "Authentification",
+        "db-management": "Gestion de la Base de Données"
+      },
+      "get-started": {
+        "title": "Commencer avec EzStart",
+        "description": "EzStart est un boilerplate conçu pour démarrer rapidement vos projets Next.js avec des fonctionnalités avancées intégrées.",
+        "sections": {
+          "nav-links": {
+            "installation": "Installation",
+            "setup-env": "Configurer l'Environnement",
+            "environment-variables": "Variables d'Environnement",
+            "start": "Démarrer",
+            "primary-dependencies": "Dépendances Principales"
+          },
+          "installation": {
+            "title": "Installation",
+            "steps": "git clone https://github.com/DFranck/my-ez-start.git\ncd my-ez-start\nnpm install"
+          },
+          "setup-env": {
+            "title": "Configurer l'Environnement",
+            "steps": "DATABASE_URL=`postgresql://username:password@localhost:5432/mydatabase`\nAUTH_URL=http://localhost:3000\nAUTH_SECRET=your_secret_key\nAUTH_SALT=your_salt\nGOOGLE_CLIENT_ID=YOUR_GOOGLE_CLIENT_ID\nGOOGLE_CLIENT_SECRET=YOUR_GOOGLE_CLIENT_SECRET\nGITHUB_CLIENT_ID=YOUR_GITHUB_CLIENT_ID\nGITHUB_CLIENT_SECRET=YOUR_GITHUB_CLIENT_SECRET\nMAILJET_API_SECRET=YOUR_MAILJET_API_SECRET\nMAILJET_API_KEY=YOUR_MAILJET_API_KEY"
+          },
+          "environment-variables": {
+            "title": "Variables d'Environnement",
+            "steps": [
+              {
+                "name": "DATABASE_URL",
+                "description": "La chaîne de connexion pour votre base de données PostgreSQL. Vous pouvez la trouver dans le tableau de bord de votre service de base de données.",
+                "link": "https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING"
+              },
+              {
+                "name": "AUTH_URL",
+                "description": "L'URL de base de votre service d'authentification. En général, c'est l'URL de votre application.",
+                "link": "https://authjs.dev/docs/getting-started/introduction"
+              },
+              {
+                "name": "AUTH_SECRET",
+                "description": "Une clé secrète pour chiffrer les jetons JWT. Générez une clé aléatoire en utilisant crypto ou une autre méthode.",
+                "code": "node -e `console.log(require('crypto').randomBytes(32).toString('hex'))`"
+              },
+              {
+                "name": "AUTH_SALT",
+                "description": "Un sel pour hacher les mots de passe. Générez un sel aléatoire en utilisant crypto ou une autre méthode.",
+                "code": "node -e `console.log(require('crypto').randomBytes(32).toString('hex'))`"
+              },
+              {
+                "name": "GOOGLE_CLIENT_ID",
+                "description": "Votre ID client OAuth Google. Vous pouvez le trouver dans la console développeur Google.",
+                "link": "https://console.developers.google.com/"
+              },
+              {
+                "name": "GOOGLE_CLIENT_SECRET",
+                "description": "Votre secret client OAuth Google. Vous pouvez le trouver dans la console développeur Google.",
+                "link": "https://console.developers.google.com/"
+              },
+              {
+                "name": "GITHUB_CLIENT_ID",
+                "description": "Votre ID client OAuth GitHub. Vous pouvez le trouver dans les paramètres développeur de GitHub.",
+                "link": "https://github.com/settings/developers"
+              },
+              {
+                "name": "GITHUB_CLIENT_SECRET",
+                "description": "Votre secret client OAuth GitHub. Vous pouvez le trouver dans les paramètres développeur de GitHub.",
+                "link": "https://github.com/settings/developers"
+              },
+              {
+                "name": "MAILJET_API_SECRET",
+                "description": "Votre clé secrète API Mailjet. Vous pouvez la trouver dans les paramètres de votre compte Mailjet.",
+                "link": "https://app.mailjet.com/account/api_keys"
+              },
+              {
+                "name": "MAILJET_API_KEY",
+                "description": "Votre clé API Mailjet. Vous pouvez la trouver dans les paramètres de votre compte Mailjet.",
+                "link": "https://app.mailjet.com/account/api_keys"
+              }
+            ]
+          },
+          "start": {
+            "title": "Démarrer le développement",
+            "steps": "npm run dev"
+          },
+          "enjoy": {
+            "title": "Profitez-en !",
+            "description": "Vous pouvez maintenant profiter de votre application ou consulter la documentation de ce boilerplate."
+          }
+        }
+      },
+      "dev-tools": {
+        "title": "Outils de Développement",
+        "description": "Une collection d'outils pour aider les développeurs à gérer et améliorer efficacement leurs projets. Si vous commencez avec EZ Start, vous pouvez utiliser ces outils pour améliorer votre expérience de développement sans vous confondre. Sinon, vous pouvez trouver des options de configuration dans la section 'Outils de Développement'.",
+        "items": {
+          "update-app-name": {
+            "title": "Mettre à Jour le Nom de l'Application",
+            "description": "Outil pour mettre à jour le nom de l'application dans divers fichiers",
+            "files": {
+              "title": "Fichiers concernés",
+              "description": "Les fichiers suivants seront concernés :",
+              "code-links": {
+                "updateAppName.js": "https://github.com/DFranck/my-ez-start/blob/master/updateAppName.js",
+                "package.json": "https://github.com/DFranck/my-ez-start/blob/master/package.json",
+                "README.md": "https://github.com/DFranck/my-ez-start/blob/master/README.md",
+                "src/app/[locale]/layout.tsx": "https://github.com/DFranck/my-ez-start/blob/master/src/app/[locale]/layout.tsx"
+              }
+            },
+            "display": {
+              "title": "Affichage",
+              "component": "",
+              "target": ""
+            },
+            "features": {
+              "title": "Fonctionnalités",
+              "content": [
+                "Mises à jour automatiques dans des fichiers critiques comme <code>package.json</code>, <code>README.md</code> et les fichiers de traduction.",
+                "Configuration simple pour définir le nouveau nom de l'application et les chemins à mettre à jour.",
+                "Gestion robuste des remplacements de chaînes pour garantir que toutes les instances de l'ancien nom sont mises à jour."
+              ]
+            },
+            "example-usage": {
+              "title": "Exemple d'Utilisation",
+              "description": "Voici comment utiliser et exécuter le script :",
+              "steps": [
+                {
+                  "step-title": "Fournir un nouveau nom",
+                  "step-description": "Remplacez <code>newAppName</code> par le nouveau nom de l'application dans le fichier <code>updateAppName.js</code>.",
+                  "step-code": "const newAppName = \"EzStart - Le Boilerplate Ultime pour le Développement Web Moderne\"; // Remplacez par le nom souhaité\nconst oldAppName = \"Votre Nom d'Application\"; // Remplacez par le nom actuel de l'application dans le README"
+                },
+                {
+                  "step-title": "Exécuter le script",
+                  "step-description": "Exécutez le script en utilisant Node.js : <code>node updateAppName.js</code>.",
+                  "step-code": "node updateAppName.js"
+                }
+              ],
+              "language": "bash"
+            }
+          }
+        }
+      },
+      "components": {
+        "title": "Composants",
+        "description": "Composants pour les développeurs",
+        "items": {
+          "nav": {
+            "title": "Navigation",
+            "description": "Un composant de navigation polyvalent pour les développeurs, conçu pour gérer facilement les liens et chemins dynamiques. Il prend en charge la traduction, les chemins dynamiques et différentes mises en page pour divers besoins de navigation.",
+            "files": {
+              "title": "Fichiers concernés",
+              "description": "Le fichier suivant sera concerné :",
+              "code-links": {
+                "src/components/layout/nav.tsx": "https://github.com/DFranck/my-ez-start/blob/master/src/components/layout/nav.tsx"
+              }
+            },
+            "display": {
+              "title": "Affichage",
+              "component": "",
+              "target": ""
+            },
+            "features": {
+              "title": "Fonctionnalités",
+              "content": [
+                "Prend en charge la génération de liens dynamiques basés sur des clés de traduction ou un tableau/objet de liens directs.",
+                "Conception réactive avec différentes mises en page (ligne et colonne) pour différentes tailles d'écran.",
+                "Mise en surbrillance automatique du lien actif en fonction du chemin actuel.",
+                "Personnalisable via divers props, y compris des classes personnalisées, des variantes et la direction (ligne ou colonne)."
+              ]
+            },
+            "example-usage": {
+              "title": "Exemple d'Utilisation",
+              "description": "Voici comment utiliser le composant Nav :",
+              "steps": [
+                {
+                  "step-title": "Utilisation de Base",
+                  "step-description": "Importez le composant Nav et utilisez-le dans votre mise en page.",
+                  "step-code": "import Nav from \"@/components/layout/nav\";\n\nconst MyLayout = () => {\n  return (\n    <div>\n      <Nav \n        t=\"pages.docs\" \n        render=\"nav-links\" \n        path=\"docs\" \n        active \n        variant=\"primary\" \n        dir=\"col\" \n        pos=\"fixed\" \n        navClass=\"my-custom-nav-class\" \n        ulClass=\"my-custom-ul-class\" \n        liClass=\"my-custom-li-class\" \n      />\n    </div>\n  );\n};\n\nexport default MyLayout;"
+                },
+                {
+                  "step-title": "Utiliser des Liens Directs",
+                  "step-description": "Vous pouvez également fournir des liens directs au lieu d'utiliser des clés de traduction.",
+                  "step-code": "import Nav from \"@/components/layout/nav\";\n\nconst MyLayout = () => {\n  const links = [\"Accueil\", \"À propos\", \"Contact\"];\n  return (\n    <div>\n      <Nav \n        links={links} \n        path=\"\" \n        active \n        variant=\"primary\" \n        dir=\"row\" \n        pos=\"default\" \n        navClass=\"my-custom-nav-class\" \n        ulClass=\"my-custom-ul-class\" \n        liClass=\"my-custom-li-class\" \n      />\n    </div>\n  );\n};\n\nexport default MyLayout;"
+                }
+              ],
+              "language": "typescript"
+            }
+          },
+          "section": {
+            "title": "Section",
+            "description": "Un composant de section flexible pour envelopper du contenu avec une image de fond optionnelle et un style supplémentaire.",
+            "files": {
+              "title": "Fichiers concernés",
+              "description": "Le fichier suivant sera concerné :",
+              "code-links": {
+                "src/components/layout/section.tsx": "https://github.com/DFranck/my-ez-start/blob/master/src/components/layout/section.tsx"
+              }
+            },
+            "features": {
+              "title": "Fonctionnalités",
+              "content": [
+                "Permet d'envelopper du contenu avec des options de style et de mise en page supplémentaires.",
+                "Prend en charge les images de fond avec une taille, une répétition et une position personnalisables.",
+                "ID optionnel pour lier à des sections spécifiques au sein d'une page."
+              ]
+            },
+            "example-usage": {
+              "title": "Exemple d'Utilisation",
+              "description": "Voici comment utiliser le composant Section :",
+              "steps": [
+                {
+                  "step-title": "Utilisation de Base",
+                  "step-description": "Importez le composant Section et utilisez-le pour envelopper votre contenu.",
+                  "step-code": "import Section from \"@/components/layout/section\";\n\nconst MyComponent = () => {\n  return (\n    <Section className=\"my-custom-class\" id=\"my-section\">\n      <h1>Ma Section</h1>\n      <p>Ceci est une section avec un style personnalisé.</p>\n    </Section>\n  );\n};\n\nexport default MyComponent;"
+                },
+                {
+                  "step-title": "Utiliser une Image de Fond",
+                  "step-description": "Vous pouvez également fournir une image de fond au composant Section.",
+                  "step-code": "import Section from \"@/components/layout/section\";\n\nconst MyComponent = () => {\n  return (\n    <Section bgImg=\"/path/to/image.jpg\" className=\"my-custom-class\" id=\"my-section\">\n      <h1>Ma Section</h1>\n      <p>Ceci est une section avec une image de fond.</p>\n    </Section>\n  );\n};\n\nexport default MyComponent;"
+                }
+              ],
+              "language": "typescript"
+            }
+          },
+          "carousel3d": {
+            "title": "Carrousel 3D",
+            "description": "Un composant Carrousel 3D qui affiche des images ou du contenu en rotation dans un espace 3D. Prend en charge la navigation au clavier et la pause au survol.",
+            "files": {
+              "title": "Fichiers concernés",
+              "description": "Le fichier suivant sera concerné :",
+              "code-links": {
+                "src/components/carousel3d.tsx": "https://github.com/DFranck/my-ez-start/blob/master/src/components/carousel3d.tsx"
+              }
+            },
+            "display": {
+              "title": "Affichage",
+              "component": "Carousel3D",
+              "target": "src/components/carousel-3d.tsx"
+            },
+            "features": {
+              "title": "Fonctionnalités",
+              "content": [
+                "Prend en charge la rotation d'images ou de contenu dans un espace 3D.",
+                "Navigation au clavier pour l'accessibilité.",
+                "Option pour mettre en pause la rotation au survol.",
+                "Nombre d'éléments et contenu personnalisables via les props."
+              ]
+            },
+            "example-usage": {
+              "title": "Exemple d'Utilisation",
+              "description": "Voici comment utiliser le composant Carousel3D :",
+              "steps": [
+                {
+                  "step-title": "Utilisation de Base",
+                  "step-description": "Importez le composant Carousel3D et utilisez-le pour afficher des images en rotation.",
+                  "step-code": "import Carousel3D from \"@/components/carousel3d\";\n\nconst MyComponent = () => {\n  return (\n    <Carousel3D imgNum={5} stopOnHover={true}>\n      <img src=\"/path/to/image1.jpg\" alt=\"Image 1\" />\n      <img src=\"/path/to/image2.jpg\" alt=\"Image 2\" />\n      <img src=\"/path/to/image3.jpg\" alt=\"Image 3\" />\n    </Carousel3D>\n  );\n};\n\nexport default MyComponent;"
+                }
+              ],
+              "language": "typescript"
+            }
+          }
+        }
+      },
+      "internationalization": {
+        "title": "Internationalisation",
+        "description": "Internationalisation pour les développeurs",
+        "items": {
+          "intl-middleware": {
+            "title": "Middleware Intl",
+            "description": "Middleware pour gérer l'internationalisation et définir la locale actuelle.",
+            "files": {
+              "title": "Fichiers concernés",
+              "description": "Le fichier suivant sera concerné :",
+              "code-links": {
+                "src/middlewares/intl-middleware.ts": "https://github.com/DFranck/my-ez-start/blob/master/src/middlewares/intl-middleware.ts"
+              }
+            },
+            "display": {
+              "title": "Affichage",
+              "component": "",
+              "target": ""
+            },
+            "features": {
+              "title": "Fonctionnalités",
+              "content": [
+                "Gère la détection et la redirection de la locale.",
+                "Définit la locale actuelle en fonction de l'URL de la requête.",
+                "S'intègre avec le middleware Next.js."
+              ]
+            },
+            "example-usage": {
+              "title": "Exemple d'Utilisation",
+              "description": "Voici comment utiliser le middleware intl :",
+              "steps": [
+                {
+                  "step-title": "Créer le Middleware",
+                  "step-description": "Créez le middleware dans `src/middlewares/intl-middleware.ts`.",
+                  "step-code": "import { locales } from \"@/i18n\";\nimport createMiddleware from \"next-intl/middleware\";\nimport { NextRequest } from \"next/server\";\n\nconst defaultLocale = \"en\";\nexport let currentLocale = defaultLocale;\nexport const intlMiddleware = createMiddleware({\n  locales,\n  defaultLocale,\n});\n\nexport default function middleware(req: NextRequest) {\n  const response = intlMiddleware(req);\n  const pathname = req.nextUrl.pathname;\n  currentLocale = locales.find((loc) => pathname.startsWith(`/${loc}`)) || defaultLocale;\n  return response;\n}\n\nexport const config = {\n  matcher: [\"/((?!api|_next/static|_next/image|favicon.ico).*)\"],\n};"
+                }
+              ],
+              "language": "typescript"
+            }
+          },
+          "language-provider": {
+            "title": "Fournisseur de Langue",
+            "description": "Un composant fournisseur pour gérer les paramètres de langue et les messages.",
+            "files": {
+              "title": "Fichiers concernés",
+              "description": "Le fichier suivant sera concerné :",
+              "code-links": {
+                "src/providers/language-provider.tsx": "https://github.com/DFranck/my-ez-start/blob/master/src/providers/language-provider.tsx"
+              }
+            },
+            "display": {
+              "title": "Affichage",
+              "component": "",
+              "target": ""
+            },
+            "features": {
+              "title": "Fonctionnalités",
+              "content": [
+                "Enveloppe l'application avec les paramètres de langue.",
+                "Utilise `next-intl` pour l'internationalisation.",
+                "Fournit des messages de langue à l'ensemble de l'application."
+              ]
+            },
+            "example-usage": {
+              "title": "Exemple d'Utilisation",
+              "description": "Voici comment utiliser le composant LanguageProvider :",
+              "steps": [
+                {
+                  "step-title": "Créer LanguageProvider",
+                  "step-description": "Créez le fournisseur dans `src/providers/language-provider.tsx`.",
+                  "step-code": "import { AbstractIntlMessages, NextIntlClientProvider } from \"next-intl\";\nconst LanguageProvider = ({ children, messages }: { children: React.ReactNode; messages: AbstractIntlMessages }) => {\n  return (\n    <NextIntlClientProvider messages={messages}>\n      {children}\n    </NextIntlClientProvider>\n  );\n};\nexport default LanguageProvider;"
+                }
+              ],
+              "language": "typescript"
+            }
+          },
+          "root-layout": {
+            "title": "Mise en Page Racine",
+            "description": "Le composant de mise en page racine qui inclut les fournisseurs pour le thème, l'authentification et la langue.",
+            "files": {
+              "title": "Fichiers concernés",
+              "description": "Le fichier suivant sera concerné :",
+              "code-links": {
+                "src/app/layout.tsx": "https://github.com/DFranck/my-ez-start/blob/master/src/app/layout.tsx"
+              }
+            },
+            "display": {
+              "title": "Affichage",
+              "component": "",
+              "target": ""
+            },
+            "features": {
+              "title": "Fonctionnalités",
+              "content": [
+                "Intègre les fournisseurs de thème, d'authentification et de langue.",
+                "Configure les styles globaux et les polices.",
+                "Gère la génération des métadonnées en fonction de la locale."
+              ]
+            },
+            "example-usage": {
+              "title": "Exemple d'Utilisation",
+              "description": "Voici comment utiliser le composant de mise en page racine :",
+              "steps": [
+                {
+                  "step-title": "Créer la Mise en Page Racine",
+                  "step-description": "Créez la mise en page racine dans `src/app/layout.tsx`.",
+                  "step-code": "import Footer from \"@/components/layout/footer/footer\";\nimport Header from \"@/components/layout/header/header\";\nimport Main from \"@/components/layout/main\";\nimport { cn } from \"@/lib/utils\";\nimport Providers from \"@/providers/providers\";\nimport { getMessages } from \"next-intl/server\";\nimport { Inter } from \"next/font/google\";\nimport \"../globals.css\";\n\nconst inter = Inter({ subsets: [\"latin\"] });\nexport async function generateMetadata({ params: { locale } }: any) {\n  const messages = (await getMessages(locale)) as any;\n  const metaTitle = messages.app[\"meta-title\"] as string;\n  const metaDescription = messages.app[\"meta-description\"].replace(/\\{meta-title\\}/g, metaTitle) as string;\n  return {\n    title: metaTitle,\n    description: metaDescription,\n  };\n}\nexport default async function RootLayout({ children, params: { locale } }: Readonly<{ children: React.ReactNode; params: { locale: string }; }>) {\n  const messages = await getMessages();\n  return (\n    <html lang={locale} suppressHydrationWarning={true} className=\"h-full\">\n      <body className={cn(inter.className, \"min-h-screen flex flex-col h-full\")}>\\n        <Providers messages={messages}>\n          <Header />\n          <Main>{children}</Main>\n          <Footer />\n        </Providers>\n      </body>\n    </html>\n  );\n}"
+                }
+              ],
+              "language": "typescript"
+            }
+          },
+          "locale-switcher": {
+            "title": "Sélecteur de Locale",
+            "description": "Un composant pour basculer entre différentes locales dans l'application.",
+            "files": {
+              "title": "Fichiers concernés",
+              "description": "Le fichier suivant sera concerné :",
+              "code-links": {
+                "src/components/locale-switcher.tsx": "https://github.com/DFranck/my-ez-start/blob/master/src/components/locale-switcher.tsx"
+              }
+            },
+            "display": {
+              "title": "Affichage",
+              "component": "",
+              "target": ""
+            },
+            "features": {
+              "title": "Fonctionnalités",
+              "content": [
+                "Affiche un menu déroulant pour sélectionner la locale.",
+                "Met à jour l'URL de l'application pour refléter la locale sélectionnée.",
+                "Gère la navigation au clavier et l'accessibilité."
+              ]
+            },
+            "example-usage": {
+              "title": "Exemple d'Utilisation",
+              "description": "Voici comment utiliser le composant LocaleSwitcher :",
+              "steps": [
+                {
+                  "step-title": "Créer LocaleSwitcher",
+                  "step-description": "Créez le composant dans `src/components/locale-switcher.tsx`.",
+                  "step-code": "import { cn } from \"@/lib/utils\";\nimport { GlobeIcon } from \"lucide-react\";\nimport { useLocale, useTranslations } from \"next-intl\";\nimport { usePathname, useRouter } from \"next/navigation\";\nimport { useEffect, useRef, useState, useTransition } from \"react\";\n\nconst LocaleSwitcher = () => {\n  const t = useTranslations(\"locale\");\n  const [isMounted, setIsMounted] = useState(false);\n  const [isPending, startTransition] = useTransition();\n  const [isOpen, setIsOpen] = useState(false);\n  const router = useRouter();\n  const pathname = usePathname();\n  const localeActive = useLocale();\n  const liStyle = \"py-2 px-4 cursor-pointer hover:bg-accent text-sm\";\n  const buttonRef = useRef<HTMLButtonElement>(null);\n  const dropdownRef = useRef<HTMLUListElement>(null);\n  const content = t.raw(\"language\") as { [key: string]: string };\n  const languages = Object.entries(content);\n\n  useEffect(() => {\n    setIsMounted(true);\n  }, []);\n\n  const onValueChange = (nextLocale: string) => {\n    const newPath = pathname.replace(localeActive, nextLocale);\n    startTransition(() => {\n      router.push(newPath);\n    });\n    setIsOpen(false);\n  };\n\n  const handleOpen = () => {\n    setIsOpen(!isOpen);\n  };\n\n  const handleKeyDown = (event: React.KeyboardEvent<HTMLButtonElement>) => {\n    if (event.key === \"Enter\" || event.key === \" \") {\n      event.preventDefault();\n      handleOpen();\n    } else if (event.key === \"Escape\") {\n      setIsOpen(false);\n    }\n  };\n\n  const handleBlur = (event: React.FocusEvent<HTMLDivElement>) => {\n    if (\n      dropdownRef.current &&\n      !dropdownRef.current.contains(event.relatedTarget as Node)\n    ) {\n      setIsOpen(false);\n    }\n  };\n  useEffect(() => {\n    if (isOpen && dropdownRef.current) {\n      dropdownRef.current.focus();\n    }\n  }, [isOpen]);\n  if (!isMounted) {\n    return null;\n  }\n  return (\n    <div\n      className=\"relative text-foreground opacity-60 hover:opacity-100\"\n      onBlur={handleBlur}\n    >\n      <button\n        ref={buttonRef}\n        aria-haspopup=\"true\"\n        aria-expanded={isOpen}\n        className=\"cursor-pointer hover:bg-accent rounded w-9 h-9 flex justify-center items-center\"\n        onClick={handleOpen}\n        onKeyDown={handleKeyDown}\n      >\n        <GlobeIcon className=\"w-6 h-6\" />\n        <p className=\"sr-only\">changer de langue</p>\n      </button>\n      {isOpen && (\n        <ul\n          ref={dropdownRef}\n          tabIndex={-1}\n          className={cn(\n            \"absolute top-10 right-0 z-10 bg-background border shadow rounded animate-fadeIn duration-200\"\n          )}\n        >\n          {languages.map(([key, value]) => (\n            <li\n              key={key}\n              className={liStyle}\n              onClick={() => onValueChange(key)}\n              role=\"menuitem\"\n              tabIndex={0}\n              onKeyDown={(e) => e.key === \"Enter\" && onValueChange(key)}\n            >\n              {value}\n            </li>\n          ))}\n          <div className=\"border border-border/50\"></div>\n        </ul>\n      )}\n    </div>\n  );\n};\n\nexport default LocaleSwitcher;"
+                }
+              ],
+              "language": "typescript"
+            }
+          }
+        }
+      },
+      "authentication": {
+        "title": "Authentification",
+        "description": "Authentification pour les développeurs",
+        "items": {
+          "auth-provider": {
+            "title": "Fournisseur d'Auth",
+            "description": "Fournisseur pour gérer l'authentification des utilisateurs et la gestion des sessions.",
+            "files": {
+              "title": "Fichiers concernés",
+              "description": "Le fichier suivant sera concerné :",
+              "code-links": {
+                "src/providers/auth-provider.tsx": "https://github.com/DFranck/my-ez-start/blob/master/src/providers/auth-provider.tsx"
+              }
+            },
+            "display": {
+              "title": "Affichage",
+              "component": "",
+              "target": ""
+            },
+            "features": {
+              "title": "Fonctionnalités",
+              "content": [
+                "Gère l'authentification des utilisateurs et la gestion des sessions.",
+                "S'intègre avec divers fournisseurs d'authentification comme Google et GitHub.",
+                "Utilise NextAuth pour une authentification robuste."
+              ]
+            },
+            "example-usage": {
+              "title": "Exemple d'Utilisation",
+              "description": "Voici comment utiliser le composant AuthProvider :",
+              "steps": [
+                {
+                  "step-title": "Utilisation de Base",
+                  "step-description": "Enveloppez votre application avec le composant AuthProvider.",
+                  "step-code": "import { AuthProvider } from '@/providers/auth-provider';\n\nconst MyApp = ({ Component, pageProps }) => {\n  return (\n    <AuthProvider>\n      <Component {...pageProps} />\n    </AuthProvider>\n  );\n};\n\nexport default MyApp;"
+                }
+              ],
+              "language": "typescript"
+            }
+          },
+          "auth-middleware": {
+            "title": "Middleware Auth",
+            "description": "Middleware pour gérer le contrôle d'accès basé sur le statut d'authentification.",
+            "files": {
+              "title": "Fichiers concernés",
+              "description": "Le fichier suivant sera concerné :",
+              "code-links": {
+                "src/middleware/auth-middleware.ts": "https://github.com/DFranck/my-ez-start/blob/master/src/middleware/auth-middleware.ts"
+              }
+            },
+            "display": {
+              "title": "Affichage",
+              "component": "",
+              "target": ""
+            },
+            "features": {
+              "title": "Fonctionnalités",
+              "content": [
+                "Contrôle l'accès aux routes en fonction du statut d'authentification.",
+                "Redirige les utilisateurs non autorisés vers la page de connexion.",
+                "Permet la personnalisation des chemins et des règles d'accès."
+              ]
+            },
+            "example-usage": {
+              "title": "Exemple d'Utilisation",
+              "description": "Voici comment configurer et utiliser le middleware auth :",
+              "steps": [
+                {
+                  "step-title": "Configuration de Base",
+                  "step-description": "Configurez le middleware auth dans votre projet Next.js.",
+                  "step-code": "import { authMiddleware } from '@/middleware/auth-middleware';\n\nexport default function middleware(req) {\n  return authMiddleware(req);\n}"
+                }
+              ],
+              "language": "typescript"
+            }
+          },
+          "auth-schemas": {
+            "title": "Schemas d'Auth",
+            "description": "Schémas de validation pour les formulaires d'authentification utilisant Zod.",
+            "files": {
+              "title": "Fichiers concernés",
+              "description": "Les fichiers suivants seront concernés :",
+              "code-links": {
+                "src/schemas/auth-schemas.ts": "https://github.com/DFranck/my-ez-start/blob/master/src/schemas/auth-schemas.ts"
+              }
+            },
+            "display": {
+              "title": "Affichage",
+              "component": "",
+              "target": ""
+            },
+            "features": {
+              "title": "Fonctionnalités",
+              "content": [
+                "Valide les formulaires de connexion et d'inscription.",
+                "Fournit des messages d'erreur détaillés pour la validation des formulaires.",
+                "Assure l'intégrité et la sécurité des données."
+              ]
+            },
+            "example-usage": {
+              "title": "Exemple d'Utilisation",
+              "description": "Voici comment utiliser les schémas de validation :",
+              "steps": [
+                {
+                  "step-title": "Utilisation de Base",
+                  "step-description": "Importez et utilisez les schémas dans vos composants de formulaire.",
+                  "step-code": "import { signInSchema, signUpSchema } from '@/schemas/auth-schemas';\n\nconst SignInForm = () => {\n  const form = useForm({\n    resolver: zodResolver(signInSchema),\n  });\n  // ...implementation du formulaire\n};"
+                }
+              ],
+              "language": "typescript"
+            }
+          },
+          "auth-forms": {
+            "title": "Formulaires d'Authentification",
+            "description": "Composants pour les formulaires de connexion, d'inscription et autres formulaires liés à l'authentification.",
+            "files": {
+              "title": "Fichiers concernés",
+              "description": "Les fichiers suivants seront concernés :",
+              "code-links": {
+                "src/features/auth/sign-in-form.tsx": "https://github.com/DFranck/my-ez-start/blob/master/src/features/auth/sign-in-form.tsx",
+                "src/features/auth/sign-up-form.tsx": "https://github.com/DFranck/my-ez-start/blob/master/src/features/auth/sign-up-form.tsx",
+                "src/features/auth/forgot-form.tsx": "https://github.com/DFranck/my-ez-start/blob/master/src/features/auth/forgot-form.tsx",
+                "src/features/auth/verify-code-form.tsx": "https://github.com/DFranck/my-ez-start/blob/master/src/features/auth/verify-code-form.tsx"
+              }
+            },
+            "display": {
+              "title": "Affichage",
+              "component": "",
+              "target": ""
+            },
+            "features": {
+              "title": "Fonctionnalités",
+              "content": [
+                "Composants préconstruits pour les formulaires de connexion et d'inscription.",
+                "Intégration avec NextAuth pour l'authentification.",
+                "Validation des formulaires utilisant Zod."
+              ]
+            },
+            "example-usage": {
+              "title": "Exemple d'Utilisation",
+              "description": "Voici comment utiliser les formulaires d'authentification :",
+              "steps": [
+                {
+                  "step-title": "Formulaire de Connexion",
+                  "step-description": "Importez et utilisez le composant SignInForm.",
+                  "step-code": "import SignInForm from '@/features/auth/sign-in-form';\n\nconst SignInPage = () => {\n  return <SignInForm />;\n};\n\nexport default SignInPage;"
+                },
+                {
+                  "step-title": "Formulaire d'Inscription",
+                  "step-description": "Importez et utilisez le composant SignUpForm.",
+                  "step-code": "import SignUpForm from '@/features/auth/sign-up-form';\n\nconst SignUpPage = () => {\n  return <SignUpForm />;\n};\n\nexport default SignUpPage;"
+                }
+              ],
+              "language": "typescript"
+            }
+          }
+        }
+      },
+      "db-management": {
+        "title": "Gestion de la Base de Données",
+        "description": "Gestion de la base de données pour les développeurs utilisant Prisma ORM.",
+        "items": {
+          "prisma-setup": {
+            "title": "Configuration de Prisma",
+            "description": "Configuration et mise en place de Prisma ORM pour la gestion de la base de données.",
+            "files": {
+              "title": "Fichiers concernés",
+              "description": "Les fichiers suivants seront concernés :",
+              "code-links": {
+                "src/lib/db.ts": "https://github.com/DFranck/my-ez-start/blob/master/src/lib/db.ts",
+                "prisma/schema.prisma": "https://github.com/DFranck/my-ez-start/blob/master/prisma/schema.prisma"
+              }
+            },
+            "display": {
+              "title": "Affichage",
+              "component": "",
+              "target": ""
+            },
+            "features": {
+              "title": "Fonctionnalités",
+              "content": [
+                "Configuration du client Prisma pour les interactions avec la base de données.",
+                "Configuration pour la connexion à la base de données PostgreSQL.",
+                "Prévient la création de multiples instances de Prisma Client en développement.",
+                "Définit un modèle de base User pour la démonstration."
+              ]
+            },
+            "example-usage": {
+              "title": "Exemple d'Utilisation",
+              "description": "Voici comment configurer et utiliser Prisma dans votre projet :",
+              "steps": [
+                {
+                  "step-title": "Installer Prisma et Initialiser",
+                  "step-description": "Installez Prisma et initialisez-le dans votre projet.",
+                  "step-code": "npm install prisma @prisma/client\nnpx prisma init"
+                },
+                {
+                  "step-title": "Configurer le Client Prisma",
+                  "step-description": "Créez une instance de client Prisma pour les interactions avec la base de données.",
+                  "step-code": "// src/lib/db.ts\nimport { PrismaClient } from '@prisma/client';\n\n// Prévient la création de multiples instances de Prisma Client en développement\ndeclare global {\n  // eslint-disable-next-line no-var\n  var prisma: PrismaClient | undefined;\n}\n\nexport const db = global.prisma || new PrismaClient();\n\nif (process.env.NODE_ENV !== 'production') {\n  global.prisma = db;\n}"
+                },
+                {
+                  "step-title": "Définir le Schéma de la Base de Données",
+                  "step-description": "Définissez votre schéma de base de données dans le fichier `prisma/schema.prisma`.",
+                  "step-code": "datasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\ngenerator client {\n  provider = \"prisma-client-js\"\n}\n\nmodel User {\n  id        String   @id @default(uuid())\n  email     String   @unique\n  password  String\n  name      String?\n  resetCode String?  @unique\n  resetCodeExpiresAt DateTime?\n  role      String   @default(\"user\")\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n}"
+                },
+                {
+                  "step-title": "Exécuter Prisma Migrate",
+                  "step-description": "Exécutez Prisma migrate pour créer le schéma de la base de données.",
+                  "step-code": "npx prisma migrate dev --name init"
+                },
+                {
+                  "step-title": "Utilisation du Client Prisma",
+                  "step-description": "Utilisez l'instance du client Prisma pour interagir avec la base de données.",
+                  "step-code": "// Exemple d'utilisation dans une route API Next.js\nimport { db } from '@/lib/db';\n\nexport default async function handler(req, res) {\n  const users = await db.user.findMany();\n  res.status(200).json(users);\n}"
+                }
+              ],
+              "language": "typescript"
+            }
+          }
+        }
+      },
+      "auth": {
+        "signInForm": {
+          "title": "Connexion à EzStart",
+          "subtitle": "Bienvenue ! Veuillez vous connecter pour continuer",
+          "or": "ou",
+          "emailLabel": "Email",
+          "emailPlaceholder": "Email",
+          "emailDescription": "Nous ne partagerons jamais votre email.",
+          "passwordLabel": "Mot de passe",
+          "passwordPlaceholder": "Mot de passe",
+          "signInButton": "Se connecter",
+          "noAccountText": "Vous n'avez pas de compte ?",
+          "signUpLink": "S'inscrire",
+          "forgotPasswordText": "Mot de passe oublié ?",
+          "back": "Retour à la connexion",
+          "forgotTitle": "Mot de passe oublié ?",
+          "forgotDescription": "Entrez votre adresse email et nous vous enverrons un lien pour réinitialiser votre mot de passe.",
+          "forgotLink": "Réinitialiser votre mot de passe",
+          "resetPasswordTitle": "Réinitialiser votre mot de passe",
+          "resetPasswordDescription": "Vous pouvez maintenant réinitialiser votre mot de passe",
+          "resetPasswordButton": "Réinitialiser le mot de passe",
+          "confirmPasswordLabel": "Confirmez le mot de passe",
+          "confirmPasswordPlaceholder": "Confirmez le mot de passe",
+          "verifyCodeTitle": "Vérifiez le code",
+          "verifyCodeDescription": "Entrez le code que nous venons de vous envoyer.",
+          "resetCodePlaceholder": "Code",
+          "resetCodeLabel": "Code",
+          "verifyCodeButton": "Vérifier le code"
+        },
+        "signUpForm": {
+          "title": "Inscription à EzStart",
+          "subtitle": "Bienvenue ! Veuillez remplir les détails pour commencer.",
+          "or": "ou",
+          "emailLabel": "Email",
+          "emailPlaceholder": "Email",
+          "emailDescription": "Nous ne partagerons jamais votre email.",
+          "passwordLabel": "Mot de passe",
+          "passwordPlaceholder": "Mot de passe",
+          "confirmPasswordLabel": "Confirmez le mot de passe",
+          "confirmPasswordPlaceholder": "Confirmez le mot de passe",
+          "signUpButton": "S'inscrire",
+          "hasAccountText": "Vous avez déjà un compte ?",
+          "signInLink": "Se connecter"
+        }
+      }
+    }
   },
-  "Theme": {
-    "light": "Clair",
-    "dark": "Sombre"
-  },
-  "Errors": {
-    "emailRequired": "L'adresse e-mail est obligatoire.",
-    "invalidEmail": "Adresse e-mail invalide.",
-    "passwordRequired": "Le mot de passe est obligatoire.",
-    "passwordMin": "Le mot de passe doit contenir plus de 8 caractères.",
-    "passwordMax": "Le mot de passe doit contenir moins de 32 caractères.",
+  "errors": {
+    "emailRequired": "L'email est requis.",
+    "invalidEmail": "Adresse email invalide.",
+    "passwordRequired": "Le mot de passe est requis.",
+    "passwordMin": "Le mot de passe doit comporter plus de 8 caractères.",
+    "passwordMax": "Le mot de passe doit comporter moins de 32 caractères.",
     "userExists": "L'utilisateur existe déjà.",
-    "configuration": "Adresse e-mail ou mot de passe incorrect.",
+    "configuration": "Email ou mot de passe incorrect.",
     "notfound": "Utilisateur non trouvé.",
     "passwordsdonotmatch": "Les mots de passe ne correspondent pas."
   },
-  "App": {
-    "app-title": "EzStart",
-    "app-description": "Welcome to My Awesome App!",
-    "Home": {
-      "Hero": {
-        "title": "Bienvenue sur EZ Start",
-        "description": "EZ Start est ma Boilerplate qui offre un point de départ complet et flexible pour vos projets de développement web. Construit avec des technologies modernes et les meilleures pratiques, il vous aide à démarrer votre processus de développement avec une base solide.",
-        "cta": "Commencer",
-        "github": "Star sur GitHub"
-      },
-      "FeaturesList": {
-        "title": "Fonctionnalités",
-        "subtitle": "Explorez les fonctionnalités robustes de",
-        "description": "Explorez les fonctionnalités ci-dessous pour voir comment la boilerplate EzStart peut accélérer considérablement le lancement de votre projet.",
-        "docs": "Documentation officielle",
-        "features": [
-          {
-            "title": "Stack de pointe",
-            "description": "Exploitez la puissance de Next.js 14 pour construire vos applications. Ez-start utilise TypeScript, Tailwind CSS et Prisma ORM pour fournir un environnement de développement moderne et efficace. Restez à jour avec les dernières technologies web, les meilleures pratiques et un SEO optimisé.",
-            "link": "stack",
-            "image": "StackSvg"
-          },
-          {
-            "title": "Authentification sécurisée",
-            "description": "Implémentez une authentification sécurisée dans votre application avec NextAuth.js. Cela permet l'intégration avec divers fournisseurs comme Google et GitHub, garantissant une authentification utilisateur flexible et sécurisée ainsi qu'une gestion des comptes.",
-            "link": "authentication",
-            "image": "SecureSvg"
-          },
-          {
-            "title": "Portée mondiale avec l'internationalisation",
-            "description": "Étendez la portée de votre application à l'international avec Next-Intl pour une localisation transparente. Cette configuration vous permet de gérer facilement les traductions et de toucher un public diversifié en surmontant les barrières linguistiques.",
-            "link": "internationalization",
-            "image": "GlobalSvg"
-          },
-          {
-            "title": "Gestion efficace de la base de données",
-            "description": "Intégrez Prisma pour une gestion simplifiée et efficace de la base de données. Générez des migrations automatiques, accédez aux données de manière typée et assurez la compatibilité avec PostgreSQL.",
-            "link": "dbmanagement",
-            "image": "DbSvg"
-          },
-          {
-            "title": "Bibliothèque de composants riche",
-            "description": "Utilisez les composants Radix UI et Framer Motion pour créer des interfaces utilisateur dynamiques et accessibles. Construisez des interfaces sophistiquées et interactives avec facilité, soutenues par une bibliothèque de composants robuste comme ShadcnUI et Aceternity.",
-            "link": "components",
-            "image": "ComponentSvg"
-          },
-          {
-            "title": "Outils centrés sur le développeur",
-            "description": "Expérimentez un processus de développement rationalisé avec ESLint, Prettier et TypeScript. Maintenez une haute qualité de code et une cohérence avec Tailwind CSS pour le style et Prisma pour la gestion des bases de données.",
-            "link": "developertools",
-            "image": "CodeSvg"
-          }
-        ]
-      },
-      "GetStarted": {
-        "title": "Commencer",
-        "buttonText": "Commencer",
-        "github": "Star sur GitHub",
-        "content": [
-          "Pour commencer avec My EZ Start Boilerplate, clonez le dépôt et suivez les instructions de configuration dans le fichier README. Personnalisez les fichiers de configuration pour répondre aux besoins de votre projet et commencez à construire votre application facilement.",
-          "Cette boilerplate est conçu pour être flexible et extensible, vous permettant d'ajouter des fonctionnalités et de modifier celles existantes pour répondre à vos besoins spécifiques."
-        ]
-      }
-    },
-    "GetStarted": {
-      "title": "Commencez avec EZ Start",
-      "welcome": "Bienvenue 👋",
-      "intro": "EZStart est une boilerplate conçu pour démarrer rapidement vos projets Next.js avec des fonctionnalités avancées intégrées.",
-      "installationTitle": "Installation",
-      "installationSteps": "git clone https://github.com/DFranck/my-ez-start.git\ncd my-ez-start\nnpm install\nnpm run dev",
-      "primaryDependenciesTitle": "Dépendances principales",
-      "framework": "Framework",
-      "orm": "ORM",
-      "authentication": "Authentification",
-      "styling": "Style",
-      "forms": "Formulaires",
-      "internationalization": "Internationalisation",
-      "secondaryDependenciesTitle": "Dépendances secondaires",
-      "utilityLibraries": "Bibliothèques utilitaires",
-      "animations": "Animations",
-      "icons": "Icônes",
-      "security": "Sécurité",
-      "enjoy": "Profitez-en !"
-    },
-    "About": {
-      "title": "À propos de moi",
-      "content": [
-        {
-          "paragraph": "Bonjour, je suis Franck, un développeur web passionné avec une expertise dans la création d'applications web dynamiques et réactives. Avec une solide expérience en Next.js, React, TypeScript et Tailwind CSS, je m'efforce de créer des expériences numériques fluides et conviviales."
-        },
-        {
-          "paragraph": "Au fil des ans, j'ai travaillé sur divers projets, allant de petits sites web personnels à de grandes applications d'entreprise. Mon engagement envers l'apprentissage continu et l'amélioration m'a permis de rester à jour avec les dernières tendances et technologies de l'industrie."
-        },
-        {
-          "paragraph": "Je suis toujours excité de collaborer sur de nouveaux projets et de donner vie à des idées innovantes. N'hésitez pas à explorer mon portfolio et à me contacter sur LinkedIn et GitHub pour rester informé de mes derniers travaux et contributions."
-        }
-      ],
-      "links": [
-        {
-          "name": "Voir mon portfolio",
-          "href": "https://dfranck.netlify.app/",
-          "target": "_blank",
-          "rel": "noreferrer noopener"
-        },
-        {
-          "name": "Connectez-vous avec moi sur LinkedIn",
-          "href": "https://www.linkedin.com/in/franck-dufournet-239446151/",
-          "target": "_blank",
-          "rel": "noreferrer noopener"
-        },
-        {
-          "name": "Consultez mon GitHub",
-          "href": "https://github.com/DFranck",
-          "target": "_blank",
-          "rel": "noreferrer noopener"
-        }
-      ]
-    },
-    "Auth": {
-      "SignInForm": {
-        "title": "Se connecter",
-        "emailLabel": "Email",
-        "emailPlaceholder": "Email",
-        "emailDescription": "Nous ne partagerons jamais votre email.",
-        "passwordLabel": "Mot de passe",
-        "passwordPlaceholder": "Mot de passe",
-        "signInButton": "Se connecter",
-        "noAccountText": "Vous n'avez pas de compte ?",
-        "signUpLink": "S'inscrire",
-        "forgotPasswordText": "Mot de passe oublié ?",
-        "resetPasswordLink": "Réinitialisez-le ici"
-      },
-      "SignUpForm": {
-        "title": "S'inscrire",
-        "emailLabel": "Email",
-        "emailPlaceholder": "Email",
-        "emailDescription": "Nous ne partagerons jamais votre email.",
-        "passwordLabel": "Mot de passe",
-        "passwordPlaceholder": "Mot de passe",
-        "signUpButton": "S'inscrire",
-        "hasAccountText": "Vous avez déjà un compte ?",
-        "signInLink": "Se connecter"
-      }
-    }
+  "locale": {
+    "language": { "en": "Anglais", "fr": "Français" }
+  },
+  "theme": {
+    "light": "Clair",
+    "dark": "Sombre"
   }
 }

@@ -29,49 +29,54 @@
       "page-description": "Welcome to EzStart!",
       "sections": {
         "hero": {
-          "title": "EZ Start",
+          "title": "EzStart",
           "description": "EZ Start is my Boilerplate that provides a comprehensive and flexible starting point for your web development projects. Built with modern technologies and best practices, it helps you kickstart your development process with a robust foundation.",
           "cta": "Get Started",
           "github": "Star on GitHub"
         },
-        "features": [
-          {
-            "title": "Cutting-Edge Stack",
-            "description": "Leverage the power of Next.js 14 for building your applications. Ez-start employs TypeScript, Tailwind CSS, and Prisma ORM to provide a modern and efficient development environment. Stay ahead with the latest web technologies, best practices, and optimized SEO.",
-            "link": "stack",
-            "image": "StackSvg"
-          },
-          {
-            "title": "Secure Authentication",
-            "description": "Implement secure authentication in your application using NextAuth.js. This allows for integration with various providers like Google and GitHub, ensuring flexible and secure user authentication and account management.",
-            "link": "authentication",
-            "image": "SecureSvg"
-          },
-          {
-            "title": "Global Reach with i18n",
-            "description": "Expand your application's reach globally with Next-Intl for seamless localization. This setup enables you to manage translations effortlessly and cater to a diverse audience by breaking language barriers.",
-            "link": "internationalization",
-            "image": "GlobalSvg"
-          },
-          {
-            "title": "Efficient Database Management",
-            "description": "Integrate with Prisma for simplified and efficient database management. Generate automatic migrations, access type-safe data, and ensure compatibility with PostgreSQL.",
-            "link": "dbmanagement",
-            "image": "DbSvg"
-          },
-          {
-            "title": "Rich Component Library",
-            "description": "Utilize Radix UI components and Framer Motion for creating dynamic and accessible user interfaces. Build sophisticated and interactive UIs with ease, backed by a robust component library like ShadcnUI and Aceternity.",
-            "link": "components",
-            "image": "ComponentSvg"
-          },
-          {
-            "title": "Developer-Centric Tools",
-            "description": "Experience a streamlined development process with ESLint, Prettier, and TypeScript. Maintain high code quality and consistency with Tailwind CSS for styling and Prisma for database management.",
-            "link": "developertools",
-            "image": "CodeSvg"
-          }
-        ],
+        "features": {
+          "title": "Features",
+          "subtitle": "Built your next powerfull app",
+          "description": "EzStart is designed to be flexible and extensible, allowing you to add features and modify existing ones to fit your specific needs.",
+          "content": [
+            {
+              "title": "Cutting-Edge Stack",
+              "description": "Leverage the power of Next.js 14 for building your applications. Ez-start employs TypeScript, Tailwind CSS, and Prisma ORM to provide a modern and efficient development environment. Stay ahead with the latest web technologies, best practices, and optimized SEO.",
+              "link": "stack",
+              "image": "StackSvg"
+            },
+            {
+              "title": "Secure Authentication",
+              "description": "Implement secure authentication in your application using NextAuth.js. This allows for integration with various providers like Google and GitHub, ensuring flexible and secure user authentication and account management.",
+              "link": "authentication",
+              "image": "SecureSvg"
+            },
+            {
+              "title": "Global Reach with i18n",
+              "description": "Expand your application's reach globally with Next-Intl for seamless localization. This setup enables you to manage translations effortlessly and cater to a diverse audience by breaking language barriers.",
+              "link": "internationalization",
+              "image": "GlobalSvg"
+            },
+            {
+              "title": "Efficient Database Management",
+              "description": "Integrate with Prisma for simplified and efficient database management. Generate automatic migrations, access type-safe data, and ensure compatibility with PostgreSQL.",
+              "link": "dbmanagement",
+              "image": "DbSvg"
+            },
+            {
+              "title": "Rich Component Library",
+              "description": "Utilize Radix UI components and Framer Motion for creating dynamic and accessible user interfaces. Build sophisticated and interactive UIs with ease, backed by a robust component library like ShadcnUI and Aceternity.",
+              "link": "components",
+              "image": "ComponentSvg"
+            },
+            {
+              "title": "Developer-Centric Tools",
+              "description": "Experience a streamlined development process with ESLint, Prettier, and TypeScript. Maintain high code quality and consistency with Tailwind CSS for styling and Prisma for database management.",
+              "link": "developertools",
+              "image": "CodeSvg"
+            }
+          ]
+        },
         "get-started": {
           "title": "Get Started",
           "buttonText": "Get Started",
@@ -779,24 +784,24 @@
           "signInLink": "Sign In"
         }
       }
-    },
-    "errors": {
-      "emailRequired": "Email is required.",
-      "invalidEmail": "Invalid email address.",
-      "passwordRequired": "Password is required.",
-      "passwordMin": "Password must be more than 8 characters.",
-      "passwordMax": "Password must be less than 32 characters.",
-      "userExists": "User already exists.",
-      "configuration": "Incorrect email or password.",
-      "notfound": "User not found.",
-      "passwordsdonotmatch": "Passwords do not match."
-    },
-    "locale": {
-      "language": { "en": "English", "fr": "French" }
-    },
-    "theme": {
-      "light": "Light",
-      "dark": "Dark"
     }
+  },
+  "errors": {
+    "emailRequired": "Email is required.",
+    "invalidEmail": "Invalid email address.",
+    "passwordRequired": "Password is required.",
+    "passwordMin": "Password must be more than 8 characters.",
+    "passwordMax": "Password must be less than 32 characters.",
+    "userExists": "User already exists.",
+    "configuration": "Incorrect email or password.",
+    "notfound": "User not found.",
+    "passwordsdonotmatch": "Passwords do not match."
+  },
+  "locale": {
+    "language": { "en": "English", "fr": "French" }
+  },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark"
   }
 }
