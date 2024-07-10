@@ -1,6 +1,22 @@
 "use client";
+import Carousel3D from "@/components/carousel-3d";
 import CodeBlock from "@/components/code-block";
+import Section from "@/components/layout/section";
 import { useTranslations } from "next-intl";
+
+const componentMap: { [key: string]: React.ComponentType } = {
+  Carousel3D,
+  // Ajoutez d'autres composants ici
+};
+
+export const renderComponent = (componentName: string | undefined) => {
+  if (!componentName || !componentMap[componentName]) {
+    return null;
+  }
+
+  const Component = componentMap[componentName];
+  return <Component />;
+};
 
 const ItemPage = ({ params }: { params: { doc: string; item: string } }) => {
   const t = useTranslations(`pages.docs.${params.doc}.items.${params.item}`);
@@ -12,16 +28,16 @@ const ItemPage = ({ params }: { params: { doc: string; item: string } }) => {
     "step-description": string;
     "step-code"?: string;
   }[];
+  const displayComponentName = t.raw("display.component") as string;
 
   return (
-    <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">{t("title")}</h1>
-      <p className="mb-4">{t("description")}</p>
-
-      <section className="mb-8">
-        <h2 className="text-xl font-semibold mb-2">{t("files.title")}</h2>
-        <p className="mb-4">{t("files.description")}</p>
-        <ul className="list-disc pl-6">
+    <>
+      <h1>{t("title")}</h1>
+      <p>{t("description")}</p>
+      <Section className="py-0">
+        <h2>{t("files.title")}</h2>
+        {/* <p>{t("files.description")}</p> */}
+        <ul className="list-disc pl-6 self-start">
           {Object.entries(files).map(([fileName, fileLink]) => (
             <li key={fileName} className="mb-2">
               <a
@@ -35,11 +51,11 @@ const ItemPage = ({ params }: { params: { doc: string; item: string } }) => {
             </li>
           ))}
         </ul>
-      </section>
+      </Section>
 
-      <section className="mb-8">
-        <h2 className="text-xl font-semibold mb-2">{t("features.title")}</h2>
-        <ul className="list-disc pl-6">
+      <Section className="py-0">
+        <h2>{t("features.title")}</h2>
+        <ul className="list-disc pl-6 self-start">
           {features.map((feature, index) => (
             <li
               key={index}
@@ -48,14 +64,12 @@ const ItemPage = ({ params }: { params: { doc: string; item: string } }) => {
             />
           ))}
         </ul>
-      </section>
+      </Section>
 
-      <section className="mb-8">
-        <h2 className="text-xl font-semibold mb-2">
-          {t("example-usage.title")}
-        </h2>
-        <p className="mb-4">{t("example-usage.description")}</p>
-        <ol className="list-decimal pl-6">
+      <Section className="py-0">
+        <h2>{t("example-usage.title")}</h2>
+        <p>{t("example-usage.description")}</p>
+        <ol className="list-none lg:list-decimal lg:pl-6">
           {exampleUsageSteps.map((step, index) => (
             <li key={index} className="mb-4">
               <h3 className="font-semibold mb-2">{step["step-title"]}</h3>
@@ -72,8 +86,14 @@ const ItemPage = ({ params }: { params: { doc: string; item: string } }) => {
             </li>
           ))}
         </ol>
-      </section>
-    </div>
+      </Section>
+      {displayComponentName && (
+        <Section className="py-0">
+          <h2>{t("display.title")}</h2>
+          {renderComponent(displayComponentName)}
+        </Section>
+      )}
+    </>
   );
 };
 

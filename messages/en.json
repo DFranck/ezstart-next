@@ -20,7 +20,8 @@
     "partners": "",
     "linksTitle": "Links",
     "links": "",
-    "copyright": "Copyright © 2024. All rights reserved."
+    "copyright": "Copyright © 2024. All rights reserved.",
+    "owner": "Design & develpe by "
   },
   "pages": {
     "home": {
@@ -206,6 +207,11 @@
                 "src/app/[locale]/layout.tsx": "https://github.com/DFranck/my-ez-start/blob/master/src/app/[locale]/layout.tsx"
               }
             },
+            "display": {
+              "title": "Display",
+              "component": "",
+              "target": ""
+            },
             "features": {
               "title": "Features",
               "content": [
@@ -247,6 +253,11 @@
               "code-links": {
                 "src/components/layout/nav.tsx": "https://github.com/DFranck/my-ez-start/blob/master/src/components/layout/nav.tsx"
               }
+            },
+            "display": {
+              "title": "Display",
+              "component": "",
+              "target": ""
             },
             "features": {
               "title": "Features",
@@ -323,7 +334,8 @@
             },
             "display": {
               "title": "Display",
-              "component": "<Carousel3D />"
+              "component": "Carousel3D",
+              "target": "src/components/carousel-3d.tsx"
             },
             "features": {
               "title": "Features",
@@ -347,22 +359,167 @@
               "language": "typescript"
             }
           }
-        },
-        "internationalization": {
-          "title": "Internationalization",
-          "description": "Internationalization for developers",
-          "items": {}
-        },
-        "authentication": {
-          "title": "Authentication",
-          "description": "Authentication for developers",
-          "items": {}
-        },
-        "db-management": {
-          "title": "Database Management",
-          "description": "Database management for developers",
-          "items": {}
         }
+      },
+      "internationalization": {
+        "title": "Internationalization",
+        "description": "Internationalization for developers",
+        "items": {
+          "intl-middleware": {
+            "title": "Intl Middleware",
+            "description": "Middleware for handling internationalization and setting the current locale.",
+            "files": {
+              "title": "Files concerned",
+              "description": "The following file will be concerned:",
+              "code-links": {
+                "src/middlewares/intl-middleware.ts": "https://github.com/DFranck/my-ez-start/blob/master/src/middlewares/intl-middleware.ts"
+              }
+            },
+            "display": {
+              "title": "Display",
+              "component": "",
+              "target": ""
+            },
+            "features": {
+              "title": "Features",
+              "content": [
+                "Handles locale detection and redirection.",
+                "Sets the current locale based on the request URL.",
+                "Integrates with Next.js middleware."
+              ]
+            },
+            "example-usage": {
+              "title": "Example Usage",
+              "description": "Here's how to use the intl middleware:",
+              "steps": [
+                {
+                  "step-title": "Create Middleware",
+                  "step-description": "Create the middleware in `src/middlewares/intl-middleware.ts`.",
+                  "step-code": "import { locales } from \"@/i18n\";\nimport createMiddleware from \"next-intl/middleware\";\nimport { NextRequest } from \"next/server\";\n\nconst defaultLocale = \"en\";\nexport let currentLocale = defaultLocale;\nexport const intlMiddleware = createMiddleware({\n  locales,\n  defaultLocale,\n});\n\nexport default function middleware(req: NextRequest) {\n  const response = intlMiddleware(req);\n  const pathname = req.nextUrl.pathname;\n  currentLocale = locales.find((loc) => pathname.startsWith(`/${loc}`)) || defaultLocale;\n  return response;\n}\n\nexport const config = {\n  matcher: [\"/((?!api|_next/static|_next/image|favicon.ico).*)\"],\n};"
+                }
+              ],
+              "language": "typescript"
+            }
+          },
+          "language-provider": {
+            "title": "Language Provider",
+            "description": "A provider component to manage language settings and messages.",
+            "files": {
+              "title": "Files concerned",
+              "description": "The following file will be concerned:",
+              "code-links": {
+                "src/providers/language-provider.tsx": "https://github.com/DFranck/my-ez-start/blob/master/src/providers/language-provider.tsx"
+              }
+            },
+            "display": {
+              "title": "Display",
+              "component": "",
+              "target": ""
+            },
+            "features": {
+              "title": "Features",
+              "content": [
+                "Wraps the application with language settings.",
+                "Uses `next-intl` for internationalization.",
+                "Provides language messages to the entire application."
+              ]
+            },
+            "example-usage": {
+              "title": "Example Usage",
+              "description": "Here's how to use the LanguageProvider component:",
+              "steps": [
+                {
+                  "step-title": "Create LanguageProvider",
+                  "step-description": "Create the provider in `src/providers/language-provider.tsx`.",
+                  "step-code": "import { AbstractIntlMessages, NextIntlClientProvider } from \"next-intl\";\nconst LanguageProvider = ({ children, messages }: { children: React.ReactNode; messages: AbstractIntlMessages; }) => {\n  return (\n    <NextIntlClientProvider messages={messages}>\n      {children}\n    </NextIntlClientProvider>\n  );\n};\nexport default LanguageProvider;"
+                }
+              ],
+              "language": "typescript"
+            }
+          },
+          "root-layout": {
+            "title": "Root Layout",
+            "description": "The root layout component that includes Providers for theme, auth, and language.",
+            "files": {
+              "title": "Files concerned",
+              "description": "The following file will be concerned:",
+              "code-links": {
+                "src/app/layout.tsx": "https://github.com/DFranck/my-ez-start/blob/master/src/app/layout.tsx"
+              }
+            },
+            "display": {
+              "title": "Display",
+              "component": "",
+              "target": ""
+            },
+            "features": {
+              "title": "Features",
+              "content": [
+                "Integrates theme, auth, and language providers.",
+                "Sets up global styles and fonts.",
+                "Handles metadata generation based on locale."
+              ]
+            },
+            "example-usage": {
+              "title": "Example Usage",
+              "description": "Here's how to use the Root Layout component:",
+              "steps": [
+                {
+                  "step-title": "Create Root Layout",
+                  "step-description": "Create the root layout in `src/app/layout.tsx`.",
+                  "step-code": "import Footer from \"@/components/layout/footer/footer\";\nimport Header from \"@/components/layout/header/header\";\nimport Main from \"@/components/layout/main\";\nimport { cn } from \"@/lib/utils\";\nimport Providers from \"@/providers/providers\";\nimport { getMessages } from \"next-intl/server\";\nimport { Inter } from \"next/font/google\";\nimport \"../globals.css\";\n\nconst inter = Inter({ subsets: [\"latin\"] });\nexport async function generateMetadata({ params: { locale } }: any) {\n  const messages = (await getMessages(locale)) as any;\n  const metaTitle = messages.app[\"meta-title\"] as string;\n  const metaDescription = messages.app[\"meta-description\"].replace(/\\{meta-title\\}/g, metaTitle) as string;\n  return {\n    title: metaTitle,\n    description: metaDescription,\n  };\n}\nexport default async function RootLayout({ children, params: { locale } }: Readonly<{ children: React.ReactNode; params: { locale: string }; }>) {\n  const messages = await getMessages();\n  return (\n    <html lang={locale} suppressHydrationWarning={true} className=\"h-full\">\n      <body className={cn(inter.className, \"min-h-screen flex flex-col h-full\")}>\\n        <Providers messages={messages}>\n          <Header />\n          <Main>{children}</Main>\n          <Footer />\n        </Providers>\n      </body>\n    </html>\n  );\n}"
+                }
+              ],
+              "language": "typescript"
+            }
+          },
+          "locale-switcher": {
+            "title": "Locale Switcher",
+            "description": "A component for switching between different locales in the application.",
+            "files": {
+              "title": "Files concerned",
+              "description": "The following file will be concerned:",
+              "code-links": {
+                "src/components/locale-switcher.tsx": "https://github.com/DFranck/my-ez-start/blob/master/src/components/locale-switcher.tsx"
+              }
+            },
+            "display": {
+              "title": "Display",
+              "component": "",
+              "target": ""
+            },
+            "features": {
+              "title": "Features",
+              "content": [
+                "Displays a dropdown for selecting the locale.",
+                "Updates the application URL to reflect the selected locale.",
+                "Handles keyboard navigation and accessibility."
+              ]
+            },
+            "example-usage": {
+              "title": "Example Usage",
+              "description": "Here's how to use the LocaleSwitcher component:",
+              "steps": [
+                {
+                  "step-title": "Create LocaleSwitcher",
+                  "step-description": "Create the component in `src/components/locale-switcher.tsx`.",
+                  "step-code": "import { cn } from \"@/lib/utils\";\nimport { GlobeIcon } from \"lucide-react\";\nimport { useLocale, useTranslations } from \"next-intl\";\nimport { usePathname, useRouter } from \"next/navigation\";\nimport { useEffect, useRef, useState, useTransition } from \"react\";\n\nconst LocaleSwitcher = () => {\n  const t = useTranslations(\"locale\");\n  const [isMounted, setIsMounted] = useState(false);\n  const [isPending, startTransition] = useTransition();\n  const [isOpen, setIsOpen] = useState(false);\n  const router = useRouter();\n  const pathname = usePathname();\n  const localeActive = useLocale();\n  const liStyle = \"py-2 px-4 cursor-pointer hover:bg-accent text-sm\";\n  const buttonRef = useRef<HTMLButtonElement>(null);\n  const dropdownRef = useRef<HTMLUListElement>(null);\n  const content = t.raw(\"language\") as { [key: string]: string };\n  const languages = Object.entries(content);\n\n  useEffect(() => {\n    setIsMounted(true);\n  }, []);\n\n  const onValueChange = (nextLocale: string) => {\n    const newPath = pathname.replace(localeActive, nextLocale);\n    startTransition(() => {\n      router.push(newPath);\n    });\n    setIsOpen(false);\n  };\n\n  const handleOpen = () => {\n    setIsOpen(!isOpen);\n  };\n\n  const handleKeyDown = (event: React.KeyboardEvent<HTMLButtonElement>) => {\n    if (event.key === \"Enter\" || event.key === \" \") {\n      event.preventDefault();\n      handleOpen();\n    } else if (event.key === \"Escape\") {\n      setIsOpen(false);\n    }\n  };\n\n  const handleBlur = (event: React.FocusEvent<HTMLDivElement>) => {\n    if (\n      dropdownRef.current &&\n      !dropdownRef.current.contains(event.relatedTarget as Node)\n    ) {\n      setIsOpen(false);\n    }\n  };\n  useEffect(() => {\n    if (isOpen && dropdownRef.current) {\n      dropdownRef.current.focus();\n    }\n  }, [isOpen]);\n  if (!isMounted) {\n    return null;\n  }\n  return (\n    <div\n      className=\"relative text-foreground opacity-60 hover:opacity-100\"\n      onBlur={handleBlur}\n    >\n      <button\n        ref={buttonRef}\n        aria-haspopup=\"true\"\n        aria-expanded={isOpen}\n        className=\"cursor-pointer hover:bg-accent rounded w-9 h-9 flex justify-center items-center\"\n        onClick={handleOpen}\n        onKeyDown={handleKeyDown}\n      >\n        <GlobeIcon className=\"w-6 h-6\" />\n        <p className=\"sr-only\">switch language</p>\n      </button>\n      {isOpen && (\n        <ul\n          ref={dropdownRef}\n          tabIndex={-1}\n          className={cn(\n            \"absolute top-10 right-0 z-10 bg-background border shadow rounded animate-fadeIn duration-200\"\n          )}\n        >\n          {languages.map(([key, value]) => (\n            <li\n              key={key}\n              className={liStyle}\n              onClick={() => onValueChange(key)}\n              role=\"menuitem\"\n              tabIndex={0}\n              onKeyDown={(e) => e.key === \"Enter\" && onValueChange(key)}\n            >\n              {value}\n            </li>\n          ))}\n          <div className=\"border border-border/50\"></div>\n        </ul>\n      )}\n    </div>\n  );\n};\n\nexport default LocaleSwitcher;"
+                }
+              ],
+              "language": "typescript"
+            }
+          }
+        }
+      },
+      "authentication": {
+        "title": "Authentication",
+        "description": "Authentication for developers",
+        "items": {}
+      },
+      "db-management": {
+        "title": "Database Management",
+        "description": "Database management for developers",
+        "items": {}
       },
       "auth": {
         "signInForm": {

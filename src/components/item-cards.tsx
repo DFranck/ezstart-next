@@ -9,10 +9,8 @@ interface ItemCardProps {
 
 const ItemCards = ({ title, description }: ItemCardProps) => {
   return (
-    <Card className="bg-card text-card-foreground p-4 rounded border shadow flex flex-col flex-grow">
-      <CardTitle className="text-center text-xl font-semibold mb-2">
-        {title}
-      </CardTitle>
+    <Card className="h-full">
+      <CardTitle>{title}</CardTitle>
       <CardContent>{description}</CardContent>
     </Card>
   );

@@ -2,6 +2,7 @@
 import ItemCards from "@/components/item-cards";
 import Section from "@/components/layout/section";
 import GetStarted from "@/features/doc/get-started/page";
+import { cn } from "@/lib/utils";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 
@@ -10,7 +11,6 @@ const DocPage = ({ params: { doc } }: { params: { doc: string } }) => {
   const cards = t.raw("items") as {
     [key: string]: { title: string; description: string };
   };
-
   return (
     <>
       <h1>{t("title")}</h1>
@@ -19,11 +19,17 @@ const DocPage = ({ params: { doc } }: { params: { doc: string } }) => {
         <GetStarted />
       ) : (
         <Section>
-          {Object.entries(cards).map(([key, card]) => (
-            <Link key={key} href={`/docs/${doc}/${key}`}>
-              <ItemCards {...card} />
-            </Link>
-          ))}
+          <div
+            className={cn(
+              "grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 w-full"
+            )}
+          >
+            {Object.entries(cards).map(([key, card]) => (
+              <Link key={key} href={`/docs/${doc}/${key}`} className={cn("")}>
+                <ItemCards {...card} />
+              </Link>
+            ))}
+          </div>
         </Section>
       )}
     </>
