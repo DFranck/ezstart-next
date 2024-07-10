@@ -137,11 +137,11 @@
         },
         "get-started": {
           "title": "Get Started",
-          "buttonText": "Get Started",
+          "cta": "Get Started",
           "github": "Star on GitHub",
           "content": [
-            "To get started with My EZ Start Boilerplate, clone the repository and follow the setup instructions in the README file. Customize the configuration files to suit your project needs, and start building your application with ease.",
-            "This boilerplate is designed to be flexible and extensible, allowing you to add features and modify existing ones to fit your specific requirements."
+            "To get started with EzStart Boilerplate, click the 'Get Started' button above and follow the setup instructions. Customize the configuration files to suit your project needs and start building your application with ease.",
+            "This boilerplate is designed to be flexible and extensible, allowing you to add features and modify existing ones to meet your specific requirements."
           ]
         }
       }

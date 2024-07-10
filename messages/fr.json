@@ -136,10 +136,10 @@
         },
         "get-started": {
           "title": "Commencer",
-          "buttonText": "Commencer",
+          "cta": "Commencer",
           "github": "Étoile sur GitHub",
           "content": [
-            "Pour commencer avec My EZ Start Boilerplate, clonez le dépôt et suivez les instructions de configuration dans le fichier README. Personnalisez les fichiers de configuration pour répondre aux besoins de votre projet et commencez à créer votre application en toute simplicité.",
+            "Pour commencer avec EzStart Boilerplate, cliquez sur le bouton 'Commencer' ci-dessus et suivez les instructions de configuration. Personnalisez les fichiers de configuration pour répondre aux besoins de votre projet et commencez à créer votre application en toute simplicité.",
             "Ce boilerplate est conçu pour être flexible et extensible, vous permettant d'ajouter des fonctionnalités et de modifier les existantes pour répondre à vos exigences spécifiques."
           ]
         }

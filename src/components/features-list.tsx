@@ -13,6 +13,7 @@ import SecureSvg from "@/components/svgs/secure-svg";
 import StackSvg from "@/components/svgs/stack-svg";
 import TypescriptSvg from "@/components/svgs/typescript-svg";
 import { GlareCard } from "@/components/ui/glare-card";
+import { TrafficCone } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 import React from "react";
@@ -49,10 +50,12 @@ const FeaturesList = () => {
   return (
     <Section className="text-justify md:text-center px-4 ">
       <h3 className="text-primary text-xl font-bold my-4">{t("title")}</h3>
-      <h2 className="md:text-3xl">
+      <h2 className="md:text-3xl ">
         {t("subtitle")} <span className="">EzStart</span>
       </h2>
-      <p className="mb-10">{t("description")}</p>
+      <p className="mb-10 max-w-5xl text-justify lg:text-center">
+        {t("description")}
+      </p>
       <ul className="grid grid-cols-1 gap-5 md:grid-cols-3 mx-auto max-w-screen-lg text-justify">
         {features.map((feature, index) => {
           const SvgComponent = svgComponents[feature.image];
@@ -64,7 +67,15 @@ const FeaturesList = () => {
                   rel="noopener noreferrer"
                 >
                   <GlareCard className="p-4">
-                    {SvgComponent && <SvgComponent className={"h-12 w-12"} />}
+                    <div className="flex justify-between">
+                      {SvgComponent && <SvgComponent className={"h-12 w-12"} />}
+                      {feature.link === "payment" && (
+                        <TrafficCone
+                          className="h-12 w-12 bg-orange-400 rounded text-foreground"
+                          strokeWidth={1}
+                        />
+                      )}
+                    </div>
                     <h3 className="mt-2 text-lg font-bold">{feature.title}</h3>
                     <p className="mt-2 text-muted-foreground text-sm md:text-base text-justify">
                       {feature.description}
