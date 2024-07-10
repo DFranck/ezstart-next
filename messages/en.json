@@ -669,10 +669,70 @@
           }
         }
       },
+
       "db-management": {
         "title": "Database Management",
-        "description": "Database management for developers",
-        "items": {}
+        "description": "Database management for developers using Prisma ORM.",
+        "items": {
+          "prisma-setup": {
+            "title": "Prisma Setup",
+            "description": "Setup and configuration of Prisma ORM for database management.",
+            "files": {
+              "title": "Files concerned",
+              "description": "The following files will be concerned:",
+              "code-links": {
+                "src/lib/db.ts": "https://github.com/DFranck/my-ez-start/blob/master/src/lib/db.ts",
+                "prisma/schema.prisma": "https://github.com/DFranck/my-ez-start/blob/master/prisma/schema.prisma"
+              }
+            },
+            "display": {
+              "title": "Display",
+              "component": "",
+              "target": ""
+            },
+            "features": {
+              "title": "Features",
+              "content": [
+                "Setup Prisma Client for database interactions.",
+                "Configuration for PostgreSQL database connection.",
+                "Prevents multiple instances of Prisma Client in development.",
+                "Defines a basic User model for demonstration."
+              ]
+            },
+            "example-usage": {
+              "title": "Example Usage",
+              "description": "Here's how to set up and use Prisma in your project:",
+              "steps": [
+                {
+                  "step-title": "Install Prisma and Initialize",
+                  "step-description": "Install Prisma and initialize it in your project.",
+                  "step-code": "npm install prisma @prisma/client\nnpx prisma init"
+                },
+                {
+                  "step-title": "Configure Prisma Client",
+                  "step-description": "Create a Prisma client instance for database interactions.",
+                  "step-code": "// src/lib/db.ts\nimport { PrismaClient } from '@prisma/client';\n\n// Prevent multiple instances of Prisma Client in development\ndeclare global {\n  // eslint-disable-next-line no-var\n  var prisma: PrismaClient | undefined;\n}\n\nexport const db = global.prisma || new PrismaClient();\n\nif (process.env.NODE_ENV !== 'production') {\n  global.prisma = db;\n}"
+                },
+                {
+                  "step-title": "Define Database Schema",
+                  "step-description": "Define your database schema in the `prisma/schema.prisma` file.",
+                  "step-code": "datasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\ngenerator client {\n  provider = \"prisma-client-js\"\n}\n\nmodel User {\n  id        String   @id @default(uuid())\n  email     String   @unique\n  password  String\n  name      String?\n  resetCode String?  @unique\n  resetCodeExpiresAt DateTime?\n  role      String   @default(\"user\")\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n}"
+                },
+                {
+                  "step-title": "Run Prisma Migrate",
+                  "step-description": "Run Prisma migrate to create the database schema.",
+                  "step-code": "npx prisma migrate dev --name init"
+                },
+                {
+                  "step-title": "Using Prisma Client",
+                  "step-description": "Use the Prisma client instance to interact with the database.",
+                  "step-code": "// Example usage in a Next.js API route\nimport { db } from '@/lib/db';\n\nexport default async function handler(req, res) {\n  const users = await db.user.findMany();\n  res.status(200).json(users);\n}"
+                }
+              ],
+              "language": "typescript"
+            }
+          }
+        }
       },
       "auth": {
         "signInForm": {
@@ -731,7 +791,6 @@
       "notfound": "User not found.",
       "passwordsdonotmatch": "Passwords do not match."
     },
-
     "locale": {
       "language": { "en": "English", "fr": "French" }
     },
