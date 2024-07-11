@@ -13,7 +13,7 @@ const Hero = () => {
         <h1 className="text-3xl md:text-7xl font-bold text-center ">
           {t("title")}
         </h1>
-        <p className="font-extralight text-base md:text-2xl">
+        <p className="font-extralight text-base md:text-2xl text-justify xl:text-center">
           {t("description")}
         </p>
         <div className="flex flex-col sm:flex-row justify-center sm:gap-4">
