@@ -50,13 +50,11 @@ const SignInForm = () => {
     });
 
     if (result?.error) {
-      console.log(result);
       setError(err("configuration"));
       setIsFetching(false);
     } else {
       const updatedSession = await getSession();
       setIsFetching(false);
-      console.log("role of the user", updatedSession?.user.role);
       if (updatedSession?.user.role === "admin") {
         router.push(`/${locale}/dashboard`);
       } else {

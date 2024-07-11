@@ -45,7 +45,6 @@ const ForgotForm = () => {
     });
     const resultData = await result.json();
     if (!result?.ok) {
-      console.log(resultData.message);
       setError(err(`${resultData.message}`));
       setIsFetching(false);
     } else {

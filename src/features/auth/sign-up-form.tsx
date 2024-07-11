@@ -59,7 +59,6 @@ const SignUpForm = () => {
       }
 
       const result = await res.json();
-      console.log("User signed up successfully", result);
       setIsFetching(false);
       router.push(`/${locale}/sign-in`);
     } catch (error: unknown) {

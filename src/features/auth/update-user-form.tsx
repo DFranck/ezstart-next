@@ -54,7 +54,6 @@ const UpdateUserForm = () => {
         },
       });
       router.refresh();
-      console.log("User name updated successfully");
     } catch (error) {
       console.error("Failed to update name:", error);
       if (error instanceof Error) {

@@ -8,7 +8,7 @@ const GetStarted = () => {
   const content = t.raw("content") as string[];
   const locale = useLocale();
   return (
-    <Section className="flex flex-col items-center text-justify lg:text-center py-12 px-4 max-w-5xl">
+    <Section className="flex flex-col items-center text-justify lg:text-center py-12 px-4 max-w-7xl">
       <div className="flex flex-col sm:flex-row justify-center sm:gap-4">
         <Button asChild className="mb-6 text-lg px-8 py-6 font-bold">
           <Link href={`/${locale}/docs/get-started`}>{t("cta")}</Link>
@@ -42,9 +42,12 @@ const GetStarted = () => {
           </Link>
         </Button>
       </div>
-      <div className="max-w-4xl">
+      <div className="max-w-5xl ">
         {content.map((paragraph: string, index: number) => (
-          <p className="text-lg md:text-xl font-light mb-6" key={index}>
+          <p
+            className="text-lg md:text-xl font-light mb-6 lg:text-justify"
+            key={index}
+          >
             {paragraph}
           </p>
         ))}

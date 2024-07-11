@@ -40,8 +40,6 @@ const FeaturesList = () => {
   const t = useTranslations("pages.home.sections.features");
   const locale = useLocale();
   const features = t.raw("content");
-  console.log("Features type:", typeof features);
-  console.log("Features content:", features);
   // Check if features is an array
   if (!Array.isArray(features)) {
     return <p>Loading features...</p>; // Or any other fallback UI
@@ -53,9 +51,7 @@ const FeaturesList = () => {
       <h2 className="md:text-3xl ">
         {t("subtitle")} <span className="">EzStart</span>
       </h2>
-      <p className="mb-10 max-w-5xl text-justify lg:text-center">
-        {t("description")}
-      </p>
+      <p className="mb-10 max-w-5xl text-justify ">{t("description")}</p>
       <ul className="grid grid-cols-1 gap-5 md:grid-cols-3 mx-auto max-w-screen-lg text-justify">
         {features.map((feature, index) => {
           const SvgComponent = svgComponents[feature.image];
