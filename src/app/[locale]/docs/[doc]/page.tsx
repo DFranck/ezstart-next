@@ -1,7 +1,8 @@
 "use client";
+import ComingSoon from "@/components/coming-soon";
 import ItemCards from "@/components/item-cards";
 import Section from "@/components/layout/section";
-import GetStarted from "@/features/doc/get-started/page";
+import DocGetStarted from "@/features/doc/get-started/doc-get-started";
 import { cn } from "@/lib/utils";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
@@ -15,8 +16,9 @@ const DocPage = ({ params: { doc } }: { params: { doc: string } }) => {
     <>
       <h1>{t("title")}</h1>
       <p>{t("description")}</p>
+      {doc === "payment" && <ComingSoon />}
       {doc === "get-started" ? (
-        <GetStarted />
+        <DocGetStarted />
       ) : (
         <Section>
           <div

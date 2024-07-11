@@ -146,12 +146,12 @@
       }
     },
     "docs": {
-      "title": "Documentation EzStart",
-      "description": "Guide complet et référence pour utiliser EzStart. Apprenez à exploiter les fonctionnalités et les composants d'EzStart pour rationaliser votre processus de développement.",
+      "title": "Documentation d'EzStart",
+      "description": "Se veux être un guide complet avec référence pour utiliser EzStart. Apprenez à exploiter les fonctionnalités et les composants d'EzStart pour demarrer votre processus de développement.",
       "sections": {
         "primary-dependencies": {
           "title": "Dépendances Principales",
-          "description": "Vous trouverez ci-dessous les principales dépendances utilisées dans ce boilerplate et leur documentation officielle.",
+          "description": "Vous trouverez ci-dessous les principales dépendances utilisées dans cette boilerplate et leur documentation officielle.",
           "framework": "Framework",
           "orm": "ORM",
           "authentication": "Authentification",
@@ -162,82 +162,74 @@
       },
       "nav-links": {
         "get-started": "Commencer",
-        "dev-tools": "Outils de Développement",
-        "components": "Composants",
         "internationalization": "Internationalisation",
+        "components": "Composants",
         "authentication": "Authentification",
-        "db-management": "Gestion de la Base de Données"
+        "db-management": "Gestion de la Base de Données",
+        "payment": "Paiement"
       },
       "get-started": {
-        "title": "Commencer avec EzStart",
-        "description": "EzStart est un boilerplate conçu pour démarrer rapidement vos projets Next.js avec des fonctionnalités avancées intégrées.",
+        "title": "Get started avec EzStart",
+        "description": "EzStart est une boilerplate conçu pour démarrer rapidement vos projets Next.js avec des fonctionnalités avancées intégrées.",
         "sections": {
-          "nav-links": {
-            "installation": "Installation",
-            "setup-env": "Configurer l'Environnement",
-            "environment-variables": "Variables d'Environnement",
-            "start": "Démarrer",
-            "primary-dependencies": "Dépendances Principales"
-          },
           "installation": {
             "title": "Installation",
             "steps": "git clone https://github.com/DFranck/my-ez-start.git\ncd my-ez-start\nnpm install"
           },
           "setup-env": {
             "title": "Configurer l'Environnement",
-            "steps": "DATABASE_URL=`postgresql://username:password@localhost:5432/mydatabase`\nAUTH_URL=http://localhost:3000\nAUTH_SECRET=your_secret_key\nAUTH_SALT=your_salt\nGOOGLE_CLIENT_ID=YOUR_GOOGLE_CLIENT_ID\nGOOGLE_CLIENT_SECRET=YOUR_GOOGLE_CLIENT_SECRET\nGITHUB_CLIENT_ID=YOUR_GITHUB_CLIENT_ID\nGITHUB_CLIENT_SECRET=YOUR_GITHUB_CLIENT_SECRET\nMAILJET_API_SECRET=YOUR_MAILJET_API_SECRET\nMAILJET_API_KEY=YOUR_MAILJET_API_KEY"
-          },
-          "environment-variables": {
-            "title": "Variables d'Environnement",
-            "steps": [
+            "steps": "DATABASE_URL=`postgresql://username:password@localhost:5432/mydatabase`\nAUTH_URL=http://localhost:3000\nAUTH_SECRET=YOUR_SECRET_KEY\nAUTH_SALT=YOUR_SALT\nGOOGLE_CLIENT_ID=YOUR_GOOGLE_CLIENT_ID\nGOOGLE_CLIENT_SECRET=YOUR_GOOGLE_CLIENT_SECRET\nGITHUB_CLIENT_ID=YOUR_GITHUB_CLIENT_ID\nGITHUB_CLIENT_SECRET=YOUR_GITHUB_CLIENT_SECRET\nMAILJET_API_SECRET=YOUR_MAILJET_API_SECRET\nMAILJET_API_KEY=YOUR_MAILJET_API_KEY",
+            "helper-cta": "Besoin d'aide pour configurer l'environnement ?",
+            "helper-title": "Quels setups pose probleme?",
+            "variables": [
               {
                 "name": "DATABASE_URL",
-                "description": "La chaîne de connexion pour votre base de données PostgreSQL. Vous pouvez la trouver dans le tableau de bord de votre service de base de données.",
+                "description": "The connection string for your PostgreSQL database. You can find this in your database service dashboard.",
                 "link": "https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING"
               },
               {
                 "name": "AUTH_URL",
-                "description": "L'URL de base de votre service d'authentification. En général, c'est l'URL de votre application.",
+                "description": "The base URL of your authentication service. Typically this is your application's URL.",
                 "link": "https://authjs.dev/docs/getting-started/introduction"
               },
               {
                 "name": "AUTH_SECRET",
-                "description": "Une clé secrète pour chiffrer les jetons JWT. Générez une clé aléatoire en utilisant crypto ou une autre méthode.",
+                "description": "A secret key for encrypting JWT tokens. Generate a random key using crypto or another method.",
                 "code": "node -e `console.log(require('crypto').randomBytes(32).toString('hex'))`"
               },
               {
                 "name": "AUTH_SALT",
-                "description": "Un sel pour hacher les mots de passe. Générez un sel aléatoire en utilisant crypto ou une autre méthode.",
+                "description": "A salt for hashing passwords. Generate a random salt using crypto or another method.",
                 "code": "node -e `console.log(require('crypto').randomBytes(32).toString('hex'))`"
               },
               {
                 "name": "GOOGLE_CLIENT_ID",
-                "description": "Votre ID client OAuth Google. Vous pouvez le trouver dans la console développeur Google.",
+                "description": "Your Google OAuth client ID. You can find this in the Google Developer Console.",
                 "link": "https://console.developers.google.com/"
               },
               {
                 "name": "GOOGLE_CLIENT_SECRET",
-                "description": "Votre secret client OAuth Google. Vous pouvez le trouver dans la console développeur Google.",
+                "description": "Your Google OAuth client secret. You can find this in the Google Developer Console.",
                 "link": "https://console.developers.google.com/"
               },
               {
                 "name": "GITHUB_CLIENT_ID",
-                "description": "Votre ID client OAuth GitHub. Vous pouvez le trouver dans les paramètres développeur de GitHub.",
+                "description": "Your GitHub OAuth client ID. You can find this in the GitHub Developer settings.",
                 "link": "https://github.com/settings/developers"
               },
               {
                 "name": "GITHUB_CLIENT_SECRET",
-                "description": "Votre secret client OAuth GitHub. Vous pouvez le trouver dans les paramètres développeur de GitHub.",
+                "description": "Your GitHub OAuth client secret. You can find this in the GitHub Developer settings.",
                 "link": "https://github.com/settings/developers"
               },
               {
                 "name": "MAILJET_API_SECRET",
-                "description": "Votre clé secrète API Mailjet. Vous pouvez la trouver dans les paramètres de votre compte Mailjet.",
+                "description": "Your Mailjet API secret key. You can find this in the Mailjet account settings.",
                 "link": "https://app.mailjet.com/account/api_keys"
               },
               {
                 "name": "MAILJET_API_KEY",
-                "description": "Votre clé API Mailjet. Vous pouvez la trouver dans les paramètres de votre compte Mailjet.",
+                "description": "Your Mailjet API key. You can find this in the Mailjet account settings.",
                 "link": "https://app.mailjet.com/account/api_keys"
               }
             ]
@@ -247,8 +239,8 @@
             "steps": "npm run dev"
           },
           "enjoy": {
-            "title": "Profitez-en !",
-            "description": "Vous pouvez maintenant profiter de votre application ou consulter la documentation de ce boilerplate."
+            "title": "Bon développement!",
+            "description": "Vous pouvez maintenant profiter de votre application ou consulter la documentation de cette boilerplate."
           }
         }
       },

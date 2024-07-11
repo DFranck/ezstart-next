@@ -17,14 +17,7 @@ const DocsPage = () => {
     "bg-card text-card-foreground list-disc p-4 gap-2 pl-6 rounded border shadow flex flex-col flex-grow";
   const cardTitleStyle = "text-center text-xl font-semibold mb-2";
   const liStyle = "flex gap-2";
-  const environmentVariables = t.raw(
-    "sections.environment-variables.steps"
-  ) as {
-    name: string;
-    description: string;
-    link?: string;
-    code?: string;
-  }[];
+
   return (
     <>
       <h1>{t("title")}</h1>
@@ -125,12 +118,7 @@ const DocsPage = () => {
         </div>
       </Section>
       <Section>
-        <Button
-          asChild
-          className="w-fit self-end"
-          variant={"outline"}
-          size={"lg"}
-        >
+        <Button asChild className="w-fit self-end" size={"lg"}>
           <Link href="/docs/get-started">Get Started</Link>
         </Button>
       </Section>

@@ -1,32 +1,21 @@
 import { cn } from "@/lib/utils";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { solarizedlight } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 const CodeBlock = ({
   code,
-  language,
   className,
 }: {
   code: string;
-  language: string;
   className?: string;
 }) => {
   return (
-    <div
+    <pre
       className={cn(
-        "w-full max-w-full overflow-auto break-words whitespace-pre-wrap",
+        "bg-background rounded p-4 w-full overflow-auto my-2",
         className
       )}
     >
-      <SyntaxHighlighter
-        language={language}
-        style={solarizedlight}
-        wrapLongLines={true}
-        customStyle={{ whiteSpace: "pre-wrap", wordBreak: "break-word" }}
-      >
-        {code}
-      </SyntaxHighlighter>
-    </div>
+      <code className=" break-words whitespace-pre-wrap ">{code}</code>
+    </pre>
   );
 };
 
