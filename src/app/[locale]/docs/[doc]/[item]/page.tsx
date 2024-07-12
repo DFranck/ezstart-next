@@ -75,12 +75,7 @@ const ItemPage = ({ params }: { params: { doc: string; item: string } }) => {
                 className="mb-2"
                 dangerouslySetInnerHTML={{ __html: step["step-description"] }}
               />
-              {step["step-code"] && (
-                <CodeBlock
-                  code={step["step-code"]}
-                  language={t("example-usage.language")}
-                />
-              )}
+              {step["step-code"] && <CodeBlock code={step["step-code"]} />}
             </li>
           ))}
         </ol>

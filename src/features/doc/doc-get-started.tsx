@@ -48,7 +48,7 @@ const DocGetStarted = () => {
               <ul className="list-disc">
                 {variables.map(({ name, description, link, code }, index) => (
                   <li key={index} id={name}>
-                    <a href={link} target="_blank">
+                    <a href={link} className="hover:underline">
                       {name}
                     </a>
                   </li>

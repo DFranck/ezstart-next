@@ -39,8 +39,10 @@ const DocInternationalization = () => {
           {t("setup.newLocale.and")} <code>locales</code>{" "}
           {t("setup.newLocale.part3")}{" "}
         </p>
-        <code className="text-sm w-full mt-8">{t("setup.i18n")}</code>
-        <CodeBlock code={`const locales = ["en", "fr", "de"];`} />
+        <CodeBlock
+          src="// src/i18n"
+          code={`const locales = ["en", "fr", "de"];`}
+        />
       </Section>
       <Section id="example-json" className="">
         <h2>{t("example-json.title")}</h2>
@@ -48,8 +50,8 @@ const DocInternationalization = () => {
           {t("example-json.description")}
           <code>fr.json</code> :
         </p>
-        <code className="text-sm w-full mt-8">{t("example-json.fr")}</code>
         <CodeBlock
+          src="// messages/fr.json"
           code={`{
   "home": {
     "welcome-message": "${t("example-json.welcome-message")}",
@@ -63,8 +65,8 @@ const DocInternationalization = () => {
       <Section id="missing-translations" className="">
         <h2>{t("missing-translations.title")}</h2>
         <p>{t("missing-translations.description")}</p>
-        <code className="text-sm w-full mt-8">{t("usage.components")}</code>
         <CodeBlock
+          src={`${t("usage.components")}`}
           code={`const t = useTranslations('home');
 const welcomeMessage = t('welcome-message', {
   fallback: 'Welcome to our site!'
@@ -75,8 +77,8 @@ return <h1>{welcomeMessage}</h1>;`}
       <Section id="usage" className="">
         <h2>{t("usage.title")}</h2>
         <p>{t("usage.description")}</p>
-        <code className="text-sm w-full mt-8">{t("usage.components")}</code>
         <CodeBlock
+          src={`${t("usage.components")}`}
           code={`import { useTranslations } from 'next-intl';
 
 const YourComponent = () => {
@@ -85,8 +87,8 @@ const YourComponent = () => {
 };`}
         />
         <p className="mt-2">{t("usage.localeSwitcher")}</p>
-        <code className="text-sm w-full mt-8">{t("usage.components")}</code>
         <CodeBlock
+          src={`${t("usage.components")}`}
           code={`import LocaleSwitcher from '@/features/internationalization/locale-switcher';
 
 const YourComponent = () => {

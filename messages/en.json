@@ -186,52 +186,52 @@
               {
                 "name": "DATABASE_URL",
                 "description": "The connection string for your PostgreSQL database. You can find this in your database service dashboard.",
-                "link": "https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING"
+                "link": "/docs/db-management"
               },
               {
                 "name": "AUTH_URL",
                 "description": "The base URL of your authentication service. Typically this is your application's URL.",
-                "link": "https://authjs.dev/docs/getting-started/introduction"
+                "link": "http://localhost:3000/fr/docs/authentication/#AUTH_URL"
               },
               {
                 "name": "AUTH_SECRET",
                 "description": "A secret key for encrypting JWT tokens. Generate a random key using crypto or another method.",
-                "link": "node -e `console.log(require('crypto').randomBytes(32).toString('hex'))`"
+                "link": "http://localhost:3000/fr/docs/authentication/#AUTH_SECRET"
               },
               {
                 "name": "AUTH_SALT",
                 "description": "A salt for hashing passwords. Generate a random salt using crypto or another method.",
-                "link": "node -e `console.log(require('crypto').randomBytes(32).toString('hex'))`"
+                "link": "http://localhost:3000/fr/docs/authentication/#AUTH_SALT"
               },
               {
                 "name": "GOOGLE_CLIENT_ID",
                 "description": "Your Google OAuth client ID. You can find this in the Google Developer Console.",
-                "link": "https://console.developers.google.com/"
+                "link": "http://localhost:3000/fr/docs/authentication/#GOOGLE_CLIENT"
               },
               {
                 "name": "GOOGLE_CLIENT_SECRET",
                 "description": "Your Google OAuth client secret. You can find this in the Google Developer Console.",
-                "link": "https://console.developers.google.com/"
+                "link": "http://localhost:3000/fr/docs/authentication/#GOOGLE_CLIENT"
               },
               {
                 "name": "GITHUB_CLIENT_ID",
                 "description": "Your GitHub OAuth client ID. You can find this in the GitHub Developer settings.",
-                "link": "https://github.com/settings/developers"
+                "link": "http://localhost:3000/fr/docs/authentication/#GITHUB_CLIENTL"
               },
               {
                 "name": "GITHUB_CLIENT_SECRET",
                 "description": "Your GitHub OAuth client secret. You can find this in the GitHub Developer settings.",
-                "link": "https://github.com/settings/developers"
+                "link": "http://localhost:3000/fr/docs/authentication/#GITHUB_CLIENT"
               },
               {
                 "name": "MAILJET_API_SECRET",
                 "description": "Your Mailjet API secret key. You can find this in the Mailjet account settings.",
-                "link": "https://app.mailjet.com/account/api_keys"
+                "link": "http://localhost:3000/fr/docs/authentication/#MAILJET_API"
               },
               {
                 "name": "MAILJET_API_KEY",
                 "description": "Your Mailjet API key. You can find this in the Mailjet account settings.",
-                "link": "https://app.mailjet.com/account/api_keys"
+                "link": "http://localhost:3000/fr/docs/authentication/#MAILJET_API"
               }
             ]
           },
@@ -247,7 +247,7 @@
       },
       "components": {
         "title": "Components",
-        "description": "Components for developers",
+        "description": "Components specialized for include dynamique translations, responsive design, and more.",
         "items": {
           "nav": {
             "title": "Navigation",
@@ -412,226 +412,95 @@
       },
       "authentication": {
         "title": "Authentication",
-        "description": "Authentication for developers",
-        "items": {
-          "auth-provider": {
-            "title": "Auth Provider",
-            "description": "Provider for handling user authentication and session management.",
-            "files": {
-              "title": "Files concerned",
-              "description": "The following file will be concerned:",
-              "code-links": {
-                "src/providers/auth-provider.tsx": "https://github.com/DFranck/my-ez-start/blob/master/src/providers/auth-provider.tsx"
-              }
-            },
-            "display": {
-              "title": "Display",
-              "component": "",
-              "target": ""
-            },
-            "features": {
-              "title": "Features",
-              "content": [
-                "Handles user authentication and session management.",
-                "Integrates with various authentication providers like Google and GitHub.",
-                "Utilizes NextAuth for robust authentication."
-              ]
-            },
-            "example-usage": {
-              "title": "Example Usage",
-              "description": "Here's how to use the AuthProvider component:",
-              "steps": [
-                {
-                  "step-title": "Basic Usage",
-                  "step-description": "Wrap your application with the AuthProvider component.",
-                  "step-code": "import { AuthProvider } from '@/providers/auth-provider';\n\nconst MyApp = ({ Component, pageProps }) => {\n  return (\n    <AuthProvider>\n      <Component {...pageProps} />\n    </AuthProvider>\n  );\n};\n\nexport default MyApp;"
-                }
-              ],
-              "language": "typescript"
-            }
+        "description": "This section explains how to set up the environment variables required for authentication in your EzStart application.",
+        "setup": {
+          "title": "Environment Variables for Authentication",
+          "authUrl": {
+            "title": "AUTH_URL",
+            "description": "Set the URL of your application. For example, for local development, use:"
           },
-          "auth-middleware": {
-            "title": "Auth Middleware",
-            "description": "Middleware for handling access control based on authentication status.",
-            "files": {
-              "title": "Files concerned",
-              "description": "The following file will be concerned:",
-              "code-links": {
-                "src/middleware/auth-middleware.ts": "https://github.com/DFranck/my-ez-start/blob/master/src/middleware/auth-middleware.ts"
-              }
-            },
-            "display": {
-              "title": "Display",
-              "component": "",
-              "target": ""
-            },
-            "features": {
-              "title": "Features",
-              "content": [
-                "Controls access to routes based on authentication status.",
-                "Redirects unauthorized users to the sign-in page.",
-                "Allows customization of paths and access rules."
-              ]
-            },
-            "example-usage": {
-              "title": "Example Usage",
-              "description": "Here's how to configure and use the auth middleware:",
-              "steps": [
-                {
-                  "step-title": "Basic Configuration",
-                  "step-description": "Set up the auth middleware in your Next.js project.",
-                  "step-code": "import { authMiddleware } from '@/middleware/auth-middleware';\n\nexport default function middleware(req) {\n  return authMiddleware(req);\n}"
-                }
-              ],
-              "language": "typescript"
-            }
+          "authSecret": {
+            "title": "AUTH_SECRET",
+            "description": "Use a secret key for your authentication application. You can generate this key using tools like "
           },
-          "auth-schemas": {
-            "title": "Auth Schemas",
-            "description": "Validation schemas for authentication forms using Zod.",
-            "files": {
-              "title": "Files concerned",
-              "description": "The following files will be concerned:",
-              "code-links": {
-                "src/schemas/auth-schemas.ts": "https://github.com/DFranck/my-ez-start/blob/master/src/schemas/auth-schemas.ts"
-              }
-            },
-            "display": {
-              "title": "Display",
-              "component": "",
-              "target": ""
-            },
-            "features": {
-              "title": "Features",
-              "content": [
-                "Validates sign-in and sign-up forms.",
-                "Provides detailed error messages for form validation.",
-                "Ensures data integrity and security."
-              ]
-            },
-            "example-usage": {
-              "title": "Example Usage",
-              "description": "Here's how to use the validation schemas:",
-              "steps": [
-                {
-                  "step-title": "Basic Usage",
-                  "step-description": "Import and use the schemas in your form components.",
-                  "step-code": "import { signInSchema, signUpSchema } from '@/schemas/auth-schemas';\n\nconst SignInForm = () => {\n  const form = useForm({\n    resolver: zodResolver(signInSchema),\n  });\n  // ...form implementation\n};"
-                }
-              ],
-              "language": "typescript"
-            }
+          "authSalt": {
+            "title": "AUTH_SALT",
+            "description": "Use a salt to add an extra layer of security to your passwords:"
           },
-          "auth-forms": {
-            "title": "Authentication Forms",
-            "description": "Components for sign-in, sign-up, and other authentication-related forms.",
-            "files": {
-              "title": "Files concerned",
-              "description": "The following files will be concerned:",
-              "code-links": {
-                "src/features/auth/sign-in-form.tsx": "https://github.com/DFranck/my-ez-start/blob/master/src/features/auth/sign-in-form.tsx",
-                "src/features/auth/sign-up-form.tsx": "https://github.com/DFranck/my-ez-start/blob/master/src/features/auth/sign-up-form.tsx",
-                "src/features/auth/forgot-form.tsx": "https://github.com/DFranck/my-ez-start/blob/master/src/features/auth/forgot-form.tsx",
-                "src/features/auth/verify-code-form.tsx": "https://github.com/DFranck/my-ez-start/blob/master/src/features/auth/verify-code-form.tsx"
-              }
-            },
-            "display": {
-              "title": "Display",
-              "component": "",
-              "target": ""
-            },
-            "features": {
-              "title": "Features",
-              "content": [
-                "Pre-built components for sign-in and sign-up forms.",
-                "Integration with NextAuth for authentication.",
-                "Form validation using Zod."
-              ]
-            },
-            "example-usage": {
-              "title": "Example Usage",
-              "description": "Here's how to use the authentication forms:",
-              "steps": [
-                {
-                  "step-title": "Sign-In Form",
-                  "step-description": "Import and use the SignInForm component.",
-                  "step-code": "import SignInForm from '@/features/auth/sign-in-form';\n\nconst SignInPage = () => {\n  return <SignInForm />;\n};\n\nexport default SignInPage;"
-                },
-                {
-                  "step-title": "Sign-Up Form",
-                  "step-description": "Import and use the SignUpForm component.",
-                  "step-code": "import SignUpForm from '@/features/auth/sign-up-form';\n\nconst SignUpPage = () => {\n  return <SignUpForm />;\n};\n\nexport default SignUpPage;"
-                }
-              ],
-              "language": "typescript"
-            }
+          "googleClient": {
+            "title": "GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET",
+            "description": "To enable Google authentication, you will need a Google client ID and secret. You can obtain them from the Google Developer Console:"
+          },
+          "githubClient": {
+            "title": "GITHUB_CLIENT_ID and GITHUB_CLIENT_SECRET",
+            "description": "To enable GitHub authentication, you will need a GitHub client ID and secret. You can obtain them from GitHub Developer Settings:"
+          },
+          "mailjetApi": {
+            "title": "MAILJET_API_SECRET and MAILJET_API_KEY",
+            "description": "To send emails via Mailjet, you will need a Mailjet API key and secret. You can obtain them from your Mailjet account:"
           }
+        },
+        "resources": {
+          "title": "Additional Resources",
+          "description": "For more information, check out the following resources:",
+          "nextAuth": "NextAuth.js Official Documentation",
+          "googleIdentity": "Google Identity Documentation",
+          "githubOAuth": "GitHub OAuth Apps Documentation",
+          "mailjet": "Mailjet API Documentation"
         }
       },
 
       "db-management": {
         "title": "Database Management",
-        "description": "This section covers how to set up and manage your database using Prisma and PostgreSQL in the EzStart boilerplate.",
-        "items": {
-          "prisma-setup": {
-            "title": "Prisma Setup",
-            "description": "Configuration and setup of Prisma ORM for database management.",
-            "files": {
-              "title": "Affected Files",
-              "description": "The following files will be affected:",
-              "code-links": {
-                "src/lib/db.ts": "https://github.com/DFranck/my-ez-start/blob/master/src/lib/db.ts",
-                "prisma/schema.prisma": "https://github.com/DFranck/my-ez-start/blob/master/prisma/schema.prisma"
-              }
-            },
-            "display": {
-              "title": "Display",
-              "component": "",
-              "target": ""
-            },
-            "features": {
-              "title": "Features",
-              "content": [
-                "Configuration of the Prisma client for database interactions.",
-                "Configuration for connecting to the PostgreSQL database.",
-                "Prevents the creation of multiple instances of Prisma Client in development.",
-                "Defines a base User model for demonstration."
-              ]
-            },
-            "example-usage": {
-              "title": "Example Usage",
-              "description": "Here is how to set up and use Prisma in your project:",
-              "steps": [
-                {
-                  "step-title": "Install Prisma and Initialize",
-                  "step-description": "Install Prisma and initialize it in your project.",
-                  "step-code": "npm install prisma @prisma/client\nnpx prisma init"
-                },
-                {
-                  "step-title": "Configure Prisma Client",
-                  "step-description": "Create a Prisma client instance for database interactions.",
-                  "step-code": "// src/lib/db.ts\nimport { PrismaClient } from '@prisma/client';\n\n// Prevents the creation of multiple instances of Prisma Client in development\ndeclare global {\n  // eslint-disable-next-line no-var\n  var prisma: PrismaClient | undefined;\n}\n\nexport const db = global.prisma || new PrismaClient();\n\nif (process.env.NODE_ENV !== 'production') {\n  global.prisma = db;\n}"
-                },
-                {
-                  "step-title": "Define Database Schema",
-                  "step-description": "Define your database schema in the `prisma/schema.prisma` file.",
-                  "step-code": "datasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\ngenerator client {\n  provider = \"prisma-client-js\"\n}\n\nmodel User {\n  id        String   @id @default(uuid())\n  email     String   @unique\n  password  String\n  name      String?\n  resetCode String?  @unique\n  resetCodeExpiresAt DateTime?\n  role      String   @default(\"user\")\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n}"
-                },
-                {
-                  "step-title": "Run Prisma Migrate",
-                  "step-description": "Run Prisma migrate to create the database schema.",
-                  "step-code": "npx prisma migrate dev --name init"
-                },
-                {
-                  "step-title": "Use Prisma Client",
-                  "step-description": "Use the Prisma client instance to interact with the database.",
-                  "step-code": "// Example usage in a Next.js API route\nimport { db } from '@/lib/db';\n\nexport default async function handler(req, res) {\n  const users = await db.user.findMany();\n  res.status(200).json(users);\n}"
-                }
-              ],
-              "language": "typescript"
-            }
-          }
+        "description": "Database management uses Prisma ORM for creating and exploiting data.",
+        "introduction": "If you have installed the EzStart boilerplate, everything is already pre-installed for local development. If you want to use Prisma only, I refer you to the official Prisma documentation here.",
+        "first-time-postgresql": "If this is your first time using PostgreSQL, follow these steps",
+        "install-postgresql": {
+          "title": "Install PostgreSQL",
+          "download": "Download and install PostgreSQL from the official site:",
+          "instructions": "Follow the installation instructions for your operating system."
+        },
+        "initialize-database": {
+          "title": "Initialize the database",
+          "description": "After installation, initialize a new database. You can install PGadmin for a visual database interface or use the psql tool provided with PostgreSQL to create a database and a user:"
+        },
+        "configure-environment": {
+          "title": "Configure the environment",
+          "description": "Create a .env file at the root of your project with the necessary environment variables:"
+        },
+        "initialize-prisma": {
+          "title": "Initialize Prisma",
+          "description": "Initialize Prisma in your project:"
+        },
+        "configure-prisma-schema": {
+          "title": "Configure the Prisma schema",
+          "description": "In the prisma/schema.prisma file, make sure your configuration looks like this:"
+        },
+        "apply-migrations": {
+          "title": "Apply migrations",
+          "description": "Apply migrations to synchronize your database with the Prisma schema:"
+        },
+        "start-application": {
+          "title": "Start the application",
+          "description": "Once everything is configured, you can start your application in development mode:"
+        },
+        "example-table": {
+          "title": "Table example",
+          "description": "To add a new table, edit the schema.prisma file in the prisma folder at the root of the project and add your new table:",
+          "migrate": "Don't forget to migrate your database after modifying the schema:"
+        },
+        "usage": {
+          "title": "Usage",
+          "description": "Use Prisma functions to access data in your components:"
+        },
+        "additional-resources": {
+          "title": "Additional resources",
+          "description": "For more information, check out the following resources:"
         }
+      },
+      "payment": {
+        "title": "Payment",
+        "description": "Payment with Stripe is coming soon."
       }
     }
   }

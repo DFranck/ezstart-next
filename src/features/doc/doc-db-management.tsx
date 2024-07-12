@@ -1,137 +1,109 @@
-// pages/docs/DocDbManagement.tsx
 import CodeBlock from "@/components/code-block";
 import Section from "@/components/layout/section";
+import { Button } from "@/components/ui/button";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 
 const DocDbManagement = () => {
   const t = useTranslations("pages.docs.db-management");
+  const t2 = useTranslations("pages.docs");
 
   return (
     <>
       <Section>
-        <h2>Introduction</h2>
-        <p>
-          Si vous avez installé la boilerplate EzStart, tout est déjà
-          pré-installé pour un développement local. Si vous souhaitez utiliser
-          Prisma uniquement, je vous renvoie vers{" "}
-          <Link
-            href="https://www.prisma.io/"
-            target="_blank"
-            className="font-normal"
-          >
-            la documentation officielle de Prisma ici.
-          </Link>
-        </p>
-      </Section>
-      <Section>
-        <h2>Étapes à suivre après le clonage du dépôt</h2>
+        <h2>{t("first-time-postgresql")}</h2>
         <ol>
           <li>
-            <h3>Cloner le dépôt et installer les dépendances</h3>
-            <CodeBlock
-              code={`git clone https://github.com/DFranck/my-ez-start.git\ncd my-ez-start\nnpm install`}
-            />
-          </li>
-          <li>
-            <h3>Installer PostgreSQL</h3>
+            <h3>{t("install-postgresql.title")}</h3>
             <p>
-              Téléchargez et installez PostgreSQL à partir du site officiel :{" "}
+              {t("install-postgresql.download")}{" "}
               <Link
                 href="https://www.postgresql.org/download/"
                 target="_blank"
                 className="font-normal"
               >
-                Télécharger PostgreSQL
+                PostgreSQL
               </Link>
             </p>
+            <p>{t("install-postgresql.instructions")}</p>
+          </li>
+          <li>
+            <h3>{t("initialize-database.title")}</h3>
             <p>
-              Suivez les instructions d&apos;installation pour votre système
-              d&apos;exploitation.
-            </p>
-            <p>
-              Après l&apos;installation, initialisez une nouvelle base de
-              données. Utilisez lapos;outil <code>psql</code> fourni avec
-              PostgreSQL pour créer une base de données et un utilisateur :
+              {t("initialize-database.description")}{" "}
+              <Link
+                href="https://www.pgadmin.org/"
+                target="_blank"
+                className="font-normal"
+              >
+                PGadmin
+              </Link>{" "}
             </p>
             <CodeBlock
-              code={`psql -U postgres\nCREATE DATABASE mydatabase;\nCREATE USER myuser WITH ENCRYPTED PASSWORD &apos;mypasswordapos;;\nGRANT ALL PRIVILEGES ON DATABASE mydatabase TO myuser;`}
+              src="// bash"
+              code={`psql -U postgres\nCREATE DATABASE mydatabase;\nCREATE USER myuser WITH ENCRYPTED PASSWORD 'mypassword';\nGRANT ALL PRIVILEGES ON DATABASE mydatabase TO myuser;`}
             />
           </li>
           <li>
-            <h3 id="DATABASE_URL">Configurer lapos;environnement</h3>
-            <p>
-              Créez un fichier <code>.env</code> à la racine de votre projet
-              avec les variables dapos;environnement nécessaires :
-            </p>
+            <h3 id="DATABASE_URL">{t("configure-environment.title")}</h3>
+            <p>{t("configure-environment.description")}</p>
             <CodeBlock
+              src="// .env"
               code={`DATABASE_URL="postgresql://myuser:mypassword@localhost:5432/mydatabase"`}
             />
           </li>
           <li>
-            <h3>Initialiser Prisma</h3>
-            <p>Initialisez Prisma dans votre projet :</p>
-            <CodeBlock code={`npx prisma init`} />
+            <h3>{t("initialize-prisma.title")}</h3>
+            <p>{t("initialize-prisma.description")}</p>
+            <CodeBlock src="// bash" code={`npx prisma init`} />
           </li>
           <li>
-            <h3>Configurer le schéma Prisma</h3>
-            <p>
-              Dans le fichier <code>prisma/schema.prisma</code>, assurez-vous
-              que votre configuration ressemble à ceci :
-            </p>
+            <h3>{t("configure-prisma-schema.title")}</h3>
+            <p>{t("configure-prisma-schema.description")}</p>
             <CodeBlock
+              src="// prisma/schema.prisma"
               code={`datasource db {\n  provider = "postgresql"\n  url      = env("DATABASE_URL")\n}\n\ngenerator client {\n  provider = "prisma-client-js"\n}\n\n// Ajoutez vos tables ici\n// Par exemple :\n// model MyNewTable {\n//   id   Int    @id @default(autoincrement())\n//   name String\n// }`}
             />
           </li>
           <li>
-            <h3>Appliquer les migrations</h3>
-            <p>
-              Appliquez les migrations pour synchroniser votre base de données
-              avec le schéma Prisma :
-            </p>
-            <CodeBlock code={`npx prisma migrate dev --name init`} />
+            <h3>{t("apply-migrations.title")}</h3>
+            <p>{t("apply-migrations.description")}</p>
+            <CodeBlock
+              src="// bash"
+              code={`npx prisma migrate dev --name init`}
+            />
           </li>
           <li>
-            <h3>Démarrer lapos;application</h3>
-            <p>
-              Une fois que tout est configuré, vous pouvez démarrer votre
-              application en mode développement :
-            </p>
-            <CodeBlock code={`npm run dev`} />
+            <h3>{t("start-application.title")}</h3>
+            <p>{t("start-application.description")}</p>
+            <CodeBlock src="// bash" code={`npm run dev`} />
           </li>
         </ol>
       </Section>
       <Section id="example-table">
-        <h2>Exemple de table</h2>
-        <p>
-          Pour ajouter une nouvelle table, éditez le fichier{" "}
-          <code>schema.prisma</code> dans le dossier <code>prisma</code> à la
-          racine du projet et ajoutez votre nouvelle table :
-        </p>
+        <h2>{t("example-table.title")}</h2>
+        <p>{t("example-table.description")}</p>
         <CodeBlock
+          src="// prisma/schema.prisma"
           code={`model MyNewTable {\n  id     Int     @id @default(autoincrement())\n  name   String\n}`}
         />
-        <p>
-          N&apos;oubliez pas de migrer votre base de données après avoir modifié
-          le schéma :
-        </p>
-        <CodeBlock code={`npx prisma migrate dev --name add-mynewtable`} />
+        <p>{t("example-table.migrate")}</p>
+        <CodeBlock
+          src="// bash"
+          code={`npx prisma migrate dev --name add-mynewtable`}
+        />
       </Section>
       <Section id="usage">
-        <h2>Utilisation</h2>
-        <p>
-          Utilisez les fonctions Prisma pour accéder aux données dans vos
-          composants :
-        </p>
+        <h2>{t("usage.title")}</h2>
+        <p>{t("usage.description")}</p>
         <CodeBlock
-          code={`import { db } from apos;@/lib/db&apos;;\n\nasync function getData() {\n  const data = await db.myNewTable.findMany();\n  console.log(data);\n}`}
+          src="// any component"
+          code={`import { db } from '@/lib/db';\n\nasync function getData() {\n  const data = await db.myNewTable.findMany();\n  console.log(data);\n}`}
         />
       </Section>
       <Section id="resources">
-        <h2>Ressources supplémentaires</h2>
-        <p>
-          Pour plus dapos;informations, consultez les ressources suivantes :
-        </p>
+        <h2>{t("additional-resources.title")}</h2>
+        <p>{t("additional-resources.description")}</p>
         <ul>
           <li>
             <Link
@@ -143,6 +115,13 @@ const DocDbManagement = () => {
             </Link>
           </li>
         </ul>
+      </Section>
+      <Section>
+        <Button asChild className="w-fit self-end" size={"lg"}>
+          <Link href="/docs/authentication">
+            {t2("nav-links.authentication")}
+          </Link>
+        </Button>
       </Section>
     </>
   );
