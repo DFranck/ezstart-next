@@ -23,11 +23,11 @@ const DocGetStarted = () => {
     <>
       <Section id="installation" className="py-0">
         <h2 id="installation">{t("sections.installation.title")}</h2>
-        <CodeBlock code={t("sections.installation.steps")} />
+        <CodeBlock src="// bash" code={t("sections.installation.steps")} />
       </Section>
       <Section id="setup-env" className="py-0">
         <h2 id="setup-env">{t("sections.setup-env.title")}</h2>
-        <CodeBlock code={t("sections.setup-env.steps")} />
+        <CodeBlock src="// .env" code={t("sections.setup-env.steps")} />
         <p
           className="text-muted-foreground text-sm cursor-pointer w-full mb-2 text-left"
           onClick={() => setIsHelperOpen(!isHelperOpen)}
@@ -48,7 +48,7 @@ const DocGetStarted = () => {
               <ul className="list-disc">
                 {variables.map(({ name, description, link, code }, index) => (
                   <li key={index} id={name}>
-                    <a href={link} className="hover:underline">
+                    <a href={link} target="_blank" className="hover:underline">
                       {name}
                     </a>
                   </li>
@@ -60,7 +60,7 @@ const DocGetStarted = () => {
       </Section>
       <Section id="start" className="py-0">
         <h2 className="mt-8 mb-4 ">{t("sections.start.title")}</h2>
-        <CodeBlock code={t("sections.start.steps")} />
+        <CodeBlock src="// bash" code={t("sections.start.steps")} />
       </Section>
       <h2 className="">{t("sections.enjoy.title")}</h2>
       <p className="mb-10">{t("sections.enjoy.description")}</p>
