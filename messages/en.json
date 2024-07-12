@@ -163,34 +163,26 @@
       },
       "nav-links": {
         "get-started": "Get Started",
-        "dev-tools": "Developer Tools",
-        "components": "Components",
         "internationalization": "Internationalization",
+        "db-management": "Database Management",
         "authentication": "Authentication",
-        "db-management": "Database Management"
+        "payment": "Payment",
+        "components": "Components"
       },
       "get-started": {
         "title": "Get Started with EzStart",
-        "description": "EzStart is a boilerplate designed to quickly kickstart your Next.js projects with advanced integrated features.",
+        "description": "EzStart is a boilerplate designed to quickly start your Next.js projects with advanced integrated features.",
         "sections": {
-          "nav-links": {
-            "installation": "Installation",
-            "setup-env": "Setup Environment",
-            "environment-variables": "Environment Variables",
-            "start": "Start",
-            "primary-dependencies": "Primary Dependencies"
-          },
           "installation": {
             "title": "Installation",
             "steps": "git clone https://github.com/DFranck/my-ez-start.git\ncd my-ez-start\nnpm install"
           },
           "setup-env": {
-            "title": "Setup environment",
-            "steps": "DATABASE_URL=`postgresql://username:password@localhost:5432/mydatabase`\nAUTH_URL=http://localhost:3000\nAUTH_SECRET=your_secret_key\nAUTH_SALT=your_salt\nGOOGLE_CLIENT_ID=YOUR_GOOGLE_CLIENT_ID\nGOOGLE_CLIENT_SECRET=YOUR_GOOGLE_CLIENT_SECRET\nGITHUB_CLIENT_ID=YOUR_GITHUB_CLIENT_ID\nGITHUB_CLIENT_SECRET=YOUR_GITHUB_CLIENT_SECRET\nMAILJET_API_SECRET=YOUR_MAILJET_API_SECRET\nMAILJET_API_KEY=YOUR_MAILJET_API_KEY"
-          },
-          "environment-variables": {
-            "title": "Environment Variables",
-            "steps": [
+            "title": "Set Up Environment",
+            "steps": "DATABASE_URL=`postgresql://username:password@localhost:5432/mydatabase`\nAUTH_URL=http://localhost:3000\nAUTH_SECRET=YOUR_SECRET_KEY\nAUTH_SALT=YOUR_SALT\nGOOGLE_CLIENT_ID=YOUR_GOOGLE_CLIENT_ID\nGOOGLE_CLIENT_SECRET=YOUR_GOOGLE_CLIENT_SECRET\nGITHUB_CLIENT_ID=YOUR_GITHUB_CLIENT_ID\nGITHUB_CLIENT_SECRET=YOUR_GITHUB_CLIENT_SECRET\nMAILJET_API_SECRET=YOUR_MAILJET_API_SECRET\nMAILJET_API_KEY=YOUR_MAILJET_API_KEY",
+            "helper-cta": "Need help setting up the environment?",
+            "helper-title": "What setups are causing issues?",
+            "variables": [
               {
                 "name": "DATABASE_URL",
                 "description": "The connection string for your PostgreSQL database. You can find this in your database service dashboard.",
@@ -204,12 +196,12 @@
               {
                 "name": "AUTH_SECRET",
                 "description": "A secret key for encrypting JWT tokens. Generate a random key using crypto or another method.",
-                "code": "node -e `console.log(require('crypto').randomBytes(32).toString('hex'))`"
+                "link": "node -e `console.log(require('crypto').randomBytes(32).toString('hex'))`"
               },
               {
                 "name": "AUTH_SALT",
                 "description": "A salt for hashing passwords. Generate a random salt using crypto or another method.",
-                "code": "node -e `console.log(require('crypto').randomBytes(32).toString('hex'))`"
+                "link": "node -e `console.log(require('crypto').randomBytes(32).toString('hex'))`"
               },
               {
                 "name": "GOOGLE_CLIENT_ID",
@@ -244,62 +236,12 @@
             ]
           },
           "start": {
-            "title": "Start development",
+            "title": "Start Development",
             "steps": "npm run dev"
           },
           "enjoy": {
-            "title": "Enjoy!",
-            "description": "You can enjoy now or take a look the documentation of this boilerplate."
-          }
-        }
-      },
-      "dev-tools": {
-        "title": "Developer Tools",
-        "description": "A collection of tools to assist developers in efficiently managing and enhancing their projects. If you start with EZ Start, you can use these tools to enhance your development experience without confusing yourself, if not you can find configuration options in the 'Developer Tools' section.",
-        "items": {
-          "update-app-name": {
-            "title": "Update App Name",
-            "description": "Tool to update the app name across various files",
-            "files": {
-              "title": "Files concerned",
-              "description": "The following files will be concerned:",
-              "code-links": {
-                "updateAppName.js": "https://github.com/DFranck/my-ez-start/blob/master/updateAppName.js",
-                "package.json": "https://github.com/DFranck/my-ez-start/blob/master/package.json",
-                "README.md": "https://github.com/DFranck/my-ez-start/blob/master/README.md",
-                "src/app/[locale]/layout.tsx": "https://github.com/DFranck/my-ez-start/blob/master/src/app/[locale]/layout.tsx"
-              }
-            },
-            "display": {
-              "title": "Display",
-              "component": "",
-              "target": ""
-            },
-            "features": {
-              "title": "Features",
-              "content": [
-                "Automatic updates in critical files like <code>package.json</code>, <code>README.md</code>, and translation files.",
-                "Simple configuration to define the new application name and paths to be updated.",
-                "Robust handling of string replacements to ensure all instances of the old name are updated."
-              ]
-            },
-            "example-usage": {
-              "title": "Example Usage",
-              "description": "Here's how to use & run the script:",
-              "steps": [
-                {
-                  "step-title": "Provide new name",
-                  "step-description": "Replace <code>newAppName</code> with the new application name in the <code>updateAppName.js</code> file.",
-                  "step-code": "const newAppName = \"EzStart - The Ultimate Boilerplate for Modern Web Development\"; // Replace with the desired name\nconst oldAppName = \"Your Application Name\"; // Replace with the current name of the application in the README"
-                },
-                {
-                  "step-title": "Run script",
-                  "step-description": "Run the script using Node.js: <code>node updateAppName.js</code>.",
-                  "step-code": "node updateAppName.js"
-                }
-              ],
-              "language": "bash"
-            }
+            "title": "Happy Developing!",
+            "description": "You can now enjoy your application or explore the documentation of this boilerplate."
           }
         }
       },
@@ -426,152 +368,46 @@
       },
       "internationalization": {
         "title": "Internationalization",
-        "description": "Internationalization for developers",
-        "items": {
-          "intl-middleware": {
-            "title": "Intl Middleware",
-            "description": "Middleware for handling internationalization and setting the current locale.",
-            "files": {
-              "title": "Files concerned",
-              "description": "The following file will be concerned:",
-              "code-links": {
-                "src/middlewares/intl-middleware.ts": "https://github.com/DFranck/my-ez-start/blob/master/src/middlewares/intl-middleware.ts"
-              }
-            },
-            "display": {
-              "title": "Display",
-              "component": "",
-              "target": ""
-            },
-            "features": {
-              "title": "Features",
-              "content": [
-                "Handles locale detection and redirection.",
-                "Sets the current locale based on the request URL.",
-                "Integrates with Next.js middleware."
-              ]
-            },
-            "example-usage": {
-              "title": "Example Usage",
-              "description": "Here's how to use the intl middleware:",
-              "steps": [
-                {
-                  "step-title": "Create Middleware",
-                  "step-description": "Create the middleware in `src/middlewares/intl-middleware.ts`.",
-                  "step-code": "import { locales } from \"@/i18n\";\nimport createMiddleware from \"next-intl/middleware\";\nimport { NextRequest } from \"next/server\";\n\nconst defaultLocale = \"en\";\nexport let currentLocale = defaultLocale;\nexport const intlMiddleware = createMiddleware({\n  locales,\n  defaultLocale,\n});\n\nexport default function middleware(req: NextRequest) {\n  const response = intlMiddleware(req);\n  const pathname = req.nextUrl.pathname;\n  currentLocale = locales.find((loc) => pathname.startsWith(`/${loc}`)) || defaultLocale;\n  return response;\n}\n\nexport const config = {\n  matcher: [\"/((?!api|_next/static|_next/image|favicon.ico).*)\"],\n};"
-                }
-              ],
-              "language": "typescript"
-            }
+        "description": "Internationalization uses i18n to manage the user's locale and sets it by default. Then, Next-Intl is used to manage the application's translations.",
+        "setup": {
+          "part1": "If you have installed the EzStart boilerplate, everything is already pre-installed. Otherwise, I refer you to",
+          "link": "the official next-intl documentation here.",
+          "part2": "Alternatively, go to the",
+          "part3": "directory at the root of the project and fill in the",
+          "and": "and",
+          "or": "or another language you wish to use.",
+          "part4": "Only the locales",
+          "arePredefined": "are predefined.",
+          "newLocale": {
+            "part1": "To add a new one, you need to create the corresponding JSON file in the",
+            "part2": "directory, for example",
+            "and": "then you need to add the new locale to the",
+            "part3": "array as shown below."
           },
-          "language-provider": {
-            "title": "Language Provider",
-            "description": "A provider component to manage language settings and messages.",
-            "files": {
-              "title": "Files concerned",
-              "description": "The following file will be concerned:",
-              "code-links": {
-                "src/providers/language-provider.tsx": "https://github.com/DFranck/my-ez-start/blob/master/src/providers/language-provider.tsx"
-              }
-            },
-            "display": {
-              "title": "Display",
-              "component": "",
-              "target": ""
-            },
-            "features": {
-              "title": "Features",
-              "content": [
-                "Wraps the application with language settings.",
-                "Uses `next-intl` for internationalization.",
-                "Provides language messages to the entire application."
-              ]
-            },
-            "example-usage": {
-              "title": "Example Usage",
-              "description": "Here's how to use the LanguageProvider component:",
-              "steps": [
-                {
-                  "step-title": "Create LanguageProvider",
-                  "step-description": "Create the provider in `src/providers/language-provider.tsx`.",
-                  "step-code": "import { AbstractIntlMessages, NextIntlClientProvider } from \"next-intl\";\nconst LanguageProvider = ({ children, messages }: { children: React.ReactNode; messages: AbstractIntlMessages; }) => {\n  return (\n    <NextIntlClientProvider messages={messages}>\n      {children}\n    </NextIntlClientProvider>\n  );\n};\nexport default LanguageProvider;"
-                }
-              ],
-              "language": "typescript"
-            }
-          },
-          "root-layout": {
-            "title": "Root Layout",
-            "description": "The root layout component that includes Providers for theme, auth, and language.",
-            "files": {
-              "title": "Files concerned",
-              "description": "The following file will be concerned:",
-              "code-links": {
-                "src/app/layout.tsx": "https://github.com/DFranck/my-ez-start/blob/master/src/app/layout.tsx"
-              }
-            },
-            "display": {
-              "title": "Display",
-              "component": "",
-              "target": ""
-            },
-            "features": {
-              "title": "Features",
-              "content": [
-                "Integrates theme, auth, and language providers.",
-                "Sets up global styles and fonts.",
-                "Handles metadata generation based on locale."
-              ]
-            },
-            "example-usage": {
-              "title": "Example Usage",
-              "description": "Here's how to use the Root Layout component:",
-              "steps": [
-                {
-                  "step-title": "Create Root Layout",
-                  "step-description": "Create the root layout in `src/app/layout.tsx`.",
-                  "step-code": "import Footer from \"@/components/layout/footer/footer\";\nimport Header from \"@/components/layout/header/header\";\nimport Main from \"@/components/layout/main\";\nimport { cn } from \"@/lib/utils\";\nimport Providers from \"@/providers/providers\";\nimport { getMessages } from \"next-intl/server\";\nimport { Inter } from \"next/font/google\";\nimport \"../globals.css\";\n\nconst inter = Inter({ subsets: [\"latin\"] });\nexport async function generateMetadata({ params: { locale } }: any) {\n  const messages = (await getMessages(locale)) as any;\n  const metaTitle = messages.app[\"meta-title\"] as string;\n  const metaDescription = messages.app[\"meta-description\"].replace(/\\{meta-title\\}/g, metaTitle) as string;\n  return {\n    title: metaTitle,\n    description: metaDescription,\n  };\n}\nexport default async function RootLayout({ children, params: { locale } }: Readonly<{ children: React.ReactNode; params: { locale: string }; }>) {\n  const messages = await getMessages();\n  return (\n    <html lang={locale} suppressHydrationWarning={true} className=\"h-full\">\n      <body className={cn(inter.className, \"min-h-screen flex flex-col h-full\")}>\\n        <Providers messages={messages}>\n          <Header />\n          <Main>{children}</Main>\n          <Footer />\n        </Providers>\n      </body>\n    </html>\n  );\n}"
-                }
-              ],
-              "language": "typescript"
-            }
-          },
-          "locale-switcher": {
-            "title": "Locale Switcher",
-            "description": "A component for switching between different locales in the application.",
-            "files": {
-              "title": "Files concerned",
-              "description": "The following file will be concerned:",
-              "code-links": {
-                "src/components/locale-switcher.tsx": "https://github.com/DFranck/my-ez-start/blob/master/src/components/locale-switcher.tsx"
-              }
-            },
-            "display": {
-              "title": "Display",
-              "component": "",
-              "target": ""
-            },
-            "features": {
-              "title": "Features",
-              "content": [
-                "Displays a dropdown for selecting the locale.",
-                "Updates the application URL to reflect the selected locale.",
-                "Handles keyboard navigation and accessibility."
-              ]
-            },
-            "example-usage": {
-              "title": "Example Usage",
-              "description": "Here's how to use the LocaleSwitcher component:",
-              "steps": [
-                {
-                  "step-title": "Create LocaleSwitcher",
-                  "step-description": "Create the component in `src/components/locale-switcher.tsx`.",
-                  "step-code": "import { cn } from \"@/lib/utils\";\nimport { GlobeIcon } from \"lucide-react\";\nimport { useLocale, useTranslations } from \"next-intl\";\nimport { usePathname, useRouter } from \"next/navigation\";\nimport { useEffect, useRef, useState, useTransition } from \"react\";\n\nconst LocaleSwitcher = () => {\n  const t = useTranslations(\"locale\");\n  const [isMounted, setIsMounted] = useState(false);\n  const [isPending, startTransition] = useTransition();\n  const [isOpen, setIsOpen] = useState(false);\n  const router = useRouter();\n  const pathname = usePathname();\n  const localeActive = useLocale();\n  const liStyle = \"py-2 px-4 cursor-pointer hover:bg-accent text-sm\";\n  const buttonRef = useRef<HTMLButtonElement>(null);\n  const dropdownRef = useRef<HTMLUListElement>(null);\n  const content = t.raw(\"language\") as { [key: string]: string };\n  const languages = Object.entries(content);\n\n  useEffect(() => {\n    setIsMounted(true);\n  }, []);\n\n  const onValueChange = (nextLocale: string) => {\n    const newPath = pathname.replace(localeActive, nextLocale);\n    startTransition(() => {\n      router.push(newPath);\n    });\n    setIsOpen(false);\n  };\n\n  const handleOpen = () => {\n    setIsOpen(!isOpen);\n  };\n\n  const handleKeyDown = (event: React.KeyboardEvent<HTMLButtonElement>) => {\n    if (event.key === \"Enter\" || event.key === \" \") {\n      event.preventDefault();\n      handleOpen();\n    } else if (event.key === \"Escape\") {\n      setIsOpen(false);\n    }\n  };\n\n  const handleBlur = (event: React.FocusEvent<HTMLDivElement>) => {\n    if (\n      dropdownRef.current &&\n      !dropdownRef.current.contains(event.relatedTarget as Node)\n    ) {\n      setIsOpen(false);\n    }\n  };\n  useEffect(() => {\n    if (isOpen && dropdownRef.current) {\n      dropdownRef.current.focus();\n    }\n  }, [isOpen]);\n  if (!isMounted) {\n    return null;\n  }\n  return (\n    <div\n      className=\"relative text-foreground opacity-60 hover:opacity-100\"\n      onBlur={handleBlur}\n    >\n      <button\n        ref={buttonRef}\n        aria-haspopup=\"true\"\n        aria-expanded={isOpen}\n        className=\"cursor-pointer hover:bg-accent rounded w-9 h-9 flex justify-center items-center\"\n        onClick={handleOpen}\n        onKeyDown={handleKeyDown}\n      >\n        <GlobeIcon className=\"w-6 h-6\" />\n        <p className=\"sr-only\">switch language</p>\n      </button>\n      {isOpen && (\n        <ul\n          ref={dropdownRef}\n          tabIndex={-1}\n          className={cn(\n            \"absolute top-10 right-0 z-10 bg-background border shadow rounded animate-fadeIn duration-200\"\n          )}\n        >\n          {languages.map(([key, value]) => (\n            <li\n              key={key}\n              className={liStyle}\n              onClick={() => onValueChange(key)}\n              role=\"menuitem\"\n              tabIndex={0}\n              onKeyDown={(e) => e.key === \"Enter\" && onValueChange(key)}\n            >\n              {value}\n            </li>\n          ))}\n          <div className=\"border border-border/50\"></div>\n        </ul>\n      )}\n    </div>\n  );\n};\n\nexport default LocaleSwitcher;"
-                }
-              ],
-              "language": "typescript"
-            }
-          }
+          "i18n": "// src/i18n.ts"
+        },
+        "example-json": {
+          "fr": "// messages/fr.json",
+          "title": "Example JSON Content",
+          "description": "Here is an example of what a",
+          "welcome-message": "Welcome to our site!",
+          "exemple-title": "About Us"
+        },
+        "missing-translations": {
+          "title": "Handling Missing Translations",
+          "description": "To handle missing translations, you can use a fallback in your code. For example:"
+        },
+        "usage": {
+          "title": "Usage",
+          "description": "Use the `useTranslations` hook to access translations in your components:",
+          "components": "// Your components",
+          "localeSwitcher": "Locale switching is done via the `LocaleSwitcher` component:"
+        },
+        "resources": {
+          "title": "Additional Resources",
+          "description": "For more information, check out the following resources:",
+          "nextIntl": "Official next-intl Documentation",
+          "i18next": "i18next Documentation"
         }
       },
       "authentication": {
@@ -735,14 +571,14 @@
 
       "db-management": {
         "title": "Database Management",
-        "description": "Database management for developers using Prisma ORM.",
+        "description": "This section covers how to set up and manage your database using Prisma and PostgreSQL in the EzStart boilerplate.",
         "items": {
           "prisma-setup": {
             "title": "Prisma Setup",
-            "description": "Setup and configuration of Prisma ORM for database management.",
+            "description": "Configuration and setup of Prisma ORM for database management.",
             "files": {
-              "title": "Files concerned",
-              "description": "The following files will be concerned:",
+              "title": "Affected Files",
+              "description": "The following files will be affected:",
               "code-links": {
                 "src/lib/db.ts": "https://github.com/DFranck/my-ez-start/blob/master/src/lib/db.ts",
                 "prisma/schema.prisma": "https://github.com/DFranck/my-ez-start/blob/master/prisma/schema.prisma"
@@ -756,15 +592,15 @@
             "features": {
               "title": "Features",
               "content": [
-                "Setup Prisma Client for database interactions.",
-                "Configuration for PostgreSQL database connection.",
-                "Prevents multiple instances of Prisma Client in development.",
-                "Defines a basic User model for demonstration."
+                "Configuration of the Prisma client for database interactions.",
+                "Configuration for connecting to the PostgreSQL database.",
+                "Prevents the creation of multiple instances of Prisma Client in development.",
+                "Defines a base User model for demonstration."
               ]
             },
             "example-usage": {
               "title": "Example Usage",
-              "description": "Here's how to set up and use Prisma in your project:",
+              "description": "Here is how to set up and use Prisma in your project:",
               "steps": [
                 {
                   "step-title": "Install Prisma and Initialize",
@@ -774,7 +610,7 @@
                 {
                   "step-title": "Configure Prisma Client",
                   "step-description": "Create a Prisma client instance for database interactions.",
-                  "step-code": "// src/lib/db.ts\nimport { PrismaClient } from '@prisma/client';\n\n// Prevent multiple instances of Prisma Client in development\ndeclare global {\n  // eslint-disable-next-line no-var\n  var prisma: PrismaClient | undefined;\n}\n\nexport const db = global.prisma || new PrismaClient();\n\nif (process.env.NODE_ENV !== 'production') {\n  global.prisma = db;\n}"
+                  "step-code": "// src/lib/db.ts\nimport { PrismaClient } from '@prisma/client';\n\n// Prevents the creation of multiple instances of Prisma Client in development\ndeclare global {\n  // eslint-disable-next-line no-var\n  var prisma: PrismaClient | undefined;\n}\n\nexport const db = global.prisma || new PrismaClient();\n\nif (process.env.NODE_ENV !== 'production') {\n  global.prisma = db;\n}"
                 },
                 {
                   "step-title": "Define Database Schema",
@@ -787,7 +623,7 @@
                   "step-code": "npx prisma migrate dev --name init"
                 },
                 {
-                  "step-title": "Using Prisma Client",
+                  "step-title": "Use Prisma Client",
                   "step-description": "Use the Prisma client instance to interact with the database.",
                   "step-code": "// Example usage in a Next.js API route\nimport { db } from '@/lib/db';\n\nexport default async function handler(req, res) {\n  const users = await db.user.findMany();\n  res.status(200).json(users);\n}"
                 }

@@ -88,7 +88,7 @@
         "hero": {
           "title": "EzStart",
           "description": "EZ Start est une boilerplate qui fournit un point de départ complet et flexible pour vos projets de développement web. Construit avec des technologies modernes et les meilleures pratiques, il vous aide à démarrer votre processus de développement avec une base solide.",
-          "cta": "Commencer",
+          "cta": "Get Started",
           "github": "Étoile sur GitHub"
         },
         "features": {
@@ -135,11 +135,11 @@
           ]
         },
         "get-started": {
-          "title": "Commencer",
-          "cta": "Commencer",
+          "title": "Get started avec EzStart",
+          "cta": "Get Started",
           "github": "Étoile sur GitHub",
           "content": [
-            "Pour utiliser EzStart, cliquez sur le bouton 'Commencer' ci-dessus et suivez les instructions de configuration. Personnalisez les fichiers de configuration pour répondre aux besoins de votre projet et commencez à créer votre application en toute simplicité.",
+            "Pour utiliser EzStart, cliquez sur le bouton 'Get Started' ci-dessus et suivez les instructions de configuration. Personnalisez les fichiers de configuration pour répondre aux besoins de votre projet et commencez à créer votre application en toute simplicité.",
             "Ce boilerplate est conçu pour être flexible et extensible, vous permettant d'ajouter des fonctionnalités et de modifier les existantes pour répondre à vos exigences spécifiques."
           ]
         }
@@ -161,12 +161,12 @@
         }
       },
       "nav-links": {
-        "get-started": "Commencer",
+        "get-started": "Get Started",
         "internationalization": "Internationalisation",
-        "components": "Composants",
-        "authentication": "Authentification",
         "db-management": "Gestion de la Base de Données",
-        "payment": "Paiement"
+        "authentication": "Authentification",
+        "payment": "Paiement",
+        "components": "Composants"
       },
       "get-started": {
         "title": "Get started avec EzStart",
@@ -195,12 +195,12 @@
               {
                 "name": "AUTH_SECRET",
                 "description": "A secret key for encrypting JWT tokens. Generate a random key using crypto or another method.",
-                "code": "node -e `console.log(require('crypto').randomBytes(32).toString('hex'))`"
+                "link": "node -e `console.log(require('crypto').randomBytes(32).toString('hex'))`"
               },
               {
                 "name": "AUTH_SALT",
                 "description": "A salt for hashing passwords. Generate a random salt using crypto or another method.",
-                "code": "node -e `console.log(require('crypto').randomBytes(32).toString('hex'))`"
+                "link": "node -e `console.log(require('crypto').randomBytes(32).toString('hex'))`"
               },
               {
                 "name": "GOOGLE_CLIENT_ID",
@@ -241,56 +241,6 @@
           "enjoy": {
             "title": "Bon développement!",
             "description": "Vous pouvez maintenant profiter de votre application ou consulter la documentation de cette boilerplate."
-          }
-        }
-      },
-      "dev-tools": {
-        "title": "Outils de Développement",
-        "description": "Une collection d'outils pour aider les développeurs à gérer et améliorer efficacement leurs projets. Si vous commencez avec EZ Start, vous pouvez utiliser ces outils pour améliorer votre expérience de développement sans vous confondre. Sinon, vous pouvez trouver des options de configuration dans la section 'Outils de Développement'.",
-        "items": {
-          "update-app-name": {
-            "title": "Mettre à Jour le Nom de l'Application",
-            "description": "Outil pour mettre à jour le nom de l'application dans divers fichiers",
-            "files": {
-              "title": "Fichiers concernés",
-              "description": "Les fichiers suivants seront concernés :",
-              "code-links": {
-                "updateAppName.js": "https://github.com/DFranck/my-ez-start/blob/master/updateAppName.js",
-                "package.json": "https://github.com/DFranck/my-ez-start/blob/master/package.json",
-                "README.md": "https://github.com/DFranck/my-ez-start/blob/master/README.md",
-                "src/app/[locale]/layout.tsx": "https://github.com/DFranck/my-ez-start/blob/master/src/app/[locale]/layout.tsx"
-              }
-            },
-            "display": {
-              "title": "Affichage",
-              "component": "",
-              "target": ""
-            },
-            "features": {
-              "title": "Fonctionnalités",
-              "content": [
-                "Mises à jour automatiques dans des fichiers critiques comme <code>package.json</code>, <code>README.md</code> et les fichiers de traduction.",
-                "Configuration simple pour définir le nouveau nom de l'application et les chemins à mettre à jour.",
-                "Gestion robuste des remplacements de chaînes pour garantir que toutes les instances de l'ancien nom sont mises à jour."
-              ]
-            },
-            "example-usage": {
-              "title": "Exemple d'Utilisation",
-              "description": "Voici comment utiliser et exécuter le script :",
-              "steps": [
-                {
-                  "step-title": "Fournir un nouveau nom",
-                  "step-description": "Remplacez <code>newAppName</code> par le nouveau nom de l'application dans le fichier <code>updateAppName.js</code>.",
-                  "step-code": "const newAppName = \"EzStart - Le Boilerplate Ultime pour le Développement Web Moderne\"; // Remplacez par le nom souhaité\nconst oldAppName = \"Votre Nom d'Application\"; // Remplacez par le nom actuel de l'application dans le README"
-                },
-                {
-                  "step-title": "Exécuter le script",
-                  "step-description": "Exécutez le script en utilisant Node.js : <code>node updateAppName.js</code>.",
-                  "step-code": "node updateAppName.js"
-                }
-              ],
-              "language": "bash"
-            }
           }
         }
       },
@@ -417,152 +367,47 @@
       },
       "internationalization": {
         "title": "Internationalisation",
-        "description": "Internationalisation pour les développeurs",
-        "items": {
-          "intl-middleware": {
-            "title": "Middleware Intl",
-            "description": "Middleware pour gérer l'internationalisation et définir la locale actuelle.",
-            "files": {
-              "title": "Fichiers concernés",
-              "description": "Le fichier suivant sera concerné :",
-              "code-links": {
-                "src/middlewares/intl-middleware.ts": "https://github.com/DFranck/my-ez-start/blob/master/src/middlewares/intl-middleware.ts"
-              }
-            },
-            "display": {
-              "title": "Affichage",
-              "component": "",
-              "target": ""
-            },
-            "features": {
-              "title": "Fonctionnalités",
-              "content": [
-                "Gère la détection et la redirection de la locale.",
-                "Définit la locale actuelle en fonction de l'URL de la requête.",
-                "S'intègre avec le middleware Next.js."
-              ]
-            },
-            "example-usage": {
-              "title": "Exemple d'Utilisation",
-              "description": "Voici comment utiliser le middleware intl :",
-              "steps": [
-                {
-                  "step-title": "Créer le Middleware",
-                  "step-description": "Créez le middleware dans `src/middlewares/intl-middleware.ts`.",
-                  "step-code": "import { locales } from \"@/i18n\";\nimport createMiddleware from \"next-intl/middleware\";\nimport { NextRequest } from \"next/server\";\n\nconst defaultLocale = \"en\";\nexport let currentLocale = defaultLocale;\nexport const intlMiddleware = createMiddleware({\n  locales,\n  defaultLocale,\n});\n\nexport default function middleware(req: NextRequest) {\n  const response = intlMiddleware(req);\n  const pathname = req.nextUrl.pathname;\n  currentLocale = locales.find((loc) => pathname.startsWith(`/${loc}`)) || defaultLocale;\n  return response;\n}\n\nexport const config = {\n  matcher: [\"/((?!api|_next/static|_next/image|favicon.ico).*)\"],\n};"
-                }
-              ],
-              "language": "typescript"
-            }
+        "description": "L'internationalisation utilise i18n pour gérer la locale de l'utilisateur et la définit par défaut. Ensuite, Next-Intl est utilisé pour gérer les traductions de l'application.",
+
+        "setup": {
+          "part1": "Si vous avez installé la boilerplate EzStart, tout est déjà pré-installé. Si vous shouaitez utiliser Next-Intl seulement, je vous renvoie vers",
+          "link": "la documentation officielle de next-intl ici.",
+          "part2": "Pour commencer a utiliser Next-Intl, il suffit de se rendre dans le dossier",
+          "part3": "à la racine du projet et de renseigner les fichiers",
+          "and": "et",
+          "or": "ou autre selon la langue que vous souhaitez utiliser.",
+          "part4": "Seules les locales",
+          "arePredefined": "sont prédéfinies.",
+          "newLocale": {
+            "part1": "Pour en ajouter une nouvelle, il faut créer le fichier JSON correspondant dans le dossier",
+            "part2": "par exemple",
+            "and": "puis vous devrez ajouter la nouvelle locale au tableau",
+            "part3": "comme montré ci-dessous."
           },
-          "language-provider": {
-            "title": "Fournisseur de Langue",
-            "description": "Un composant fournisseur pour gérer les paramètres de langue et les messages.",
-            "files": {
-              "title": "Fichiers concernés",
-              "description": "Le fichier suivant sera concerné :",
-              "code-links": {
-                "src/providers/language-provider.tsx": "https://github.com/DFranck/my-ez-start/blob/master/src/providers/language-provider.tsx"
-              }
-            },
-            "display": {
-              "title": "Affichage",
-              "component": "",
-              "target": ""
-            },
-            "features": {
-              "title": "Fonctionnalités",
-              "content": [
-                "Enveloppe l'application avec les paramètres de langue.",
-                "Utilise `next-intl` pour l'internationalisation.",
-                "Fournit des messages de langue à l'ensemble de l'application."
-              ]
-            },
-            "example-usage": {
-              "title": "Exemple d'Utilisation",
-              "description": "Voici comment utiliser le composant LanguageProvider :",
-              "steps": [
-                {
-                  "step-title": "Créer LanguageProvider",
-                  "step-description": "Créez le fournisseur dans `src/providers/language-provider.tsx`.",
-                  "step-code": "import { AbstractIntlMessages, NextIntlClientProvider } from \"next-intl\";\nconst LanguageProvider = ({ children, messages }: { children: React.ReactNode; messages: AbstractIntlMessages }) => {\n  return (\n    <NextIntlClientProvider messages={messages}>\n      {children}\n    </NextIntlClientProvider>\n  );\n};\nexport default LanguageProvider;"
-                }
-              ],
-              "language": "typescript"
-            }
-          },
-          "root-layout": {
-            "title": "Mise en Page Racine",
-            "description": "Le composant de mise en page racine qui inclut les fournisseurs pour le thème, l'authentification et la langue.",
-            "files": {
-              "title": "Fichiers concernés",
-              "description": "Le fichier suivant sera concerné :",
-              "code-links": {
-                "src/app/layout.tsx": "https://github.com/DFranck/my-ez-start/blob/master/src/app/layout.tsx"
-              }
-            },
-            "display": {
-              "title": "Affichage",
-              "component": "",
-              "target": ""
-            },
-            "features": {
-              "title": "Fonctionnalités",
-              "content": [
-                "Intègre les fournisseurs de thème, d'authentification et de langue.",
-                "Configure les styles globaux et les polices.",
-                "Gère la génération des métadonnées en fonction de la locale."
-              ]
-            },
-            "example-usage": {
-              "title": "Exemple d'Utilisation",
-              "description": "Voici comment utiliser le composant de mise en page racine :",
-              "steps": [
-                {
-                  "step-title": "Créer la Mise en Page Racine",
-                  "step-description": "Créez la mise en page racine dans `src/app/layout.tsx`.",
-                  "step-code": "import Footer from \"@/components/layout/footer/footer\";\nimport Header from \"@/components/layout/header/header\";\nimport Main from \"@/components/layout/main\";\nimport { cn } from \"@/lib/utils\";\nimport Providers from \"@/providers/providers\";\nimport { getMessages } from \"next-intl/server\";\nimport { Inter } from \"next/font/google\";\nimport \"../globals.css\";\n\nconst inter = Inter({ subsets: [\"latin\"] });\nexport async function generateMetadata({ params: { locale } }: any) {\n  const messages = (await getMessages(locale)) as any;\n  const metaTitle = messages.app[\"meta-title\"] as string;\n  const metaDescription = messages.app[\"meta-description\"].replace(/\\{meta-title\\}/g, metaTitle) as string;\n  return {\n    title: metaTitle,\n    description: metaDescription,\n  };\n}\nexport default async function RootLayout({ children, params: { locale } }: Readonly<{ children: React.ReactNode; params: { locale: string }; }>) {\n  const messages = await getMessages();\n  return (\n    <html lang={locale} suppressHydrationWarning={true} className=\"h-full\">\n      <body className={cn(inter.className, \"min-h-screen flex flex-col h-full\")}>\\n        <Providers messages={messages}>\n          <Header />\n          <Main>{children}</Main>\n          <Footer />\n        </Providers>\n      </body>\n    </html>\n  );\n}"
-                }
-              ],
-              "language": "typescript"
-            }
-          },
-          "locale-switcher": {
-            "title": "Sélecteur de Locale",
-            "description": "Un composant pour basculer entre différentes locales dans l'application.",
-            "files": {
-              "title": "Fichiers concernés",
-              "description": "Le fichier suivant sera concerné :",
-              "code-links": {
-                "src/components/locale-switcher.tsx": "https://github.com/DFranck/my-ez-start/blob/master/src/components/locale-switcher.tsx"
-              }
-            },
-            "display": {
-              "title": "Affichage",
-              "component": "",
-              "target": ""
-            },
-            "features": {
-              "title": "Fonctionnalités",
-              "content": [
-                "Affiche un menu déroulant pour sélectionner la locale.",
-                "Met à jour l'URL de l'application pour refléter la locale sélectionnée.",
-                "Gère la navigation au clavier et l'accessibilité."
-              ]
-            },
-            "example-usage": {
-              "title": "Exemple d'Utilisation",
-              "description": "Voici comment utiliser le composant LocaleSwitcher :",
-              "steps": [
-                {
-                  "step-title": "Créer LocaleSwitcher",
-                  "step-description": "Créez le composant dans `src/components/locale-switcher.tsx`.",
-                  "step-code": "import { cn } from \"@/lib/utils\";\nimport { GlobeIcon } from \"lucide-react\";\nimport { useLocale, useTranslations } from \"next-intl\";\nimport { usePathname, useRouter } from \"next/navigation\";\nimport { useEffect, useRef, useState, useTransition } from \"react\";\n\nconst LocaleSwitcher = () => {\n  const t = useTranslations(\"locale\");\n  const [isMounted, setIsMounted] = useState(false);\n  const [isPending, startTransition] = useTransition();\n  const [isOpen, setIsOpen] = useState(false);\n  const router = useRouter();\n  const pathname = usePathname();\n  const localeActive = useLocale();\n  const liStyle = \"py-2 px-4 cursor-pointer hover:bg-accent text-sm\";\n  const buttonRef = useRef<HTMLButtonElement>(null);\n  const dropdownRef = useRef<HTMLUListElement>(null);\n  const content = t.raw(\"language\") as { [key: string]: string };\n  const languages = Object.entries(content);\n\n  useEffect(() => {\n    setIsMounted(true);\n  }, []);\n\n  const onValueChange = (nextLocale: string) => {\n    const newPath = pathname.replace(localeActive, nextLocale);\n    startTransition(() => {\n      router.push(newPath);\n    });\n    setIsOpen(false);\n  };\n\n  const handleOpen = () => {\n    setIsOpen(!isOpen);\n  };\n\n  const handleKeyDown = (event: React.KeyboardEvent<HTMLButtonElement>) => {\n    if (event.key === \"Enter\" || event.key === \" \") {\n      event.preventDefault();\n      handleOpen();\n    } else if (event.key === \"Escape\") {\n      setIsOpen(false);\n    }\n  };\n\n  const handleBlur = (event: React.FocusEvent<HTMLDivElement>) => {\n    if (\n      dropdownRef.current &&\n      !dropdownRef.current.contains(event.relatedTarget as Node)\n    ) {\n      setIsOpen(false);\n    }\n  };\n  useEffect(() => {\n    if (isOpen && dropdownRef.current) {\n      dropdownRef.current.focus();\n    }\n  }, [isOpen]);\n  if (!isMounted) {\n    return null;\n  }\n  return (\n    <div\n      className=\"relative text-foreground opacity-60 hover:opacity-100\"\n      onBlur={handleBlur}\n    >\n      <button\n        ref={buttonRef}\n        aria-haspopup=\"true\"\n        aria-expanded={isOpen}\n        className=\"cursor-pointer hover:bg-accent rounded w-9 h-9 flex justify-center items-center\"\n        onClick={handleOpen}\n        onKeyDown={handleKeyDown}\n      >\n        <GlobeIcon className=\"w-6 h-6\" />\n        <p className=\"sr-only\">changer de langue</p>\n      </button>\n      {isOpen && (\n        <ul\n          ref={dropdownRef}\n          tabIndex={-1}\n          className={cn(\n            \"absolute top-10 right-0 z-10 bg-background border shadow rounded animate-fadeIn duration-200\"\n          )}\n        >\n          {languages.map(([key, value]) => (\n            <li\n              key={key}\n              className={liStyle}\n              onClick={() => onValueChange(key)}\n              role=\"menuitem\"\n              tabIndex={0}\n              onKeyDown={(e) => e.key === \"Enter\" && onValueChange(key)}\n            >\n              {value}\n            </li>\n          ))}\n          <div className=\"border border-border/50\"></div>\n        </ul>\n      )}\n    </div>\n  );\n};\n\nexport default LocaleSwitcher;"
-                }
-              ],
-              "language": "typescript"
-            }
-          }
+          "i18n": "// src/i18n.ts"
+        },
+        "example-json": {
+          "fr": "// messages/fr.json",
+          "title": "Exemple de contenu JSON",
+          "description": "Voici un exemple de ce à quoi pourrait ressembler un fichier",
+          "welcome-message": "Bienvenue sur notre site!",
+          "exemple-title": "À propos de nous"
+        },
+        "missing-translations": {
+          "title": "Gestion des traductions manquantes",
+          "description": "Pour gérer les traductions manquantes, vous pouvez utiliser un fallback dans votre code. Par exemple :"
+        },
+        "usage": {
+          "title": "Utilisation",
+          "description": "Utilisez le hook `useTranslations` pour accéder aux traductions dans vos composants :",
+          "components": "// Vos composants",
+          "localeSwitcher": "Le changement de locale se fait via le composant `LocaleSwitcher`:"
+        },
+        "resources": {
+          "title": "Ressources supplémentaires",
+          "description": "Pour plus d'informations, consultez les ressources suivantes :",
+          "nextIntl": "Documentation officielle de next-intl",
+          "i18next": "Documentation de i18next"
         }
       },
       "authentication": {
@@ -725,66 +570,33 @@
       },
       "db-management": {
         "title": "Gestion de la Base de Données",
-        "description": "Gestion de la base de données pour les développeurs utilisant Prisma ORM.",
-        "items": {
-          "prisma-setup": {
-            "title": "Configuration de Prisma",
-            "description": "Configuration et mise en place de Prisma ORM pour la gestion de la base de données.",
-            "files": {
-              "title": "Fichiers concernés",
-              "description": "Les fichiers suivants seront concernés :",
-              "code-links": {
-                "src/lib/db.ts": "https://github.com/DFranck/my-ez-start/blob/master/src/lib/db.ts",
-                "prisma/schema.prisma": "https://github.com/DFranck/my-ez-start/blob/master/prisma/schema.prisma"
-              }
-            },
-            "display": {
-              "title": "Affichage",
-              "component": "",
-              "target": ""
-            },
-            "features": {
-              "title": "Fonctionnalités",
-              "content": [
-                "Configuration du client Prisma pour les interactions avec la base de données.",
-                "Configuration pour la connexion à la base de données PostgreSQL.",
-                "Prévient la création de multiples instances de Prisma Client en développement.",
-                "Définit un modèle de base User pour la démonstration."
-              ]
-            },
-            "example-usage": {
-              "title": "Exemple d'Utilisation",
-              "description": "Voici comment configurer et utiliser Prisma dans votre projet :",
-              "steps": [
-                {
-                  "step-title": "Installer Prisma et Initialiser",
-                  "step-description": "Installez Prisma et initialisez-le dans votre projet.",
-                  "step-code": "npm install prisma @prisma/client\nnpx prisma init"
-                },
-                {
-                  "step-title": "Configurer le Client Prisma",
-                  "step-description": "Créez une instance de client Prisma pour les interactions avec la base de données.",
-                  "step-code": "// src/lib/db.ts\nimport { PrismaClient } from '@prisma/client';\n\n// Prévient la création de multiples instances de Prisma Client en développement\ndeclare global {\n  // eslint-disable-next-line no-var\n  var prisma: PrismaClient | undefined;\n}\n\nexport const db = global.prisma || new PrismaClient();\n\nif (process.env.NODE_ENV !== 'production') {\n  global.prisma = db;\n}"
-                },
-                {
-                  "step-title": "Définir le Schéma de la Base de Données",
-                  "step-description": "Définissez votre schéma de base de données dans le fichier `prisma/schema.prisma`.",
-                  "step-code": "datasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\ngenerator client {\n  provider = \"prisma-client-js\"\n}\n\nmodel User {\n  id        String   @id @default(uuid())\n  email     String   @unique\n  password  String\n  name      String?\n  resetCode String?  @unique\n  resetCodeExpiresAt DateTime?\n  role      String   @default(\"user\")\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n}"
-                },
-                {
-                  "step-title": "Exécuter Prisma Migrate",
-                  "step-description": "Exécutez Prisma migrate pour créer le schéma de la base de données.",
-                  "step-code": "npx prisma migrate dev --name init"
-                },
-                {
-                  "step-title": "Utilisation du Client Prisma",
-                  "step-description": "Utilisez l'instance du client Prisma pour interagir avec la base de données.",
-                  "step-code": "// Exemple d'utilisation dans une route API Next.js\nimport { db } from '@/lib/db';\n\nexport default async function handler(req, res) {\n  const users = await db.user.findMany();\n  res.status(200).json(users);\n}"
-                }
-              ],
-              "language": "typescript"
-            }
-          }
+        "description": "La gestion de la base de données utilise Prisma ORM pour la création et l'exploitation des données.",
+        "setup": {
+          "part1": "Si vous avez installé la boilerplate EzStart, tout est déjà pré-installé pour un développement local. Si vous souhaitez utiliser Prisma uniquement, je vous renvoie vers",
+          "link": "la documentation officielle de Prisma ici.",
+          "postgresql-installation": "apres avoir installer la boilerplate Installer PostgreSQL : Téléchargez et installez PostgreSQL, créez une base de données et un utilisateur.",
+          "env-setup": "Configurer l'environnement : Créez un fichier .env avec les détails de la base de données.",
+          "prisma-init": "Initialiser Prisma : Exécutez npx prisma init et configurez schema.prisma.",
+          "migrations-apply": "Appliquer les migrations : Exécutez npx prisma migrate dev --name init.",
+          "start-app": "Démarrer l'application : Utilisez npm run dev pour lancer votre application."
+        },
+        "example-table": {
+          "title": "Exemple de Table",
+          "description": "Pour ajouter une nouvelle table, vous devrez vous rendre dans le dossier",
+          "placeholder": "et ajouter votre nouvelle table ici"
+        },
+        "usage": {
+          "title": "Utilisation",
+          "description": "Utilisez les fonctions Prisma pour accéder aux données dans vos composants.",
+          "components": "// Vos composants"
+        },
+        "resources": {
+          "title": "Ressources supplémentaires",
+          "description": "Pour plus d'informations, consultez les ressources suivantes :",
+          "prismaDocs": "Documentation officielle de Prisma"
+        },
+        "nav-links": {
+          "db-management": "Gestion de la Base de Données"
         }
       }
     }

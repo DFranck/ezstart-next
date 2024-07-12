@@ -10,6 +10,7 @@ import { useState } from "react";
 
 const DocGetStarted = () => {
   const t = useTranslations("pages.docs.get-started");
+  const t2 = useTranslations("pages.docs");
   const variables = t.raw("sections.setup-env.variables") as Array<{
     name: string;
     description: string;
@@ -28,7 +29,7 @@ const DocGetStarted = () => {
         <h2 id="setup-env">{t("sections.setup-env.title")}</h2>
         <CodeBlock code={t("sections.setup-env.steps")} />
         <p
-          className="text-muted-foreground text-sm cursor-pointer w-full mb-2"
+          className="text-muted-foreground text-sm cursor-pointer w-full mb-2 text-left"
           onClick={() => setIsHelperOpen(!isHelperOpen)}
         >
           {t("sections.setup-env.helper-cta")}
@@ -57,7 +58,6 @@ const DocGetStarted = () => {
           </Card>
         </div>
       </Section>
-
       <Section id="start" className="py-0">
         <h2 className="mt-8 mb-4 ">{t("sections.start.title")}</h2>
         <CodeBlock code={t("sections.start.steps")} />
@@ -66,7 +66,9 @@ const DocGetStarted = () => {
       <p className="mb-10">{t("sections.enjoy.description")}</p>
       <Section>
         <Button asChild className="w-fit self-end" size={"lg"}>
-          <Link href="/docs/internationalization">Internationalization</Link>
+          <Link href="/docs/internationalization">
+            {t2("nav-links.internationalization")}
+          </Link>
         </Button>
       </Section>
     </>
