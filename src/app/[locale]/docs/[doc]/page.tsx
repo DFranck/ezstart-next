@@ -1,14 +1,17 @@
 "use client";
+import Section from "@/components/layout/section";
 import DocAuthentication from "@/features/doc/doc-authentication";
+import DocComponents from "@/features/doc/doc-components";
 import DocDbManagement from "@/features/doc/doc-db-management";
 import DocGetStarted from "@/features/doc/doc-get-started";
 import DocInternationalization from "@/features/doc/doc-internationalization";
 import DocPayment from "@/features/doc/doc-payment";
 import { useTranslations } from "next-intl";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
 
 const DocPage = ({ params: { doc } }: { params: { doc: string } }) => {
+  const t2 = useTranslations("app.common");
   const t = useTranslations(`pages.docs.${doc}`);
   const router = useRouter();
   let DocComponent;
@@ -28,15 +31,21 @@ const DocPage = ({ params: { doc } }: { params: { doc: string } }) => {
     case "payment":
       DocComponent = DocPayment;
       break;
+    case "components":
+      DocComponent = DocComponents;
+      break;
     default:
-      DocComponent = null;
+      return (
+        <Section className="absolute bg-background w-full h-full top-0 left-0 z-10 gap-10">
+          <p>
+            {t2("sorry")} {doc} {t2("not-found")}
+          </p>
+          <Link href="/" className="hover:underline">
+            {t2("go-back")}
+          </Link>
+        </Section>
+      );
   }
-
-  useEffect(() => {
-    if (!DocComponent) {
-      router.replace("/404");
-    }
-  }, [DocComponent, router]);
 
   return (
     <>

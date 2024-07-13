@@ -3,7 +3,7 @@ import Carousel3D from "@/components/carousel-3d";
 import CodeBlock from "@/components/code-block";
 import Section from "@/components/layout/section";
 import { useTranslations } from "next-intl";
-
+import Link from "next/link";
 const componentMap: { [key: string]: React.ComponentType } = {
   Carousel3D,
   // Ajoutez d'autres composants ici
@@ -11,7 +11,20 @@ const componentMap: { [key: string]: React.ComponentType } = {
 
 const ItemPage = ({ params }: { params: { doc: string; item: string } }) => {
   const t = useTranslations(`pages.docs.${params.doc}.items.${params.item}`);
-
+  const t2 = useTranslations("app.common");
+  const doc = params.doc;
+  if (doc !== "components") {
+    return (
+      <Section className="absolute bg-background w-full h-full top-0 left-0 z-10 gap-10">
+        <p>
+          {t2("sorry")} {t2("not-found")}
+        </p>
+        <Link href="/" className="hover:underline">
+          {t2("go-back")}
+        </Link>
+      </Section>
+    );
+  }
   const features = t.raw("features.content") as string[];
   const files = t.raw("files.code-links") as Record<string, string>;
   const exampleUsageSteps = t.raw("example-usage.steps") as {
@@ -28,6 +41,7 @@ const ItemPage = ({ params }: { params: { doc: string; item: string } }) => {
     const Component = componentMap[componentName];
     return <Component />;
   };
+
   return (
     <>
       <h1>{t("title")}</h1>

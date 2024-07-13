@@ -1,7 +1,11 @@
-import React from "react";
+import ComingSoon from "@/components/coming-soon";
 
-const DocComponent = () => {
-  return <div>DocComponent</div>;
+const DocComponents = () => {
+  return (
+    <div>
+      <ComingSoon />
+    </div>
+  );
 };
 
-export default DocComponent;
+export default DocComponents;

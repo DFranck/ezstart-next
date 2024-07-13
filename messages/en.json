@@ -9,6 +9,11 @@
       "light": "Light",
       "dark": "Dark"
     },
+    "common": {
+      "sorry": "Sorry",
+      "not-found": "Page not found",
+      "go-back": "Go Back to Home"
+    },
     "errors": {
       "emailRequired": "Email is required.",
       "invalidEmail": "Invalid email address.",
