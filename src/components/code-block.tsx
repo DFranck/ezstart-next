@@ -19,8 +19,9 @@ const CodeBlock = ({
           "bg-background rounded p-4 w-full overflow-auto my-2",
           className
         )}
+        style={{ whiteSpace: "pre-wrap", wordBreak: "break-word" }}
       >
-        <code className=" break-words whitespace-pre-wrap ">{code}</code>
+        <code className="">{code}</code>
       </pre>
     </>
   );
