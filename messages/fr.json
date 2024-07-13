@@ -250,6 +250,12 @@
         }
       },
       "components": {
+        "layout-components-title": "Composants de mise en page",
+        "layout-components-subtitle": "Blocs de construction de base pour structurer votre application.",
+        "ui-components-title": "Composants UI",
+        "ui-components-subtitle": "Améliorez l'expérience utilisateur avec ces éléments interactifs.",
+        "icon-components-title": "Composants d'icônes",
+        "icon-components-subtitle": "Outils de représentation visuelle pour une meilleure interface.",
         "title": "Composants",
         "description": "Voici une liste de ces composants passe-partout spéciaux utilisant la traduction dynamique, Résponsive et plus de fonctionnalités",
         "not-found": "Désolé, le composant demandé n'existe pas.",
@@ -266,41 +272,20 @@
         "exemple-title": "Exemple",
         "exemple-description": "Voici un rendu du composant Nav :",
         "carousel-3d": {
-          "title": "Composant Carousel 3D",
-          "description": "Le composant Carousel 3D est utilisé pour afficher des éléments dans un carrousel en 3D.",
-          "usage": {
-            "title": "Utilisation",
-            "description": "Voici comment utiliser le composant Carousel 3D.",
-            "code": "import Carousel3D from '@/components/carousel-3d';\n\nconst App = () => (\n  <Carousel3D />\n);"
-          },
-          "props": {
-            "title": "Propriétés (Props)",
-            "items": [
-              {
-                "name": "items",
-                "type": "array",
-                "description": "Liste des éléments à afficher dans le carrousel.",
-                "default": "[]"
-              },
-              {
-                "name": "autoplay",
-                "type": "boolean",
-                "description": "Définit si le carrousel doit défiler automatiquement.",
-                "default": "false"
-              }
-            ],
-            "noProps": "Aucune propriété disponible."
-          },
-          "styles": {
-            "title": "Styles et Variants",
-            "description": "Le composant Carousel 3D supporte plusieurs styles et variantes.",
-            "code": ".carousel-3d {\n  display: flex;\n  flex-direction: row;\n}"
-          },
-          "examples": {
-            "title": "Exemples Complets",
-            "description": "Voici un exemple complet d'utilisation du composant Carousel 3D.",
-            "code": "import Carousel3D from '@/components/carousel-3d';\n\nconst items = ['Item 1', 'Item 2', 'Item 3'];\n\nconst App = () => (\n  <Carousel3D items={items} autoplay={true} />\n);"
-          }
+          "props": [
+            {
+              "name": "items",
+              "type": "array",
+              "description": "Liste des éléments à afficher dans le carrousel.",
+              "default": "[]"
+            },
+            {
+              "name": "autoplay",
+              "type": "boolean",
+              "description": "Définit si le carrousel doit défiler automatiquement.",
+              "default": "false"
+            }
+          ]
         },
         "nav": {
           "static": "Mode statique sans traductions :",

@@ -16,7 +16,7 @@ const CodeBlock = ({
       </pre>
       <pre
         className={cn(
-          "bg-background rounded p-4 w-full overflow-auto my-2",
+          "bg-card text-card-foreground rounded-xl shadow border p-4 w-full overflow-auto my-2",
           className
         )}
         style={{ whiteSpace: "pre-wrap", wordBreak: "break-word" }}

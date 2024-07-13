@@ -5,13 +5,13 @@ import PropTypes from "prop-types";
 import React, { ReactElement, ReactNode, useEffect, useRef } from "react";
 import bgImg from "../../public/assets/imgs/devnobg.png";
 
-type Carousel3DProps = {
+type Carousel3dProps = {
   imgNum?: number;
   children?: ReactNode;
   stopOnHover?: boolean;
 };
 
-const Carousel3D = ({ imgNum = 5, children, stopOnHover }: Carousel3DProps) => {
+const Carousel3d = ({ imgNum = 5, children, stopOnHover }: Carousel3dProps) => {
   const [isMouseOver, setIsMouseOver] = React.useState(false);
   const items = Array.from({ length: imgNum }, (_, i) => i + 1);
   const childrenArray = React.Children.toArray(children) as ReactElement[];
@@ -100,9 +100,9 @@ const Carousel3D = ({ imgNum = 5, children, stopOnHover }: Carousel3DProps) => {
   );
 };
 
-Carousel3D.propTypes = {
+Carousel3d.propTypes = {
   imgNum: PropTypes.number,
   children: PropTypes.node,
 };
 
-export default Carousel3D;
+export default Carousel3d;
