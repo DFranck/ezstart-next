@@ -110,13 +110,13 @@ const ItemPage = ({
         </ul>
         <p>{t("variant-note")}</p>
       </Section>
-      <Section>
+      {/* <Section>
         <h2>{t("exemple-title")}</h2>
         <p>{t("exemple-description")}</p>
         <div className="border p-4">
           <Component links={["Home", "About", "Contact"]} />
         </div>
-      </Section>
+      </Section> */}
     </>
   );
 };
