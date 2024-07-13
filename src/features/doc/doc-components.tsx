@@ -222,14 +222,17 @@ const DocComponents = () => {
       <Section className="">
         <h2>{t("icon-components-title")}</h2>
         <p>{t("icon-components-subtitle")}</p>
-        <div className="w-full bg-red-500 flex flex-wrap ">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6 p-5">
           {svgComponents.map((component) => (
             <Link
               href={component.githubUrl}
               key={component.name}
               target="_blank"
+              className="group"
             >
-              {component.component}
+              <div className="bg-red-500 transition-all rounded shadow-md hover:scale-105 hover:shadow-lg duration-200 flex justify-center items-center">
+                {component.component}
+              </div>
             </Link>
           ))}
         </div>
