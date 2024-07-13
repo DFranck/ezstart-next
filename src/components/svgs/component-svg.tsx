@@ -11,13 +11,15 @@ const ComponentSvg = ({
   fill?: string;
   background?: string;
 }) => {
+  if (!fill) fill = "foreground";
+  if (!background) background = "background";
   return (
     <div
       className={cn(
-        "rounded p-1.5",
-        className,
-        background ? `bg-${background}` : "bg-primary"
+        "rounded p-2 aspect-square border shadow w-16 h-16",
+        className
       )}
+      style={{ backgroundColor: `hsl(var(--${background}))` }}
     >
       <svg
         viewBox="0 0 720 720"

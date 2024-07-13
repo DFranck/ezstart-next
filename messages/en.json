@@ -255,7 +255,7 @@
         "layout-components-subtitle": "Core building blocks for structuring your application.",
         "ui-components-title": "UI Components",
         "ui-components-subtitle": "Enhance user experience with these interactive elements.",
-        "icon-components-title": "Icon Components",
+        "icon-components-title": "SVG Components",
         "icon-components-subtitle": "Visual representation tools for a better interface.",
         "title": "Components",
         "description": "Here is a list of these versatile special components using dynamic translation, responsive design, and more features",
