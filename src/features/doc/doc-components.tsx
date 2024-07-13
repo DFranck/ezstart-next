@@ -15,16 +15,6 @@ const components = [
     path: "nav",
     description: "Documentation pour le composant de navigation.",
   },
-  {
-    name: "Section",
-    path: "section",
-    description: "Documentation pour le composant de section.",
-  },
-  {
-    name: "UserMen",
-    path: "user-men",
-    description: "Documentation pour le composant UserMen.",
-  },
 ];
 
 const DocComponents = () => {

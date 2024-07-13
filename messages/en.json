@@ -395,6 +395,34 @@
               "default": "undefined"
             }
           ]
+        },
+        "section": {
+          "props": [
+            {
+              "name": "children",
+              "type": "React.ReactNode",
+              "description": "The child elements of the component",
+              "default": "undefined"
+            },
+            {
+              "name": "className",
+              "type": "string",
+              "description": "Custom CSS class for the component",
+              "default": "undefined"
+            },
+            {
+              "name": "bgImg",
+              "type": "string",
+              "description": "URL of the background image",
+              "default": "undefined"
+            },
+            {
+              "name": "id",
+              "type": "string",
+              "description": "Unique ID for the component",
+              "default": "undefined"
+            }
+          ]
         }
       },
       "internationalization": {

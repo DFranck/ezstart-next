@@ -5,9 +5,13 @@ import Nav from "@/components/nav";
 import { cn } from "@/lib/utils";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
-
-const componentMap: { [key: string]: React.ComponentType } = {
+import { ComponentType } from "react";
+interface ComponentPropsMap {
+  [key: string]: ComponentType<any>;
+}
+const componentMap: ComponentPropsMap = {
   Nav,
+  Section,
   // Ajoutez d'autres composants ici si nécessaire
 };
 
@@ -24,6 +28,7 @@ const ItemPage = ({
   const normalizedItem = normalizeComponentName(item);
   const Component = componentMap[normalizedItem];
   let propTypes;
+  console.log(item);
 
   try {
     propTypes = t.raw(`${item}.props`);
