@@ -261,7 +261,7 @@
         "props-title": "Props",
         "variants-title": "Variants",
         "variants-description": "Le composant {item} supporte plusieurs variantes. Voici les variantes actuelles :",
-        "variant-note": "Les variantes sont susceptible d'évoluer ou d'étre plus nombreuses à l'avenir.",
+        "note": "Les variantes, les styles et les props sont susceptible d'évoluer ou d'étre plus nombreuses à l'avenir.",
         "default": "Défaut",
         "exemple-title": "Exemple",
         "exemple-description": "Voici un rendu du composant Nav :",

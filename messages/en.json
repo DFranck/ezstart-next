@@ -252,20 +252,20 @@
       },
       "components": {
         "title": "Components",
-        "description": "Here is a list of these versatile special components using dynamic translation, Responsive and more features",
+        "description": "Here is a list of these versatile special components using dynamic translation, responsive design, and more features",
         "not-found": "Sorry, the requested component does not exist.",
-        "go-back": "Back to home",
+        "go-back": "Go back to the homepage",
         "item-title": "Component {item}",
         "item-description": "The {item} component is used for the main navigation in the application.",
         "usage-title": "Usage",
         "usage-description": "Here is how to use the {item} component.",
         "props-title": "Props",
         "variants-title": "Variants",
-        "variants-description": "The {item} component supports multiple variants. Here are the current variants:",
-        "variant-note": "The variants are likely to evolve or increase in number in the future.",
+        "variants-description": "The {item} component supports several variants. Here are the current variants:",
+        "note": "Variants, styles, and props are likely to evolve or increase in number in the future.",
         "default": "Default",
-        "example-title": "Example",
-        "example-description": "Here is a rendering of the Nav component:",
+        "exemple-title": "Example",
+        "exemple-description": "Here is a rendering of the Nav component:",
         "carousel-3d": {
           "title": "3D Carousel Component",
           "description": "The 3D Carousel component is used to display items in a 3D carousel.",
@@ -275,7 +275,7 @@
             "code": "import Carousel3D from '@/components/carousel-3d';\n\nconst App = () => (\n  <Carousel3D />\n);"
           },
           "props": {
-            "title": "Properties (Props)",
+            "title": "Props",
             "items": [
               {
                 "name": "items",
@@ -286,20 +286,20 @@
               {
                 "name": "autoplay",
                 "type": "boolean",
-                "description": "Specifies whether the carousel should autoplay.",
+                "description": "Sets whether the carousel should autoplay.",
                 "default": "false"
               }
             ],
-            "noProps": "No available properties."
+            "noProps": "No properties available."
           },
           "styles": {
             "title": "Styles and Variants",
-            "description": "The 3D Carousel component supports multiple styles and variants.",
+            "description": "The 3D Carousel component supports several styles and variants.",
             "code": ".carousel-3d {\n  display: flex;\n  flex-direction: row;\n}"
           },
           "examples": {
             "title": "Complete Examples",
-            "description": "Here is a complete example of how to use the 3D Carousel component.",
+            "description": "Here is a complete example of using the 3D Carousel component.",
             "code": "import Carousel3D from '@/components/carousel-3d';\n\nconst items = ['Item 1', 'Item 2', 'Item 3'];\n\nconst App = () => (\n  <Carousel3D items={items} autoplay={true} />\n);"
           }
         },
@@ -316,7 +316,7 @@
             {
               "name": "render",
               "type": "string",
-              "description": "Key to display an array or object of links",
+              "description": "Key to render an array or object of links",
               "default": "undefined"
             },
             {
@@ -391,7 +391,7 @@
             {
               "name": "setIsOpen",
               "type": "function",
-              "description": "Function to set the open state",
+              "description": "Function to set open state",
               "default": "undefined"
             }
           ]

@@ -2,6 +2,7 @@
 import CodeBlock from "@/components/code-block";
 import Section from "@/components/layout/section";
 import Nav from "@/components/nav";
+import { cn } from "@/lib/utils";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 
@@ -43,7 +44,7 @@ const ItemPage = ({
       </Section>
     );
   }
-
+  const cellStyle = "py-2 px-4 border-b";
   return (
     <>
       <Section>
@@ -75,26 +76,36 @@ const ItemPage = ({
       </Section>
       <Section>
         <h2 className="mb-10">{t("props-title")}</h2>
-        <table className="min-w-full bg-card border shadow text-card-foreground rounded">
-          <thead>
-            <tr>
-              <th className="py-2 px-4 border-b">Prop</th>
-              <th className="py-2 px-4 border-b">Type</th>
-              <th className="py-2 px-4 border-b">Description</th>
-              <th className="py-2 px-4 border-b">{t("default")}</th>
-            </tr>
-          </thead>
-          <tbody>
-            {propTypes.map((prop: any) => (
-              <tr key={prop.name}>
-                <td className="py-2 px-4 border-b">{prop.name}</td>
-                <td className="py-2 px-4 border-b">{prop.type}</td>
-                <td className="py-2 px-4 border-b">{prop.description}</td>
-                <td className="py-2 px-4 border-b">{prop.default}</td>
+        <div className="overflow-x-auto">
+          <table className="min-w-full bg-card border shadow text-card-foreground rounded">
+            <thead>
+              <tr className="text-left ">
+                <th className={cellStyle}>Prop</th>
+                <th className={cellStyle}>Type</th>
+                <th className={cn("hidden sm:table-cell", cellStyle)}>
+                  Description
+                </th>
+                <th className={cn("hidden md:table-cell", cellStyle)}>
+                  {t("default")}
+                </th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {propTypes.map((prop: any) => (
+                <tr key={prop.name}>
+                  <td className={cellStyle}>{prop.name}</td>
+                  <td className={cellStyle}>{prop.type}</td>
+                  <td className={cn("hidden sm:table-cell", cellStyle)}>
+                    {prop.description}
+                  </td>
+                  <td className={cn("hidden md:table-cell", cellStyle)}>
+                    {prop.default}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </Section>
       <Section>
         <h2>{t("variants-title")}</h2>
@@ -108,7 +119,9 @@ const ItemPage = ({
               </li>
             ))}
         </ul>
-        <p>{t("variant-note")}</p>
+      </Section>
+      <Section>
+        <p>{t("note")}</p>
       </Section>
       {/* <Section>
         <h2>{t("exemple-title")}</h2>
