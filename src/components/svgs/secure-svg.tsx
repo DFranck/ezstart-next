@@ -22,7 +22,7 @@ const SecureSvg = ({
       <svg
         viewBox="5 5 55 55"
         xmlns="http://www.w3.org/2000/svg"
-        stroke-width="3"
+        strokeWidth="3"
         stroke={fill ? `hsl(var(--${fill}))` : `hsl(var(--primary-foreground))`}
         fill="none"
         className="w-full h-full"

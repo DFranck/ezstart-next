@@ -1,4 +1,4 @@
-import Nav from "@/components/layout/nav";
+import Nav from "@/components/nav";
 import Pathname from "@/components/pathname";
 
 const DocsLayout = ({ children }: { children: React.ReactNode }) => {

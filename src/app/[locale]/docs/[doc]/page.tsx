@@ -52,7 +52,7 @@ const DocPage = ({ params: { doc } }: { params: { doc: string } }) => {
       {DocComponent && (
         <>
           <h1>{t("title")}</h1>
-          <p className="text-justify">{t("description")}</p>
+          <p className="text-justify lg:text-center">{t("description")}</p>
           <DocComponent />
         </>
       )}

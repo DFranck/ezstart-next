@@ -33,27 +33,27 @@ const PaymentSvg = ({
           stroke={
             fill ? `hsl(var(--${fill}))` : `hsl(var(--primary-foreground))`
           }
-          stroke-width="1"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="1"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
         <path
           d="M3 10H20.5"
           stroke={
             fill ? `hsl(var(--${fill}))` : `hsl(var(--primary-foreground))`
           }
-          stroke-width="1"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="1"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
         <path
           d="M7 15H9"
           stroke={
             fill ? `hsl(var(--${fill}))` : `hsl(var(--primary-foreground))`
           }
-          stroke-width="1"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="1"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
       </svg>
     </div>

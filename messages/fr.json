@@ -251,122 +251,152 @@
       },
       "components": {
         "title": "Composants",
-        "description": "Composants spécialisés incluent des traductions dynamiques, une conception réactive, etc.",
-        "items": {
-          "nav": {
-            "title": "Navigation",
-            "description": "Un composant de navigation polyvalent pour les développeurs, conçu pour gérer facilement les liens et chemins dynamiques. Il prend en charge la traduction, les chemins dynamiques et différentes mises en page pour divers besoins de navigation.",
-            "files": {
-              "title": "Fichiers concernés",
-              "description": "Le fichier suivant sera concerné :",
-              "code-links": {
-                "src/components/layout/nav.tsx": "https://github.com/DFranck/my-ez-start/blob/master/src/components/layout/nav.tsx"
-              }
-            },
-            "display": {
-              "title": "Affichage",
-              "component": "",
-              "target": ""
-            },
-            "features": {
-              "title": "Fonctionnalités",
-              "content": [
-                "Prend en charge la génération de liens dynamiques basés sur des clés de traduction ou un tableau/objet de liens directs.",
-                "Conception réactive avec différentes mises en page (ligne et colonne) pour différentes tailles d'écran.",
-                "Mise en surbrillance automatique du lien actif en fonction du chemin actuel.",
-                "Personnalisable via divers props, y compris des classes personnalisées, des variantes et la direction (ligne ou colonne)."
-              ]
-            },
-            "example-usage": {
-              "title": "Exemple d'Utilisation",
-              "description": "Voici comment utiliser le composant Nav :",
-              "steps": [
-                {
-                  "step-title": "Utilisation de Base",
-                  "step-description": "Importez le composant Nav et utilisez-le dans votre mise en page.",
-                  "step-code": "import Nav from \"@/components/layout/nav\";\n\nconst MyLayout = () => {\n  return (\n    <div>\n      <Nav \n        t=\"pages.docs\" \n        render=\"nav-links\" \n        path=\"docs\" \n        active \n        variant=\"primary\" \n        dir=\"col\" \n        pos=\"fixed\" \n        navClass=\"my-custom-nav-class\" \n        ulClass=\"my-custom-ul-class\" \n        liClass=\"my-custom-li-class\" \n      />\n    </div>\n  );\n};\n\nexport default MyLayout;"
-                },
-                {
-                  "step-title": "Utiliser des Liens Directs",
-                  "step-description": "Vous pouvez également fournir des liens directs au lieu d'utiliser des clés de traduction.",
-                  "step-code": "import Nav from \"@/components/layout/nav\";\n\nconst MyLayout = () => {\n  const links = [\"Accueil\", \"À propos\", \"Contact\"];\n  return (\n    <div>\n      <Nav \n        links={links} \n        path=\"\" \n        active \n        variant=\"primary\" \n        dir=\"row\" \n        pos=\"default\" \n        navClass=\"my-custom-nav-class\" \n        ulClass=\"my-custom-ul-class\" \n        liClass=\"my-custom-li-class\" \n      />\n    </div>\n  );\n};\n\nexport default MyLayout;"
-                }
-              ],
-              "language": "typescript"
-            }
+        "description": "Voici une liste de ces composants passe-partout spéciaux utilisant la traduction dynamique, Résponsive et plus de fonctionnalités",
+        "not-found": "Désolé, le composant demandé n'existe pas.",
+        "go-back": "Retour à l'accueil",
+        "item-title": "Composant {item}",
+        "item-description": "Le composant {item} est utilisé pour la navigation principale dans l'application.",
+        "usage": "Utilisation",
+        "usage-description": "Voici comment utiliser le composant {item}.",
+        "props-title": "Props",
+        "default": "Défaut",
+        "carousel-3d": {
+          "title": "Composant Carousel 3D",
+          "description": "Le composant Carousel 3D est utilisé pour afficher des éléments dans un carrousel en 3D.",
+          "usage": {
+            "title": "Utilisation",
+            "description": "Voici comment utiliser le composant Carousel 3D.",
+            "code": "import Carousel3D from '@/components/carousel-3d';\n\nconst App = () => (\n  <Carousel3D />\n);"
           },
-          "section": {
-            "title": "Section",
-            "description": "Un composant de section flexible pour envelopper du contenu avec une image de fond optionnelle et un style supplémentaire.",
-            "files": {
-              "title": "Fichiers concernés",
-              "description": "Le fichier suivant sera concerné :",
-              "code-links": {
-                "src/components/layout/section.tsx": "https://github.com/DFranck/my-ez-start/blob/master/src/components/layout/section.tsx"
+          "props": {
+            "title": "Propriétés (Props)",
+            "items": [
+              {
+                "name": "items",
+                "type": "array",
+                "description": "Liste des éléments à afficher dans le carrousel.",
+                "default": "[]"
+              },
+              {
+                "name": "autoplay",
+                "type": "boolean",
+                "description": "Définit si le carrousel doit défiler automatiquement.",
+                "default": "false"
               }
-            },
-            "features": {
-              "title": "Fonctionnalités",
-              "content": [
-                "Permet d'envelopper du contenu avec des options de style et de mise en page supplémentaires.",
-                "Prend en charge les images de fond avec une taille, une répétition et une position personnalisables.",
-                "ID optionnel pour lier à des sections spécifiques au sein d'une page."
-              ]
-            },
-            "example-usage": {
-              "title": "Exemple d'Utilisation",
-              "description": "Voici comment utiliser le composant Section :",
-              "steps": [
-                {
-                  "step-title": "Utilisation de Base",
-                  "step-description": "Importez le composant Section et utilisez-le pour envelopper votre contenu.",
-                  "step-code": "import Section from \"@/components/layout/section\";\n\nconst MyComponent = () => {\n  return (\n    <Section className=\"my-custom-class\" id=\"my-section\">\n      <h1>Ma Section</h1>\n      <p>Ceci est une section avec un style personnalisé.</p>\n    </Section>\n  );\n};\n\nexport default MyComponent;"
-                },
-                {
-                  "step-title": "Utiliser une Image de Fond",
-                  "step-description": "Vous pouvez également fournir une image de fond au composant Section.",
-                  "step-code": "import Section from \"@/components/layout/section\";\n\nconst MyComponent = () => {\n  return (\n    <Section bgImg=\"/path/to/image.jpg\" className=\"my-custom-class\" id=\"my-section\">\n      <h1>Ma Section</h1>\n      <p>Ceci est une section avec une image de fond.</p>\n    </Section>\n  );\n};\n\nexport default MyComponent;"
-                }
-              ],
-              "language": "typescript"
-            }
+            ],
+            "noProps": "Aucune propriété disponible."
           },
-          "carousel3d": {
-            "title": "Carrousel 3D",
-            "description": "Un composant Carrousel 3D qui affiche des images ou du contenu en rotation dans un espace 3D. Prend en charge la navigation au clavier et la pause au survol.",
-            "files": {
-              "title": "Fichiers concernés",
-              "description": "Le fichier suivant sera concerné :",
-              "code-links": {
-                "src/components/carousel3d.tsx": "https://github.com/DFranck/my-ez-start/blob/master/src/components/carousel3d.tsx"
-              }
+          "styles": {
+            "title": "Styles et Variants",
+            "description": "Le composant Carousel 3D supporte plusieurs styles et variantes.",
+            "code": ".carousel-3d {\n  display: flex;\n  flex-direction: row;\n}"
+          },
+          "examples": {
+            "title": "Exemples Complets",
+            "description": "Voici un exemple complet d'utilisation du composant Carousel 3D.",
+            "code": "import Carousel3D from '@/components/carousel-3d';\n\nconst items = ['Item 1', 'Item 2', 'Item 3'];\n\nconst App = () => (\n  <Carousel3D items={items} autoplay={true} />\n);"
+          }
+        },
+        "nav": {
+          "static": "Mode statique sans traductions :",
+          "dynamic": "Mode dynamique avec traductions :",
+          "props": [
+            {
+              "name": "t",
+              "type": "string",
+              "description": "Clé de traduction",
+              "default": "undefined"
             },
-            "display": {
-              "title": "Affichage",
-              "component": "Carousel3D",
-              "target": "src/components/carousel-3d.tsx"
+            {
+              "name": "render",
+              "type": "string",
+              "description": "Clé pour afficher un tableau ou un objet de liens",
+              "default": "undefined"
             },
-            "features": {
-              "title": "Fonctionnalités",
-              "content": [
-                "Prend en charge la rotation d'images ou de contenu dans un espace 3D.",
-                "Navigation au clavier pour l'accessibilité.",
-                "Option pour mettre en pause la rotation au survol.",
-                "Nombre d'éléments et contenu personnalisables via les props."
-              ]
+            {
+              "name": "root",
+              "type": "number[]",
+              "description": "Indices racine (applicable uniquement si d est un tableau)",
+              "default": "[]"
             },
-            "example-usage": {
-              "title": "Exemple d'Utilisation",
-              "description": "Voici comment utiliser le composant Carousel3D :",
-              "steps": [
-                {
-                  "step-title": "Utilisation de Base",
-                  "step-description": "Importez le composant Carousel3D et utilisez-le pour afficher des images en rotation.",
-                  "step-code": "import Carousel3D from \"@/components/carousel3d\";\n\nconst MyComponent = () => {\n  return (\n    <Carousel3D imgNum={5} stopOnHover={true}>\n      <img src=\"/path/to/image1.jpg\" alt=\"Image 1\" />\n      <img src=\"/path/to/image2.jpg\" alt=\"Image 2\" />\n      <img src=\"/path/to/image3.jpg\" alt=\"Image 3\" />\n    </Carousel3D>\n  );\n};\n\nexport default MyComponent;"
-                }
-              ],
-              "language": "typescript"
+            {
+              "name": "links",
+              "type": "string[] | { [key: string]: string }",
+              "description": "Tableau ou objet de liens directs",
+              "default": "[]"
+            },
+            {
+              "name": "path",
+              "type": "string",
+              "description": "Chemin de base pour les liens non-racine",
+              "default": "''"
+            },
+            {
+              "name": "active",
+              "type": "boolean",
+              "description": "Applique des styles actifs en fonction du chemin actuel",
+              "default": "false"
+            },
+            {
+              "name": "navClass",
+              "type": "string",
+              "description": "Classe personnalisée pour le nav",
+              "default": "''"
+            },
+            {
+              "name": "ulClass",
+              "type": "string",
+              "description": "Classe personnalisée pour le ul",
+              "default": "''"
+            },
+            {
+              "name": "liClass",
+              "type": "string",
+              "description": "Classe personnalisée pour le li",
+              "default": "''"
+            },
+            {
+              "name": "variant",
+              "type": "string",
+              "description": "Variante de lien",
+              "default": "'default'",
+              "options": ["default", "primary", "secondary"]
+            },
+            {
+              "name": "anchorLinks",
+              "type": "boolean",
+              "description": "Utilise des liens d'ancrage si vrai",
+              "default": "false"
+            },
+            {
+              "name": "pos",
+              "type": "string",
+              "description": "Position",
+              "default": "'default'",
+              "options": ["default", "fixed"]
+            },
+            {
+              "name": "dir",
+              "type": "string",
+              "description": "Direction de navigation",
+              "default": "'row'",
+              "options": ["row", "col"]
+            },
+            {
+              "name": "setIsOpen",
+              "type": "function",
+              "description": "Fonction pour définir l'état ouvert",
+              "default": "undefined"
             }
+          ],
+          "variants": {
+            "title": "Variants",
+            "description": "Le composant Nav supporte plusieurs variantes. Voici les variantes actuelles :",
+            "note": "Les variantes sont susceptibles d'évoluer ou d'être plus nombreuses à l'avenir."
+          },
+          "example": {
+            "title": "Exemple",
+            "description": "Voici un rendu du composant Nav :"
           }
         }
       },

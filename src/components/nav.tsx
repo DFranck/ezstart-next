@@ -74,6 +74,7 @@ const linkVariants = cva(
   }
 );
 type NavProps = {
+  main?: boolean; // If true, the nav is the main nav
   t?: string; // Translation key
   render?: string; // Display array or object key
   root?: number[]; // Root indices (only applicable if d is an array)
@@ -91,6 +92,7 @@ type NavProps = {
 };
 
 const Nav = ({
+  main = true,
   t,
   render,
   root = [],
@@ -121,7 +123,7 @@ const Nav = ({
     <>
       <nav
         className={cn(navVariants({ dir }), "w-full lg:w-fit", navClass)}
-        aria-label="Main navigation"
+        aria-label={main ? "Main navigation" : "Secondary navigation"}
       >
         <ul className={cn(ulVariants({ dir, pos }), ulClass)}>
           {linkList.map((link, index) => {

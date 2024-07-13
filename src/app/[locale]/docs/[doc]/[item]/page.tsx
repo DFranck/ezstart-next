@@ -1,105 +1,122 @@
 "use client";
-import Carousel3D from "@/components/carousel-3d";
 import CodeBlock from "@/components/code-block";
 import Section from "@/components/layout/section";
+import Nav from "@/components/nav";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
+
 const componentMap: { [key: string]: React.ComponentType } = {
-  Carousel3D,
-  // Ajoutez d'autres composants ici
+  Nav,
+  // Ajoutez d'autres composants ici si nécessaire
 };
 
-const ItemPage = ({ params }: { params: { doc: string; item: string } }) => {
-  const t = useTranslations(`pages.docs.${params.doc}.items.${params.item}`);
-  const t2 = useTranslations("app.common");
-  const doc = params.doc;
-  if (doc !== "components") {
+const normalizeComponentName = (name: string) => {
+  return name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+};
+
+const ItemPage = ({
+  params: { doc, item },
+}: {
+  params: { doc: string; item: string };
+}) => {
+  const t = useTranslations("pages.docs.components");
+  const normalizedItem = normalizeComponentName(item);
+  const Component = componentMap[normalizedItem];
+  let propTypes;
+
+  try {
+    propTypes = t(`${item}.props`, { returnObjects: true });
+    if (!Array.isArray(propTypes)) {
+      throw new Error("propTypes is not an array");
+    }
+  } catch (error) {
+    console.error("Error fetching propTypes:", error);
+  }
+
+  if (!Component || !Array.isArray(propTypes)) {
     return (
       <Section className="absolute bg-background w-full h-full top-0 left-0 z-10 gap-10">
-        <p>
-          {t2("sorry")} {t2("not-found")}
-        </p>
+        <p>Désolé, le composant demandé n'existe pas.</p>
         <Link href="/" className="hover:underline">
-          {t2("go-back")}
+          Retour à l'accueil
         </Link>
       </Section>
     );
   }
-  const features = t.raw("features.content") as string[];
-  const files = t.raw("files.code-links") as Record<string, string>;
-  const exampleUsageSteps = t.raw("example-usage.steps") as {
-    "step-title": string;
-    "step-description": string;
-    "step-code"?: string;
-  }[];
-  const displayComponentName = t.raw("display.component") as string;
-  const renderComponent = (componentName: string | undefined) => {
-    if (!componentName || !componentMap[componentName]) {
-      return null;
-    }
-
-    const Component = componentMap[componentName];
-    return <Component />;
-  };
 
   return (
     <>
-      <h1>{t("title")}</h1>
-      <p>{t("description")}</p>
-      <Section className="py-0">
-        <h2>{t("files.title")}</h2>
-        {/* <p>{t("files.description")}</p> */}
-        <ul className="list-disc pl-6 self-start">
-          {Object.entries(files).map(([fileName, fileLink]) => (
-            <li key={fileName} className="mb-2">
-              <a
-                href={fileLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-500 hover:underline"
-              >
-                {fileName}
-              </a>
-            </li>
-          ))}
-        </ul>
+      <Section>
+        <h1>{t("item-title", { item: normalizedItem })}</h1>
+        <p>{t("item-description", { item: normalizedItem })}</p>
       </Section>
 
-      <Section className="py-0">
-        <h2>{t("features.title")}</h2>
-        <ul className="list-disc pl-6 self-start">
-          {features.map((feature, index) => (
-            <li
-              key={index}
-              dangerouslySetInnerHTML={{ __html: feature }}
-              className="mb-2"
-            />
-          ))}
+      <Section>
+        <h2>{t("usage")}</h2>
+        <p>{t("usage-description", { item: normalizedItem })}</p>
+        <h3>{t("nav.static")}</h3>
+        <CodeBlock
+          src={`// static mode`}
+          code={`import ${normalizedItem} from '@/components/${normalizedItem}';\n\nconst App = () => (\n  <${normalizedItem} links={['Home', 'About', 'Contact']} />\n);`}
+        />
+        <h3>{t("nav.dynamic")}</h3>
+        <CodeBlock
+          src={`// en.json`}
+          code={`{
+            "nav": {
+              "links": ["Home", "About", "Contact"]
+            }
+          }`}
+        />
+        <CodeBlock
+          src={`// dynamic mode`}
+          code={`import ${normalizedItem} from '@/components/${normalizedItem}';\n\nconst App = () => (\n  <${normalizedItem} t="nav" render="links" />\n);`}
+        />
+      </Section>
+      <Section>
+        <h2 className="mb-10">{t("props-title")}</h2>
+        <table className="min-w-full bg-card border shadow text-card-foreground rounded">
+          <thead>
+            <tr>
+              <th className="py-2 px-4 border-b">Prop</th>
+              <th className="py-2 px-4 border-b">Type</th>
+              <th className="py-2 px-4 border-b">Description</th>
+              <th className="py-2 px-4 border-b">{t("default")}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {propTypes.map((prop: any) => (
+              <tr key={prop.name}>
+                <td className="py-2 px-4 border-b">{prop.name}</td>
+                <td className="py-2 px-4 border-b">{prop.type}</td>
+                <td className="py-2 px-4 border-b">{prop.description}</td>
+                <td className="py-2 px-4 border-b">{prop.default}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </Section>
+      <Section>
+        <h2>{t("variants.title")}</h2>
+        <p>{t("variants.description")}</p>
+        <ul>
+          {propTypes
+            .filter((prop: any) => prop.options)
+            .map((prop: any) => (
+              <li key={prop.name}>
+                <strong>{prop.name}</strong> : {prop.options.join(", ")}
+              </li>
+            ))}
         </ul>
+        <p>{t("variants.note")}</p>
       </Section>
-
-      <Section className="py-0">
-        <h2>{t("example-usage.title")}</h2>
-        <p>{t("example-usage.description")}</p>
-        <ol className="list-none lg:list-decimal lg:pl-6">
-          {exampleUsageSteps.map((step, index) => (
-            <li key={index} className="mb-4">
-              <h3 className="font-semibold mb-2">{step["step-title"]}</h3>
-              <p
-                className="mb-2"
-                dangerouslySetInnerHTML={{ __html: step["step-description"] }}
-              />
-              {step["step-code"] && <CodeBlock code={step["step-code"]} />}
-            </li>
-          ))}
-        </ol>
+      <Section>
+        <h2>{t("example.title")}</h2>
+        <p>{t("example.description")}</p>
+        <div className="border p-4">
+          <Component links={["Home", "About", "Contact"]} />
+        </div>
       </Section>
-      {displayComponentName && (
-        <Section className="py-0">
-          <h2>{t("display.title")}</h2>
-          {renderComponent(displayComponentName)}
-        </Section>
-      )}
     </>
   );
 };

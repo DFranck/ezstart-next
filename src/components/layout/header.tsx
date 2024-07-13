@@ -1,7 +1,7 @@
 "use client";
 import Burger from "@/components/burger";
-import Nav from "@/components/layout/nav";
 import UserMenu from "@/components/layout/user-menu";
+import Nav from "@/components/nav";
 import LocaleSwitcher from "@/features/internationalization/locale-switcher";
 import { ThemeSwitcher } from "@/features/theme/theme-switcher";
 import useOnScroll from "@/hooks/useOnScroll";

@@ -252,122 +252,71 @@
       },
       "components": {
         "title": "Components",
-        "description": "Components specialized for include dynamique translations, responsive design, and more.",
-        "items": {
-          "nav": {
-            "title": "Navigation",
-            "description": "A versatile navigation component for developers, designed to handle dynamic links and paths effortlessly. It supports translation, dynamic paths, and different layouts for various navigation needs.",
-            "files": {
-              "title": "Files concerned",
-              "description": "The following file will be concerned:",
-              "code-links": {
-                "src/components/layout/nav.tsx": "https://github.com/DFranck/my-ez-start/blob/master/src/components/layout/nav.tsx"
-              }
-            },
-            "display": {
-              "title": "Display",
-              "component": "",
-              "target": ""
-            },
-            "features": {
-              "title": "Features",
-              "content": [
-                "Supports dynamic link generation based on translation keys or direct links array/object.",
-                "Responsive design with different layouts (row and column) for various screen sizes.",
-                "Automatic active link highlighting based on the current pathname.",
-                "Customizable through various props including custom classes, variants, and direction (row or column)."
-              ]
-            },
-            "example-usage": {
-              "title": "Example Usage",
-              "description": "Here's how to use the Nav component:",
-              "steps": [
-                {
-                  "step-title": "Basic Usage",
-                  "step-description": "Import the Nav component and use it in your layout.",
-                  "step-code": "import Nav from \"@/components/layout/nav\";\n\nconst MyLayout = () => {\n  return (\n    <div>\n      <Nav \n        t=\"pages.docs\" \n        render=\"nav-links\" \n        path=\"docs\" \n        active \n        variant=\"primary\" \n        dir=\"col\" \n        pos=\"fixed\" \n        navClass=\"my-custom-nav-class\" \n        ulClass=\"my-custom-ul-class\" \n        liClass=\"my-custom-li-class\" \n      />\n    </div>\n  );\n};\n\nexport default MyLayout;"
-                },
-                {
-                  "step-title": "Using Direct Links",
-                  "step-description": "You can also provide direct links instead of using translation keys.",
-                  "step-code": "import Nav from \"@/components/layout/nav\";\n\nconst MyLayout = () => {\n  const links = [\"Home\", \"About\", \"Contact\"];\n  return (\n    <div>\n      <Nav \n        links={links} \n        path=\"\" \n        active \n        variant=\"primary\" \n        dir=\"row\" \n        pos=\"default\" \n        navClass=\"my-custom-nav-class\" \n        ulClass=\"my-custom-ul-class\" \n        liClass=\"my-custom-li-class\" \n      />\n    </div>\n  );\n};\n\nexport default MyLayout;"
-                }
-              ],
-              "language": "typescript"
-            }
+        "description": "Here is a list of this special boilerplate components using dynamique translation, responsive and more features",
+        "not-found": "Sorry, we couldn't find the component you were looking for.",
+        "go-back": "Back to Home",
+        "carousel-3d": {
+          "title": "3D Carousel Component",
+          "description": "The 3D Carousel component is used to display items in a 3D carousel.",
+          "usage": {
+            "title": "Usage",
+            "description": "Here is how to use the 3D Carousel component.",
+            "code": "import Carousel3D from '@/components/carousel-3d';\n\nconst App = () => (\n  <Carousel3D />\n);"
           },
-          "section": {
-            "title": "Section",
-            "description": "A flexible section component for wrapping content with optional background image and additional styling.",
-            "files": {
-              "title": "Files concerned",
-              "description": "The following file will be concerned:",
-              "code-links": {
-                "src/components/layout/section.tsx": "https://github.com/DFranck/my-ez-start/blob/master/src/components/layout/section.tsx"
+          "props": {
+            "title": "Properties (Props)",
+            "items": [
+              {
+                "name": "items",
+                "type": "array",
+                "description": "List of items to display in the carousel.",
+                "default": "[]"
+              },
+              {
+                "name": "autoplay",
+                "type": "boolean",
+                "description": "Whether the carousel should autoplay.",
+                "default": "false"
               }
-            },
-            "features": {
-              "title": "Features",
-              "content": [
-                "Allows wrapping of content with additional styling and layout options.",
-                "Supports background images with customizable size, repeat, and position.",
-                "Optional id for linking to specific sections within a page."
-              ]
-            },
-            "example-usage": {
-              "title": "Example Usage",
-              "description": "Here's how to use the Section component:",
-              "steps": [
-                {
-                  "step-title": "Basic Usage",
-                  "step-description": "Import the Section component and use it to wrap your content.",
-                  "step-code": "import Section from \"@/components/layout/section\";\n\nconst MyComponent = () => {\n  return (\n    <Section className=\"my-custom-class\" id=\"my-section\">\n      <h1>My Section</h1>\n      <p>This is a section with custom styling.</p>\n    </Section>\n  );\n};\n\nexport default MyComponent;"
-                },
-                {
-                  "step-title": "Using Background Image",
-                  "step-description": "You can also provide a background image to the Section component.",
-                  "step-code": "import Section from \"@/components/layout/section\";\n\nconst MyComponent = () => {\n  return (\n    <Section bgImg=\"/path/to/image.jpg\" className=\"my-custom-class\" id=\"my-section\">\n      <h1>My Section</h1>\n      <p>This is a section with a background image.</p>\n    </Section>\n  );\n};\n\nexport default MyComponent;"
-                }
-              ],
-              "language": "typescript"
-            }
+            ],
+            "noProps": "No properties available."
           },
-          "carousel3d": {
-            "title": "3D Carousel",
-            "description": "A 3D Carousel component that displays rotating images or content in a 3D space. Supports keyboard navigation and pausing on hover.",
-            "files": {
-              "title": "Files concerned",
-              "description": "The following file will be concerned:",
-              "code-links": {
-                "src/components/carousel3d.tsx": "https://github.com/DFranck/my-ez-start/blob/master/src/components/carousel3d.tsx"
-              }
-            },
-            "display": {
-              "title": "Display",
-              "component": "Carousel3D",
-              "target": "src/components/carousel-3d.tsx"
-            },
-            "features": {
-              "title": "Features",
-              "content": [
-                "Supports rotating images or content in a 3D space.",
-                "Keyboard navigation for accessibility.",
-                "Option to pause rotation on hover.",
-                "Customizable number of items and content via props."
-              ]
-            },
-            "example-usage": {
-              "title": "Example Usage",
-              "description": "Here's how to use the Carousel3D component:",
-              "steps": [
-                {
-                  "step-title": "Basic Usage",
-                  "step-description": "Import the Carousel3D component and use it to display rotating images.",
-                  "step-code": "import Carousel3D from \"@/components/carousel3d\";\n\nconst MyComponent = () => {\n  return (\n    <Carousel3D imgNum={5} stopOnHover={true}>\n      <img src=\"/path/to/image1.jpg\" alt=\"Image 1\" />\n      <img src=\"/path/to/image2.jpg\" alt=\"Image 2\" />\n      <img src=\"/path/to/image3.jpg\" alt=\"Image 3\" />\n    </Carousel3D>\n  );\n};\n\nexport default MyComponent;"
-                }
-              ],
-              "language": "typescript"
-            }
+          "styles": {
+            "title": "Styles and Variants",
+            "description": "The 3D Carousel component supports multiple styles and variants.",
+            "code": ".carousel-3d {\n  display: flex;\n  flex-direction: row;\n}"
+          },
+          "examples": {
+            "title": "Complete Examples",
+            "description": "Here is a complete example of using the 3D Carousel component.",
+            "code": "import Carousel3D from '@/components/carousel-3d';\n\nconst items = ['Item 1', 'Item 2', 'Item 3'];\n\nconst App = () => (\n  <Carousel3D items={items} autoplay={true} />\n);"
+          }
+        },
+        "nav": {
+          "title": "Nav Component",
+          "description": "The Nav component is used for the main navigation in the application.",
+          "usage": {
+            "title": "Usage",
+            "description": "Here is how to use the Nav component.",
+            "code": "import Nav from '@/components/Nav';\n\nconst App = () => (\n  <Nav links={['Home', 'About', 'Contact']} />\n);"
+          },
+          "props": {
+            "title": "Properties (Props)",
+            "items": "name:type:description:default;name:type:description:default;..."
+          },
+          "styles": {
+            "title": "Styles and Variants",
+            "description": "The Nav component supports multiple styles and variants.",
+            "code": ".nav {\\n  display: flex;\\n  flex-direction: row;\\n}"
+          },
+          "examples": {
+            "title": "Complete Examples",
+            "description": "Here is a complete example of using the Nav component.",
+            "code": "import Nav from '@/components/Nav';\\n\\nconst links = ['Home', 'About', 'Contact'];\\n\\nconst App = () => (\\n  <Nav links={links} dir='col' />\\n);"
+          },
+          "sandbox": {
+            "title": "Sandbox",
+            "description": "Try the Nav component below by modifying its properties."
           }
         }
       },
