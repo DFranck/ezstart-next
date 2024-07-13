@@ -13,10 +13,7 @@ const StackSvg = ({
   if (!background) background = "background";
   return (
     <div
-      className={cn(
-        "rounded p-2 aspect-square border shadow w-16 h-16",
-        className
-      )}
+      className={cn("rounded p-2 aspect-square w-10 h-10", className)}
       style={{ backgroundColor: `hsl(var(--${background}))` }}
     >
       <svg

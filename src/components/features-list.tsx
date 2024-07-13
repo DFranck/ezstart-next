@@ -20,7 +20,13 @@ import React from "react";
 import PaymentSvg from "./svgs/payment-svg";
 import StripeSvg from "./svgs/stripe-svg";
 
-const svgComponents: { [key: string]: React.FC<{ className?: string }> } = {
+const svgComponents: {
+  [key: string]: React.FC<{
+    className?: string;
+    background?: string;
+    fill?: string;
+  }>;
+} = {
   AuthSvg,
   NextIntl,
   NextSvg,
@@ -64,7 +70,13 @@ const FeaturesList = () => {
                 >
                   <GlareCard className="p-4">
                     <div className="flex justify-between">
-                      {SvgComponent && <SvgComponent className={"h-12 w-12"} />}
+                      {SvgComponent && (
+                        <SvgComponent
+                          className={"h-12 w-12 shadow"}
+                          background="primary"
+                          fill="background"
+                        />
+                      )}
                       {feature.link === "payment" && (
                         <TrafficCone
                           className="h-12 w-12 bg-orange-400 rounded text-foreground"

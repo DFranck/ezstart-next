@@ -244,7 +244,7 @@
             "steps": "npm run dev"
           },
           "enjoy": {
-            "title": "Bon développement!",
+            "title": "Bon codage !",
             "description": "Vous pouvez maintenant profiter de votre application ou consulter la documentation de cette boilerplate."
           }
         }
@@ -255,7 +255,7 @@
         "ui-components-title": "Composants UI",
         "ui-components-subtitle": "Améliorez l'expérience utilisateur avec ces éléments interactifs.",
         "icon-components-title": "Composants SVG",
-        "icon-components-subtitle": "Outils de représentation visuelle pour une meilleure interface.",
+        "icon-components-subtitle": "3 props: className, fill & background. Amusez-vous.",
         "title": "Composants",
         "description": "Voici une liste de ces composants passe-partout spéciaux utilisant la traduction dynamique, Résponsive et plus de fonctionnalités",
         "not-found": "Désolé, le composant demandé n'existe pas.",

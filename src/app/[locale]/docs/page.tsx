@@ -16,7 +16,7 @@ const DocsPage = () => {
   const cardStyle =
     "bg-card text-card-foreground list-disc p-4 gap-2 pl-6 rounded border shadow flex flex-col flex-grow";
   const cardTitleStyle = "text-center text-xl font-semibold mb-2";
-  const liStyle = "flex gap-2";
+  const liStyle = "flex gap-2 items-center list-none";
 
   return (
     <>
@@ -33,13 +33,13 @@ const DocsPage = () => {
               {t("sections.primary-dependencies.framework")}
             </h3>
             <li className={liStyle}>
-              <NextSvg className="w-6" />
+              <NextSvg />
               <Link href="https://nextjs.org/docs" target="_blank">
                 Next.js
               </Link>
             </li>
             <li className={liStyle}>
-              <ReactSvg className="w-6" />
+              <ReactSvg />
               <Link href="https://react.dev/" target="_blank">
                 React
               </Link>
@@ -50,7 +50,7 @@ const DocsPage = () => {
               {t("sections.primary-dependencies.orm")}
             </h3>
             <li className={liStyle}>
-              <PrismaSvg className="w-6" />
+              <PrismaSvg />
               <Link href="https://www.prisma.io/docs/" target="_blank">
                 Prisma
               </Link>
@@ -61,7 +61,7 @@ const DocsPage = () => {
               {t("sections.primary-dependencies.authentication")}
             </h3>
             <li className={liStyle}>
-              <AuthSvg className="w-6" />
+              <AuthSvg />
               <Link href="https://authjs.dev/" target="_blank">
                 Auth.js
               </Link>
@@ -72,13 +72,13 @@ const DocsPage = () => {
               {t("sections.primary-dependencies.styling")}
             </h3>
             <li className={liStyle}>
-              <TailwindSvg className="w-6" />
+              <TailwindSvg />
               <Link href="https://tailwindcss.com/docs" target="_blank">
                 Tailwind CSS
               </Link>
             </li>
             <li className={liStyle}>
-              <NextSvg className="w-6" />
+              <NextSvg />
               <Link
                 href="https://github.com/pacocoursey/next-themes"
                 target="_blank"
@@ -92,13 +92,13 @@ const DocsPage = () => {
               {t("sections.primary-dependencies.forms")}
             </h3>
             <li className={liStyle}>
-              <ReactHookFormSvg className="w-6" />
+              <ReactHookFormSvg />
               <Link href="https://react-hook-form.com/" target="_blank">
                 React Hook Form
               </Link>
             </li>
             <li className={liStyle}>
-              <ZodSvg className="w-6" />
+              <ZodSvg />
               <Link href="https://zod.dev/" target="_blank">
                 Zod
               </Link>
@@ -109,7 +109,7 @@ const DocsPage = () => {
               {t("sections.primary-dependencies.internationalization")}
             </h3>
             <li className={liStyle}>
-              <NextIntl className="w-6" />
+              <NextIntl />
               <Link href="https://next-intl-docs.vercel.app/" target="_blank">
                 NextIntl
               </Link>
