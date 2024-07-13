@@ -252,9 +252,20 @@
       },
       "components": {
         "title": "Components",
-        "description": "Here is a list of this special boilerplate components using dynamique translation, responsive and more features",
-        "not-found": "Sorry, we couldn't find the component you were looking for.",
-        "go-back": "Back to Home",
+        "description": "Here is a list of these versatile special components using dynamic translation, Responsive and more features",
+        "not-found": "Sorry, the requested component does not exist.",
+        "go-back": "Back to home",
+        "item-title": "Component {item}",
+        "item-description": "The {item} component is used for the main navigation in the application.",
+        "usage-title": "Usage",
+        "usage-description": "Here is how to use the {item} component.",
+        "props-title": "Props",
+        "variants-title": "Variants",
+        "variants-description": "The {item} component supports multiple variants. Here are the current variants:",
+        "variant-note": "The variants are likely to evolve or increase in number in the future.",
+        "default": "Default",
+        "example-title": "Example",
+        "example-description": "Here is a rendering of the Nav component:",
         "carousel-3d": {
           "title": "3D Carousel Component",
           "description": "The 3D Carousel component is used to display items in a 3D carousel.",
@@ -275,11 +286,11 @@
               {
                 "name": "autoplay",
                 "type": "boolean",
-                "description": "Whether the carousel should autoplay.",
+                "description": "Specifies whether the carousel should autoplay.",
                 "default": "false"
               }
             ],
-            "noProps": "No properties available."
+            "noProps": "No available properties."
           },
           "styles": {
             "title": "Styles and Variants",
@@ -288,36 +299,102 @@
           },
           "examples": {
             "title": "Complete Examples",
-            "description": "Here is a complete example of using the 3D Carousel component.",
+            "description": "Here is a complete example of how to use the 3D Carousel component.",
             "code": "import Carousel3D from '@/components/carousel-3d';\n\nconst items = ['Item 1', 'Item 2', 'Item 3'];\n\nconst App = () => (\n  <Carousel3D items={items} autoplay={true} />\n);"
           }
         },
         "nav": {
-          "title": "Nav Component",
-          "description": "The Nav component is used for the main navigation in the application.",
-          "usage": {
-            "title": "Usage",
-            "description": "Here is how to use the Nav component.",
-            "code": "import Nav from '@/components/Nav';\n\nconst App = () => (\n  <Nav links={['Home', 'About', 'Contact']} />\n);"
-          },
-          "props": {
-            "title": "Properties (Props)",
-            "items": "name:type:description:default;name:type:description:default;..."
-          },
-          "styles": {
-            "title": "Styles and Variants",
-            "description": "The Nav component supports multiple styles and variants.",
-            "code": ".nav {\\n  display: flex;\\n  flex-direction: row;\\n}"
-          },
-          "examples": {
-            "title": "Complete Examples",
-            "description": "Here is a complete example of using the Nav component.",
-            "code": "import Nav from '@/components/Nav';\\n\\nconst links = ['Home', 'About', 'Contact'];\\n\\nconst App = () => (\\n  <Nav links={links} dir='col' />\\n);"
-          },
-          "sandbox": {
-            "title": "Sandbox",
-            "description": "Try the Nav component below by modifying its properties."
-          }
+          "static": "Static mode without translations:",
+          "dynamic": "Dynamic mode with translations:",
+          "props": [
+            {
+              "name": "t",
+              "type": "string",
+              "description": "Translation key",
+              "default": "undefined"
+            },
+            {
+              "name": "render",
+              "type": "string",
+              "description": "Key to display an array or object of links",
+              "default": "undefined"
+            },
+            {
+              "name": "root",
+              "type": "number[]",
+              "description": "Root indices (only applicable if d is an array)",
+              "default": "[]"
+            },
+            {
+              "name": "links",
+              "type": "string[] | { [key: string]: string }",
+              "description": "Array or object of direct links",
+              "default": "[]"
+            },
+            {
+              "name": "path",
+              "type": "string",
+              "description": "Base path for non-root links",
+              "default": "''"
+            },
+            {
+              "name": "active",
+              "type": "boolean",
+              "description": "Applies active styles based on the current path",
+              "default": "false"
+            },
+            {
+              "name": "navClass",
+              "type": "string",
+              "description": "Custom class for the nav",
+              "default": "''"
+            },
+            {
+              "name": "ulClass",
+              "type": "string",
+              "description": "Custom class for the ul",
+              "default": "''"
+            },
+            {
+              "name": "liClass",
+              "type": "string",
+              "description": "Custom class for the li",
+              "default": "''"
+            },
+            {
+              "name": "variant",
+              "type": "string",
+              "description": "Link variant",
+              "default": "'default'",
+              "options": ["default", "primary", "secondary"]
+            },
+            {
+              "name": "anchorLinks",
+              "type": "boolean",
+              "description": "Uses anchor links if true",
+              "default": "false"
+            },
+            {
+              "name": "pos",
+              "type": "string",
+              "description": "Position",
+              "default": "'default'",
+              "options": ["default", "fixed"]
+            },
+            {
+              "name": "dir",
+              "type": "string",
+              "description": "Navigation direction",
+              "default": "'row'",
+              "options": ["row", "col"]
+            },
+            {
+              "name": "setIsOpen",
+              "type": "function",
+              "description": "Function to set the open state",
+              "default": "undefined"
+            }
+          ]
         }
       },
       "internationalization": {

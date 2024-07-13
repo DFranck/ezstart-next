@@ -25,7 +25,7 @@ const ItemPage = ({
   let propTypes;
 
   try {
-    propTypes = t(`${item}.props`, { returnObjects: true });
+    propTypes = t.raw(`${item}.props`);
     if (!Array.isArray(propTypes)) {
       throw new Error("propTypes is not an array");
     }
@@ -36,9 +36,9 @@ const ItemPage = ({
   if (!Component || !Array.isArray(propTypes)) {
     return (
       <Section className="absolute bg-background w-full h-full top-0 left-0 z-10 gap-10">
-        <p>Désolé, le composant demandé n'existe pas.</p>
+        <p>{t("not-found", { item: normalizedItem })}</p>
         <Link href="/" className="hover:underline">
-          Retour à l'accueil
+          {t("go-back")}
         </Link>
       </Section>
     );
@@ -52,7 +52,7 @@ const ItemPage = ({
       </Section>
 
       <Section>
-        <h2>{t("usage")}</h2>
+        <h2>{t("usage-title")}</h2>
         <p>{t("usage-description", { item: normalizedItem })}</p>
         <h3>{t("nav.static")}</h3>
         <CodeBlock
@@ -97,8 +97,8 @@ const ItemPage = ({
         </table>
       </Section>
       <Section>
-        <h2>{t("variants.title")}</h2>
-        <p>{t("variants.description")}</p>
+        <h2>{t("variants-title")}</h2>
+        <p>{t("variants-description", { item: normalizedItem })}</p>
         <ul>
           {propTypes
             .filter((prop: any) => prop.options)
@@ -108,11 +108,11 @@ const ItemPage = ({
               </li>
             ))}
         </ul>
-        <p>{t("variants.note")}</p>
+        <p>{t("variant-note")}</p>
       </Section>
       <Section>
-        <h2>{t("example.title")}</h2>
-        <p>{t("example.description")}</p>
+        <h2>{t("exemple-title")}</h2>
+        <p>{t("exemple-description")}</p>
         <div className="border p-4">
           <Component links={["Home", "About", "Contact"]} />
         </div>

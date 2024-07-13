@@ -256,10 +256,15 @@
         "go-back": "Retour à l'accueil",
         "item-title": "Composant {item}",
         "item-description": "Le composant {item} est utilisé pour la navigation principale dans l'application.",
-        "usage": "Utilisation",
+        "usage-title": "Utilisation",
         "usage-description": "Voici comment utiliser le composant {item}.",
         "props-title": "Props",
+        "variants-title": "Variants",
+        "variants-description": "Le composant {item} supporte plusieurs variantes. Voici les variantes actuelles :",
+        "variant-note": "Les variantes sont susceptible d'évoluer ou d'étre plus nombreuses à l'avenir.",
         "default": "Défaut",
+        "exemple-title": "Exemple",
+        "exemple-description": "Voici un rendu du composant Nav :",
         "carousel-3d": {
           "title": "Composant Carousel 3D",
           "description": "Le composant Carousel 3D est utilisé pour afficher des éléments dans un carrousel en 3D.",
@@ -388,16 +393,7 @@
               "description": "Fonction pour définir l'état ouvert",
               "default": "undefined"
             }
-          ],
-          "variants": {
-            "title": "Variants",
-            "description": "Le composant Nav supporte plusieurs variantes. Voici les variantes actuelles :",
-            "note": "Les variantes sont susceptibles d'évoluer ou d'être plus nombreuses à l'avenir."
-          },
-          "example": {
-            "title": "Exemple",
-            "description": "Voici un rendu du composant Nav :"
-          }
+          ]
         }
       },
       "internationalization": {
