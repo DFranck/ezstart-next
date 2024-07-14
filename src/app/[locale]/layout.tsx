@@ -18,6 +18,11 @@ export async function generateMetadata({ params: { locale } }: any) {
   return {
     title: metaTitle,
     description: metaDescription,
+    openGraph: {
+      title: metaTitle,
+      description: metaDescription,
+      url: "https://ez-start.vercel.app/en",
+    },
   };
 }
 export default async function RootLayout({
