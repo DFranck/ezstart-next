@@ -22,6 +22,14 @@ export async function generateMetadata({ params: { locale } }: any) {
       title: metaTitle,
       description: metaDescription,
       url: "https://ez-start.vercel.app/en",
+      images: [
+        {
+          url: "https://ez-start.vercel.app/og.png",
+          width: 1200,
+          height: 630,
+          alt: "EzStart",
+        },
+      ],
     },
   };
 }
