@@ -31,7 +31,7 @@ const ForgotForm = () => {
   const locale = useLocale();
   const tForm = useTranslations("app.auth.forms.forgot-form");
   const tAuth = useTranslations("app.auth");
-  const err = useTranslations("Errors");
+  const err = useTranslations("app.errors");
   const formStyle =
     "bg-accent border shadow rounded-md p-4 flex flex-col gap-4 max-w-[400px] mx-auto";
   const onSubmit: SubmitHandler<z.infer<typeof emailSchema>> = async (data) => {

@@ -23,7 +23,7 @@ const VerifyCodeForm = () => {
   const [isFetching, setIsFetching] = useState(false);
   const locale = useLocale();
   const tForm = useTranslations("app.auth.forms.verify-code-form");
-  const err = useTranslations("Errors");
+  const err = useTranslations("app.errors");
   const router = useRouter();
 
   const codeForm = useForm<z.infer<typeof resetCodeSchema>>({

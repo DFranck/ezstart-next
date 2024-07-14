@@ -24,7 +24,7 @@ const ResetPasswordForm = () => {
   const t = useTranslations("App.Auth.SignInForm");
   const tForm = useTranslations("app.auth.forms.reset-password-form");
   const tAuth = useTranslations("app.auth");
-  const err = useTranslations("Errors");
+  const err = useTranslations("app.errors");
   const router = useRouter();
   const searchParams = useSearchParams();
   const resetCode = searchParams.get("code");

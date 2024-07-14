@@ -23,7 +23,8 @@
       "userExists": "User already exists.",
       "configuration": "Incorrect email or password.",
       "notfound": "User not found.",
-      "passwordsdonotmatch": "Passwords do not match."
+      "passwordsdonotmatch": "Passwords do not match.",
+      "codeRequired": "Code seems to be incorrect."
     },
     "auth": {
       "sign-in": "Sign In",

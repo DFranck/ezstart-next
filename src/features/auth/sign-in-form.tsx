@@ -1,9 +1,6 @@
 "use client";
 import ErrorForm from "@/components/errorForm";
 import PasswordInput from "@/components/passwordInput";
-import GithubSvg from "@/components/svgs/github-svg";
-import GoogleSvg from "@/components/svgs/google-svg";
-import { Button } from "@/components/ui/button";
 import {
   FormControl,
   FormField,
@@ -21,6 +18,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import { z } from "zod";
+import OAuthButtons from "./oauth-buttons";
 
 const SignInForm = () => {
   const [error, setError] = useState<string | null>(null);
@@ -36,7 +34,7 @@ const SignInForm = () => {
   const locale = useLocale();
   const tForm = useTranslations("app.auth.forms.sign-in-form");
   const tAuth = useTranslations("app.auth");
-  const err = useTranslations("Errors");
+  const err = useTranslations("app.errors");
   const formStyle =
     "bg-accent border shadow rounded-md p-4 flex flex-col gap-4 max-w-[400px] w-full mx-auto";
   const onSubmit: SubmitHandler<z.infer<typeof signInSchema>> = async (
@@ -55,6 +53,7 @@ const SignInForm = () => {
     } else {
       const updatedSession = await getSession();
       setIsFetching(false);
+      router.push(`/${locale}`);
       if (updatedSession?.user.role === "admin") {
         router.push(`/${locale}/dashboard`);
       } else {
@@ -74,22 +73,7 @@ const SignInForm = () => {
             {tForm("subtitle")}
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 justify-center gap-2 text-center w-full">
-          <Button
-            className="border shadow rounded p-1 bg-white hover:bg-white/80"
-            type="button"
-            onClick={() => signIn("google")}
-          >
-            <GoogleSvg className="w-8" background="transparent" />
-          </Button>
-          <Button
-            className="border shadow rounded p-1 bg-black hover:bg-black/80 dark:hover:bg-black/60"
-            type="button"
-            onClick={() => signIn("github")}
-          >
-            <GithubSvg className="w-8" background="transparent" />
-          </Button>
-        </div>
+        <OAuthButtons />
         <div className="flex justify-between items-center gap-2 text-muted-foreground text-xs mt-2">
           <span className="border border-muted-foreground/20 w-full"></span>
           {tAuth("forms.or")}

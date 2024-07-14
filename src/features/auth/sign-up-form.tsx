@@ -1,9 +1,6 @@
 "use client";
 import ErrorForm from "@/components/errorForm";
 import PasswordInput from "@/components/passwordInput";
-import GithubSvg from "@/components/svgs/github-svg";
-import GoogleSvg from "@/components/svgs/google-svg";
-import { Button } from "@/components/ui/button";
 import {
   FormControl,
   FormField,
@@ -14,19 +11,18 @@ import { Input } from "@/components/ui/input";
 import UserAuth from "@/features/auth/user-auth";
 import { signUpSchema } from "@/lib/zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { signIn } from "next-auth/react";
 import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import { z } from "zod";
+import OAuthButtons from "./oauth-buttons";
 
 const SignUpForm = () => {
   const [isFetching, setIsFetching] = useState(false);
   const router = useRouter();
   const locale = useLocale();
-  const t = useTranslations("App.Auth.SignUpForm");
   const tAuth = useTranslations("app.auth");
   const tForm = useTranslations("app.auth.forms.sign-up-form");
 
@@ -85,22 +81,7 @@ const SignUpForm = () => {
             {tForm("subtitle")}
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 justify-center gap-2 text-center w-full">
-          <Button
-            className="border shadow rounded p-1 bg-white hover:bg-white/80"
-            type="button"
-            onClick={() => signIn("google")}
-          >
-            <GoogleSvg className="w-8" background="transparent" />
-          </Button>
-          <Button
-            className="border shadow rounded p-1 bg-black hover:bg-black/80 dark:hover:bg-black/60"
-            type="button"
-            onClick={() => signIn("github")}
-          >
-            <GithubSvg className="w-8" background="transparent" />
-          </Button>
-        </div>
+        <OAuthButtons />
         <div className="flex justify-between items-center gap-2 text-muted-foreground text-xs mt-2">
           <span className="border border-muted-foreground/20 w-full"></span>
           {tAuth("forms.or")}
