@@ -9,6 +9,7 @@ import Link from "next/link";
 import { useState } from "react";
 
 const DocGetStarted = () => {
+  const [isContributeOpen, setIsContributeOpen] = useState(false);
   const t = useTranslations("pages.docs.get-started");
   const t2 = useTranslations("pages.docs");
   const variables = t.raw("sections.setup-env.variables") as Array<{
@@ -23,7 +24,22 @@ const DocGetStarted = () => {
     <>
       <Section id="installation" className="py-0">
         <h2 id="installation">{t("sections.installation.title")}</h2>
-        <CodeBlock src="// bash" code={t("sections.installation.steps")} />
+        <Button
+          variant={"ghost"}
+          onClick={() => setIsContributeOpen(!isContributeOpen)}
+        >
+          {!isContributeOpen
+            ? t("sections.installation.use")
+            : t("sections.installation.contribute")}
+        </Button>
+        {!isContributeOpen ? (
+          <CodeBlock src="// bash" code={t("sections.installation.step-use")} />
+        ) : (
+          <CodeBlock
+            src="// bash"
+            code={t("sections.installation.step-contribute")}
+          />
+        )}
       </Section>
       <Section id="setup-env" className="py-0">
         <h2 id="setup-env">{t("sections.setup-env.title")}</h2>

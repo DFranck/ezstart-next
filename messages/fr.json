@@ -180,6 +180,10 @@
         "sections": {
           "installation": {
             "title": "Installation",
+            "contribute": "Contribuer à EzStart",
+            "use": "Utiliser EzStart",
+            "step-use": "git clone --depth=1 https://github.com/DFranck/my-ez-start.git mon-nom-de-projet\ncd mon-nom-de-projet\nnpm install",
+            "step-contribute": "git clone https://github.com/DFranck/my-ez-start.git\ncd my-ez-start\nnpm install",
             "steps": "git clone https://github.com/DFranck/my-ez-start.git\ncd my-ez-start\nnpm install"
           },
           "setup-env": {
