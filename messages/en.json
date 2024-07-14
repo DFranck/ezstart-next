@@ -197,47 +197,47 @@
               {
                 "name": "AUTH_URL",
                 "description": "The base URL of your authentication service. Typically this is your application's URL.",
-                "link": "http://localhost:3000/fr/docs/authentication/#AUTH_URL"
+                "link": "/docs/authentication/#AUTH_URL"
               },
               {
                 "name": "AUTH_SECRET",
                 "description": "A secret key for encrypting JWT tokens. Generate a random key using crypto or another method.",
-                "link": "http://localhost:3000/fr/docs/authentication/#AUTH_SECRET"
+                "link": "/docs/authentication/#AUTH_SECRET"
               },
               {
                 "name": "AUTH_SALT",
                 "description": "A salt for hashing passwords. Generate a random salt using crypto or another method.",
-                "link": "http://localhost:3000/fr/docs/authentication/#AUTH_SALT"
+                "link": "/docs/authentication/#AUTH_SALT"
               },
               {
                 "name": "GOOGLE_CLIENT_ID",
                 "description": "Your Google OAuth client ID. You can find this in the Google Developer Console.",
-                "link": "http://localhost:3000/fr/docs/authentication/#GOOGLE_CLIENT"
+                "link": "/docs/authentication/#GOOGLE_CLIENT"
               },
               {
                 "name": "GOOGLE_CLIENT_SECRET",
                 "description": "Your Google OAuth client secret. You can find this in the Google Developer Console.",
-                "link": "http://localhost:3000/fr/docs/authentication/#GOOGLE_CLIENT"
+                "link": "/docs/authentication/#GOOGLE_CLIENT"
               },
               {
                 "name": "GITHUB_CLIENT_ID",
                 "description": "Your GitHub OAuth client ID. You can find this in the GitHub Developer settings.",
-                "link": "http://localhost:3000/fr/docs/authentication/#GITHUB_CLIENTL"
+                "link": "/docs/authentication/#GITHUB_CLIENTL"
               },
               {
                 "name": "GITHUB_CLIENT_SECRET",
                 "description": "Your GitHub OAuth client secret. You can find this in the GitHub Developer settings.",
-                "link": "http://localhost:3000/fr/docs/authentication/#GITHUB_CLIENT"
+                "link": "/docs/authentication/#GITHUB_CLIENT"
               },
               {
                 "name": "MAILJET_API_SECRET",
                 "description": "Your Mailjet API secret key. You can find this in the Mailjet account settings.",
-                "link": "http://localhost:3000/fr/docs/authentication/#MAILJET_API"
+                "link": "/docs/authentication/#MAILJET_API"
               },
               {
                 "name": "MAILJET_API_KEY",
                 "description": "Your Mailjet API key. You can find this in the Mailjet account settings.",
-                "link": "http://localhost:3000/fr/docs/authentication/#MAILJET_API"
+                "link": "/docs/authentication/#MAILJET_API"
               }
             ]
           },
