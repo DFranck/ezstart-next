@@ -5,11 +5,31 @@ const withNextIntl = createNextIntlPlugin();
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: [
-      "tailwindcss.com",
-      "w7.pngwing",
-      "lh3.googleusercontent.com",
-      "avatars.githubusercontent.com",
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "w7.pngwing.com",
+        port: "",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "avatars.githubusercontent.com",
+        port: "",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "lh3.googleusercontent.com",
+        port: "",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "tailwindcss.com",
+        port: "",
+        pathname: "/**",
+      },
     ],
   },
 };
