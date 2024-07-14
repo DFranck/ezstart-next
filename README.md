@@ -54,51 +54,7 @@ SEO-friendly.
 
 ## Getting Started
 
-Clone the repository and install the dependencies:
-
-```bash
-git clone --depth=1 https://github.com/DFranck/my-ez-start.git my-project-name
-cd my-project-name
-npm install
-```
-
-To run the project locally in development mode with live reload:
-
-```bash
-npm run dev
-```
-
-Open http://localhost:3000 in your browser to see your project.
-
-## Set up Authentication
-
-Configure NextAuth.js by setting up the necessary environment variables in `.env.local`:
-
-```bash
-NEXTAUTH_URL=http://localhost:3000
-AUTH_SECRET=your_secret_key
-AUTH_SALT=your_salt
-```
-
-This enables a complete authentication system with Next.js: sign-up, sign-in, sign-out, and more.
-
-Complete documentation on NextAuth.js: https://next-auth.js.org/getting-started/introduction
-
-## Set up Database ORM
-
-The project uses Prisma for database management, supporting PostgreSQL, SQLite, and MySQL. By default, it is configured for PostgreSQL in `.env.local`.
-
-```bash
-DATABASE_URL="postgresql://janedoe:janedoe@localhost:5432/janedoe?schema=hello-prisma"
-```
-
-Complete documentation on Prisma: https://www.prisma.io/docs/getting-started/
-
-## Translation (i18n) Setup
-
-The project uses NextIntl for localization. Locale directory already set up with English and French language.
-
-Complete documentation on NextIntl: https://nextIntl.org
+https://my-ez-start.vercel.app/en/docs/get-started
 
 ## Commit Message Format
 
