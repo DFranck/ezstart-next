@@ -12,6 +12,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import UserAuth from "../../features/auth/user-auth";
+import EzStartSvg from "../svgs/ezstart-svg";
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,7 +31,8 @@ export const Header = () => {
     >
       <div className="mx-auto max-w-screen-lg">
         <div className="flex flex-wrap items-center justify-between">
-          <Link href="/">
+          <Link href="/" className="flex items-center">
+            <EzStartSvg background="transparent" />
             <h2 className="flex items-center text-xl font-semibold my-0">
               {t("app-title")}
             </h2>

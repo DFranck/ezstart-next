@@ -4,6 +4,7 @@ import AuthSvg from "@/components/svgs/auth-svg";
 import CodeSvg from "@/components/svgs/code-svg";
 import ComponentSvg from "@/components/svgs/component-svg";
 import DbSvg from "@/components/svgs/db-svg";
+import EzStartSvg from "@/components/svgs/ezstart-svg";
 import GithubSvg from "@/components/svgs/github-svg";
 import GlobalSvg from "@/components/svgs/global-svg";
 import GoogleSvg from "@/components/svgs/google-svg";
@@ -56,6 +57,12 @@ const svgComponents = [
     component: <AuthSvg className={svgClassName} />,
     githubUrl:
       "https://github.com/DFranck/my-ez-start/blob/master/src/components/svgs/auth-svg.tsx",
+  },
+  {
+    name: "EzStartSvg",
+    component: <EzStartSvg className={svgClassName} />,
+    githubUrl:
+      "https://github.com/DFranck/my-ez-start/blob/master/src/components/svgs/ezstart-svg.tsx",
   },
   {
     name: "CodeSvg",
