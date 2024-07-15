@@ -15,9 +15,37 @@ export async function generateMetadata({ params: { locale } }: any) {
     /{meta-title}/g,
     metaTitle
   ) as string;
+
   return {
     title: metaTitle,
     description: metaDescription,
+    openGraph: {
+      title: metaTitle,
+      description: metaDescription,
+      url: `https://ez-start.vercel.app/${locale}`,
+      images: [
+        {
+          url: "https://ez-start.vercel.app/opengraph-image.png",
+          alt: metaTitle,
+          width: 1200,
+          height: 630,
+        },
+      ],
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: metaTitle,
+      description: metaDescription,
+      images: [
+        {
+          url: "https://ez-start.vercel.app/opengraph-image.png",
+          alt: metaTitle,
+          width: 1200,
+          height: 630,
+        },
+      ],
+    },
   };
 }
 export default async function RootLayout({
