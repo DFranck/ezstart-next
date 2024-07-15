@@ -24,9 +24,7 @@ export async function generateMetadata({ params: { locale } }: any) {
       url: "https://ez-start.vercel.app/en",
       images: [
         {
-          url: "https://ez-start.vercel.app/og.png",
-          width: 1200,
-          height: 630,
+          url: `https://ez-start.vercel.app/${locale}/opengraph-image.png`,
           alt: "EzStart",
         },
       ],
