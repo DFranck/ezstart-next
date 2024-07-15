@@ -25,9 +25,12 @@ export async function generateMetadata({ params: { locale } }: any) {
       images: [
         {
           url: `https://ez-start.vercel.app/${locale}/opengraph-image.png`,
-          alt: "EzStart",
+          width: 1200,
+          height: 630,
+          alt: metaTitle,
         },
       ],
+      type: "website",
     },
   };
 }
