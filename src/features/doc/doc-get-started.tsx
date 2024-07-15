@@ -29,8 +29,8 @@ const DocGetStarted = () => {
           onClick={() => setIsContributeOpen(!isContributeOpen)}
         >
           {!isContributeOpen
-            ? t("sections.installation.use")
-            : t("sections.installation.contribute")}
+            ? t("sections.installation.contribute")
+            : t("sections.installation.use")}
         </Button>
         {!isContributeOpen ? (
           <CodeBlock src="// bash" code={t("sections.installation.step-use")} />

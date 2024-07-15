@@ -72,7 +72,7 @@ const FeaturesList = () => {
                     <div className="flex justify-between">
                       {SvgComponent && (
                         <SvgComponent
-                          className={"h-12 w-12 shadow"}
+                          className={"h-12 w-12 shadow dark:text-white"}
                           background="primary"
                           fill="background"
                         />
