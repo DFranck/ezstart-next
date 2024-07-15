@@ -18,20 +18,6 @@ export async function generateMetadata({ params: { locale } }: any) {
   return {
     title: metaTitle,
     description: metaDescription,
-    openGraph: {
-      title: metaTitle,
-      description: metaDescription,
-      url: "https://ez-start.vercel.app/en",
-      images: [
-        {
-          url: `https://ez-start.vercel.app/${locale}/opengraph-image.png`,
-          width: 1200,
-          height: 630,
-          alt: metaTitle,
-        },
-      ],
-      type: "website",
-    },
   };
 }
 export default async function RootLayout({
@@ -42,7 +28,12 @@ export default async function RootLayout({
   params: { locale: string };
 }>) {
   const messages = await getMessages();
-
+  <head>
+    <meta property="og:image" content="<generated>" />
+    <meta property="og:image:type" content="<generated>" />
+    <meta property="og:image:width" content="<generated>" />
+    <meta property="og:image:height" content="<generated>" />
+  </head>;
   return (
     <html lang={locale} suppressHydrationWarning={true} className="h-full">
       <body
