@@ -11,6 +11,7 @@
     "commit": "cz"
   },
   "dependencies": {
+    "@ducanh2912/next-pwa": "^10.2.7",
     "@hookform/resolvers": "^3.6.0",
     "@prisma/client": "^5.15.1",
     "@radix-ui/react-avatar": "^1.1.0",
@@ -37,6 +38,7 @@
     "react-syntax-highlighter": "^15.5.0",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7",
+    "webpack": "^5.93.0",
     "zod": "^3.23.8"
   },
   "devDependencies": {
