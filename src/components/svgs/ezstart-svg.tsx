@@ -49,8 +49,8 @@ const EzStartSvg = ({
             y2="34"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#9F9F9F" />
-            <stop offset="1" stop-color="#393939" />
+            <stop stopColor="#9F9F9F" />
+            <stop offset="1" stopColor="#393939" />
           </linearGradient>
         </defs>
       </svg>
