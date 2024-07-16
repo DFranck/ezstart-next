@@ -43,4 +43,4 @@ const nextConfig = {
   },
 };
 
-export default withNextIntl(withPWA(nextConfig));
+export default withPWA(withNextIntl(nextConfig));
