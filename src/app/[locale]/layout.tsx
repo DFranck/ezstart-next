@@ -8,14 +8,14 @@ import "../globals.css";
 import Provider from "../provider";
 const inter = Inter({ subsets: ["latin"] });
 
-const APP_NAME = "EzStart";
-const APP_DEFAULT_TITLE =
-  "EzStart - The Ultimate Boilerplate for Modern Web Development";
-const APP_TITLE_TEMPLATE = "%s - EzStart";
-const APP_DESCRIPTION =
-  "Jumpstart your web development projects with EzStart, a comprehensive and flexible boilerplate. Built with modern technologies and best practices.";
+import type { Metadata, Viewport } from "next";
 
-export const metadata = {
+const APP_NAME = "PWA App";
+const APP_DEFAULT_TITLE = "My Awesome PWA App";
+const APP_TITLE_TEMPLATE = "%s - PWA App";
+const APP_DESCRIPTION = "Best PWA app in the world!";
+
+export const metadata: Metadata = {
   applicationName: APP_NAME,
   title: {
     default: APP_DEFAULT_TITLE,
@@ -27,6 +27,7 @@ export const metadata = {
     capable: true,
     statusBarStyle: "default",
     title: APP_DEFAULT_TITLE,
+    // startUpImage: [],
   },
   formatDetection: {
     telephone: false,
@@ -48,6 +49,10 @@ export const metadata = {
     },
     description: APP_DESCRIPTION,
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#FFFFFF",
 };
 
 export default async function RootLayout({
