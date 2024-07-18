@@ -58,7 +58,7 @@
     @apply bg-background text-foreground;
   }
   h1 {
-    @apply text-3xl md:text-5xl font-bold mt-8 mb-4  text-center;
+    @apply text-2xl md:text-5xl font-bold mt-8 mb-4  text-center;
   }
   h2 {
     @apply text-2xl font-bold mt-6 mb-2  text-center;

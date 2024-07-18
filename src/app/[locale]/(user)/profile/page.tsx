@@ -1,11 +1,12 @@
 import ComingSoon from "@/components/coming-soon";
-import Section from "@/components/layout/section";
+import UserProfileInfos from "@/components/mobile/user-profile-infos";
 
 const Profile = () => {
   return (
-    <Section>
+    <>
+      <UserProfileInfos />
       <ComingSoon />
-    </Section>
+    </>
   );
 };
 

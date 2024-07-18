@@ -29,7 +29,7 @@ export const Header = () => {
         "p-2 bg-background border-b": scrollY > 0,
       })}
     >
-      <div className="mx-auto max-w-screen-lg">
+      <div className="mx-auto max-w-screen-lg h-fit">
         <div className="flex flex-wrap items-center justify-between">
           <Link href="/" className="flex items-center">
             <EzStartSvg background="transparent" />
@@ -65,8 +65,8 @@ export const Header = () => {
         </div>
         <div
           className={cn(
-            "transition-all duration-500 ease-in-out mt-2 lg:hidden overflow-hidden",
-            { "max-h-0": !isOpen, "max-h-screen": isOpen }
+            "transition-all duration-500 ease-in-out lg:hidden overflow-hidden",
+            { "max-h-0": !isOpen, "max-h-screen mt-2": isOpen }
           )}
         >
           <Nav
