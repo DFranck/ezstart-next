@@ -2,6 +2,7 @@
 import { authMiddleware } from "@/middlewares/auth-middleware";
 import intlMiddleware from "@/middlewares/intl-middleware";
 import { NextRequest, NextResponse } from "next/server";
+import { userAgentMiddleware } from "./middlewares/user-agent-middleware";
 
 export default async function middleware(req: NextRequest) {
   // Ignore manifest.json and similar requests
@@ -20,8 +21,30 @@ export default async function middleware(req: NextRequest) {
   if (authResponse.status !== 200) {
     return authResponse;
   }
+  const userAgentResponse = userAgentMiddleware(req);
 
-  return intlResponse;
+  const response = NextResponse.next({
+    headers: intlResponse.headers,
+  });
+
+  // Add custom headers
+  response.headers.set("x-locale", intlResponse.headers.get("x-locale") || "");
+  response.headers.set(
+    "x-device-type",
+    userAgentResponse.headers.get("x-device-type") || ""
+  );
+
+  // Log for debugging purposes
+  console.log(
+    "Intl middleware response locale: ",
+    intlResponse.headers.get("x-locale")
+  );
+  console.log(
+    "User agent middleware response device type: ",
+    userAgentResponse.headers.get("x-device-type")
+  );
+
+  return response;
 }
 
 export const config = {

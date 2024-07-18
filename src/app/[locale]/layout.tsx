@@ -3,47 +3,56 @@ import Header from "@/components/layout/header";
 import Main from "@/components/layout/main";
 import InstallPromptButton from "@/components/mobile/install-prompt-button";
 import { cn } from "@/lib/utils";
+import { Metadata } from "next";
 import { getMessages } from "next-intl/server";
 import { Inter } from "next/font/google";
-import { Metadata } from "next/types";
+import { headers } from "next/headers";
 import "../globals.css";
 import Provider from "../provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
-  applicationName: "EzStart",
-  title: {
-    default: "EzStart - The Ultimate Boilerplate for Modern Web Development",
-    template: "%s - EzStart",
-  },
-  description: "A comprehensive boilerplate for Next.js projects",
-  manifest: "/manifest.json",
-  openGraph: {
-    type: "website",
-    siteName: "EzStart",
-    title: "EzStart - The Ultimate Boilerplate for Modern Web Development",
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    applicationName: "EzStart",
+    title: {
+      default: "EzStart - The Ultimate Boilerplate for Modern Web Development",
+      template: "%s - EzStart",
+    },
     description: "A comprehensive boilerplate for Next.js projects",
-  },
-  twitter: {
-    card: "summary",
-    title: "EzStart - The Ultimate Boilerplate for Modern Web Development",
-    description: "A comprehensive boilerplate for Next.js projects",
-  },
-};
+    manifest: "/manifest.json",
+    openGraph: {
+      type: "website",
+      siteName: "EzStart",
+      title: "EzStart - The Ultimate Boilerplate for Modern Web Development",
+      description: "A comprehensive boilerplate for Next.js projects",
+    },
+    twitter: {
+      card: "summary",
+      title: "EzStart - The Ultimate Boilerplate for Modern Web Development",
+      description: "A comprehensive boilerplate for Next.js projects",
+    },
+  };
+}
 
-export default async function RootLayout({
-  children,
-  params: { locale },
-}: Readonly<{
+interface RootLayoutProps {
   children: React.ReactNode;
-  params: { locale: string };
-}>) {
+}
+
+export default async function RootLayout({ children }: RootLayoutProps) {
+  const headersList = headers();
+  const locale = headersList.get("x-locale") || "en";
+  const deviceType = headersList.get("x-device-type") || "desktop";
   const messages = await getMessages();
   const socialImage = "https://i.ibb.co/tsk3MLp/opengraph-image-2-1.png";
 
   return (
-    <html lang={locale} suppressHydrationWarning={true} className="h-full">
+    <html
+      lang={locale}
+      data-device-type={deviceType}
+      suppressHydrationWarning={true}
+      className="h-full"
+    >
       <head>
         <meta
           property="og:title"
@@ -81,7 +90,9 @@ export default async function RootLayout({
           <Header />
           <Main>{children}</Main>
           <Footer />
-          <InstallPromptButton />
+          {(deviceType === "mobile" || deviceType === "tablet") && (
+            <InstallPromptButton />
+          )}
         </Provider>
       </body>
     </html>

@@ -40,22 +40,28 @@ export async function authMiddleware(req: NextRequest) {
       authPath.some((path) => pathname.startsWith(path)) ||
       pathname === `/${locale}`
     ) {
+      console.log("Access allowed without authentication"); // Ajout du log
       return NextResponse.next();
     }
+    console.log("Redirecting to sign-in"); // Ajout du log
     return NextResponse.redirect(new URL(`/${locale}/sign-in`, req.url));
   }
   if (authPath.some((path) => pathname.startsWith(path))) {
     if (token.role === "admin") {
+      console.log("Redirecting to dashboard for admin"); // Ajout du log
       return NextResponse.redirect(new URL(`/${locale}/dashboard`, req.url));
     } else {
+      console.log("Redirecting to profile"); // Ajout du log
       return NextResponse.redirect(new URL(`/${locale}/profile`, req.url));
     }
   }
 
   if (adminPath.some((path) => pathname.startsWith(path))) {
     if (token.role !== "admin") {
+      console.log("Redirecting to unauthorized"); // Ajout du log
       return NextResponse.redirect(new URL(`/${locale}/unauthorized`, req.url));
     }
   }
+  console.log("Access allowed");
   return NextResponse.next();
 }
