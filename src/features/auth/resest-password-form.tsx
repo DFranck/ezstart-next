@@ -21,7 +21,6 @@ const ResetPasswordForm = () => {
   const [error, setError] = useState<string | null>(null);
   const [isFetching, setIsFetching] = useState(false);
   const locale = useLocale();
-  const t = useTranslations("App.Auth.SignInForm");
   const tForm = useTranslations("app.auth.forms.reset-password-form");
   const tAuth = useTranslations("app.auth");
   const err = useTranslations("app.errors");
