@@ -14,11 +14,11 @@ const OAuthButtons = () => {
         <GoogleSvg className="w-8" background="transparent" />
       </Button>
       <Button
-        className="border shadow rounded p-1 bg-black hover:bg-black/80 dark:hover:bg-black/60"
+        className="border shadow rounded p-1 bg-black hover:bg-black/80  dark:hover:bg-black/60"
         type="button"
         onClick={() => signIn("github")}
       >
-        <GithubSvg className="w-8" background="transparent" fill="background" />
+        <GithubSvg className="w-8 " background="transparent" />
       </Button>
     </div>
   );

@@ -21,6 +21,7 @@ export async function authMiddleware(req: NextRequest) {
     `/${locale}/about`,
     `/${locale}/docs`,
     `/${locale}/unauthorized`,
+    `/icons`,
   ];
 
   const adminPath = [

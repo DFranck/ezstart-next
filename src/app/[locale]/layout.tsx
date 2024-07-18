@@ -4,23 +4,30 @@ import Main from "@/components/layout/main";
 import { cn } from "@/lib/utils";
 import { getMessages } from "next-intl/server";
 import { Inter } from "next/font/google";
-import Head from "next/head";
+import { Metadata } from "next/types";
 import "../globals.css";
 import Provider from "../provider";
 const inter = Inter({ subsets: ["latin"] });
-export async function generateMetadata({ params: { locale } }: any) {
-  const messages = (await getMessages(locale)) as any;
-  const metaTitle = messages.app["meta-title"] as string;
-  const metaDescription = messages.app["meta-description"].replace(
-    /{meta-title}/g,
-    metaTitle
-  ) as string;
-
-  return {
-    title: metaTitle,
-    description: metaDescription,
-  };
-}
+export const metadata: Metadata = {
+  applicationName: "EzStart",
+  title: {
+    default: "EzStart - The Ultimate Boilerplate for Modern Web Development",
+    template: "%s - EzStart",
+  },
+  description: "A comprehensive boilerplate for Next.js projects",
+  manifest: "/manifest.json",
+  openGraph: {
+    type: "website",
+    siteName: "EzStart",
+    title: "EzStart - The Ultimate Boilerplate for Modern Web Development",
+    description: "A comprehensive boilerplate for Next.js projects",
+  },
+  twitter: {
+    card: "summary",
+    title: "EzStart - The Ultimate Boilerplate for Modern Web Development",
+    description: "A comprehensive boilerplate for Next.js projects",
+  },
+};
 export default async function RootLayout({
   children,
   params: { locale },
@@ -32,8 +39,7 @@ export default async function RootLayout({
   const socialImage = "https://i.ibb.co/tsk3MLp/opengraph-image-2-1.png";
   return (
     <html lang={locale} suppressHydrationWarning={true} className="h-full">
-      <Head>
-        <link rel="manifest" href="/manifest.json" />
+      <head>
         <meta
           property="og:title"
           content="EzStart - The Ultimate Boilerplate for Modern Web Development"
@@ -62,7 +68,7 @@ export default async function RootLayout({
         <meta name="twitter:image:width" content="1200" />
         <meta name="twitter:image:height" content="630" />
         <meta name="twitter:image:alt" content="EzStart" />
-      </Head>
+      </head>
       <body
         className={cn(inter.className, "min-h-screen flex flex-col h-full")}
       >
