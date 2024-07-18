@@ -1,3 +1,4 @@
+// style.d.ts
 import "react";
 
 declare module "react" {

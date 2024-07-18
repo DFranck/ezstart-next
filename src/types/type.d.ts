@@ -1,3 +1,4 @@
+// type.d.ts
 export interface AppMessages {
   appTitle: string;
   appDescription: string;
