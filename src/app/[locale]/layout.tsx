@@ -1,13 +1,16 @@
 import Footer from "@/components/layout/footer";
 import Header from "@/components/layout/header";
 import Main from "@/components/layout/main";
+import InstallPromptButton from "@/components/mobile/InstallPromptButton";
 import { cn } from "@/lib/utils";
 import { getMessages } from "next-intl/server";
 import { Inter } from "next/font/google";
 import { Metadata } from "next/types";
 import "../globals.css";
 import Provider from "../provider";
+
 const inter = Inter({ subsets: ["latin"] });
+
 export const metadata: Metadata = {
   applicationName: "EzStart",
   title: {
@@ -28,6 +31,7 @@ export const metadata: Metadata = {
     description: "A comprehensive boilerplate for Next.js projects",
   },
 };
+
 export default async function RootLayout({
   children,
   params: { locale },
@@ -37,6 +41,7 @@ export default async function RootLayout({
 }>) {
   const messages = await getMessages();
   const socialImage = "https://i.ibb.co/tsk3MLp/opengraph-image-2-1.png";
+
   return (
     <html lang={locale} suppressHydrationWarning={true} className="h-full">
       <head>
@@ -76,6 +81,7 @@ export default async function RootLayout({
           <Header />
           <Main>{children}</Main>
           <Footer />
+          <InstallPromptButton />
         </Provider>
       </body>
     </html>
