@@ -72,6 +72,12 @@
           "reset": "Reset"
         }
       }
+    },
+    "pwa": {
+      "popup-title": "Install Application",
+      "popup-description": "The application EzStart is available for all users. Do you want to install it now?",
+      "popup-accept": "Yes",
+      "popup-decline": "No"
     }
   },
   "layout": {

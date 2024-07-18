@@ -1,5 +1,6 @@
 // src/components/install-prompt-dialog.tsx
 
+import { useTranslations } from "next-intl";
 import { Button } from "../ui/button";
 
 interface InstallPromptDialogProps {
@@ -11,15 +12,18 @@ function InstallPromptDialog({
   onAccept,
   onDecline,
 }: InstallPromptDialogProps) {
+  const t = useTranslations("app.pwa");
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-background/80">
-      <div className="bg-muted p-6 rounded shadow-lg">
-        <h2 className="text-lg font-semibold mb-4">Installer l'application</h2>
-        <p className="mb-4">Voulez-vous installer cette application ?</p>
+    <div className="fixed inset-0 flex items-center justify-center bg-background/80 px-5">
+      <div className="bg-muted p-6 rounded border shadow-lg">
+        <h2 className="text-lg font-semibold mb-4">{t("popup-title")}</h2>
+        <p className="mb-4">{t("popup-description")}</p>
         <div className="flex justify-end space-x-2">
-          <Button onClick={onAccept}>Oui</Button>
-          <Button variant={"outline"} onClick={onDecline}>
-            Non
+          <Button onClick={onAccept} size={"lg"}>
+            {t("popup-accept")}
+          </Button>
+          <Button variant={"outline"} size={"lg"} onClick={onDecline}>
+            {t("popup-decline")}
           </Button>
         </div>
       </div>
