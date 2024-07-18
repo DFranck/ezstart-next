@@ -1,8 +1,8 @@
 "use client";
 import Carousel3d from "@/components/carousel-3d";
 import CodeBlock from "@/components/code-block";
-import Section from "@/components/layout/section";
 import Nav from "@/components/nav";
+import Section from "@/components/shared/section";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useTranslations } from "next-intl";

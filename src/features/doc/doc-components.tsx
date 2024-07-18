@@ -1,5 +1,5 @@
 "use client";
-import Section from "@/components/layout/section";
+import Section from "@/components/shared/section";
 import AuthSvg from "@/components/svgs/auth-svg";
 import CodeSvg from "@/components/svgs/code-svg";
 import ComponentSvg from "@/components/svgs/component-svg";

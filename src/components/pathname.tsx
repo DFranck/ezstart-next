@@ -2,7 +2,7 @@
 import { Home } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import Section from "./layout/section";
+import Section from "./shared/section";
 
 const Pathname = () => {
   const pathname = usePathname();

@@ -1,4 +1,4 @@
-import Section from "@/components/layout/section";
+import Section from "@/components/shared/section";
 
 const layout = ({ children }: { children: React.ReactNode }) => {
   return (

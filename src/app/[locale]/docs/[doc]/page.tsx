@@ -1,5 +1,5 @@
 "use client";
-import Section from "@/components/layout/section";
+import Section from "@/components/shared/section";
 import DocAuthentication from "@/features/doc/doc-authentication";
 import DocComponents from "@/features/doc/doc-components";
 import DocDbManagement from "@/features/doc/doc-db-management";

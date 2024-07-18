@@ -2,6 +2,7 @@
 "use client";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import UserAuth from "@/features/auth/components/user-auth";
 import LocaleSwitcher from "@/features/internationalization/locale-switcher";
 import { ThemeSwitcher } from "@/features/theme/theme-switcher";
 import { cn } from "@/lib/utils";
@@ -11,7 +12,6 @@ import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import UserAuth from "../../features/auth/user-auth";
 
 const UserMen = ({ className }: { className?: string }) => {
   const t = useTranslations("layout.user-menu");

@@ -4,6 +4,7 @@ import { cva, VariantProps } from "class-variance-authority";
 import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+
 const navVariants = cva("", {
   variants: {
     dir: {
@@ -15,6 +16,7 @@ const navVariants = cva("", {
     dir: "row",
   },
 });
+
 const ulVariants = cva("", {
   variants: {
     dir: {
@@ -31,6 +33,7 @@ const ulVariants = cva("", {
     pos: "default",
   },
 });
+
 const linkVariants = cva(
   "text-lg lg:p-2 rounded duration-100 whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-offset-2 w-full block text-center",
   {
@@ -73,6 +76,7 @@ const linkVariants = cva(
     },
   }
 );
+
 type NavProps = {
   main?: boolean; // If true, the nav is the main nav
   t?: string; // Translation key
@@ -89,6 +93,8 @@ type NavProps = {
   pos?: VariantProps<typeof ulVariants>["pos"];
   dir?: VariantProps<typeof navVariants>["dir"];
   setIsOpen?: (value: boolean) => void;
+  subNavClass?: string; // Custom class for sub navigation
+  subNavProps?: NavProps; // Additional props for sub navigation
 };
 
 const Nav = ({
@@ -106,7 +112,9 @@ const Nav = ({
   active = false,
   variant = "default",
   dir,
+  subNavClass,
   setIsOpen,
+  subNavProps,
 }: NavProps) => {
   const locale = useLocale();
   const pathname = usePathname();
@@ -127,14 +135,23 @@ const Nav = ({
       >
         <ul className={cn(ulVariants({ dir, pos }), ulClass)}>
           {linkList.map((link, index) => {
-            const linkPath = anchorLinks
-              ? `#${linkKeys[index].toLowerCase()}`
-              : Array.isArray(rawLinks)
-              ? root.includes(index)
-                ? `/${locale}/`
-                : `/${locale}/${link.toLowerCase()}`
-              : `/${locale}/${path}/${linkKeys[index].toLowerCase()}`;
-            const isActive = pathname.startsWith(linkPath);
+            let linkPath = "";
+            if (root.includes(index)) {
+              linkPath = `/${locale}`;
+            } else if (anchorLinks) {
+              linkPath = `#${linkKeys[index].toLowerCase()}`;
+            } else if (Array.isArray(rawLinks)) {
+              linkPath = `/${locale}/${
+                path ? `${path}/` : ""
+              }${link.toLowerCase()}`;
+            } else {
+              linkPath = `/${locale}/${path ? `${path}/` : ""}${linkKeys[
+                index
+              ].toLowerCase()}`;
+            }
+
+            const isActive = pathname.includes(link.toLowerCase());
+            const activePath = t + "." + link.toLowerCase();
 
             return (
               <li
@@ -152,6 +169,20 @@ const Nav = ({
                 >
                   {link}
                 </Link>
+                {isActive && subNavProps && (
+                  <Nav
+                    navClass={subNavClass}
+                    t={activePath}
+                    render={"nav-links"}
+                    dir="col"
+                    ulClass="p-2"
+                    path={link.toLowerCase()}
+                    setIsOpen={setIsOpen}
+                    variant={variant}
+                    active
+                    {...subNavProps} // Passer les props supplémentaires à la sous-navigation
+                  />
+                )}
               </li>
             );
           })}

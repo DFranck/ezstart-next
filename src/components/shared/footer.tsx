@@ -1,3 +1,4 @@
+// src\components\layout\footer.tsx
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 

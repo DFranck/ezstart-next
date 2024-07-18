@@ -1,6 +1,5 @@
 "use client";
 import Burger from "@/components/burger";
-import UserMenu from "@/components/layout/user-menu";
 import Nav from "@/components/nav";
 import LocaleSwitcher from "@/features/internationalization/locale-switcher";
 import { ThemeSwitcher } from "@/features/theme/theme-switcher";
@@ -11,8 +10,9 @@ import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import UserAuth from "../../features/auth/user-auth";
+import UserAuth from "../../features/auth/components/user-auth";
 import EzStartSvg from "../svgs/ezstart-svg";
+import UserMenu from "../user-menu";
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -69,7 +69,7 @@ export const Header = () => {
             { "max-h-0": !isOpen, "max-h-screen mt-4": isOpen }
           )}
         >
-          <Nav
+          {/* <Nav
             navClass="bg-accent text-accent-foreground p-2 border-b border-primary"
             liClass="text-left p-2"
             t={"layout.header"}
@@ -78,8 +78,8 @@ export const Header = () => {
             dir={"col"}
             variant={"primary"}
             setIsOpen={setIsOpen}
-          />
-          {pathname.includes(`/${locale}/docs`) && (
+          /> */}
+          {/* {pathname.includes(`/${locale}/docs`) && (
             <Nav
               t="pages.docs"
               navClass="bg-accent text-accent-foreground p-2 border-b border-primary"
@@ -91,7 +91,7 @@ export const Header = () => {
               variant={"primary"}
               setIsOpen={setIsOpen}
             />
-          )}
+          )} */}
           {!user && <UserAuth />}
         </div>
       </div>

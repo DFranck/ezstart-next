@@ -1,5 +1,5 @@
 import ComingSoon from "@/components/coming-soon";
-import Section from "@/components/layout/section";
+import Section from "@/components/shared/section";
 
 const Dashboard = () => {
   return (

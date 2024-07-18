@@ -94,9 +94,14 @@
     }
   },
   "pages": {
+    "nav-links": {
+      "home": "Home",
+      "docs": "Docs"
+    },
     "home": {
       "page-title": "Home",
       "page-description": "Welcome to EzStart!",
+      "nav-links": ["features", "get-started"],
       "sections": {
         "hero": {
           "title": "EzStart",

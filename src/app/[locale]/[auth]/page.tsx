@@ -1,10 +1,10 @@
 "use client";
-import Section from "@/components/layout/section";
-import ForgotForm from "@/features/auth/forgot-form";
-import ResetPasswordForm from "@/features/auth/resest-password-form";
-import SignInForm from "@/features/auth/sign-in-form";
-import SignUpForm from "@/features/auth/sign-up-form";
-import VerifyCodeForm from "@/features/auth/verify-code-form";
+import Section from "@/components/shared/section";
+import ForgotForm from "@/features/auth/components/forgot-form";
+import ResetPasswordForm from "@/features/auth/components/resest-password-form";
+import SignInForm from "@/features/auth/components/sign-in-form";
+import SignUpForm from "@/features/auth/components/sign-up-form";
+import VerifyCodeForm from "@/features/auth/components/verify-code-form";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { useParams } from "next/navigation";

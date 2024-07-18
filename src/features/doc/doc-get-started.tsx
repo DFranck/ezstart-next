@@ -1,7 +1,7 @@
 "use client";
 
 import CodeBlock from "@/components/code-block";
-import Section from "@/components/layout/section";
+import Section from "@/components/shared/section";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useTranslations } from "next-intl";

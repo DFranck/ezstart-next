@@ -1,7 +1,8 @@
-import Footer from "@/components/layout/footer";
-import Header from "@/components/layout/header";
-import Main from "@/components/layout/main";
 import InstallPromptButton from "@/components/mobile/install-prompt-button";
+import MobileNav from "@/components/mobile/mobile-nav";
+import Footer from "@/components/shared/footer";
+import Header from "@/components/shared/header";
+import Main from "@/components/shared/main";
 import { cn } from "@/lib/utils";
 import { Metadata } from "next";
 import { getMessages } from "next-intl/server";
@@ -13,6 +14,9 @@ import Provider from "../provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export async function generateMetadata(): Promise<Metadata> {
+  const headersList = headers();
+  const locale = headersList.get("x-locale") || "en";
+  const deviceType = headersList.get("x-device-type") || "desktop";
   return {
     applicationName: "EzStart",
     title: {
@@ -37,15 +41,17 @@ export async function generateMetadata(): Promise<Metadata> {
 
 interface RootLayoutProps {
   children: React.ReactNode;
+  deviceType: string;
+  locale: string;
 }
 
-export default async function RootLayout({ children }: RootLayoutProps) {
-  const headersList = headers();
-  const locale = headersList.get("x-locale") || "en";
-  const deviceType = headersList.get("x-device-type") || "desktop";
+export default async function RootLayout({
+  children,
+  deviceType,
+  locale,
+}: RootLayoutProps) {
   const messages = await getMessages();
   const socialImage = "https://i.ibb.co/tsk3MLp/opengraph-image-2-1.png";
-
   return (
     <html
       lang={locale}
@@ -87,7 +93,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
         className={cn(inter.className, "min-h-screen flex flex-col h-full")}
       >
         <Provider messages={messages}>
-          <Header />
+          {deviceType === "desktop" ? <Header /> : <MobileNav />}
           <Main>{children}</Main>
           <Footer />
           {(deviceType === "mobile" || deviceType === "tablet") && (

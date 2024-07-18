@@ -1,4 +1,4 @@
-import Section from "@/components/layout/section";
+import Section from "@/components/shared/section";
 import { Button } from "@/components/ui/button";
 import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";

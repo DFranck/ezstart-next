@@ -8,9 +8,10 @@ import {
   FormLabel,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import UserAuth from "@/features/auth/user-auth";
-import { signUpSchema } from "@/lib/zod";
+import UserAuth from "@/features/auth/components/user-auth";
+import { signInSchema } from "@/lib/zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { getSession, signIn } from "next-auth/react";
 import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -19,60 +20,51 @@ import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import { z } from "zod";
 import OAuthButtons from "./oauth-buttons";
 
-const SignUpForm = () => {
+const SignInForm = () => {
+  const [error, setError] = useState<string | null>(null);
   const [isFetching, setIsFetching] = useState(false);
-  const router = useRouter();
-  const locale = useLocale();
-  const tAuth = useTranslations("app.auth");
-  const tForm = useTranslations("app.auth.forms.sign-up-form");
-
-  const form = useForm<z.infer<typeof signUpSchema>>({
-    resolver: zodResolver(signUpSchema),
+  const form = useForm<z.infer<typeof signInSchema>>({
+    resolver: zodResolver(signInSchema),
     defaultValues: {
       email: "",
       password: "",
-      confirmPassword: "",
     },
   });
-
-  const onSubmit: SubmitHandler<z.infer<typeof signUpSchema>> = async (
+  const router = useRouter();
+  const locale = useLocale();
+  const tForm = useTranslations("app.auth.forms.sign-in-form");
+  const tAuth = useTranslations("app.auth");
+  const err = useTranslations("app.errors");
+  const formStyle =
+    "bg-accent border shadow rounded-md p-4 flex flex-col gap-4 max-w-[400px] w-full mx-auto";
+  const onSubmit: SubmitHandler<z.infer<typeof signInSchema>> = async (
     data
   ) => {
     setIsFetching(true);
-    try {
-      const res = await fetch("/api/auth/signup", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
+    const result = await signIn("credentials", {
+      redirect: false,
+      email: data.email,
+      password: data.password,
+    });
 
-      if (!res.ok) {
-        setIsFetching(false);
-        const errorData = await res.json();
-        throw new Error(errorData.message);
-      }
-
-      const result = await res.json();
+    if (result?.error) {
+      setError(err("configuration"));
       setIsFetching(false);
-      router.push(`/${locale}/sign-in`);
-    } catch (error: unknown) {
-      console.error("signup", error);
-      if (error instanceof Error) {
-        form.setError("email", { type: "manual", message: error.message });
+    } else {
+      const updatedSession = await getSession();
+      setIsFetching(false);
+      router.push(`/${locale}`);
+      if (updatedSession?.user.role === "admin") {
+        router.push(`/${locale}/dashboard`);
       } else {
-        form.setError("email", { type: "manual", message: "Signup failed" });
+        router.push(`/${locale}/profile`);
       }
     }
   };
 
   return (
     <FormProvider {...form}>
-      <form
-        onSubmit={form.handleSubmit(onSubmit)}
-        className="bg-accent border shadow rounded-md p-4 flex flex-col gap-4 max-w-[400px] w-full mx-auto"
-      >
+      <form onSubmit={form.handleSubmit(onSubmit)} className={formStyle}>
         <div>
           <h2 className="text-center text-lg font-semibold">
             {tForm("title")}
@@ -122,42 +114,42 @@ const SignUpForm = () => {
                   label={tAuth("forms.password-label")}
                 />
               </FormControl>
+
               {form.formState.errors.password?.message && (
                 <ErrorForm name="password" form={form} />
               )}
             </FormItem>
           )}
         />
-        <FormField
-          control={form.control}
-          name="confirmPassword"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className="sr-only">
-                {tAuth("forms.confirm-password-label")}
-              </FormLabel>
-              <FormControl>
-                <PasswordInput
-                  field={field}
-                  placeholder={tAuth("forms.confirm-password-placeholder")}
-                  label={tAuth("forms.confirm-password-label")}
-                />
-              </FormControl>
-              {form.formState.errors.confirmPassword?.message && (
-                <ErrorForm name="confirmPassword" form={form} />
-              )}
-            </FormItem>
-          )}
-        />
-        <UserAuth />
-        <div className="mt-4 text-center w-full text-xs">
-          <p className="text-sm text-muted-foreground w-full flex justify-between gap-2">
-            {tForm("already-have-account")}{" "}
+        <div>
+          <UserAuth />
+          <p className="text-sm text-muted-foreground w-full flex justify-between gap-2 items-center mt-1">
             <Link
-              href={`/${locale}/sign-in`}
+              href={`/${locale}/forgot-password`}
+              className="text-muted-foreground text-xs hover:underline w-full text-end"
+            >
+              {tForm("forgot-password")}
+            </Link>
+          </p>
+          {error && (
+            <div className="flex gap-1 items-center">
+              <span className="bg-destructive rounded-full p-1 text-destructive-foreground w-4 h-4 flex justify-center items-center text-xs">
+                !
+              </span>
+              <p className="text-destructive text-sm font-semibold text-start">
+                {error}
+              </p>
+            </div>
+          )}
+        </div>
+        <div className="mt-4 text-justify text-xs w-full">
+          <p className="text-sm text-muted-foreground w-full flex justify-between gap-2">
+            {tForm("no-account")}
+            <Link
+              href={`/${locale}/sign-up`}
               className="text-primary underline"
             >
-              {tAuth("sign-in")}
+              {tAuth("sign-up")}
             </Link>
           </p>
         </div>
@@ -166,4 +158,4 @@ const SignUpForm = () => {
   );
 };
 
-export default SignUpForm;
+export default SignInForm;

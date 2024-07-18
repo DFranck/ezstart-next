@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 import { Avatar, AvatarImage } from "@radix-ui/react-avatar";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
-import Section from "../layout/section";
+import Section from "../shared/section";
 import { Button } from "../ui/button";
 const UserProfileInfos = ({ className }: { className?: string }) => {
   const { data: session } = useSession();

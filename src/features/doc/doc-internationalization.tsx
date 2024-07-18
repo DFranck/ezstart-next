@@ -1,6 +1,6 @@
 // pages/docs/DocInternationalization.tsx
 import CodeBlock from "@/components/code-block";
-import Section from "@/components/layout/section";
+import Section from "@/components/shared/section";
 import { Button } from "@/components/ui/button";
 import { AlertCircle } from "lucide-react";
 import { useTranslations } from "next-intl";

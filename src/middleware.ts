@@ -34,7 +34,6 @@ export default async function middleware(req: NextRequest) {
     userAgentResponse.headers.get("x-device-type") || ""
   );
 
-  // Log for debugging purposes
   console.log(
     "Intl middleware response locale: ",
     intlResponse.headers.get("x-locale")
