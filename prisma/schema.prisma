@@ -8,15 +8,18 @@ generator client {
 }
 
 model User {
-  id        String   @id @default(uuid())
-  email     String   @unique
-  password  String
-  name      String? 
-  resetCode String? @unique
+  id                 String   @id @default(uuid())
+  email              String   @unique
+  password           String
+  name               String? 
+  resetCode          String?  @unique
   resetCodeExpiresAt DateTime?
-  role      String   @default("user")
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  role               String   @default("user")
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+
+  @@index([email, resetCodeExpiresAt])
 }
+
 
 
