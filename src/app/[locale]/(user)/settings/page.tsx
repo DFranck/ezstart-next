@@ -1,11 +1,12 @@
 import ComingSoon from "@/components/coming-soon";
-import Section from "@/components/layout/section";
+import UserSettings from "@/components/mobile/user-settings";
 
 const page = () => {
   return (
-    <Section>
+    <>
+      <UserSettings />
       <ComingSoon />
-    </Section>
+    </>
   );
 };
 

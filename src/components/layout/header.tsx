@@ -25,7 +25,7 @@ export const Header = () => {
   return (
     <header
       className={cn("p-6 z-10 fixed w-full ", {
-        "bg-background": isOpen || pathname !== `/${locale}`,
+        "bg-background": isOpen,
         "p-2 bg-background border-b": scrollY > 0,
       })}
     >
@@ -66,7 +66,7 @@ export const Header = () => {
         <div
           className={cn(
             "transition-all duration-500 ease-in-out lg:hidden overflow-hidden",
-            { "max-h-0": !isOpen, "max-h-screen mt-2": isOpen }
+            { "max-h-0": !isOpen, "max-h-screen mt-4": isOpen }
           )}
         >
           <Nav

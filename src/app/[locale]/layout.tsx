@@ -74,7 +74,7 @@ export default async function RootLayout({
       >
         <Provider messages={messages}>
           <Header />
-          <Main className="mt-24">{children}</Main>
+          <Main>{children}</Main>
           <Footer />
         </Provider>
       </body>

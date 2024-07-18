@@ -3,7 +3,7 @@ import Pathname from "@/components/pathname";
 
 const DocsLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="flex w-full h-full ">
+    <div className="mt-[88px] flex w-full h-full ">
       <aside className="flex">
         <Nav
           t="pages.docs"
