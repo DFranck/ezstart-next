@@ -1,7 +1,7 @@
 import Footer from "@/components/layout/footer";
 import Header from "@/components/layout/header";
 import Main from "@/components/layout/main";
-import InstallPromptButton from "@/components/mobile/InstallPromptButton";
+import InstallPromptButton from "@/components/mobile/install-prompt-button";
 import { cn } from "@/lib/utils";
 import { getMessages } from "next-intl/server";
 import { Inter } from "next/font/google";

@@ -1,7 +1,7 @@
 {
-  "name": "My PWA",
-  "short_name": "PWA",
-  "description": "My awesome Progressive Web App!",
+  "name": "EzStart",
+  "short_name": "EzStart",
+  "description": "EzStart - The Ultimate Boilerplate for Modern Web Development",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
