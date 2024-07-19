@@ -1,9 +1,14 @@
 import Nav from "@/components/nav";
 import Pathname from "@/components/pathname";
+import getDeviceType from "@/lib/getDeviceType";
+import { cn } from "@/lib/utils";
 
-const DocsLayout = ({ children }: { children: React.ReactNode }) => {
+const DocsLayout = async ({ children }: { children: React.ReactNode }) => {
+  const device = await getDeviceType();
   return (
-    <div className="mt-[88px] flex w-full h-full ">
+    <div
+      className={cn("flex w-full h-full", { "mt-[88px]": device !== "mobile" })}
+    >
       <aside className="flex">
         <Nav
           t="pages.docs"

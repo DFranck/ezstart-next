@@ -9,7 +9,7 @@ import ReactSvg from "@/components/svgs/react-svg";
 import TailwindSvg from "@/components/svgs/tailwind-svg";
 import ZodSvg from "@/components/svgs/zod-svg";
 import { Button } from "@/components/ui/button";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 const DocsPage = () => {
   const t = useTranslations("pages.docs");
@@ -17,7 +17,7 @@ const DocsPage = () => {
     "bg-card text-card-foreground list-disc p-4 gap-2 pl-6 rounded border shadow flex flex-col flex-grow";
   const cardTitleStyle = "text-center text-xl font-semibold mb-2";
   const liStyle = "flex gap-2 items-center list-none";
-
+  const locale = useLocale();
   return (
     <>
       <h1>{t("title")}</h1>
@@ -119,7 +119,7 @@ const DocsPage = () => {
       </Section>
       <Section>
         <Button asChild className="w-fit self-end" size={"lg"}>
-          <Link href="/docs/get-started">Get Started</Link>
+          <Link href={`/${locale}/docs/get-started`}>Get Started</Link>
         </Button>
       </Section>
     </>

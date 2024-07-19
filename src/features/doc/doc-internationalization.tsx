@@ -3,12 +3,13 @@ import CodeBlock from "@/components/code-block";
 import Section from "@/components/shared/section";
 import { Button } from "@/components/ui/button";
 import { AlertCircle } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 
 const DocInternationalization = () => {
   const t = useTranslations("pages.docs.internationalization");
   const t2 = useTranslations("pages.docs");
+  const locale = useLocale();
   return (
     <>
       <Section className="">
@@ -122,7 +123,7 @@ const YourComponent = () => {
       </Section>
       <Section>
         <Button asChild className="w-fit self-end" size={"lg"}>
-          <Link href="/docs/db-management">
+          <Link href={`/${locale}/docs/db-management`}>
             {t2("nav-links.db-management")}
           </Link>
         </Button>

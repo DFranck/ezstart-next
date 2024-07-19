@@ -109,7 +109,7 @@ const DocAuthentication = () => {
       </Section>
       <Section>
         <Button asChild className="w-fit self-end" size={"lg"}>
-          <Link href="/docs/payment">{t2("nav-links.payment")}</Link>
+          <Link href="payment">{t2("nav-links.payment")}</Link>
         </Button>
       </Section>
     </>

@@ -69,7 +69,7 @@ export const Header = () => {
             { "max-h-0": !isOpen, "max-h-screen mt-4": isOpen }
           )}
         >
-          {/* <Nav
+          <Nav
             navClass="bg-accent text-accent-foreground p-2 border-b border-primary"
             liClass="text-left p-2"
             t={"layout.header"}
@@ -78,8 +78,8 @@ export const Header = () => {
             dir={"col"}
             variant={"primary"}
             setIsOpen={setIsOpen}
-          /> */}
-          {/* {pathname.includes(`/${locale}/docs`) && (
+          />
+          {pathname.includes(`/${locale}/docs`) && (
             <Nav
               t="pages.docs"
               navClass="bg-accent text-accent-foreground p-2 border-b border-primary"
@@ -91,7 +91,7 @@ export const Header = () => {
               variant={"primary"}
               setIsOpen={setIsOpen}
             />
-          )} */}
+          )}
           {!user && <UserAuth />}
         </div>
       </div>

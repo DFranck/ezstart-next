@@ -5,7 +5,7 @@ import Nav from "@/components/nav";
 import Section from "@/components/shared/section";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 import { ComponentType } from "react";
 
@@ -70,6 +70,7 @@ const ItemPage = ({
 }: {
   params: { doc: string; item: string };
 }) => {
+  const locale = useLocale();
   const t2 = useTranslations("pages.docs");
   const t = useTranslations("pages.docs.components");
   const normalizedItem = normalizeComponentName(item);
@@ -180,7 +181,9 @@ const ItemPage = ({
 
       <Section>
         <Button asChild className="w-fit self-end" size={"lg"}>
-          <Link href="/docs/components">{t2("nav-links.components")}</Link>
+          <Link href={`/${locale}/docs/components`}>
+            {t2("nav-links.components")}
+          </Link>
         </Button>
       </Section>
     </>

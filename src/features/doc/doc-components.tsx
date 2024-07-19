@@ -189,10 +189,7 @@ const DocComponents = () => {
         <p>{t("layout-components-subtitle")}</p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
           {layoutComponents.map((component) => (
-            <Link
-              href={`/docs/components/${component.path}`}
-              key={component.name}
-            >
+            <Link href={`components/${component.path}`} key={component.name}>
               <Card className="hover:shadow-lg transition-shadow duration-200 h-full">
                 <CardContent>
                   <CardTitle>{component.name}</CardTitle>
@@ -210,10 +207,7 @@ const DocComponents = () => {
         <p>{t("ui-components-subtitle")}</p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
           {uiComponents.map((component) => (
-            <Link
-              href={`/docs/components/${component.path}`}
-              key={component.name}
-            >
+            <Link href={`components/${component.path}`} key={component.name}>
               <Card className="hover:shadow-lg transition-shadow duration-200  h-full">
                 <CardContent>
                   <CardTitle>{component.name}</CardTitle>

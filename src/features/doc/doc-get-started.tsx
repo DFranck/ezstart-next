@@ -4,12 +4,13 @@ import CodeBlock from "@/components/code-block";
 import Section from "@/components/shared/section";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 import { useState } from "react";
 
 const DocGetStarted = () => {
   const [isContributeOpen, setIsContributeOpen] = useState(false);
+  const locale = useLocale();
   const t = useTranslations("pages.docs.get-started");
   const t2 = useTranslations("pages.docs");
   const variables = t.raw("sections.setup-env.variables") as Array<{
@@ -82,7 +83,7 @@ const DocGetStarted = () => {
       <p className="mb-10">{t("sections.enjoy.description")}</p>
       <Section>
         <Button asChild className="w-fit self-end" size={"lg"}>
-          <Link href="/docs/internationalization">
+          <Link href={`/${locale}/docs/internationalization`}>
             {t2("nav-links.internationalization")}
           </Link>
         </Button>

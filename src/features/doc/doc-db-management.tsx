@@ -118,9 +118,7 @@ const DocDbManagement = () => {
       </Section>
       <Section>
         <Button asChild className="w-fit self-end" size={"lg"}>
-          <Link href="/docs/authentication">
-            {t2("nav-links.authentication")}
-          </Link>
+          <Link href="authentication">{t2("nav-links.authentication")}</Link>
         </Button>
       </Section>
     </>

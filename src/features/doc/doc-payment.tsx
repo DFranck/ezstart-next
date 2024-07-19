@@ -9,9 +9,9 @@ const DocPayment = () => {
   return (
     <>
       <ComingSoon />
-      <Section>
-        <Button asChild className="w-fit self-end" size={"lg"}>
-          <Link href="/docs/components">{t2("nav-links.components")}</Link>
+      <Section className="">
+        <Button asChild className="w-fit self-end " size={"lg"}>
+          <Link href="components">{t2("nav-links.components")}</Link>
         </Button>
       </Section>
     </>

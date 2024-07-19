@@ -11,7 +11,11 @@ type Carousel3dProps = {
   stopOnHover?: boolean;
 };
 
-const Carousel3d = ({ imgNum = 5, children, stopOnHover }: Carousel3dProps) => {
+const Carousel3d = ({
+  imgNum = 10,
+  children,
+  stopOnHover,
+}: Carousel3dProps) => {
   const [isMouseOver, setIsMouseOver] = React.useState(false);
   const items = Array.from({ length: imgNum }, (_, i) => i + 1);
   const childrenArray = React.Children.toArray(children) as ReactElement[];
@@ -32,7 +36,7 @@ const Carousel3d = ({ imgNum = 5, children, stopOnHover }: Carousel3dProps) => {
   }, []);
   return (
     <div
-      className="w-full h-screen  flex justify-center items-center overflow-hidden relative"
+      className="w-full h-[500px]  flex justify-center items-center overflow-hidden relative"
       style={{ perspective: "1000px" }}
       role="region"
       aria-label="3D Image Carousel"
@@ -66,7 +70,10 @@ const Carousel3d = ({ imgNum = 5, children, stopOnHover }: Carousel3dProps) => {
             aria-label={`Image ${position}`}
           >
             {childrenArray[position - 1] || (
-              <ImagePlaceholderSvg className="w-full h-full object-cover" />
+              <ImagePlaceholderSvg
+                className="w-full h-full object-cover"
+                background="transparent"
+              />
             )}
           </div>
         ))}

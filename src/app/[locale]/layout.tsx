@@ -3,6 +3,7 @@ import MobileNav from "@/components/mobile/mobile-nav";
 import Footer from "@/components/shared/footer";
 import Header from "@/components/shared/header";
 import Main from "@/components/shared/main";
+import getDeviceType from "@/lib/getDeviceType";
 import { cn } from "@/lib/utils";
 import { Metadata } from "next";
 import { getMessages } from "next-intl/server";
@@ -50,6 +51,7 @@ export default async function RootLayout({
   deviceType,
   locale,
 }: RootLayoutProps) {
+  const device = await getDeviceType();
   const messages = await getMessages();
   const socialImage = "https://i.ibb.co/tsk3MLp/opengraph-image-2-1.png";
   return (
@@ -93,7 +95,7 @@ export default async function RootLayout({
         className={cn(inter.className, "min-h-screen flex flex-col h-full")}
       >
         <Provider messages={messages}>
-          {deviceType === "desktop" ? <Header /> : <MobileNav />}
+          {device === "desktop" ? <Header /> : <MobileNav />}
           <Main>{children}</Main>
           <Footer />
           {(deviceType === "mobile" || deviceType === "tablet") && (
