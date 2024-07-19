@@ -89,10 +89,15 @@ export default async function RootLayout({ children }: RootLayoutProps) {
         className={cn(inter.className, "min-h-screen flex flex-col h-full")}
       >
         <Provider messages={messages}>
-          {deviceType === "desktop" ? <DesktopHeader /> : <MobileHeader />}
+          {deviceType === "desktop" && <DesktopHeader />}
           <Main>{children}</Main>
           {deviceType === "desktop" && <Footer />}
-          {deviceType !== "desktop" && <InstallPromptButton />}
+          {deviceType !== "desktop" && (
+            <>
+              <MobileHeader />
+              <InstallPromptButton />{" "}
+            </>
+          )}
         </Provider>
       </body>
     </html>

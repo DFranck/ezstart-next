@@ -53,22 +53,23 @@ export function ThemeSwitcher({ className }: { className?: string }) {
     return null;
   }
   return (
-    <div
-      className={cn(
-        "relative text-foreground opacity-60 hover:opacity-100",
-        className
-      )}
-      onBlur={handleBlur}
-    >
+    <div className={cn("relative text-foreground")} onBlur={handleBlur}>
       <button
         ref={buttonRef}
         aria-haspopup="true"
         aria-expanded={isOpen}
-        className="cursor-pointer hover:bg-accent rounded w-9 h-9 flex justify-center items-center"
+        className={cn(
+          "cursor-pointer hover:bg-accent rounded w-9 h-9 flex justify-center items-center",
+          className
+        )}
         onClick={handleOpen}
         onKeyDown={handleKeyDown}
       >
-        {theme === "light" ? <Sun /> : <Moon />}
+        {theme === "light" ? (
+          <Sun className="w-full h-full" />
+        ) : (
+          <Moon className="w-full h-full" />
+        )}
         <p className="sr-only">switch language</p>
       </button>
       {isOpen && (

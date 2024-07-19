@@ -6,7 +6,7 @@ const Profile = async () => {
   const device = await getDeviceType();
   return (
     <>
-      <UserProfileInfos device={device} />
+      <UserProfileInfos className="mt-28" device={device} />
       <ComingSoon message="You can add in this page your personal user information for your project" />
     </>
   );

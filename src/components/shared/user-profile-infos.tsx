@@ -16,20 +16,46 @@ const UserProfileInfos = ({
   className?: string;
   device: string;
 }) => {
-  const { data: session } = useSession();
+  const { data: session, update } = useSession();
   const [isEditing, setIsEditing] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const user = session?.user;
+
   useEffect(() => {
+    console.log("Session on client-side:", session);
     if (user) {
       setName(user.name || "");
       setEmail(user.email || "");
     }
-  });
+  }, [user]);
 
-  const handleSave = () => {
-    console.log("SAVE");
+  const handleSave = async () => {
+    try {
+      const response = await fetch("/api/update-user", {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, email }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to update user");
+      }
+      await update({
+        ...session,
+        user: {
+          ...session?.user,
+          name: name,
+        },
+      });
+      const data = await response.json();
+      console.log(data.message);
+      setIsEditing(false);
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
 
   return (
@@ -66,21 +92,28 @@ const UserProfileInfos = ({
         <Input
           value={name}
           placeholder="John Doe"
+          type="text"
           onChange={(e) => setName(e.target.value)}
           readOnly={!isEditing}
-          className={cn("text-3xl text-foreground mb-2 text-center", {
+          className={cn("w-fit text-3xl text-foreground mb-2 text-center", {
             "border-none bg-transparent cursor-default": !isEditing,
           })}
-          style={{ pointerEvents: isEditing ? "auto" : "none" }}
+          style={{
+            pointerEvents: isEditing ? "auto" : "none",
+            fieldSizing: "content",
+          }}
         />
         <Input
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           readOnly={!isEditing}
-          className={cn("w-full text-lg  text-center text-foreground mb-4", {
+          className={cn("w-fit text-lg  text-center text-foreground mb-4", {
             "border-none bg-transparent cursor-default": !isEditing,
           })}
-          style={{ pointerEvents: isEditing ? "auto" : "none" }}
+          style={{
+            pointerEvents: isEditing ? "auto" : "none",
+            fieldSizing: "content",
+          }}
         />
         {device === "desktop" && (
           <Button
