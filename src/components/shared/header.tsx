@@ -58,7 +58,7 @@ export const Header = () => {
             <Burger
               setIsOpen={setIsOpen}
               isOpen={isOpen}
-              className="block lg:hidden"
+              className="flex lg:hidden"
             />
             <UserMenu />
           </div>
@@ -76,6 +76,7 @@ export const Header = () => {
             render={"nav-links"}
             root={[0]}
             dir={"col"}
+            active
             variant={"primary"}
             setIsOpen={setIsOpen}
           />
