@@ -1,7 +1,7 @@
+import DesktopHeader from "@/components/desktop/desktop-header";
 import InstallPromptButton from "@/components/mobile/install-prompt-button";
-import MobileNav from "@/components/mobile/mobile-nav";
+import MobileHeader from "@/components/mobile/mobile-header";
 import Footer from "@/components/shared/footer";
-import Header from "@/components/shared/header";
 import Main from "@/components/shared/main";
 import { cn } from "@/lib/utils";
 import { Metadata } from "next";
@@ -89,9 +89,9 @@ export default async function RootLayout({ children }: RootLayoutProps) {
         className={cn(inter.className, "min-h-screen flex flex-col h-full")}
       >
         <Provider messages={messages}>
-          {deviceType === "desktop" ? <Header /> : <MobileNav />}
+          {deviceType === "desktop" ? <DesktopHeader /> : <MobileHeader />}
           <Main>{children}</Main>
-          <Footer />
+          {deviceType === "desktop" && <Footer />}
           {deviceType !== "desktop" && <InstallPromptButton />}
         </Provider>
       </body>

@@ -1,5 +1,5 @@
 import ComingSoon from "@/components/coming-soon";
-import UserSettings from "@/components/mobile/user-settings";
+import UserSettings from "@/components/shared/user-settings";
 
 const page = () => {
   return (

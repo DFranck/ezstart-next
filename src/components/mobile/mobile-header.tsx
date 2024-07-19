@@ -7,7 +7,7 @@ import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 import { useState } from "react";
 
-const MobileNav: React.FC = () => {
+const MobileHeader: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const locale = useLocale();
   const t = useTranslations("layout.header");
@@ -20,7 +20,7 @@ const MobileNav: React.FC = () => {
   };
   return (
     <>
-      <div
+      <header
         className="fixed bottom-0 left-0 right-0 z-40 border-t shadow"
         onClick={() => handleClick()}
       >
@@ -59,9 +59,9 @@ const MobileNav: React.FC = () => {
             <User className="w-9 h-9" strokeWidth={1.5} />
           </Link>
         </div>
-      </div>
+      </header>
     </>
   );
 };
 
-export default MobileNav;
+export default MobileHeader;

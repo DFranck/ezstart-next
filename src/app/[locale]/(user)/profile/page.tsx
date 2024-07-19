@@ -1,15 +1,13 @@
 import ComingSoon from "@/components/coming-soon";
-import MobileUserProfileBanner from "@/components/mobile/mobile-user-profile-banner";
-import UserProfileGallery from "@/components/mobile/user-profile-gallery";
-import UserProfileInfos from "@/components/mobile/user-profile-infos";
+import UserProfileInfos from "@/components/shared/user-profile-infos";
+import getDeviceType from "@/lib/getDeviceType";
 
-const Profile = () => {
+const Profile = async () => {
+  const device = await getDeviceType();
   return (
     <>
-      <MobileUserProfileBanner />
-      <UserProfileInfos />
-      <UserProfileGallery />
-      <ComingSoon />
+      <UserProfileInfos device={device} />
+      <ComingSoon message="You can add in this page your personal user information for your project" />
     </>
   );
 };

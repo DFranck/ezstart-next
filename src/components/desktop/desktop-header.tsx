@@ -14,7 +14,7 @@ import UserAuth from "../../features/auth/components/user-auth";
 import EzStartSvg from "../svgs/ezstart-svg";
 import UserMenu from "../user-menu";
 
-export const Header = () => {
+export const DesktopHeader = () => {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
   const locale = useLocale();
@@ -100,4 +100,4 @@ export const Header = () => {
   );
 };
 
-export default Header;
+export default DesktopHeader;
