@@ -1,3 +1,4 @@
+// src\lib\zod.ts
 import { z } from "zod";
 
 // SignIn schema for validating email and password fields during sign-in

@@ -1,3 +1,4 @@
+// src\lib\getDeviceType.ts
 import { headers } from "next/headers";
 
 /**
