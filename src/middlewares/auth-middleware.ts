@@ -1,10 +1,12 @@
-// src\middlewares\auth-middleware.ts
+// src/middlewares/auth-middleware.ts
+
+import { Locale } from "@/types/locales";
 import { getToken, GetTokenParams } from "next-auth/jwt";
 import { NextRequest, NextResponse } from "next/server";
 import { currentLocale } from "./intl-middleware";
 
 // Define paths in constants
-const authPaths = (locale: string) => [
+const authPaths = (locale: Locale) => [
   `/${locale}/sign-in`,
   `/${locale}/sign-up`,
   `/${locale}/forgot-password`,
@@ -14,16 +16,22 @@ const authPaths = (locale: string) => [
   `/${locale}/update-roles`,
 ];
 
-const visitPaths = (locale: string) => [
+const visitPaths = (locale: Locale) => [
   `/${locale}/about`,
   `/${locale}/docs`,
   `/${locale}/unauthorized`,
   `/icons`,
 ];
 
-const adminPaths = (locale: string) => [`/${locale}/admin`];
+const adminPaths = (locale: Locale) => [`/${locale}/admin`];
 
-export async function authMiddleware(req: NextRequest) {
+/**
+ * Middleware to handle authentication for incoming requests.
+ *
+ * @param req - The incoming request object
+ * @returns NextResponse with authentication handling
+ */
+export async function authMiddleware(req: NextRequest): Promise<NextResponse> {
   const locale = currentLocale;
   const pathname = req.nextUrl.pathname;
 
@@ -36,10 +44,13 @@ export async function authMiddleware(req: NextRequest) {
     req,
     secret: process.env.AUTH_SECRET as string,
     secureCookie: process.env.NODE_ENV === "production",
-    salt: salt,
+    // salt,
   };
 
   const token = await getToken(tokenParams);
+  console.log("Current Token:", token);
+
+  // If no token is found, check if the path is allowed without authentication
   if (!token) {
     if (
       visitPath.some((path) => pathname.startsWith(path)) ||
@@ -53,22 +64,19 @@ export async function authMiddleware(req: NextRequest) {
     return NextResponse.redirect(new URL(`/${locale}/sign-in`, req.url));
   }
 
+  // Redirect authenticated users from authentication paths to home
   if (authPath.some((path) => pathname.startsWith(path))) {
-    if (token.role === "admin") {
-      console.log("Redirecting to dashboard for admin");
-      return NextResponse.redirect(new URL(`/${locale}/dashboard`, req.url));
-    } else {
-      console.log("Redirecting to profile");
-      return NextResponse.redirect(new URL(`/${locale}/profile`, req.url));
-    }
+    return NextResponse.redirect(new URL(`/${locale}/`, req.url));
   }
 
+  // Check if the user is accessing an admin path and if they have admin privileges
   if (adminPath.some((path) => pathname.startsWith(path))) {
     if (token.role !== "admin") {
       console.log("Redirecting to unauthorized");
       return NextResponse.redirect(new URL(`/${locale}/unauthorized`, req.url));
     }
   }
+
   console.log("Access allowed");
   return NextResponse.next();
 }

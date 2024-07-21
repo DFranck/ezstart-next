@@ -1,4 +1,5 @@
-// src\middlewares\intl-middleware.ts
+// src/middlewares/intl-middleware.ts
+
 import { locales } from "@/i18n";
 import createMiddleware from "next-intl/middleware";
 import { NextRequest, NextResponse } from "next/server";
@@ -11,7 +12,13 @@ export const intlMiddleware = createMiddleware({
   defaultLocale,
 });
 
-export default function middleware(req: NextRequest) {
+/**
+ * Middleware to handle locale settings for incoming requests.
+ *
+ * @param req - The incoming request object
+ * @returns NextResponse with the appropriate locale settings
+ */
+export default function middleware(req: NextRequest): NextResponse {
   const url = req.nextUrl.pathname;
 
   // Exclude static files in public folder from locale handling
@@ -23,14 +30,21 @@ export default function middleware(req: NextRequest) {
     return NextResponse.next();
   }
 
+  // Handle internationalization
   const response = intlMiddleware(req);
   const pathname = req.nextUrl.pathname;
+
+  // Set the current locale based on the request pathname
   currentLocale =
     locales.find((loc) => pathname.startsWith(`/${loc}`)) || defaultLocale;
+
+  // Log the current locale for debugging purposes
+  console.log(`Current Locale: ${currentLocale}`);
 
   return response;
 }
 
+// Configuration for the middleware
 export const config = {
   matcher: [
     "/((?!api|_next/static|_next/image|favicon.ico|icons|docs|assets).*)",
