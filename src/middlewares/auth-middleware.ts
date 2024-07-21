@@ -1,6 +1,5 @@
 // src\middlewares\auth-middleware.ts
-
-import { getToken } from "next-auth/jwt";
+import { getToken, GetTokenParams } from "next-auth/jwt";
 import { NextRequest, NextResponse } from "next/server";
 import { currentLocale } from "./intl-middleware";
 
@@ -31,12 +30,13 @@ export async function authMiddleware(req: NextRequest) {
   const authPath = authPaths(locale);
   const visitPath = visitPaths(locale);
   const adminPath = adminPaths(locale);
+  const salt: string = process.env.AUTH_SALT ?? "default-salt";
 
-  const tokenParams: any = {
+  const tokenParams: GetTokenParams = {
     req,
     secret: process.env.AUTH_SECRET as string,
     secureCookie: process.env.NODE_ENV === "production",
-    // salt: (process.env.AUTH_SALT as string) || "default-salt",
+    salt: salt,
   };
 
   const token = await getToken(tokenParams);
