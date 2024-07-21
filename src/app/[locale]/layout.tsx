@@ -46,7 +46,6 @@ export default async function RootLayout({ children }: RootLayoutProps) {
   const headersList = headers();
   const locale = headersList.get("x-locale") || "en";
   const deviceType = headersList.get("x-device-type") || "desktop";
-  console.log("inRootLayout", locale, deviceType);
 
   return (
     <html
@@ -90,7 +89,9 @@ export default async function RootLayout({ children }: RootLayoutProps) {
       >
         <Provider messages={messages}>
           {deviceType === "desktop" && <DesktopHeader />}
-          <Main>{children}</Main>
+          <Main className={cn("", { "pb-10": deviceType !== "desktop" })}>
+            {children}
+          </Main>
           {deviceType === "desktop" && <Footer />}
           {deviceType !== "desktop" && (
             <>

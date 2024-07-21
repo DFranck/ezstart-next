@@ -25,10 +25,6 @@ const UpdateUserForm = () => {
   });
   const router = useRouter();
 
-  useEffect(() => {
-    console.log("Session on client-side:", session);
-  }, [session]);
-
   const onSubmit = async (data: z.infer<typeof nameSchema>) => {
     const { name } = data;
     const email = session?.user?.email;

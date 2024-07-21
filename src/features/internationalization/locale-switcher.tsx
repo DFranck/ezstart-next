@@ -94,7 +94,7 @@ const LocaleSwitcher = ({ className }: { className?: string }) => {
         onClick={handleOpen}
         onKeyDown={handleKeyDown}
       >
-        <GlobeIcon className="w-full h-full" />
+        <GlobeIcon className="w-full h-full p-1" />
         <p className="sr-only">switch language</p>
       </button>
       {isOpen && (

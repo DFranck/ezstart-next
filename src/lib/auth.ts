@@ -1,12 +1,11 @@
 // src\lib\auth.ts
 import { compare } from "bcryptjs";
-import NextAuth from "next-auth";
+import NextAuth, { Session, User } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import GitHubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
 import { db } from "./db";
-import { signInSchema } from "./zod"; // Assurez-vous que le schéma Zod est correctement configuré
-// const locale = useLocale();
+import { signInSchema } from "./zod";
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
     GoogleProvider({
@@ -57,11 +56,30 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       },
     }),
   ],
-  // pages: {
-  //   signIn: `/${locale}/sign-in`,
-  // },
   secret: process.env.AUTH_SECRET,
   callbacks: {
+    // async signIn({ user, account, profile }) {
+    //   const email = user.email ?? "";
+    //   const name = user.name ?? "";
+    //   const image = user.image ?? "";
+    //   const defaultPassword = randomBytes(32).toString("hex");
+    //   const existingUser = await db.user.findUnique({
+    //     where: { email },
+    //   });
+
+    //   if (!existingUser) {
+    //     await db.user.create({
+    //       data: {
+    //         name,
+    //         email,
+    //         image,
+    //         password: defaultPassword,
+    //       },
+    //     });
+    //   }
+
+    //   return true;
+    // },
     async jwt({ token, user, trigger, session }) {
       if (trigger === "update" && session) {
         return { ...token, ...session?.user };
@@ -70,13 +88,21 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         token.name = user.name || "";
         token.email = user.email || "";
         token.role = user.role || "user";
+        token.image = user.image || "";
       }
       return token;
     },
-    async session({ session, token }) {
-      session.user.name = token.name || "";
-      session.user.email = token.email || "";
-      session.user.role = token.role || "user";
+    async session({ session, token }: { session: Session; token: any }) {
+      session.user = {
+        id: token.sub,
+        name: token.name,
+        email: token.email,
+        role: token.role,
+        image: token.image,
+        emailVerified: token.emailVerified
+          ? new Date(token.emailVerified)
+          : null,
+      } as User;
       return session;
     },
   },

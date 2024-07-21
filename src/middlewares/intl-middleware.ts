@@ -1,3 +1,4 @@
+// src\middlewares\intl-middleware.ts
 import { locales } from "@/i18n";
 import createMiddleware from "next-intl/middleware";
 import { NextRequest, NextResponse } from "next/server";

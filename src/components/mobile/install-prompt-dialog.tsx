@@ -19,10 +19,15 @@ function InstallPromptDialog({
         <h2 className="text-lg font-semibold mb-4">{t("popup-title")}</h2>
         <p className="mb-4">{t("popup-description")}</p>
         <div className="flex justify-end space-x-2">
-          <Button onClick={onAccept} size={"lg"}>
+          <Button onClick={onAccept} size={"lg"} className="text-lg">
             {t("popup-accept")}
           </Button>
-          <Button variant={"outline"} size={"lg"} onClick={onDecline}>
+          <Button
+            variant={"outline"}
+            size={"lg"}
+            className="text-lg"
+            onClick={onDecline}
+          >
             {t("popup-decline")}
           </Button>
         </div>

@@ -1,9 +1,11 @@
 // src/middleware.ts
+
 import { authMiddleware } from "@/middlewares/auth-middleware";
 import intlMiddleware from "@/middlewares/intl-middleware";
 import { NextRequest, NextResponse } from "next/server";
 import { userAgentMiddleware } from "./middlewares/user-agent-middleware";
 
+// Primary middleware to handle HTTP requests, internationalization, authentication and user agent.
 export default async function middleware(req: NextRequest) {
   // Ignore manifest.json and similar requests
   if (req.nextUrl.pathname.includes("manifest.json")) {
@@ -21,8 +23,11 @@ export default async function middleware(req: NextRequest) {
   if (authResponse.status !== 200) {
     return authResponse;
   }
+
+  // Handle user agent
   const userAgentResponse = userAgentMiddleware(req);
 
+  // Create response with headers from intl and user agent middlewares
   const response = NextResponse.next({
     headers: intlResponse.headers,
   });
@@ -32,15 +37,6 @@ export default async function middleware(req: NextRequest) {
   response.headers.set(
     "x-device-type",
     userAgentResponse.headers.get("x-device-type") || ""
-  );
-
-  console.log(
-    "Intl middleware response locale: ",
-    intlResponse.headers.get("x-locale")
-  );
-  console.log(
-    "User agent middleware response device type: ",
-    userAgentResponse.headers.get("x-device-type")
   );
 
   return response;

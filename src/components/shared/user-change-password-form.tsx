@@ -42,7 +42,7 @@ const UserChangePasswordForm = () => {
 
   return (
     <Section>
-      <div className="w-full">
+      <div className="w-full lg:w-fit">
         <h3 className="mb-4 cursor-pointer" onClick={() => setIsOpen(!isOpen)}>
           Change Password
         </h3>
@@ -52,29 +52,31 @@ const UserChangePasswordForm = () => {
             isOpen ? "max-h-screen" : "max-h-0"
           )}
         >
-          <div className="flex flex-col p-4">
+          <div className="flex flex-col">
             <Input
               type="password"
               placeholder="Current Password"
               value={currentPassword}
               onChange={(e) => setCurrentPassword(e.target.value)}
-              className="mb-2 text-lg w-full"
+              className="m-2 text-lg w-auto"
             />
             <Input
               type="password"
               placeholder="New Password"
               value={newPassword}
               onChange={(e) => setNewPassword(e.target.value)}
-              className="mb-2 text-lg w-full"
+              className="m-2 text-lg w-auto"
             />
             <Input
               type="password"
               placeholder="Confirm New Password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
-              className="mb-4 text-lg w-full"
+              className="m-2 text-lg w-auto"
             />
-            <Button onClick={handlePasswordChange}>Change Password</Button>
+            <Button className="m-2 text-lg" onClick={handlePasswordChange}>
+              Change Password
+            </Button>
           </div>
         </div>
       </div>

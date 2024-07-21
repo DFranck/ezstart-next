@@ -66,9 +66,9 @@ export function ThemeSwitcher({ className }: { className?: string }) {
         onKeyDown={handleKeyDown}
       >
         {theme === "light" ? (
-          <Sun className="w-full h-full" />
+          <Sun className="w-full h-full p-1" />
         ) : (
-          <Moon className="w-full h-full" />
+          <Moon className="w-full h-full p-1" />
         )}
         <p className="sr-only">switch language</p>
       </button>

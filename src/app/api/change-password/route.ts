@@ -1,11 +1,17 @@
+import { auth } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { compare, hash } from "bcryptjs";
-import { getSession } from "next-auth/react";
 import { NextRequest, NextResponse } from "next/server";
-
+export async function GET() {
+  return NextResponse.json(
+    { message: "This route is for POST change-password requests" },
+    { status: 401 }
+  );
+}
 export async function POST(req: NextRequest) {
+  console.log("user try to change password");
   try {
-    const session = await getSession();
+    const session = await auth();
     console.log(session);
 
     if (!session || !session.user || !session.user.email) {
