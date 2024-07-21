@@ -1,3 +1,4 @@
+// src\lib\auth.ts
 import { compare } from "bcryptjs";
 import NextAuth, { Session, User } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
