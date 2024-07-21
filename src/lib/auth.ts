@@ -1,4 +1,3 @@
-// src\lib\auth.ts
 import { compare } from "bcryptjs";
 import NextAuth, { Session, User } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
@@ -6,6 +5,11 @@ import GitHubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
 import { db } from "./db";
 import { signInSchema } from "./zod";
+
+/**
+ * NextAuth configuration for handling authentication.
+ * Includes Google, GitHub, and Credentials providers.
+ */
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
     GoogleProvider({
@@ -23,6 +27,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       },
       authorize: async (credentials) => {
         try {
+          // Validate credentials using zod schema
           const parsedData = await signInSchema.parseAsync(credentials);
 
           if (
@@ -32,10 +37,12 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             throw new Error("Invalid credentials");
           }
 
+          // Find user in database by email
           const user = await db.user.findUnique({
             where: { email: parsedData.email ?? "" },
           });
 
+          // Compare password with stored hash
           if (user && (await compare(parsedData.password, user.password))) {
             return {
               id: user.id,
@@ -58,28 +65,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   ],
   secret: process.env.AUTH_SECRET,
   callbacks: {
-    // async signIn({ user, account, profile }) {
-    //   const email = user.email ?? "";
-    //   const name = user.name ?? "";
-    //   const image = user.image ?? "";
-    //   const defaultPassword = randomBytes(32).toString("hex");
-    //   const existingUser = await db.user.findUnique({
-    //     where: { email },
-    //   });
-
-    //   if (!existingUser) {
-    //     await db.user.create({
-    //       data: {
-    //         name,
-    //         email,
-    //         image,
-    //         password: defaultPassword,
-    //       },
-    //     });
-    //   }
-
-    //   return true;
-    // },
     async jwt({ token, user, trigger, session }) {
       if (trigger === "update" && session) {
         return { ...token, ...session?.user };
@@ -108,6 +93,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   },
   session: {
     strategy: "jwt",
-    maxAge: 30 * 24 * 60 * 60,
+    maxAge: 30 * 24 * 60 * 60, // 30 days
   },
 });
