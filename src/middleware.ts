@@ -5,29 +5,34 @@ import intlMiddleware from "@/middlewares/intl-middleware";
 import { NextRequest, NextResponse } from "next/server";
 import { userAgentMiddleware } from "./middlewares/user-agent-middleware";
 
-// Primary middleware to handle HTTP requests, internationalization, authentication and user agent.
-export default async function middleware(req: NextRequest) {
-  // Ignore manifest.json and similar requests
+// Define types for middleware responses
+type MiddlewareResponse = NextResponse;
+
+// Main middleware to handle HTTP requests, internationalization, authentication, and user agent.
+export default async function middleware(
+  req: NextRequest
+): Promise<NextResponse> {
+  // Ignore requests for manifest.json and similar
   if (req.nextUrl.pathname.includes("manifest.json")) {
     return NextResponse.next();
   }
 
   // Handle internationalization
-  const intlResponse = intlMiddleware(req);
+  const intlResponse: MiddlewareResponse = intlMiddleware(req);
   if (intlResponse.status !== 200) {
     return intlResponse;
   }
 
   // Handle authentication
-  const authResponse = await authMiddleware(req);
+  const authResponse: MiddlewareResponse = await authMiddleware(req);
   if (authResponse.status !== 200) {
     return authResponse;
   }
 
   // Handle user agent
-  const userAgentResponse = userAgentMiddleware(req);
+  const userAgentResponse: MiddlewareResponse = userAgentMiddleware(req);
 
-  // Create response with headers from intl and user agent middlewares
+  // Create a response with headers from intl and user agent middleware
   const response = NextResponse.next({
     headers: intlResponse.headers,
   });
@@ -42,6 +47,7 @@ export default async function middleware(req: NextRequest) {
   return response;
 }
 
+// Middleware configuration
 export const config = {
   matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
   methods: ["GET", "POST", "PATCH"],
