@@ -3,10 +3,7 @@
 
 import LocaleSwitcher from "@/features/internationalization/locale-switcher";
 import { ThemeSwitcher } from "@/features/theme/theme-switcher";
-import { signOut } from "next-auth/react";
-import { Button } from "../ui/button";
 import Section from "./section";
-import UserChangePasswordForm from "./user-change-password-form";
 
 const UserSettings = () => {
   return (
@@ -27,15 +24,6 @@ const UserSettings = () => {
           </div>
         </div>
       </Section>
-      <UserChangePasswordForm />
-      <Button
-        variant={"outline"}
-        size={"lg"}
-        className="text-lg px-8 py-6"
-        onClick={() => signOut({ redirect: true, callbackUrl: "/" })}
-      >
-        Sign out
-      </Button>
     </>
   );
 };

@@ -1,31 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Button } from "./ui/button";
-
 const AskPermissionBtn = () => {
   const [permission, setPermission] = useState("default");
-
-  useEffect(() => {
-    if (typeof window !== "undefined" && "Notification" in window) {
-      setPermission(Notification.permission);
-    }
-
-    const checkPermission = () => {
-      if (typeof window !== "undefined" && "Notification" in window) {
-        setPermission(Notification.permission);
-      }
-    };
-
-    // Vérifier la permission de notification à l'initialisation
-    checkPermission();
-
-    // Surveiller les changements de permission (nécessite un rafraîchissement de la page)
-    document.addEventListener("visibilitychange", checkPermission);
-    return () => {
-      document.removeEventListener("visibilitychange", checkPermission);
-    };
-  }, []);
+  console.log(permission);
 
   const handlePermission = async () => {
     if (typeof window !== "undefined" && "Notification" in window) {
@@ -40,9 +19,12 @@ const AskPermissionBtn = () => {
 
   if (permission === "default") {
     return (
-      <div className="fixed bottom-20 right-20 w-40 h-12 bg-blue-500">
-        <Button onClick={handlePermission}>Allow Notifications</Button>
-      </div>
+      <Button
+        className="fixed bottom-20 right-6 border shadow text-lg px-8 py-6 font-bold"
+        onClick={handlePermission}
+      >
+        Allow Notifications
+      </Button>
     );
   }
 

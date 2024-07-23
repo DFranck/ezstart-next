@@ -40,7 +40,7 @@ export async function authMiddleware(req: NextRequest): Promise<NextResponse> {
   const adminPath = adminPaths(locale);
   const salt: string = process.env.AUTH_SALT ?? "default-salt";
 
-  const tokenParams: GetTokenParams = {
+  const tokenParams: any = {
     req,
     secret: process.env.AUTH_SECRET as string,
     secureCookie: process.env.NODE_ENV === "production",

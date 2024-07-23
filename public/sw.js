@@ -102,14 +102,32 @@ define(["./workbox-fb90b81a"], function (workbox) {
     "GET"
   );
 });
-//# sourceMappingURL=sw.js.map
+
+self.addEventListener("install", function (event) {
+  console.log("Service Worker installing.");
+});
+
+self.addEventListener("activate", function (event) {
+  console.log("Service Worker activating.");
+});
+
 self.addEventListener("push", function (event) {
-  const data = event.data.json();
+  let data;
+  try {
+    // Try to parse the data as JSON
+    data = event.data.json();
+  } catch (e) {
+    console.error("Error parsing push event data as JSON: ", e);
+    // If parsing fails, use the text directly
+    data = { message: event.data.text() };
+  }
+
+  const title = "Push Notification";
   const options = {
-    body: data.body,
-    icon: "/icons/icon-192x192.png", // Changez le chemin selon vos icônes
-    badge: "/icons/icon-72x72.png", // Changez le chemin selon vos icônes
+    body: data.message,
+    icon: "/icon.png",
+    badge: "/badge.png",
   };
 
-  event.waitUntil(self.registration.showNotification(data.title, options));
+  event.waitUntil(self.registration.showNotification(title, options));
 });
