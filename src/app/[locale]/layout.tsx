@@ -1,3 +1,4 @@
+import AskPermissionBtn from "@/components/ask-permission-btn";
 import DesktopHeader from "@/components/desktop/desktop-header";
 import InstallPromptButton from "@/components/mobile/install-prompt-button";
 import MobileHeader from "@/components/mobile/mobile-header";
@@ -57,7 +58,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
       <head>
         <meta property="og:image" content={socialImage} />
         <meta name="twitter:image" content={socialImage} />
-        <script src="/sw-registration.js" defer></script>
+        <script type="module" src="/sw-registration.js" defer></script>
       </head>
       <body
         className={cn(inter.className, "min-h-screen flex flex-col h-full")}
@@ -74,6 +75,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
               <InstallPromptButton />{" "}
             </>
           )}
+          <AskPermissionBtn />
         </Provider>
       </body>
     </html>

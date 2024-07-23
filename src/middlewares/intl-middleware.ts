@@ -25,7 +25,8 @@ export default function middleware(req: NextRequest): NextResponse {
   if (
     url.startsWith("/icons") ||
     url.startsWith("/docs") ||
-    url.startsWith("/assets")
+    url.startsWith("/assets") ||
+    url === "/sw-registration.js"
   ) {
     return NextResponse.next();
   }
