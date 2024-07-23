@@ -1,9 +1,30 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 const AskPermissionBtn = () => {
-  const [permission, setPermission] = useState("default");
+  const [permission, setPermission] = useState(() => {
+    // Vérifie si la permission est déjà stockée dans localStorage
+    console.log("Permission:", localStorage.getItem("notification-permission"));
+
+    if (typeof window !== "undefined") {
+      return localStorage.getItem("notification-permission") || "default";
+    }
+    return "default";
+  });
+  useEffect(() => {
+    // Stocke la permission dans localStorage chaque fois qu'elle change
+    if (typeof window !== "undefined") {
+      localStorage.setItem("notification-permission", permission);
+    }
+
+    // Vérifie l'état de la permission actuelle
+    if (typeof window !== "undefined" && "Notification" in window) {
+      const currentPermission = Notification.permission;
+      setPermission(currentPermission);
+    }
+  }, []);
+
   console.log(permission);
 
   const handlePermission = async () => {
