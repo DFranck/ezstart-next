@@ -13,13 +13,25 @@ interface BeforeInstallPromptEvent extends Event {
 const InstallButton = () => {
   const [deferredPrompt, setDeferredPrompt] =
     useState<BeforeInstallPromptEvent | null>(null);
+  const [isInstalled, setIsInstalled] = useState(false);
 
   useEffect(() => {
+    // Check if the app is installed
+    const checkInstallation = () => {
+      const isStandalone =
+        (window.matchMedia &&
+          window.matchMedia("(display-mode: standalone)").matches) ||
+        (window.navigator as any).standalone;
+
+      setIsInstalled(isStandalone);
+    };
+
+    checkInstallation();
+
     const handleBeforeInstallPrompt = (event: BeforeInstallPromptEvent) => {
       // Empêcher l'affichage automatique de la bannière
       event.preventDefault();
       // Stocker l'événement pour pouvoir l'utiliser plus tard
-      window.deferredPrompt = event;
       setDeferredPrompt(event);
     };
 
@@ -27,6 +39,10 @@ const InstallButton = () => {
       "beforeinstallprompt",
       handleBeforeInstallPrompt as EventListener
     );
+
+    window.addEventListener("appinstalled", () => {
+      setIsInstalled(true);
+    });
 
     return () => {
       window.removeEventListener(
@@ -46,15 +62,18 @@ const InstallButton = () => {
         console.log("User dismissed the install prompt");
       }
       setDeferredPrompt(null);
-      window.deferredPrompt = null;
     }
   };
 
-  if (!deferredPrompt) {
+  if (isInstalled || !deferredPrompt) {
     return null;
   }
 
-  return <Button onClick={handleInstallClick}>Install App</Button>;
+  return (
+    <Button className="h-16 w-full" size={"lg"} onClick={handleInstallClick}>
+      <h2 className="text-start flex items-center my-0 h-16">Install App</h2>
+    </Button>
+  );
 };
 
 export default InstallButton;

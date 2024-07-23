@@ -1,15 +1,16 @@
+// src\components\shared\user-change-password-form.tsx
 "use client";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
-import Section from "./section";
 
 const UserChangePasswordForm = () => {
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [isOpen, setIsOpen] = useState(false);
+  const inputStyle = "m-2 text-lg w-auto h-16";
   const handlePasswordChange = async () => {
     if (newPassword !== confirmPassword) {
       alert("New password and confirm password do not match");
@@ -42,46 +43,51 @@ const UserChangePasswordForm = () => {
   };
 
   return (
-    <Section>
-      <div className="w-full lg:w-fit">
-        <h3 className="mb-4 cursor-pointer" onClick={() => setIsOpen(!isOpen)}>
-          Change Password
-        </h3>
-        <div
-          className={cn(
-            "transition-[max-height] duration-500 ease-in-out overflow-hidden",
-            isOpen ? "max-h-screen" : "max-h-0"
-          )}
-        >
-          <div className="flex flex-col">
-            <Input
-              type="password"
-              placeholder="Current Password"
-              value={currentPassword}
-              onChange={(e) => setCurrentPassword(e.target.value)}
-              className="m-2 text-lg w-auto"
-            />
-            <Input
-              type="password"
-              placeholder="New Password"
-              value={newPassword}
-              onChange={(e) => setNewPassword(e.target.value)}
-              className="m-2 text-lg w-auto"
-            />
-            <Input
-              type="password"
-              placeholder="Confirm New Password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              className="m-2 text-lg w-auto"
-            />
-            <Button className="m-2 text-lg" onClick={handlePasswordChange}>
-              Change Password
-            </Button>
-          </div>
+    <div className={cn("w-full")}>
+      <h2
+        className="my-0 text-start flex items-center h-16 cursor-pointer"
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        Change Password
+      </h2>
+      <div
+        className={cn(
+          "transition-[max-height] duration-500 ease-in-out overflow-hidden",
+          isOpen ? "max-h-screen" : "max-h-0"
+        )}
+      >
+        <div className="flex flex-col">
+          <Input
+            type="password"
+            placeholder="Current Password"
+            value={currentPassword}
+            onChange={(e) => setCurrentPassword(e.target.value)}
+            className={inputStyle}
+          />
+          <Input
+            type="password"
+            placeholder="New Password"
+            value={newPassword}
+            onChange={(e) => setNewPassword(e.target.value)}
+            className={inputStyle}
+          />
+          <Input
+            type="password"
+            placeholder="Confirm New Password"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            className={inputStyle}
+          />
+          <Button
+            className="h-16 w-auto m-2 border shadow"
+            size={"lg"}
+            onClick={handlePasswordChange}
+          >
+            <h3 className="my-0">Change Password</h3>
+          </Button>
         </div>
       </div>
-    </Section>
+    </div>
   );
 };
 

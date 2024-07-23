@@ -8,10 +8,10 @@ const UserSignOutBtn = () => {
     <Button
       variant={"outline"}
       size={"lg"}
-      className="text-lg px-8 py-6"
+      className="h-16 w-full"
       onClick={() => signOut({ redirect: true, callbackUrl: "/" })}
     >
-      Sign out
+      <h2 className="text-start flex items-center my-0 ">Sign out</h2>
     </Button>
   );
 };
