@@ -1,5 +1,6 @@
 // src\app\[locale]\(user)\settings\page.tsx
 import ComingSoon from "@/components/coming-soon";
+import InstallButton from "@/components/install-button";
 import UserChangePasswordForm from "@/components/shared/user-change-password-form";
 import UserSettings from "@/components/shared/user-settings";
 import UserSignOutBtn from "@/components/shared/user-sign-out-btn";
@@ -22,6 +23,7 @@ const page = async () => {
       <UserChangePasswordForm />
       <UserSignOutBtn />
       <UserNotificationsHandler />
+      <InstallButton />
       <ComingSoon message="You can add in this page your personal user settings for your project" />
     </>
   );

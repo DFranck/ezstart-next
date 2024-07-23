@@ -15,8 +15,11 @@ export default function InstallPromptButton() {
       // Stocker l'événement pour pouvoir l'utiliser plus tard
       window.deferredPrompt = event;
 
-      // Afficher la boîte de dialogue personnalisée
-      setShowDialog(true);
+      // Afficher la boîte de dialogue personnalisée si l'utilisateur n'a pas déjà refusé
+      const installDeclined = localStorage.getItem("installDeclined");
+      if (!installDeclined) {
+        setShowDialog(true);
+      }
     };
 
     window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
@@ -45,6 +48,7 @@ export default function InstallPromptButton() {
 
   const handleDecline = () => {
     console.log("User declined the install prompt");
+    localStorage.setItem("installDeclined", "true");
     setShowDialog(false);
   };
 
