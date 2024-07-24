@@ -13,7 +13,13 @@ import {
   useTransition,
 } from "react";
 
-const LocaleSwitcher = ({ className }: { className?: string }) => {
+const LocaleSwitcher = ({
+  className,
+  menuPosition,
+}: {
+  className?: string;
+  menuPosition?: number;
+}) => {
   const t = useTranslations("app.locale");
   const [isMounted, setIsMounted] = useState(false);
   const [isPending, startTransition] = useTransition();
@@ -21,7 +27,7 @@ const LocaleSwitcher = ({ className }: { className?: string }) => {
   const router = useRouter();
   const pathname = usePathname();
   const localeActive = useLocale();
-  const liStyle = "py-2 px-4 cursor-pointer hover:bg-accent text-sm";
+  const liStyle = "py-2 px-4 cursor-pointer hover:bg-accent text-lg lg:text-sm";
   const buttonRef = useRef<HTMLButtonElement>(null);
   const dropdownRef = useRef<HTMLUListElement>(null);
 
@@ -102,7 +108,8 @@ const LocaleSwitcher = ({ className }: { className?: string }) => {
           ref={dropdownRef}
           tabIndex={-1}
           className={cn(
-            "absolute top-10 right-0 z-10 bg-background border shadow rounded animate-fadeIn duration-200"
+            "absolute top-10 right-0 z-10 bg-background border shadow rounded animate-fadeIn duration-200",
+            menuPosition && `top-${menuPosition}`
           )}
         >
           {languages.map(([key, value]) => (

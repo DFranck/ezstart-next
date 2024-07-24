@@ -12,14 +12,12 @@ const Hero = () => {
       <AuroraBackground className="text-foreground absolute top-0 w-full h-screen">
         <p></p>
       </AuroraBackground>
-      <Section className="max-w-4xl h-screen text-justify md:text-center gap-20 md:gap-10 px-4">
+      <Section className="max-w-4xl h-screen  text-justify md:text-center gap-20 md:gap-10 px-4">
         <h1 className="text-5xl md:text-7xl font-bold text-center ">
           {t("title")}
         </h1>
-        <p className="font-extralight text-base md:text-2xl text-justify xl:text-center">
-          {t("description")}
-        </p>
-        <div className="flex flex-col sm:flex-row justify-center sm:gap-4">
+        <p>{t("description")}</p>
+        <div className="flex flex-col lg:flex-row justify-center lg:gap-4 pb-10 lg:pb-0">
           <Button asChild className="mb-6 text-lg px-8 py-6 font-bold">
             <Link href={`/${locale}/docs/get-started`}>{t("cta")}</Link>
           </Button>

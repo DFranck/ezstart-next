@@ -6,14 +6,20 @@ import { useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
 import { useEffect, useRef, useState } from "react";
 
-export function ThemeSwitcher({ className }: { className?: string }) {
+export function ThemeSwitcher({
+  className,
+  menuPosition,
+}: {
+  className?: string;
+  menuPosition?: number;
+}) {
   const [isMounted, setIsMounted] = useState(false);
   const { theme, setTheme } = useTheme();
   const t = useTranslations("app.theme");
   const [isOpen, setIsOpen] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const dropdownRef = useRef<HTMLUListElement>(null);
-  const liStyle = "py-2 px-4 cursor-pointer hover:bg-accent text-sm";
+  const liStyle = "py-2 px-4 cursor-pointer hover:bg-accent text-lg lg:text-sm";
 
   useEffect(() => {
     setIsMounted(true);
@@ -77,7 +83,8 @@ export function ThemeSwitcher({ className }: { className?: string }) {
           ref={dropdownRef}
           tabIndex={-1}
           className={cn(
-            "absolute top-10 right-0 z-20 bg-background border shadow rounded animate-fadeIn duration-1000"
+            "absolute top-10 right-0 z-20 bg-background border shadow rounded animate-fadeIn duration-1000",
+            menuPosition && `top-${menuPosition}`
           )}
         >
           <li
