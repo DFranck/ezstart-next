@@ -28,7 +28,8 @@ export default function middleware(req: NextRequest): NextResponse {
     url.startsWith("/assets") ||
     url === "/sw-registration.js" ||
     url === "/sw.js" ||
-    url === "/workbox-fb90b81a.js"
+    url === "/workbox-fb90b81a.js" ||
+    url === "/manifest.json"
   ) {
     return NextResponse.next();
   }

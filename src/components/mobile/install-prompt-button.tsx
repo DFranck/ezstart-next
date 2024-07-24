@@ -10,6 +10,7 @@ export default function InstallPromptButton() {
 
   useEffect(() => {
     const handleBeforeInstallPrompt = (event: any) => {
+      console.log("handleBeforeInstallPrompt triggered on InstallPromptButton");
       // Empêcher l'affichage automatique de la bannière
       event.preventDefault();
       // Stocker l'événement pour pouvoir l'utiliser plus tard
