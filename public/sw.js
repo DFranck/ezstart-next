@@ -103,12 +103,14 @@ define(["./workbox-fb90b81a"], function (workbox) {
   );
 });
 
-self.addEventListener("install", function (event) {
+self.addEventListener("install", (event) => {
   console.log("Service Worker installing.");
+  self.skipWaiting();
 });
 
-self.addEventListener("activate", function (event) {
-  console.log("Service Worker activating.");
+self.addEventListener("activate", (event) => {
+  console.log("Service Worker activated.");
+  event.waitUntil(clients.claim());
 });
 
 self.addEventListener("push", function (event) {

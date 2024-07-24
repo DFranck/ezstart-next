@@ -2,36 +2,42 @@
 
 import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
+
 const AskPermissionBtn = () => {
-  const [permission, setPermission] = useState(() => {
-    // Vérifie si la permission est déjà stockée dans localStorage
-    console.log("Permission:", localStorage.getItem("notification-permission"));
+  const [permission, setPermission] = useState("default");
 
-    if (typeof window !== "undefined") {
-      return localStorage.getItem("notification-permission") || "default";
-    }
-    return "default";
-  });
   useEffect(() => {
-    // Stocke la permission dans localStorage chaque fois qu'elle change
-    if (typeof window !== "undefined") {
-      localStorage.setItem("notification-permission", permission);
-    }
-
-    // Vérifie l'état de la permission actuelle
     if (typeof window !== "undefined" && "Notification" in window) {
-      const currentPermission = Notification.permission;
-      setPermission(currentPermission);
+      const storedPermission = localStorage.getItem("notification-permission");
+      if (storedPermission) {
+        setPermission(storedPermission);
+      } else {
+        setPermission(Notification.permission);
+      }
     }
-  }, []);
 
-  console.log(permission);
+    const checkPermission = () => {
+      if (typeof window !== "undefined" && "Notification" in window) {
+        setPermission(Notification.permission);
+      }
+    };
+
+    // Vérifier la permission de notification à l'initialisation
+    checkPermission();
+
+    // Surveiller les changements de permission (nécessite un rafraîchissement de la page)
+    document.addEventListener("visibilitychange", checkPermission);
+    return () => {
+      document.removeEventListener("visibilitychange", checkPermission);
+    };
+  }, []);
 
   const handlePermission = async () => {
     if (typeof window !== "undefined" && "Notification" in window) {
       try {
         const permissionResult = await Notification.requestPermission();
         setPermission(permissionResult);
+        localStorage.setItem("notification-permission", permissionResult);
       } catch (error) {
         console.error("Error requesting notification permission:", error);
       }
