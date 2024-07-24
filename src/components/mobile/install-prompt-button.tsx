@@ -15,10 +15,14 @@ export default function InstallPromptButton() {
       // Stocker l'événement pour pouvoir l'utiliser plus tard
       window.deferredPrompt = event;
 
+      console.log("beforeinstallprompt event captured: ", event);
+
       // Afficher la boîte de dialogue personnalisée si l'utilisateur n'a pas déjà refusé
       const installDeclined = localStorage.getItem("installDeclined");
+      console.log("installDeclined: ", installDeclined);
       if (!installDeclined) {
         setShowDialog(true);
+        console.log("Showing install prompt dialog");
       }
     };
 
@@ -33,9 +37,11 @@ export default function InstallPromptButton() {
   }, []);
 
   const handleAccept = async () => {
+    console.log("User accepted the install prompt");
     // Afficher la bannière d'installation
     window.deferredPrompt.prompt();
     const { outcome } = await window.deferredPrompt.userChoice;
+    console.log("User choice outcome: ", outcome);
     if (outcome === "accepted") {
       console.log("User accepted the install prompt");
     } else {

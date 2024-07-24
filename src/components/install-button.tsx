@@ -24,6 +24,7 @@ const InstallButton = () => {
         (window.navigator as any).standalone;
 
       setIsInstalled(isStandalone);
+      console.log("isStandalone: ", isStandalone);
     };
 
     checkInstallation();
@@ -33,6 +34,7 @@ const InstallButton = () => {
       event.preventDefault();
       // Stocker l'événement pour pouvoir l'utiliser plus tard
       setDeferredPrompt(event);
+      console.log("beforeinstallprompt event captured: ", event);
     };
 
     window.addEventListener(
@@ -42,6 +44,7 @@ const InstallButton = () => {
 
     window.addEventListener("appinstalled", () => {
       setIsInstalled(true);
+      console.log("App installed");
     });
 
     return () => {
@@ -54,8 +57,10 @@ const InstallButton = () => {
 
   const handleInstallClick = async () => {
     if (deferredPrompt) {
+      console.log("Prompting install...");
       await deferredPrompt.prompt();
       const { outcome } = await deferredPrompt.userChoice;
+      console.log("User choice outcome: ", outcome);
       if (outcome === "accepted") {
         console.log("User accepted the install prompt");
       } else {

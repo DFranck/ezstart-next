@@ -33,9 +33,12 @@ const AskPermissionBtn = () => {
   }, []);
 
   const handlePermission = async () => {
+    console.log("Requesting permission...");
+
     if (typeof window !== "undefined" && "Notification" in window) {
       try {
         const permissionResult = await Notification.requestPermission();
+        console.log("Permission result: ", permissionResult);
         setPermission(permissionResult);
         localStorage.setItem("notification-permission", permissionResult);
       } catch (error) {

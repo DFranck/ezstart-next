@@ -15,6 +15,7 @@ const UserNotificationsHandler = () => {
           body: "This is a EzStart test notification",
           icon: "/icons/icon-192x192.png",
         });
+        console.log("Notification sent", Notification);
       } else {
         alert("Please enable notifications to receive this alert.");
       }

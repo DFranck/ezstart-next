@@ -13,6 +13,8 @@ function InstallPromptDialog({
   onDecline,
 }: InstallPromptDialogProps) {
   const t = useTranslations("app.pwa");
+  console.log("Rendering InstallPromptDialog");
+
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-background/80 px-5">
       <div className="bg-muted p-6 rounded border shadow-lg">
