@@ -1,10 +1,12 @@
 "use client";
 import { Home } from "lucide-react";
+import { useLocale } from "next-intl";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Section from "./shared/section";
 
 const Pathname = () => {
+  const locale = useLocale();
   const pathname = usePathname();
   const remainingPath = pathname.substring(pathname.indexOf("/", 1) + 1);
   const segments = remainingPath.split("/").filter(Boolean);
@@ -14,7 +16,7 @@ const Pathname = () => {
         <Home className="h-4 w-4" />
       </Link>
       {segments.map((segment, index) => {
-        const path = `/${segments.slice(0, index + 1).join("/")}`;
+        const path = `/${locale}/${segments.slice(0, index + 1).join("/")}`;
         return (
           <span key={index} className="flex items-center gap-2">
             <span>/</span>
