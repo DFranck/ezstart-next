@@ -1,6 +1,7 @@
 "use client";
 import Burger from "@/components/burger";
 import Nav from "@/components/nav";
+import { cn } from "@/lib/utils";
 import { Home, User } from "lucide-react";
 import { useSession } from "next-auth/react";
 import { useLocale, useTranslations } from "next-intl";
@@ -21,30 +22,33 @@ const MobileHeader: React.FC = () => {
   return (
     <>
       <header
-        className="fixed bottom-0 left-0 right-0 z-40 border-t shadow"
+        className="fixed bottom-0 left-0 right-0 z-40 border-t shadow  "
         onClick={() => handleClick()}
       >
-        {isOpen && (
-          <div className="bg-accent text-accent-foreground border-t border-primary z-50">
-            <Nav
-              ulClass="flex flex-col p-2"
-              navClass="flex flex-col"
-              liClass="text-left p-2"
-              t="pages"
-              render="nav-links"
-              root={[0]}
-              dir="col"
-              active
-              variant="primary"
-              subNavClass="text-right"
-              setIsOpen={setIsOpen}
-              subNavProps={{
-                ulClass: "text-right  mt-2",
-                liClass: "text-right p-2 ",
-              }}
-            />
-          </div>
-        )}
+        <div
+          className={cn(
+            "bg-background  z-50 transition-[max-height] duration-500 ease-in-out overflow-hidden",
+            isOpen ? "max-h-screen" : "max-h-0"
+          )}
+        >
+          <Nav
+            ulClass="flex flex-col p-2"
+            navClass="flex flex-col"
+            liClass="text-left p-2"
+            t="pages"
+            render="nav-links"
+            root={[0]}
+            dir="col"
+            active
+            variant="primary"
+            subNavClass="text-right"
+            setIsOpen={setIsOpen}
+            subNavProps={{
+              ulClass: "text-right border-b mt-2",
+              liClass: "text-right p-2 ",
+            }}
+          />
+        </div>
         <div className="grid grid-cols-3 items-center bg-background shadow-md">
           <Link href={`/${locale}`} className="w-full flex justify-center py-2">
             <Home className="w-9 h-9" strokeWidth={1.5} />

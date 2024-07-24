@@ -20,7 +20,7 @@ const Burger = ({
     <button
       onClick={handleClick}
       className={cn(
-        "relative h-8 w-8  flex flex-col justify-evenly items-center",
+        "relative h-8 w-8  flex flex-col justify-evenly items-center  border-none",
         className
       )}
     >

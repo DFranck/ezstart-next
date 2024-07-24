@@ -26,7 +26,7 @@ export const DesktopHeader = () => {
     <header
       className={cn("p-6 z-10 fixed w-full ", {
         "bg-background": isOpen,
-        "p-2 bg-background border-b": scrollY > 0,
+        "p-2 bg-background": scrollY > 0,
       })}
     >
       <div className="mx-auto max-w-screen-lg h-fit">
@@ -83,7 +83,7 @@ export const DesktopHeader = () => {
           {pathname.includes(`/${locale}/docs`) && (
             <Nav
               t="pages.docs"
-              navClass="bg-accent text-accent-foreground p-2 border-b border-primary"
+              navClass="bg-accent text-accent-foreground p-2"
               liClass="text-right p-2"
               render="nav-links"
               path="docs"

@@ -17,8 +17,9 @@ const DocsLayout = async ({ children }: { children: React.ReactNode }) => {
           dir={"col"}
           pos={"fixed"}
           active
-          navClass="hidden lg:flex"
+          navClass="hidden lg:flex "
           variant={"primary"}
+          liClass="text-left"
         />
       </aside>
       <div className="w-full h-full flex flex-col bg-secondary text-secondary-foreground px-4">

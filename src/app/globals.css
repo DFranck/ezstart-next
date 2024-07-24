@@ -68,6 +68,9 @@
   p {
     @apply font-extralight  text-lg md:text-xl text-justify;
   }
+  button {
+    @apply border shadow;
+  }
   #carousel-3d-h1 {
     -webkit-text-stroke: 2px hsl(var(--primary));
   }

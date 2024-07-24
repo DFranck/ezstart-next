@@ -32,11 +32,17 @@ const Page = async () => {
       <ul className="grid grid-cols-1 max-w-xl mx-auto">
         <li className={liStyle}>
           <h2 className={h2Style}>Language</h2>{" "}
-          <LocaleSwitcher className="w-16 h-16 p-2" menuPosition={20} />
+          <LocaleSwitcher
+            className="w-16 h-16 p-2 border-none"
+            menuPosition={20}
+          />
         </li>
         <li className={liStyle}>
           <h2 className={h2Style}>Theme</h2>{" "}
-          <ThemeSwitcher className="w-16 h-16 p-2" menuPosition={20} />
+          <ThemeSwitcher
+            className="w-16 h-16 p-2 border-none"
+            menuPosition={20}
+          />
         </li>
         <li className={liStyle}>
           <UserChangePasswordForm />

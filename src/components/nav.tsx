@@ -171,11 +171,11 @@ const Nav = ({
                 </Link>
                 {isActive && subNavProps && (
                   <Nav
-                    navClass={subNavClass}
+                    navClass={cn(subNavClass, "mt-2 border-t border-primary")}
                     t={activePath}
                     render={"nav-links"}
                     dir="col"
-                    ulClass="p-2"
+                    ulClass="p-2 "
                     path={link.toLowerCase()}
                     setIsOpen={setIsOpen}
                     variant={variant}
