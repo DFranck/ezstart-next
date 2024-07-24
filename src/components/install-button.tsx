@@ -14,7 +14,8 @@ const InstallButton = () => {
   const [deferredPrompt, setDeferredPrompt] =
     useState<BeforeInstallPromptEvent | null>(null);
   const [isInstalled, setIsInstalled] = useState(false);
-
+  const [isFirefox, setIsFirefox] = useState(false);
+  const [isSafari, setIsSafari] = useState(false);
   useEffect(() => {
     // Check if the app is installed
     const checkInstallation = () => {
@@ -46,7 +47,9 @@ const InstallButton = () => {
       setIsInstalled(true);
       console.log("App installed");
     });
-
+    if (navigator.userAgent.toLowerCase().indexOf("firefox") > -1) {
+      setIsFirefox(true);
+    }
     return () => {
       window.removeEventListener(
         "beforeinstallprompt",
@@ -70,7 +73,24 @@ const InstallButton = () => {
     }
   };
 
-  if (isInstalled || !deferredPrompt) {
+  if (isInstalled) {
+    return null;
+  }
+
+  if (isFirefox) {
+    return (
+      <div className="install-instructions">
+        <h2 className="text-start flex items-center my-0 h-16">Install App</h2>
+        <ul className="list-disc list-inside">
+          <li>Open the browser menu.</li>
+          <li>Select "Add to Home screen".</li>
+          <li>Follow the prompts to install the app.</li>
+        </ul>
+      </div>
+    );
+  }
+
+  if (!deferredPrompt) {
     return null;
   }
 
