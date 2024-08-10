@@ -8,7 +8,7 @@
     "build": "prisma generate && next build",
     "postinstall": "prisma generate",
     "lint": "next lint",
-    "commit": "cz",
+    "commit": "cz && husky run pre-commit",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev",
     "prisma:studio": "prisma studio",
