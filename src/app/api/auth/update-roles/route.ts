@@ -1,11 +1,11 @@
-import { db } from "@/lib/db";
-import { NextRequest, NextResponse } from "next/server";
+import { db } from '@/lib/db';
+import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(req: NextRequest) {
-  if (req.method !== "POST") {
+  if (req.method !== 'POST') {
     return NextResponse.json(
-      { message: "Method not allowed" },
-      { status: 405 }
+      { message: 'Method not allowed' },
+      { status: 405 },
     );
   }
 
@@ -14,8 +14,8 @@ export async function POST(req: NextRequest) {
 
   if (!email || !role) {
     return NextResponse.json(
-      { message: "Email and role are required" },
-      { status: 400 }
+      { message: 'Email and role are required' },
+      { status: 400 },
     );
   }
 
@@ -29,13 +29,13 @@ export async function POST(req: NextRequest) {
       {
         message: `Updated user role: ${user.email} is now an ${user.role}`,
       },
-      { status: 200 }
+      { status: 200 },
     );
   } catch (error) {
-    console.error("Error updating user role:", error);
+    console.error('Error updating user role:', error);
     return NextResponse.json(
-      { message: "Error updating user role" },
-      { status: 500 }
+      { message: 'Error updating user role' },
+      { status: 500 },
     );
   } finally {
     await db.$disconnect();

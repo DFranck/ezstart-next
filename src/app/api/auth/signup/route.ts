@@ -1,8 +1,8 @@
-import { db } from "@/lib/db";
-import { signUpSchema } from "@/lib/zod";
-import { hash } from "bcryptjs";
-import { NextRequest, NextResponse } from "next/server";
-import { ZodError } from "zod";
+import { db } from '@/lib/db';
+import { signUpSchema } from '@/lib/zod';
+import { hash } from 'bcryptjs';
+import { NextRequest, NextResponse } from 'next/server';
+import { ZodError } from 'zod';
 
 export async function POST(req: NextRequest) {
   try {
@@ -11,8 +11,8 @@ export async function POST(req: NextRequest) {
 
     if (!email || !password) {
       return NextResponse.json(
-        { message: "Email and password are required" },
-        { status: 400 }
+        { message: 'Email and password are required' },
+        { status: 400 },
       );
     }
 
@@ -26,26 +26,26 @@ export async function POST(req: NextRequest) {
     });
 
     return NextResponse.json(
-      { message: "User created", user },
-      { status: 201 }
+      { message: 'User created', user },
+      { status: 201 },
     );
   } catch (error: any) {
-    console.error("Error during user signup:", error);
+    console.error('Error during user signup:', error);
 
     if (error instanceof ZodError) {
       return NextResponse.json(
-        { message: "Validation error", errors: error.errors },
-        { status: 400 }
+        { message: 'Validation error', errors: error.errors },
+        { status: 400 },
       );
     }
 
-    if (error.code === "P2002" && error.meta?.target?.includes("email")) {
-      return NextResponse.json({ message: "userExists" }, { status: 409 });
+    if (error.code === 'P2002' && error.meta?.target?.includes('email')) {
+      return NextResponse.json({ message: 'userExists' }, { status: 409 });
     }
 
     return NextResponse.json(
-      { message: "Internal server error" },
-      { status: 500 }
+      { message: 'Internal server error' },
+      { status: 500 },
     );
   }
 }

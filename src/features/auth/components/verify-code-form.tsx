@@ -1,35 +1,35 @@
-"use client";
-import Loader from "@/components/loader";
-import { Button } from "@/components/ui/button";
+'use client';
+import Loader from '@/components/loader';
+import { Button } from '@/components/ui/button';
 import {
   FormControl,
   FormField,
   FormItem,
   FormLabel,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { cn } from "@/lib/utils";
-import { resetCodeSchema } from "@/lib/zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useLocale, useTranslations } from "next-intl";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
-import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
-import { z } from "zod";
+} from '@/components/ui/form';
+import { Input } from '@/components/ui/input';
+import { cn } from '@/lib/utils';
+import { resetCodeSchema } from '@/lib/zod';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useLocale, useTranslations } from 'next-intl';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
+import { z } from 'zod';
 
 const VerifyCodeForm = () => {
   const [error, setError] = useState<string | null>(null);
   const [isFetching, setIsFetching] = useState(false);
   const locale = useLocale();
-  const tForm = useTranslations("app.auth.forms.verify-code-form");
-  const err = useTranslations("app.errors");
+  const tForm = useTranslations('app.auth.forms.verify-code-form');
+  const err = useTranslations('app.errors');
   const router = useRouter();
 
   const codeForm = useForm<z.infer<typeof resetCodeSchema>>({
     resolver: zodResolver(resetCodeSchema),
     defaultValues: {
-      resetCode: "",
+      resetCode: '',
     },
   });
 
@@ -37,10 +37,10 @@ const VerifyCodeForm = () => {
     z.infer<typeof resetCodeSchema>
   > = async (data) => {
     setIsFetching(true);
-    const result = await fetch("/api/auth/verify-reset-code", {
-      method: "POST",
+    const result = await fetch('/api/auth/verify-reset-code', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(data),
     });
@@ -60,10 +60,10 @@ const VerifyCodeForm = () => {
         <form onSubmit={codeForm.handleSubmit(handleCodeSubmit)}>
           <div>
             <h2 className="text-center text-lg font-semibold ">
-              {tForm("title")}
+              {tForm('title')}
             </h2>
             <p className="text-muted-foreground text-xs text-center">
-              {tForm("subtitle")}
+              {tForm('subtitle')}
             </p>
           </div>
           <FormField
@@ -72,11 +72,11 @@ const VerifyCodeForm = () => {
             render={({ field }) => (
               <FormItem>
                 <FormLabel className="sr-only">
-                  {tForm("verify-code-label")}
+                  {tForm('verify-code-label')}
                 </FormLabel>
                 <FormControl>
                   <Input
-                    placeholder={tForm("verify-code-placeholder")}
+                    placeholder={tForm('verify-code-placeholder')}
                     {...field}
                   />
                 </FormControl>
@@ -88,8 +88,8 @@ const VerifyCodeForm = () => {
               </FormItem>
             )}
           />
-          <Button type="submit" className={cn("w-full mt-2 text-sm h-fit p-1")}>
-            {isFetching ? <Loader /> : tForm("verify")}
+          <Button type="submit" className={cn('w-full mt-2 text-sm h-fit p-1')}>
+            {isFetching ? <Loader /> : tForm('verify')}
           </Button>
         </form>
       </FormProvider>
@@ -109,7 +109,7 @@ const VerifyCodeForm = () => {
             href="/auth/sign-in"
             className="text-muted-foreground text-xs hover:underline w-full text-end"
           >
-            {tForm("back")}
+            {tForm('back')}
           </Link>
         </p>
       </div>

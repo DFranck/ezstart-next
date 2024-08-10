@@ -1,22 +1,22 @@
-"use client";
-import Loader from "@/components/loader";
-import { Button } from "@/components/ui/button";
+'use client';
+import Loader from '@/components/loader';
+import { Button } from '@/components/ui/button';
 import {
   FormControl,
   FormField,
   FormItem,
   FormLabel,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { cn } from "@/lib/utils";
-import { emailSchema } from "@/lib/zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useLocale, useTranslations } from "next-intl";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
-import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
-import { z } from "zod";
+} from '@/components/ui/form';
+import { Input } from '@/components/ui/input';
+import { cn } from '@/lib/utils';
+import { emailSchema } from '@/lib/zod';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useLocale, useTranslations } from 'next-intl';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
+import { z } from 'zod';
 
 const ForgotForm = () => {
   const [error, setError] = useState<string | null>(null);
@@ -24,22 +24,22 @@ const ForgotForm = () => {
   const form = useForm<z.infer<typeof emailSchema>>({
     resolver: zodResolver(emailSchema),
     defaultValues: {
-      email: "",
+      email: '',
     },
   });
   const router = useRouter();
   const locale = useLocale();
-  const tForm = useTranslations("app.auth.forms.forgot-form");
-  const tAuth = useTranslations("app.auth");
-  const err = useTranslations("app.errors");
+  const tForm = useTranslations('app.auth.forms.forgot-form');
+  const tAuth = useTranslations('app.auth');
+  const err = useTranslations('app.errors');
   const formStyle =
-    "bg-accent border shadow rounded-md p-4 flex flex-col gap-4 max-w-[400px] mx-auto";
+    'bg-accent border shadow rounded-md p-4 flex flex-col gap-4 max-w-[400px] mx-auto';
   const onSubmit: SubmitHandler<z.infer<typeof emailSchema>> = async (data) => {
     setIsFetching(true);
-    const result = await fetch("/api/auth/forgot", {
-      method: "POST",
+    const result = await fetch('/api/auth/forgot', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(data),
     });
@@ -59,10 +59,10 @@ const ForgotForm = () => {
       <form onSubmit={form.handleSubmit(onSubmit)} className={formStyle}>
         <div>
           <h2 className="text-center text-lg font-semibold ">
-            {tForm("title")}
+            {tForm('title')}
           </h2>
           <p className="text-muted-foreground text-xs text-center">
-            {tForm("subtitle")}
+            {tForm('subtitle')}
           </p>
         </div>
         <FormField
@@ -71,11 +71,11 @@ const ForgotForm = () => {
           render={({ field }) => (
             <FormItem>
               <FormLabel className="sr-only">
-                {tAuth("forms.email-label")}
+                {tAuth('forms.email-label')}
               </FormLabel>
               <FormControl>
                 <Input
-                  placeholder={tAuth("forms.email-placeholder")}
+                  placeholder={tAuth('forms.email-placeholder')}
                   {...field}
                 />
               </FormControl>
@@ -88,10 +88,10 @@ const ForgotForm = () => {
           )}
         />
         <div>
-          <Button type="submit" className={cn("w-full mt-2 text-sm h-fit p-1")}>
-            {isFetching ? <Loader /> : tForm("send")}
+          <Button type="submit" className={cn('w-full mt-2 text-sm h-fit p-1')}>
+            {isFetching ? <Loader /> : tForm('send')}
           </Button>
-          <div className={cn("grid  mt-1", { "grid-cols-2": error })}>
+          <div className={cn('grid  mt-1', { 'grid-cols-2': error })}>
             {error && (
               <div className="flex gap-1 items-center">
                 <span className="bg-destructive rounded-full p-1 text-destructive-foreground w-4 h-4 flex justify-center items-center text-xs">
@@ -107,19 +107,19 @@ const ForgotForm = () => {
                 href={`/${locale}/sign-in`}
                 className="text-muted-foreground text-xs hover:underline w-full text-end"
               >
-                {tForm("back")}
+                {tForm('back')}
               </Link>
             </p>
           </div>
         </div>
         <div className="mt-4 text-justify text-xs w-full">
           <p className="text-sm text-muted-foreground w-full flex justify-between gap-2">
-            {tForm("no-account")}
+            {tForm('no-account')}
             <Link
               href={`/${locale}/sign-up`}
               className="text-primary underline"
             >
-              {tAuth("sign-up")}
+              {tAuth('sign-up')}
             </Link>
           </p>
         </div>

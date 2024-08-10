@@ -1,4 +1,4 @@
-import { AbstractIntlMessages, NextIntlClientProvider } from "next-intl";
+import { AbstractIntlMessages, NextIntlClientProvider } from 'next-intl';
 const LanguageProvider = ({
   children,
   messages,

@@ -1,9 +1,9 @@
 // src/middlewares/auth-middleware.ts
 
-import { Locale } from "@/types/locales";
-import { getToken, GetTokenParams } from "next-auth/jwt";
-import { NextRequest, NextResponse } from "next/server";
-import { currentLocale } from "./intl-middleware";
+import { Locale } from '@/types/locales';
+import { getToken } from 'next-auth/jwt';
+import { NextRequest, NextResponse } from 'next/server';
+import { currentLocale } from './intl-middleware';
 
 // Define paths in constants
 const authPaths = (locale: Locale) => [
@@ -38,17 +38,17 @@ export async function authMiddleware(req: NextRequest): Promise<NextResponse> {
   const authPath = authPaths(locale);
   const visitPath = visitPaths(locale);
   const adminPath = adminPaths(locale);
-  const salt: string = process.env.AUTH_SALT ?? "default-salt";
+  // const salt: string = process.env.AUTH_SALT ?? 'default-salt';
 
   const tokenParams: any = {
     req,
     secret: process.env.AUTH_SECRET as string,
-    secureCookie: process.env.NODE_ENV === "production",
+    secureCookie: process.env.NODE_ENV === 'production',
     // salt,
   };
 
   const token = await getToken(tokenParams);
-  console.log("Current Token:", token);
+  console.log('Current Token:', token);
 
   // If no token is found, check if the path is allowed without authentication
   if (!token) {
@@ -57,10 +57,10 @@ export async function authMiddleware(req: NextRequest): Promise<NextResponse> {
       authPath.some((path) => pathname.startsWith(path)) ||
       pathname === `/${locale}`
     ) {
-      console.log("Access allowed without authentication");
+      console.log('Access allowed without authentication');
       return NextResponse.next();
     }
-    console.log("Redirecting to sign-in");
+    console.log('Redirecting to sign-in');
     return NextResponse.redirect(new URL(`/${locale}/sign-in`, req.url));
   }
 
@@ -71,12 +71,12 @@ export async function authMiddleware(req: NextRequest): Promise<NextResponse> {
 
   // Check if the user is accessing an admin path and if they have admin privileges
   if (adminPath.some((path) => pathname.startsWith(path))) {
-    if (token.role !== "admin") {
-      console.log("Redirecting to unauthorized");
+    if (token.role !== 'admin') {
+      console.log('Redirecting to unauthorized');
       return NextResponse.redirect(new URL(`/${locale}/unauthorized`, req.url));
     }
   }
 
-  console.log("Access allowed");
+  console.log('Access allowed');
   return NextResponse.next();
 }

@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { cn } from "@/lib/utils";
-import { Moon, Sun } from "lucide-react";
-import { useTranslations } from "next-intl";
-import { useTheme } from "next-themes";
-import { useEffect, useRef, useState } from "react";
+import { cn } from '@/lib/utils';
+import { Moon, Sun } from 'lucide-react';
+import { useTranslations } from 'next-intl';
+import { useTheme } from 'next-themes';
+import { useEffect, useRef, useState } from 'react';
 
 export function ThemeSwitcher({
   className,
@@ -15,11 +15,11 @@ export function ThemeSwitcher({
 }) {
   const [isMounted, setIsMounted] = useState(false);
   const { theme, setTheme } = useTheme();
-  const t = useTranslations("app.theme");
+  const t = useTranslations('app.theme');
   const [isOpen, setIsOpen] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const dropdownRef = useRef<HTMLUListElement>(null);
-  const liStyle = "py-2 px-4 cursor-pointer hover:bg-accent text-lg lg:text-sm";
+  const liStyle = 'py-2 px-4 cursor-pointer hover:bg-accent text-lg lg:text-sm';
 
   useEffect(() => {
     setIsMounted(true);
@@ -33,10 +33,10 @@ export function ThemeSwitcher({
     setIsOpen(false);
   };
   const handleKeyDown = (event: React.KeyboardEvent<HTMLButtonElement>) => {
-    if (event.key === "Enter" || event.key === " ") {
+    if (event.key === 'Enter' || event.key === ' ') {
       event.preventDefault();
       handleOpen();
-    } else if (event.key === "Escape") {
+    } else if (event.key === 'Escape') {
       setIsOpen(false);
     }
   };
@@ -59,19 +59,19 @@ export function ThemeSwitcher({
     return null;
   }
   return (
-    <div className={cn("relative text-foreground")} onBlur={handleBlur}>
+    <div className={cn('relative text-foreground')} onBlur={handleBlur}>
       <button
         ref={buttonRef}
         aria-haspopup="true"
         aria-expanded={isOpen}
         className={cn(
-          "cursor-pointer hover:bg-accent rounded w-9 h-9 flex justify-center items-center",
-          className
+          'cursor-pointer hover:bg-accent rounded w-9 h-9 flex justify-center items-center',
+          className,
         )}
         onClick={handleOpen}
         onKeyDown={handleKeyDown}
       >
-        {theme === "light" ? (
+        {theme === 'light' ? (
           <Sun className="w-full h-full p-1" />
         ) : (
           <Moon className="w-full h-full p-1" />
@@ -83,28 +83,28 @@ export function ThemeSwitcher({
           ref={dropdownRef}
           tabIndex={-1}
           className={cn(
-            "absolute top-10 right-0 z-20 bg-background border shadow rounded animate-fadeIn duration-1000",
-            menuPosition && `top-${menuPosition}`
+            'absolute top-10 right-0 z-20 bg-background border shadow rounded animate-fadeIn duration-1000',
+            menuPosition && `top-${menuPosition}`,
           )}
         >
           <li
             className={liStyle}
-            onClick={() => onValueChange("dark")}
+            onClick={() => onValueChange('dark')}
             role="menuitem"
             tabIndex={0}
-            onKeyDown={(e) => e.key === "Enter" && onValueChange("dark")}
+            onKeyDown={(e) => e.key === 'Enter' && onValueChange('dark')}
           >
-            {t("dark")}
+            {t('dark')}
           </li>
           <div className="border border-border/50"></div>
           <li
             className={liStyle}
-            onClick={() => onValueChange("light")}
+            onClick={() => onValueChange('light')}
             role="menuitem"
             tabIndex={0}
-            onKeyDown={(e) => e.key === "Enter" && onValueChange("light")}
+            onKeyDown={(e) => e.key === 'Enter' && onValueChange('light')}
           >
-            {t("light")}
+            {t('light')}
           </li>
         </ul>
       )}

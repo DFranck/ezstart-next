@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { cn } from "@/lib/utils";
+import { cn } from '@/lib/utils';
 
 const PrismaSvg = ({
   className,
@@ -11,25 +11,25 @@ const PrismaSvg = ({
   fill?: string;
   background?: string;
 }) => {
-  if (!fill) fill = "";
-  if (!background) background = "background";
+  if (!fill) fill = '';
+  if (!background) background = 'background';
   return (
     <div
-      className={cn("rounded p-2 aspect-square w-10 h-10", className)}
+      className={cn('rounded p-2 aspect-square w-10 h-10', className)}
       style={{ backgroundColor: `hsl(var(--${background}))` }}
     >
       <svg
         viewBox="0 0 203 202"
         fill="none"
         xmlns="http://www.w3.org/2000/svg "
-        className={cn("w-full h-full")}
+        className={cn('w-full h-full')}
       >
         <g clipPath="url(#clip0_200_8)">
           <path
             fillRule="evenodd"
             clipRule="evenodd"
             d="M157.995 8.5C168.075 8.5 177.201 12.587 183.807 19.192C190.413 25.797 194.5 34.924 194.5 45.003V156.997C194.5 167.077 190.414 176.203 183.808 182.809C180.422 186.204 176.398 188.896 171.968 190.731C167.539 192.565 162.79 193.506 157.995 193.5H45.005C34.925 193.5 25.799 189.413 19.193 182.808C12.587 176.203 8.5 167.076 8.5 156.997V45.003C8.5 34.923 12.586 25.797 19.192 19.191C22.5781 15.7963 26.6017 13.1042 31.0316 11.2695C35.4615 9.43477 40.2102 8.49358 45.005 8.5H157.995Z"
-            fill={cn(fill ? `hsl(var(--${fill}))` : "#EC5990")}
+            fill={cn(fill ? `hsl(var(--${fill}))` : '#EC5990')}
             stroke="white"
             strokeWidth="17"
           />

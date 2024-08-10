@@ -1,6 +1,5 @@
-import getDeviceType from "@/lib/getDeviceType";
-import { cn } from "@/lib/utils";
-import React from "react";
+import { cn } from '@/lib/utils';
+import React from 'react';
 
 interface MainProps {
   children: React.ReactNode;
@@ -17,11 +16,10 @@ const Main: React.FC<MainProps> = async ({
   className,
   id,
   style,
-  bgColor = "",
-  padding = "",
+  bgColor = '',
+  padding = '',
   fullHeight = false,
 }) => {
-  const device = await getDeviceType();
   return (
     <main
       id={id}
@@ -29,8 +27,8 @@ const Main: React.FC<MainProps> = async ({
         className,
         bgColor,
         padding,
-        fullHeight ? "min-h-screen" : "",
-        "flex flex-col items-center justify-center flex-grow "
+        fullHeight ? 'min-h-screen' : '',
+        'flex flex-col items-center justify-center flex-grow ',
       )}
       style={style}
     >

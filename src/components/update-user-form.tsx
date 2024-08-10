@@ -1,26 +1,25 @@
-"use client";
-import { Button } from "@/components/ui/button";
+'use client';
+import { Button } from '@/components/ui/button';
 import {
   FormControl,
   FormField,
   FormItem,
   FormLabel,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { nameSchema } from "@/lib/zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useSession } from "next-auth/react";
-import { useRouter } from "next/navigation";
-import { useEffect } from "react";
-import { FormProvider, useForm } from "react-hook-form";
-import { z } from "zod";
+} from '@/components/ui/form';
+import { Input } from '@/components/ui/input';
+import { nameSchema } from '@/lib/zod';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
+import { FormProvider, useForm } from 'react-hook-form';
+import { z } from 'zod';
 
 const UpdateUserForm = () => {
   const { data: session, update } = useSession();
   const form = useForm<z.infer<typeof nameSchema>>({
     resolver: zodResolver(nameSchema),
     defaultValues: {
-      name: "",
+      name: '',
     },
   });
   const router = useRouter();
@@ -30,10 +29,10 @@ const UpdateUserForm = () => {
     const email = session?.user?.email;
 
     try {
-      const res = await fetch("/api/auth/update-name", {
-        method: "POST",
+      const res = await fetch('/api/auth/update-name', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({ name, email }),
       });
@@ -51,11 +50,11 @@ const UpdateUserForm = () => {
       });
       router.refresh();
     } catch (error) {
-      console.error("Failed to update name:", error);
+      console.error('Failed to update name:', error);
       if (error instanceof Error) {
-        form.setError("name", { type: "manual", message: error.message });
+        form.setError('name', { type: 'manual', message: error.message });
       } else {
-        form.setError("name", { type: "manual", message: "Update failed" });
+        form.setError('name', { type: 'manual', message: 'Update failed' });
       }
     }
   };

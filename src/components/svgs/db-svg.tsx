@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { cn } from "@/lib/utils";
+import { cn } from '@/lib/utils';
 
 const DbSvg = ({
   className,
@@ -11,11 +11,11 @@ const DbSvg = ({
   fill?: string;
   background?: string;
 }) => {
-  if (!fill) fill = "foreground";
-  if (!background) background = "background";
+  if (!fill) fill = 'foreground';
+  if (!background) background = 'background';
   return (
     <div
-      className={cn("rounded p-2 aspect-square w-10 h-10", className)}
+      className={cn('rounded p-2 aspect-square w-10 h-10', className)}
       style={{ backgroundColor: `hsl(var(--${background}))` }}
     >
       <svg

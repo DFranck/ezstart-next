@@ -1,5 +1,5 @@
-"use client";
-import { cn } from "@/lib/utils";
+'use client';
+import { cn } from '@/lib/utils';
 
 const NextSvg = ({
   className,
@@ -10,22 +10,22 @@ const NextSvg = ({
   fill?: string;
   background?: string;
 }) => {
-  if (!fill) fill = "foreground";
-  if (!background) background = "background";
+  if (!fill) fill = 'foreground';
+  if (!background) background = 'background';
   return (
     <div
-      className={cn("rounded p-2 aspect-square w-10 h-10", className)}
+      className={cn('rounded p-2 aspect-square w-10 h-10', className)}
       style={{ backgroundColor: `hsl(var(--${background}))` }}
     >
       <svg
         viewBox="0 0 80 80"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className={cn("w-full h-full")}
+        className={cn('w-full h-full')}
       >
         <mask
           id="mask0_185_11"
-          style={{ maskType: "alpha" }}
+          style={{ maskType: 'alpha' }}
           maskUnits="userSpaceOnUse"
           x="0"
           y="0"

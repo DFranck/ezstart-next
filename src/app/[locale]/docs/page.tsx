@@ -1,36 +1,36 @@
-"use client";
-import Section from "@/components/shared/section";
-import AuthSvg from "@/components/svgs/auth-svg";
-import NextIntl from "@/components/svgs/intl-svg";
-import NextSvg from "@/components/svgs/next-svg";
-import PrismaSvg from "@/components/svgs/prisma-svg";
-import ReactHookFormSvg from "@/components/svgs/react-hook-form-svg";
-import ReactSvg from "@/components/svgs/react-svg";
-import TailwindSvg from "@/components/svgs/tailwind-svg";
-import ZodSvg from "@/components/svgs/zod-svg";
-import { Button } from "@/components/ui/button";
-import { useLocale, useTranslations } from "next-intl";
-import Link from "next/link";
+'use client';
+import Section from '@/components/shared/section';
+import AuthSvg from '@/components/svgs/auth-svg';
+import NextIntl from '@/components/svgs/intl-svg';
+import NextSvg from '@/components/svgs/next-svg';
+import PrismaSvg from '@/components/svgs/prisma-svg';
+import ReactHookFormSvg from '@/components/svgs/react-hook-form-svg';
+import ReactSvg from '@/components/svgs/react-svg';
+import TailwindSvg from '@/components/svgs/tailwind-svg';
+import ZodSvg from '@/components/svgs/zod-svg';
+import { Button } from '@/components/ui/button';
+import { useLocale, useTranslations } from 'next-intl';
+import Link from 'next/link';
 const DocsPage = () => {
-  const t = useTranslations("pages.docs");
+  const t = useTranslations('pages.docs');
   const cardStyle =
-    "bg-card text-card-foreground list-disc p-4 gap-2 pl-6 rounded border shadow flex flex-col flex-grow";
-  const cardTitleStyle = "text-center text-xl font-semibold mb-2";
-  const liStyle = "flex gap-2 items-center list-none";
+    'bg-card text-card-foreground list-disc p-4 gap-2 pl-6 rounded border shadow flex flex-col flex-grow';
+  const cardTitleStyle = 'text-center text-xl font-semibold mb-2';
+  const liStyle = 'flex gap-2 items-center list-none';
   const locale = useLocale();
   return (
     <>
-      <h1>{t("title")}</h1>
-      <p>{t("description")}</p>
+      <h1>{t('title')}</h1>
+      <p>{t('description')}</p>
       <Section id="primary-dependencies">
-        <h2>{t("sections.primary-dependencies.title")}</h2>
+        <h2>{t('sections.primary-dependencies.title')}</h2>
         <p className="text-muted-foreground text-sm mb-4">
-          {t("sections.primary-dependencies.description")}
+          {t('sections.primary-dependencies.description')}
         </p>
         <div className="flex gap-4 flex-wrap w-full">
           <ul className={cardStyle}>
             <h3 className={cardTitleStyle}>
-              {t("sections.primary-dependencies.framework")}
+              {t('sections.primary-dependencies.framework')}
             </h3>
             <li className={liStyle}>
               <NextSvg />
@@ -47,7 +47,7 @@ const DocsPage = () => {
           </ul>
           <ul className={cardStyle}>
             <h3 className={cardTitleStyle}>
-              {t("sections.primary-dependencies.orm")}
+              {t('sections.primary-dependencies.orm')}
             </h3>
             <li className={liStyle}>
               <PrismaSvg />
@@ -58,7 +58,7 @@ const DocsPage = () => {
           </ul>
           <ul className={cardStyle}>
             <h3 className={cardTitleStyle}>
-              {t("sections.primary-dependencies.authentication")}
+              {t('sections.primary-dependencies.authentication')}
             </h3>
             <li className={liStyle}>
               <AuthSvg />
@@ -69,7 +69,7 @@ const DocsPage = () => {
           </ul>
           <ul className={cardStyle}>
             <h3 className={cardTitleStyle}>
-              {t("sections.primary-dependencies.styling")}
+              {t('sections.primary-dependencies.styling')}
             </h3>
             <li className={liStyle}>
               <TailwindSvg />
@@ -89,7 +89,7 @@ const DocsPage = () => {
           </ul>
           <ul className={cardStyle}>
             <h3 className={cardTitleStyle}>
-              {t("sections.primary-dependencies.forms")}
+              {t('sections.primary-dependencies.forms')}
             </h3>
             <li className={liStyle}>
               <ReactHookFormSvg />
@@ -106,7 +106,7 @@ const DocsPage = () => {
           </ul>
           <ul className={cardStyle}>
             <h3 className={cardTitleStyle}>
-              {t("sections.primary-dependencies.internationalization")}
+              {t('sections.primary-dependencies.internationalization')}
             </h3>
             <li className={liStyle}>
               <NextIntl />
@@ -118,7 +118,7 @@ const DocsPage = () => {
         </div>
       </Section>
       <Section>
-        <Button asChild className="w-fit self-end" size={"lg"}>
+        <Button asChild className="w-fit self-end" size={'lg'}>
           <Link href={`/${locale}/docs/get-started`}>Get Started</Link>
         </Button>
       </Section>

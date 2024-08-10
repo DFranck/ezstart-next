@@ -1,5 +1,5 @@
-"use client";
-import { cn } from "@/lib/utils";
+'use client';
+import { cn } from '@/lib/utils';
 
 const AuthSvg = ({
   className,
@@ -10,34 +10,34 @@ const AuthSvg = ({
   fill?: string;
   background?: string;
 }) => {
-  if (!fill) fill = "";
-  if (!background) background = "background";
+  if (!fill) fill = '';
+  if (!background) background = 'background';
   return (
     <div
-      className={cn("rounded p-2 aspect-square w-10 h-10", className)}
+      className={cn('rounded p-2 aspect-square w-10 h-10', className)}
       style={{ backgroundColor: `hsl(var(--${background}))` }}
     >
       <svg
         viewBox="0 0 738 823"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className={cn("w-full h-full")}
+        className={cn('w-full h-full')}
       >
         <path
           d="M0 110.3L368.426 0V396.854L105.752 600.398C24.185 426.586 1.90515 318.897 0 110.3Z"
-          fill={fill ? `hsl(var(--${fill}))` : "url(#paint0_linear_189_8)"}
+          fill={fill ? `hsl(var(--${fill}))` : 'url(#paint0_linear_189_8)'}
         />
         <path
           d="M737.986 118.261L368.423 2.27507V397.315L737.986 118.261Z"
-          fill={fill ? `hsl(var(--${fill}))` : "url(#paint1_linear_189_8)"}
+          fill={fill ? `hsl(var(--${fill}))` : 'url(#paint1_linear_189_8)'}
         />
         <path
           d="M368.431 396.854L737.995 118.26C727.977 518.406 595.855 753.909 367.294 822.136L368.431 396.854Z"
-          fill={fill ? `hsl(var(--${fill}))` : "url(#paint2_linear_189_8)"}
+          fill={fill ? `hsl(var(--${fill}))` : 'url(#paint2_linear_189_8)'}
         />
         <path
           d="M368.428 821C265.518 784.582 207.942 745.113 105.754 598.125L369.565 395.718L368.428 821Z"
-          fill={fill ? `hsl(var(--${fill}))` : "url(#paint3_linear_189_8)"}
+          fill={fill ? `hsl(var(--${fill}))` : 'url(#paint3_linear_189_8)'}
         />
         <circle
           cx="368.426"
@@ -103,10 +103,10 @@ const AuthSvg = ({
             y2="471.336"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stopColor={fill ? `hsl(var(--${fill}))` : "#F95C04"} />
+            <stop stopColor={fill ? `hsl(var(--${fill}))` : '#F95C04'} />
             <stop
               offset="0.69"
-              stopColor={fill ? `hsl(var(--${fill}))` : "#FEAF02"}
+              stopColor={fill ? `hsl(var(--${fill}))` : '#FEAF02'}
             />
           </linearGradient>
         </defs>

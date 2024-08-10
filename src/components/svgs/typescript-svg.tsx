@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { cn } from "@/lib/utils";
+import { cn } from '@/lib/utils';
 
 const TypescriptSvg = ({
   className,
@@ -11,23 +11,23 @@ const TypescriptSvg = ({
   fill?: string;
   background?: string;
 }) => {
-  if (!fill) fill = "";
-  if (!background) background = "background";
+  if (!fill) fill = '';
+  if (!background) background = 'background';
   return (
     <div
-      className={cn("rounded p-2 aspect-square w-10 h-10", className)}
+      className={cn('rounded p-2 aspect-square w-10 h-10', className)}
       style={{ backgroundColor: `hsl(var(--${background}))` }}
     >
       <svg
         viewBox="0 0 128 128"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className={cn("w-full h-full")}
+        className={cn('w-full h-full')}
       >
         <g clipPath="url(#clip0_187_2)">
           <path
             d="M128 64C128 28.6538 99.3462 0 64 0C28.6538 0 0 28.6538 0 64C0 99.3462 28.6538 128 64 128C99.3462 128 128 99.3462 128 64Z"
-            fill={fill ? `hsl(var(--${fill}))` : "#3178C6"}
+            fill={fill ? `hsl(var(--${fill}))` : '#3178C6'}
           />
           <path
             fillRule="evenodd"

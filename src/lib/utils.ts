@@ -1,7 +1,7 @@
 // src/lib/utils.ts
 
-import { ClassValue, clsx } from "clsx";
-import { twMerge } from "tailwind-merge";
+import { ClassValue, clsx } from 'clsx';
+import { twMerge } from 'tailwind-merge';
 
 /**
  * Utility function to merge class names using clsx and tailwind-merge.

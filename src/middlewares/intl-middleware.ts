@@ -1,10 +1,10 @@
 // src/middlewares/intl-middleware.ts
 
-import { locales } from "@/i18n";
-import createMiddleware from "next-intl/middleware";
-import { NextRequest, NextResponse } from "next/server";
+import { locales } from '@/i18n';
+import createMiddleware from 'next-intl/middleware';
+import { NextRequest, NextResponse } from 'next/server';
 
-const defaultLocale = "en";
+const defaultLocale = 'en';
 export let currentLocale = defaultLocale;
 
 export const intlMiddleware = createMiddleware({
@@ -23,13 +23,13 @@ export default function middleware(req: NextRequest): NextResponse {
 
   // Exclude static files in public folder from locale handling
   if (
-    url.startsWith("/icons") ||
-    url.startsWith("/docs") ||
-    url.startsWith("/assets") ||
-    url === "/sw-registration.js" ||
-    url === "/sw.js" ||
-    url === "/workbox-fb90b81a.js" ||
-    url === "/manifest.json"
+    url.startsWith('/icons') ||
+    url.startsWith('/docs') ||
+    url.startsWith('/assets') ||
+    url === '/sw-registration.js' ||
+    url === '/sw.js' ||
+    url === '/workbox-fb90b81a.js' ||
+    url === '/manifest.json'
   ) {
     return NextResponse.next();
   }
@@ -51,6 +51,6 @@ export default function middleware(req: NextRequest): NextResponse {
 // Configuration for the middleware
 export const config = {
   matcher: [
-    "/((?!api|_next/static|_next/image|favicon.ico|icons|docs|assets).*)",
+    '/((?!api|_next/static|_next/image|favicon.ico|icons|docs|assets).*)',
   ],
 };

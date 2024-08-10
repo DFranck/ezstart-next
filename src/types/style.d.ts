@@ -4,12 +4,12 @@
 // - Extensions of CSS properties to add custom CSS variables (e.g., --quantity, --position)
 // - Specific properties used for styling components (e.g., fieldSizing)
 
-import "react";
+import 'react';
 
-declare module "react" {
+declare module 'react' {
   interface CSSProperties {
-    "--quantity"?: string;
-    "--position"?: string;
+    '--quantity'?: string;
+    '--position'?: string;
     fieldSizing?: string;
   }
 }

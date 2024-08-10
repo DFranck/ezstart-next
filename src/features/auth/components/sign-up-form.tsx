@@ -1,49 +1,50 @@
-"use client";
-import ErrorForm from "@/components/errorForm";
-import PasswordInput from "@/components/passwordInput";
+'use client';
+import ErrorForm from '@/components/errorForm';
+import PasswordInput from '@/components/passwordInput';
 import {
   FormControl,
   FormField,
   FormItem,
   FormLabel,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import UserAuth from "@/features/auth/components/user-auth";
-import { signUpSchema } from "@/lib/zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useLocale, useTranslations } from "next-intl";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
-import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
-import { z } from "zod";
-import OAuthButtons from "./oauth-buttons";
+} from '@/components/ui/form';
+import { Input } from '@/components/ui/input';
+import UserAuth from '@/features/auth/components/user-auth';
+import { signUpSchema } from '@/lib/zod';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useLocale, useTranslations } from 'next-intl';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
+import { z } from 'zod';
+import OAuthButtons from './oauth-buttons';
 
 const SignUpForm = () => {
   const [isFetching, setIsFetching] = useState(false);
   const router = useRouter();
   const locale = useLocale();
-  const tAuth = useTranslations("app.auth");
-  const tForm = useTranslations("app.auth.forms.sign-up-form");
+  const tAuth = useTranslations('app.auth');
+  const tForm = useTranslations('app.auth.forms.sign-up-form');
 
   const form = useForm<z.infer<typeof signUpSchema>>({
     resolver: zodResolver(signUpSchema),
     defaultValues: {
-      email: "",
-      password: "",
-      confirmPassword: "",
+      email: '',
+      password: '',
+      confirmPassword: '',
     },
   });
+  console.log(isFetching);
 
   const onSubmit: SubmitHandler<z.infer<typeof signUpSchema>> = async (
-    data
+    data,
   ) => {
     setIsFetching(true);
     try {
-      const res = await fetch("/api/auth/signup", {
-        method: "POST",
+      const res = await fetch('/api/auth/signup', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(data),
       });
@@ -54,15 +55,14 @@ const SignUpForm = () => {
         throw new Error(errorData.message);
       }
 
-      const result = await res.json();
       setIsFetching(false);
       router.push(`/${locale}/sign-in`);
     } catch (error: unknown) {
-      console.error("signup", error);
+      console.error('signup', error);
       if (error instanceof Error) {
-        form.setError("email", { type: "manual", message: error.message });
+        form.setError('email', { type: 'manual', message: error.message });
       } else {
-        form.setError("email", { type: "manual", message: "Signup failed" });
+        form.setError('email', { type: 'manual', message: 'Signup failed' });
       }
     }
   };
@@ -75,16 +75,16 @@ const SignUpForm = () => {
       >
         <div>
           <h2 className="text-center text-lg font-semibold">
-            {tForm("title")}
+            {tForm('title')}
           </h2>
           <p className="text-muted-foreground text-xs text-center">
-            {tForm("subtitle")}
+            {tForm('subtitle')}
           </p>
         </div>
         <OAuthButtons />
         <div className="flex justify-between items-center gap-2 text-muted-foreground text-xs mt-2">
           <span className="border border-muted-foreground/20 w-full"></span>
-          {tAuth("forms.or")}
+          {tAuth('forms.or')}
           <span className="border border-muted-foreground/20 w-full"></span>
         </div>
         <FormField
@@ -93,11 +93,11 @@ const SignUpForm = () => {
           render={({ field }) => (
             <FormItem>
               <FormLabel className="sr-only">
-                {tAuth("forms.email-label")}
+                {tAuth('forms.email-label')}
               </FormLabel>
               <FormControl>
                 <Input
-                  placeholder={tAuth("forms.email-placeholder")}
+                  placeholder={tAuth('forms.email-placeholder')}
                   {...field}
                 />
               </FormControl>
@@ -113,13 +113,13 @@ const SignUpForm = () => {
           render={({ field }) => (
             <FormItem>
               <FormLabel className="sr-only">
-                {tAuth("forms.password-label")}
+                {tAuth('forms.password-label')}
               </FormLabel>
               <FormControl>
                 <PasswordInput
                   field={field}
-                  placeholder={tAuth("forms.password-placeholder")}
-                  label={tAuth("forms.password-label")}
+                  placeholder={tAuth('forms.password-placeholder')}
+                  label={tAuth('forms.password-label')}
                 />
               </FormControl>
               {form.formState.errors.password?.message && (
@@ -134,13 +134,13 @@ const SignUpForm = () => {
           render={({ field }) => (
             <FormItem>
               <FormLabel className="sr-only">
-                {tAuth("forms.confirm-password-label")}
+                {tAuth('forms.confirm-password-label')}
               </FormLabel>
               <FormControl>
                 <PasswordInput
                   field={field}
-                  placeholder={tAuth("forms.confirm-password-placeholder")}
-                  label={tAuth("forms.confirm-password-label")}
+                  placeholder={tAuth('forms.confirm-password-placeholder')}
+                  label={tAuth('forms.confirm-password-label')}
                 />
               </FormControl>
               {form.formState.errors.confirmPassword?.message && (
@@ -152,12 +152,12 @@ const SignUpForm = () => {
         <UserAuth />
         <div className="mt-4 text-center w-full text-xs">
           <p className="text-sm text-muted-foreground w-full flex justify-between gap-2">
-            {tForm("already-have-account")}{" "}
+            {tForm('already-have-account')}{' '}
             <Link
               href={`/${locale}/sign-in`}
               className="text-primary underline"
             >
-              {tAuth("sign-in")}
+              {tAuth('sign-in')}
             </Link>
           </p>
         </div>

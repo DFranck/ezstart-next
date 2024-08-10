@@ -1,6 +1,6 @@
-import ComingSoon from "@/components/coming-soon";
-import UserProfileInfos from "@/components/shared/user-profile-infos";
-import getDeviceType from "@/lib/getDeviceType";
+import ComingSoon from '@/components/coming-soon';
+import UserProfileInfos from '@/components/shared/user-profile-infos';
+import getDeviceType from '@/lib/getDeviceType';
 
 const Profile = async () => {
   const device = await getDeviceType();

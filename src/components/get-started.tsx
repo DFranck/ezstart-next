@@ -1,22 +1,22 @@
-import Section from "@/components/shared/section";
-import { Button } from "@/components/ui/button";
-import { useLocale, useTranslations } from "next-intl";
-import Link from "next/link";
+import Section from '@/components/shared/section';
+import { Button } from '@/components/ui/button';
+import { useLocale, useTranslations } from 'next-intl';
+import Link from 'next/link';
 
 const GetStarted = () => {
-  const t = useTranslations("pages.home.sections.get-started");
-  const content = t.raw("content") as string[];
+  const t = useTranslations('pages.home.sections.get-started');
+  const content = t.raw('content') as string[];
   const locale = useLocale();
   return (
     <Section className="flex flex-col items-center text-justify lg:text-center py-12 px-4 max-w-7xl">
       <div className="flex flex-col sm:flex-row justify-center sm:gap-4">
         <Button asChild className="mb-6 text-lg px-8 py-6 font-bold">
-          <Link href={`/${locale}/docs/get-started`}>{t("cta")}</Link>
+          <Link href={`/${locale}/docs/get-started`}>{t('cta')}</Link>
         </Button>
         <Button
           asChild
           className="mb-6 text-lg px-8 py-6 font-bold"
-          variant={"outline"}
+          variant={'outline'}
         >
           <Link
             href="https://github.com/DFranck/my-ez-start"
@@ -37,8 +37,8 @@ const GetStarted = () => {
                   fill={`hsl(var(--foreground))`}
                 />
               </svg>
-            </div>{" "}
-            {t("github")}
+            </div>{' '}
+            {t('github')}
           </Link>
         </Button>
       </div>

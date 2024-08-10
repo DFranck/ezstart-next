@@ -1,80 +1,80 @@
-"use client";
-import { cn } from "@/lib/utils";
-import { cva, VariantProps } from "class-variance-authority";
-import { useLocale, useTranslations } from "next-intl";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+'use client';
+import { cn } from '@/lib/utils';
+import { cva, VariantProps } from 'class-variance-authority';
+import { useLocale, useTranslations } from 'next-intl';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
-const navVariants = cva("", {
+const navVariants = cva('', {
   variants: {
     dir: {
-      row: "",
-      col: "lg:block w-fit relative lg:p-4 min-w-max",
+      row: '',
+      col: 'lg:block w-fit relative lg:p-4 min-w-max',
     },
   },
   defaultVariants: {
-    dir: "row",
+    dir: 'row',
   },
 });
 
-const ulVariants = cva("", {
+const ulVariants = cva('', {
   variants: {
     dir: {
-      row: "flex flex-row",
-      col: "flex flex-col gap-2",
+      row: 'flex flex-row',
+      col: 'flex flex-col gap-2',
     },
     pos: {
-      default: "justify-center items-center",
-      fixed: "lg:fixed",
+      default: 'justify-center items-center',
+      fixed: 'lg:fixed',
     },
   },
   defaultVariants: {
-    dir: "row",
-    pos: "default",
+    dir: 'row',
+    pos: 'default',
   },
 });
 
 const linkVariants = cva(
-  "text-lg lg:p-2 rounded duration-100 whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-offset-2 w-full block text-center",
+  'text-lg lg:p-2 rounded duration-100 whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-offset-2 w-full block text-center',
   {
     variants: {
       variant: {
-        default: "",
-        primary: "",
-        secondary: "",
+        default: '',
+        primary: '',
+        secondary: '',
       },
       isActive: {
-        true: "",
-        false: "",
+        true: '',
+        false: '',
       },
     },
     compoundVariants: [
       {
-        variant: "primary",
+        variant: 'primary',
         isActive: true,
-        className: "bg-primary text-primary-foreground",
+        className: 'bg-primary text-primary-foreground',
       },
       {
-        variant: "primary",
+        variant: 'primary',
         isActive: false,
-        className: "hover:bg-primary/50 hover:text-primary-foreground",
+        className: 'hover:bg-primary/50 hover:text-primary-foreground',
       },
       {
-        variant: "secondary",
+        variant: 'secondary',
         isActive: true,
-        className: "bg-accent text-accent-foreground",
+        className: 'bg-accent text-accent-foreground',
       },
       {
-        variant: "secondary",
+        variant: 'secondary',
         isActive: false,
-        className: "hover:bg-accent rounded w-full text-center cursor-pointer",
+        className: 'hover:bg-accent rounded w-full text-center cursor-pointer',
       },
     ],
     defaultVariants: {
-      variant: "default",
+      variant: 'default',
       isActive: false,
     },
-  }
+  },
 );
 
 type NavProps = {
@@ -88,10 +88,10 @@ type NavProps = {
   navClass?: string; // Custom class
   ulClass?: string; // Custom class
   liClass?: string; // Custom class
-  variant?: VariantProps<typeof linkVariants>["variant"];
+  variant?: VariantProps<typeof linkVariants>['variant'];
   anchorLinks?: boolean; // If true, uses anchor links
-  pos?: VariantProps<typeof ulVariants>["pos"];
-  dir?: VariantProps<typeof navVariants>["dir"];
+  pos?: VariantProps<typeof ulVariants>['pos'];
+  dir?: VariantProps<typeof navVariants>['dir'];
   setIsOpen?: (value: boolean) => void;
   subNavClass?: string; // Custom class for sub navigation
   subNavProps?: NavProps; // Additional props for sub navigation
@@ -103,14 +103,14 @@ const Nav = ({
   render,
   root = [],
   links,
-  navClass = "",
-  ulClass = "",
-  liClass = "",
-  path = "",
+  navClass = '',
+  ulClass = '',
+  liClass = '',
+  path = '',
   pos,
   anchorLinks = false,
   active = false,
-  variant = "default",
+  variant = 'default',
   dir,
   subNavClass,
   setIsOpen,
@@ -118,7 +118,7 @@ const Nav = ({
 }: NavProps) => {
   const locale = useLocale();
   const pathname = usePathname();
-  const intl = useTranslations(t || "");
+  const intl = useTranslations(t || '');
 
   const rawLinks = t && render ? intl.raw(render) : links;
 
@@ -130,33 +130,33 @@ const Nav = ({
   return (
     <>
       <nav
-        className={cn(navVariants({ dir }), "w-full lg:w-fit", navClass)}
-        aria-label={main ? "Main navigation" : "Secondary navigation"}
+        className={cn(navVariants({ dir }), 'w-full lg:w-fit', navClass)}
+        aria-label={main ? 'Main navigation' : 'Secondary navigation'}
       >
         <ul className={cn(ulVariants({ dir, pos }), ulClass)}>
           {linkList.map((link, index) => {
-            let linkPath = "";
+            let linkPath = '';
             if (root.includes(index)) {
               linkPath = `/${locale}`;
             } else if (anchorLinks) {
               linkPath = `#${linkKeys[index].toLowerCase()}`;
             } else if (Array.isArray(rawLinks)) {
               linkPath = `/${locale}/${
-                path ? `${path}/` : ""
+                path ? `${path}/` : ''
               }${link.toLowerCase()}`;
             } else {
-              linkPath = `/${locale}/${path ? `${path}/` : ""}${linkKeys[
+              linkPath = `/${locale}/${path ? `${path}/` : ''}${linkKeys[
                 index
               ].toLowerCase()}`;
             }
 
             const isActive = pathname.includes(link.toLowerCase());
-            const activePath = t + "." + link.toLowerCase();
+            const activePath = t + '.' + link.toLowerCase();
 
             return (
               <li
                 key={`${link}-${index}`}
-                className={cn("w-full")}
+                className={cn('w-full')}
                 onClick={() => setIsOpen?.(false)}
               >
                 <Link
@@ -164,16 +164,16 @@ const Nav = ({
                   aria-label={link}
                   className={cn(
                     linkVariants({ variant, isActive: active && isActive }),
-                    liClass
+                    liClass,
                   )}
                 >
                   {link}
                 </Link>
                 {isActive && subNavProps && (
                   <Nav
-                    navClass={cn(subNavClass, "mt-2 border-t border-primary")}
+                    navClass={cn(subNavClass, 'mt-2 border-t border-primary')}
                     t={activePath}
-                    render={"nav-links"}
+                    render={'nav-links'}
                     dir="col"
                     ulClass="p-2 "
                     path={link.toLowerCase()}
@@ -187,8 +187,8 @@ const Nav = ({
             );
           })}
         </ul>
-        {dir === "col" && (
-          <ul className={cn(pos === "fixed" ? "invisible" : "hidden")}>
+        {dir === 'col' && (
+          <ul className={cn(pos === 'fixed' ? 'invisible' : 'hidden')}>
             {linkList.map((link, index) => (
               <li
                 key={`${link}-${index}`}

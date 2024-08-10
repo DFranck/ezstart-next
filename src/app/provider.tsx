@@ -1,8 +1,8 @@
-import { AbstractIntlMessages } from "next-intl";
-import React from "react";
-import { AuthProvider } from "../features/auth/session-provider";
-import LanguageProvider from "../features/internationalization/language-provider";
-import { ThemeProvider } from "../features/theme/theme-provider";
+import { AbstractIntlMessages } from 'next-intl';
+import React from 'react';
+import { AuthProvider } from '../features/auth/session-provider';
+import LanguageProvider from '../features/internationalization/language-provider';
+import { ThemeProvider } from '../features/theme/theme-provider';
 const Provider = ({
   children,
   messages,

@@ -1,19 +1,15 @@
-"use client";
-import Burger from "@/components/burger";
-import Nav from "@/components/nav";
-import { cn } from "@/lib/utils";
-import { Home, User } from "lucide-react";
-import { useSession } from "next-auth/react";
-import { useLocale, useTranslations } from "next-intl";
-import Link from "next/link";
-import { useState } from "react";
+'use client';
+import Burger from '@/components/burger';
+import Nav from '@/components/nav';
+import { cn } from '@/lib/utils';
+import { Home, User } from 'lucide-react';
+import { useLocale } from 'next-intl';
+import Link from 'next/link';
+import { useState } from 'react';
 
 const MobileHeader: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const locale = useLocale();
-  const t = useTranslations("layout.header");
-  const { data: session } = useSession();
-  const user = session?.user;
   const handleClick = () => {
     if (isOpen) {
       setIsOpen(false);
@@ -27,8 +23,8 @@ const MobileHeader: React.FC = () => {
       >
         <div
           className={cn(
-            "bg-background  z-50 transition-[max-height] duration-500 ease-in-out overflow-hidden",
-            isOpen ? "max-h-screen" : "max-h-0"
+            'bg-background  z-50 transition-[max-height] duration-500 ease-in-out overflow-hidden',
+            isOpen ? 'max-h-screen' : 'max-h-0',
           )}
         >
           <Nav
@@ -44,8 +40,8 @@ const MobileHeader: React.FC = () => {
             subNavClass="text-right"
             setIsOpen={setIsOpen}
             subNavProps={{
-              ulClass: "text-right border-b mt-2",
-              liClass: "text-right p-2 ",
+              ulClass: 'text-right border-b mt-2',
+              liClass: 'text-right p-2 ',
             }}
           />
         </div>

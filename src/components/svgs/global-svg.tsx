@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { cn } from "@/lib/utils";
+import { cn } from '@/lib/utils';
 
 const GlobalSvg = ({
   className,
@@ -11,18 +11,18 @@ const GlobalSvg = ({
   fill?: string;
   background?: string;
 }) => {
-  if (!fill) fill = "foreground";
-  if (!background) background = "background";
+  if (!fill) fill = 'foreground';
+  if (!background) background = 'background';
   return (
     <div
-      className={cn("rounded p-2 aspect-square w-10 h-10", className)}
+      className={cn('rounded p-2 aspect-square w-10 h-10', className)}
       style={{ backgroundColor: `hsl(var(--${background}))` }}
     >
       <svg
         viewBox="0 0 800 800"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className={"w-full h-full"}
+        className={'w-full h-full'}
       >
         <path
           d="M400 733.333C584.093 733.333 733.333 584.093 733.333 400C733.333 215.905 584.093 66.6666 400 66.6666C215.905 66.6666 66.6667 215.905 66.6667 400C66.6667 584.093 215.905 733.333 400 733.333Z"

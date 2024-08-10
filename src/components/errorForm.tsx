@@ -1,7 +1,7 @@
-import { useTranslations } from "next-intl";
+import { useTranslations } from 'next-intl';
 
 const ErrorForm = ({ name, form }: { name: string; form: any }) => {
-  const err = useTranslations("app.errors");
+  const err = useTranslations('app.errors');
   const errorMessage = form.formState.errors[name]?.message;
   if (!errorMessage) {
     return null;

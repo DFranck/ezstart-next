@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { cn } from "@/lib/utils";
+import { cn } from '@/lib/utils';
 
 const TailwindSvg = ({
   className,
@@ -11,18 +11,18 @@ const TailwindSvg = ({
   fill?: string;
   background?: string;
 }) => {
-  if (!fill) fill = "";
-  if (!background) background = "background";
+  if (!fill) fill = '';
+  if (!background) background = 'background';
   return (
     <div
-      className={cn("rounded p-2 aspect-square w-10 h-10", className)}
+      className={cn('rounded p-2 aspect-square w-10 h-10', className)}
       style={{ backgroundColor: `hsl(var(--${background}))` }}
     >
       <svg
         viewBox="0 0 54 33"
-        fill={fill ? `hsl(var(--${fill}))` : "#38BDF8"}
+        fill={fill ? `hsl(var(--${fill}))` : '#38BDF8'}
         xmlns="http://www.w3.org/2000/svg"
-        className={cn("w-full h-full")}
+        className={cn('w-full h-full')}
       >
         <mask
           id="mask0_199_7"

@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils";
+import { cn } from '@/lib/utils';
 
 const CodeBlock = ({
   code,
@@ -16,10 +16,10 @@ const CodeBlock = ({
       </pre>
       <pre
         className={cn(
-          "bg-card text-card-foreground rounded-xl shadow border p-4 w-full overflow-auto my-2",
-          className
+          'bg-card text-card-foreground rounded-xl shadow border p-4 w-full overflow-auto my-2',
+          className,
         )}
-        style={{ whiteSpace: "pre-wrap", wordBreak: "break-word" }}
+        style={{ whiteSpace: 'pre-wrap', wordBreak: 'break-word' }}
       >
         <code className="">{code}</code>
       </pre>

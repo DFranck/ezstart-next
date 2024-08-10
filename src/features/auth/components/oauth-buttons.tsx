@@ -1,7 +1,7 @@
-import GithubSvg from "@/components/svgs/github-svg";
-import GoogleSvg from "@/components/svgs/google-svg";
-import { Button } from "@/components/ui/button";
-import { signIn } from "next-auth/react";
+import GithubSvg from '@/components/svgs/github-svg';
+import GoogleSvg from '@/components/svgs/google-svg';
+import { Button } from '@/components/ui/button';
+import { signIn } from 'next-auth/react';
 
 const OAuthButtons = () => {
   return (
@@ -9,14 +9,14 @@ const OAuthButtons = () => {
       <Button
         className="border shadow rounded p-1 bg-white hover:bg-white/80"
         type="button"
-        onClick={() => signIn("google")}
+        onClick={() => signIn('google')}
       >
         <GoogleSvg className="w-8" background="transparent" />
       </Button>
       <Button
         className="border shadow rounded p-1 bg-black hover:bg-black/80  dark:hover:bg-black/60"
         type="button"
-        onClick={() => signIn("github")}
+        onClick={() => signIn('github')}
       >
         <GithubSvg className="w-8 " background="transparent" />
       </Button>

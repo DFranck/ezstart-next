@@ -1,17 +1,10 @@
-"use client";
+'use client';
 
-import { cn } from "@/lib/utils";
-import { GlobeIcon } from "lucide-react";
-import { useLocale, useTranslations } from "next-intl";
-import { usePathname, useRouter } from "next/navigation";
-import {
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-  useTransition,
-} from "react";
+import { cn } from '@/lib/utils';
+import { GlobeIcon } from 'lucide-react';
+import { useLocale, useTranslations } from 'next-intl';
+import { usePathname, useRouter } from 'next/navigation';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 const LocaleSwitcher = ({
   className,
@@ -20,20 +13,19 @@ const LocaleSwitcher = ({
   className?: string;
   menuPosition?: number;
 }) => {
-  const t = useTranslations("app.locale");
+  const t = useTranslations('app.locale');
   const [isMounted, setIsMounted] = useState(false);
-  const [isPending, startTransition] = useTransition();
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
   const localeActive = useLocale();
-  const liStyle = "py-2 px-4 cursor-pointer hover:bg-accent text-lg lg:text-sm";
+  const liStyle = 'py-2 px-4 cursor-pointer hover:bg-accent text-lg lg:text-sm';
   const buttonRef = useRef<HTMLButtonElement>(null);
   const dropdownRef = useRef<HTMLUListElement>(null);
 
   const content = useMemo(
-    () => t.raw("language") as { [key: string]: string },
-    [t]
+    () => t.raw('language') as { [key: string]: string },
+    [t],
   );
   const languages = useMemo(() => Object.entries(content), [content]);
 
@@ -44,12 +36,11 @@ const LocaleSwitcher = ({
   const onValueChange = useCallback(
     (nextLocale: string) => {
       const newPath = pathname.replace(localeActive, nextLocale);
-      startTransition(() => {
-        router.push(newPath);
-      });
+      router.push(newPath);
+
       setIsOpen(false);
     },
-    [localeActive, pathname, router]
+    [localeActive, pathname, router],
   );
 
   const handleOpen = useCallback(() => {
@@ -58,14 +49,14 @@ const LocaleSwitcher = ({
 
   const handleKeyDown = useCallback(
     (event: React.KeyboardEvent<HTMLButtonElement>) => {
-      if (event.key === "Enter" || event.key === " ") {
+      if (event.key === 'Enter' || event.key === ' ') {
         event.preventDefault();
         handleOpen();
-      } else if (event.key === "Escape") {
+      } else if (event.key === 'Escape') {
         setIsOpen(false);
       }
     },
-    [handleOpen]
+    [handleOpen],
   );
 
   const handleBlur = useCallback((event: React.FocusEvent<HTMLDivElement>) => {
@@ -88,14 +79,14 @@ const LocaleSwitcher = ({
   }
 
   return (
-    <div className={cn("relative text-foreground")} onBlur={handleBlur}>
+    <div className={cn('relative text-foreground')} onBlur={handleBlur}>
       <button
         ref={buttonRef}
         aria-haspopup="true"
         aria-expanded={isOpen}
         className={cn(
-          "cursor-pointer hover:bg-accent rounded w-9 h-9 flex justify-center items-center",
-          className
+          'cursor-pointer hover:bg-accent rounded w-9 h-9 flex justify-center items-center',
+          className,
         )}
         onClick={handleOpen}
         onKeyDown={handleKeyDown}
@@ -108,8 +99,8 @@ const LocaleSwitcher = ({
           ref={dropdownRef}
           tabIndex={-1}
           className={cn(
-            "absolute top-10 right-0 z-10 bg-background border shadow rounded animate-fadeIn duration-200",
-            menuPosition && `top-${menuPosition}`
+            'absolute top-10 right-0 z-10 bg-background border shadow rounded animate-fadeIn duration-200',
+            menuPosition && `top-${menuPosition}`,
           )}
         >
           {languages.map(([key, value]) => (
@@ -119,7 +110,7 @@ const LocaleSwitcher = ({
               onClick={() => onValueChange(key)}
               role="menuitem"
               tabIndex={0}
-              onKeyDown={(e) => e.key === "Enter" && onValueChange(key)}
+              onKeyDown={(e) => e.key === 'Enter' && onValueChange(key)}
             >
               {value}
             </li>

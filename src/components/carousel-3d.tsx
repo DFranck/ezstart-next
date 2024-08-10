@@ -1,9 +1,9 @@
-"use client";
-import ImagePlaceholderSvg from "@/components/svgs/image-placeholder-svg";
-import Image from "next/image";
-import PropTypes from "prop-types";
-import React, { ReactElement, ReactNode, useEffect, useRef } from "react";
-import bgImg from "../../public/assets/imgs/devnobg.png";
+'use client';
+import ImagePlaceholderSvg from '@/components/svgs/image-placeholder-svg';
+import Image from 'next/image';
+import PropTypes from 'prop-types';
+import React, { ReactElement, ReactNode, useEffect, useRef } from 'react';
+import bgImg from '../../public/assets/imgs/devnobg.png';
 
 type Carousel3dProps = {
   imgNum?: number;
@@ -25,7 +25,7 @@ const Carousel3d = ({
 
   // Handle keyboard navigation
   const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
-    if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
+    if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
     }
   };
 
@@ -37,7 +37,7 @@ const Carousel3d = ({
   return (
     <div
       className="w-full h-[500px]  flex justify-center items-center overflow-hidden relative"
-      style={{ perspective: "1000px" }}
+      style={{ perspective: '1000px' }}
       role="region"
       aria-label="3D Image Carousel"
       tabIndex={0}
@@ -47,9 +47,9 @@ const Carousel3d = ({
       <div
         className="relative w-40 lg:w-52 h-64 animate-rotateY z-0"
         style={{
-          transformStyle: "preserve-3d",
-          "--quantity": imgNum.toString(),
-          animationPlayState: isMouseOver ? "paused" : "running",
+          transformStyle: 'preserve-3d',
+          '--quantity': imgNum.toString(),
+          animationPlayState: isMouseOver ? 'paused' : 'running',
         }}
       >
         {items.map((position) => (
@@ -58,7 +58,7 @@ const Carousel3d = ({
             className="absolute inset-0 h-fit cursor-pointer"
             style={{
               transform: `rotateY(calc((var(--position) - 1) * (360deg / var(--quantity)))) translateZ(${itemSpace}px) rotateX(${itemRotateX}deg)`,
-              "--position": position.toString(),
+              '--position': position.toString(),
             }}
             onMouseEnter={() => {
               if (stopOnHover) setIsMouseOver(true);

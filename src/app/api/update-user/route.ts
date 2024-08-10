@@ -1,8 +1,8 @@
-import { db } from "@/lib/db";
-import { NextRequest, NextResponse } from "next/server";
+import { db } from '@/lib/db';
+import { NextRequest, NextResponse } from 'next/server';
 
 export async function GET() {
-  return NextResponse.json({ message: "This route is for updating the user" });
+  return NextResponse.json({ message: 'This route is for updating the user' });
 }
 
 export async function PATCH(req: NextRequest) {
@@ -12,8 +12,8 @@ export async function PATCH(req: NextRequest) {
 
     if (!email) {
       return NextResponse.json(
-        { message: "Email is required" },
-        { status: 400 }
+        { message: 'Email is required' },
+        { status: 400 },
       );
     }
 
@@ -27,13 +27,13 @@ export async function PATCH(req: NextRequest) {
         message: `User updated successfully`,
         user,
       },
-      { status: 200 }
+      { status: 200 },
     );
   } catch (error) {
     console.error(error);
     return NextResponse.json(
-      { message: "Something went wrong" },
-      { status: 500 }
+      { message: 'Something went wrong' },
+      { status: 500 },
     );
   }
 }

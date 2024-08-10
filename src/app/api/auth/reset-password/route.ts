@@ -1,6 +1,6 @@
-import { db } from "@/lib/db";
-import bcrypt from "bcryptjs";
-import { NextRequest, NextResponse } from "next/server";
+import { db } from '@/lib/db';
+import bcrypt from 'bcryptjs';
+import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(req: NextRequest) {
   const body = await req.json();
@@ -8,8 +8,8 @@ export async function POST(req: NextRequest) {
 
   if (!resetCode || !password) {
     return NextResponse.json(
-      { message: "Missing reset code or password" },
-      { status: 400 }
+      { message: 'Missing reset code or password' },
+      { status: 400 },
     );
   }
 
@@ -20,8 +20,8 @@ export async function POST(req: NextRequest) {
     new Date() > user.resetCodeExpiresAt
   ) {
     return NextResponse.json(
-      { message: "Invalid or expired reset code" },
-      { status: 400 }
+      { message: 'Invalid or expired reset code' },
+      { status: 400 },
     );
   }
 
@@ -35,5 +35,5 @@ export async function POST(req: NextRequest) {
     },
   });
 
-  return NextResponse.json({ message: "Password updated" }, { status: 200 });
+  return NextResponse.json({ message: 'Password updated' }, { status: 200 });
 }

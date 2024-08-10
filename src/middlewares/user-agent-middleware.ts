@@ -1,5 +1,5 @@
-import { NextRequest, NextResponse } from "next/server";
-import UAParser from "ua-parser-js";
+import { NextRequest, NextResponse } from 'next/server';
+import UAParser from 'ua-parser-js';
 
 /**
  * Middleware to determine the device type from the user agent string
@@ -11,12 +11,12 @@ import UAParser from "ua-parser-js";
  */
 export function userAgentMiddleware(req: NextRequest): NextResponse {
   // Retrieve the user-agent string from the request headers
-  const userAgent = req.headers.get("user-agent") || "";
+  const userAgent = req.headers.get('user-agent') || '';
 
   if (!userAgent) {
     // Handle the case where user-agent is missing
     const response = NextResponse.next();
-    response.headers.set("x-device-type", "unknown");
+    response.headers.set('x-device-type', 'unknown');
     return response;
   }
 
@@ -25,16 +25,16 @@ export function userAgentMiddleware(req: NextRequest): NextResponse {
   const result = parser.getResult();
 
   // Determine the device type, default to 'desktop' if not found
-  const deviceType = result.device.type || "desktop";
+  const deviceType = result.device.type || 'desktop';
 
   // Create a new response object
   const response = NextResponse.next();
 
   // Set the device type in the response headers
-  response.headers.set("x-device-type", deviceType);
+  response.headers.set('x-device-type', deviceType);
 
   // Log the user-agent and device type for debugging purposes
-  console.log(`User-Agent: ${userAgent.replace(/[\r\n]/g, "")}`);
+  console.log(`User-Agent: ${userAgent.replace(/[\r\n]/g, '')}`);
   console.log(`Device Type: ${deviceType}`);
 
   return response;

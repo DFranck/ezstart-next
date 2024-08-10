@@ -1,44 +1,44 @@
-"use client";
-import Loader from "@/components/loader";
-import PasswordInput from "@/components/passwordInput";
-import { Button } from "@/components/ui/button";
+'use client';
+import Loader from '@/components/loader';
+import PasswordInput from '@/components/passwordInput';
+import { Button } from '@/components/ui/button';
 import {
   FormControl,
   FormField,
   FormItem,
   FormLabel,
-} from "@/components/ui/form";
-import { cn } from "@/lib/utils";
-import { newPasswordSchema } from "@/lib/zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useLocale, useTranslations } from "next-intl";
-import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
-import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
-import { z } from "zod";
+} from '@/components/ui/form';
+import { cn } from '@/lib/utils';
+import { newPasswordSchema } from '@/lib/zod';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useLocale, useTranslations } from 'next-intl';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
+import { z } from 'zod';
 
 const ResetPasswordForm = () => {
   const [error, setError] = useState<string | null>(null);
   const [isFetching, setIsFetching] = useState(false);
   const locale = useLocale();
-  const tForm = useTranslations("app.auth.forms.reset-password-form");
-  const tAuth = useTranslations("app.auth");
-  const err = useTranslations("app.errors");
+  const tForm = useTranslations('app.auth.forms.reset-password-form');
+  const tAuth = useTranslations('app.auth');
+  const err = useTranslations('app.errors');
   const router = useRouter();
   const searchParams = useSearchParams();
-  const resetCode = searchParams.get("code");
+  const resetCode = searchParams.get('code');
 
   const passwordForm = useForm<z.infer<typeof newPasswordSchema>>({
     resolver: zodResolver(newPasswordSchema),
     defaultValues: {
-      password: "",
-      confirmPassword: "",
+      password: '',
+      confirmPassword: '',
     },
   });
 
   useEffect(() => {
     if (!resetCode) {
-      setError("Invalid or missing reset code.");
+      setError('Invalid or missing reset code.');
     }
   }, [resetCode]);
 
@@ -46,14 +46,14 @@ const ResetPasswordForm = () => {
     z.infer<typeof newPasswordSchema>
   > = async (data) => {
     if (!resetCode) {
-      setError("Invalid or missing reset code.");
+      setError('Invalid or missing reset code.');
       return;
     }
     setIsFetching(true);
-    const result = await fetch("/api/auth/reset-password", {
-      method: "POST",
+    const result = await fetch('/api/auth/reset-password', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         ...data,
@@ -78,10 +78,10 @@ const ResetPasswordForm = () => {
       >
         <div>
           <h2 className="text-center text-lg font-semibold ">
-            {tForm("title")}
+            {tForm('title')}
           </h2>
           <p className="text-muted-foreground text-xs text-center">
-            {tForm("subtitle")}
+            {tForm('subtitle')}
           </p>
         </div>
         <FormField
@@ -90,13 +90,13 @@ const ResetPasswordForm = () => {
           render={({ field }) => (
             <FormItem>
               <FormLabel className="sr-only">
-                {tAuth("forms.password-label")}
+                {tAuth('forms.password-label')}
               </FormLabel>
               <FormControl>
                 <PasswordInput
                   field={field}
-                  placeholder={tAuth("forms.password-placeholder")}
-                  label={tAuth("forms.password-label")}
+                  placeholder={tAuth('forms.password-placeholder')}
+                  label={tAuth('forms.password-label')}
                 />
               </FormControl>
               {passwordForm.formState.errors.password?.message && (
@@ -113,13 +113,13 @@ const ResetPasswordForm = () => {
           render={({ field }) => (
             <FormItem>
               <FormLabel className="sr-only">
-                {tAuth("forms.confirm-password-label")}
+                {tAuth('forms.confirm-password-label')}
               </FormLabel>
               <FormControl>
                 <PasswordInput
                   field={field}
-                  placeholder={tAuth("forms.confirm-password-placeholder")}
-                  label={tAuth("forms.confirm-password-label")}
+                  placeholder={tAuth('forms.confirm-password-placeholder')}
+                  label={tAuth('forms.confirm-password-label')}
                 />
               </FormControl>
               {passwordForm.formState.errors.confirmPassword?.message && (
@@ -130,8 +130,8 @@ const ResetPasswordForm = () => {
             </FormItem>
           )}
         />
-        <Button type="submit" className={cn("w-full mt-2 text-sm h-fit p-1")}>
-          {isFetching ? <Loader /> : tForm("reset")}
+        <Button type="submit" className={cn('w-full mt-2 text-sm h-fit p-1')}>
+          {isFetching ? <Loader /> : tForm('reset')}
         </Button>
         {error && (
           <div className="flex gap-1 items-center mt-2">

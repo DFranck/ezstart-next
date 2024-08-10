@@ -1,14 +1,14 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
-import { Button } from "./ui/button";
+import { useEffect, useState } from 'react';
+import { Button } from './ui/button';
 
 const AskPermissionBtn = () => {
-  const [permission, setPermission] = useState("default");
+  const [permission, setPermission] = useState('default');
 
   useEffect(() => {
-    if (typeof window !== "undefined" && "Notification" in window) {
-      const storedPermission = localStorage.getItem("notification-permission");
+    if (typeof window !== 'undefined' && 'Notification' in window) {
+      const storedPermission = localStorage.getItem('notification-permission');
       if (storedPermission) {
         setPermission(storedPermission);
       } else {
@@ -17,7 +17,7 @@ const AskPermissionBtn = () => {
     }
 
     const checkPermission = () => {
-      if (typeof window !== "undefined" && "Notification" in window) {
+      if (typeof window !== 'undefined' && 'Notification' in window) {
         setPermission(Notification.permission);
       }
     };
@@ -26,28 +26,28 @@ const AskPermissionBtn = () => {
     checkPermission();
 
     // Surveiller les changements de permission (nécessite un rafraîchissement de la page)
-    document.addEventListener("visibilitychange", checkPermission);
+    document.addEventListener('visibilitychange', checkPermission);
     return () => {
-      document.removeEventListener("visibilitychange", checkPermission);
+      document.removeEventListener('visibilitychange', checkPermission);
     };
   }, []);
 
   const handlePermission = async () => {
-    console.log("Requesting permission...");
+    console.log('Requesting permission...');
 
-    if (typeof window !== "undefined" && "Notification" in window) {
+    if (typeof window !== 'undefined' && 'Notification' in window) {
       try {
         const permissionResult = await Notification.requestPermission();
-        console.log("Permission result: ", permissionResult);
+        console.log('Permission result: ', permissionResult);
         setPermission(permissionResult);
-        localStorage.setItem("notification-permission", permissionResult);
+        localStorage.setItem('notification-permission', permissionResult);
       } catch (error) {
-        console.error("Error requesting notification permission:", error);
+        console.error('Error requesting notification permission:', error);
       }
     }
   };
 
-  if (permission === "default") {
+  if (permission === 'default') {
     return (
       <Button
         className="fixed bottom-20 right-6 border shadow text-lg px-8 py-6 font-bold"

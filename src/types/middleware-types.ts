@@ -1,5 +1,5 @@
 // src\types\middleware-types.ts
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest, NextResponse } from 'next/server';
 
 export type MiddlewareRequest = NextRequest;
 export type MiddlewareResponse = NextResponse;

@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils";
+import { cn } from '@/lib/utils';
 
 const PaymentSvg = ({
   className,
@@ -9,11 +9,11 @@ const PaymentSvg = ({
   fill?: string;
   background?: string;
 }) => {
-  if (!fill) fill = "foreground";
-  if (!background) background = "background";
+  if (!fill) fill = 'foreground';
+  if (!background) background = 'background';
   return (
     <div
-      className={cn("rounded p-2 aspect-square w-10 h-10", className)}
+      className={cn('rounded p-2 aspect-square w-10 h-10', className)}
       style={{ backgroundColor: `hsl(var(--${background}))` }}
     >
       <svg
@@ -21,7 +21,7 @@ const PaymentSvg = ({
         height="800px"
         viewBox="0 0 24 24"
         fill="none"
-        className={cn("w-full h-full")}
+        className={cn('w-full h-full')}
       >
         <rect
           x="3"

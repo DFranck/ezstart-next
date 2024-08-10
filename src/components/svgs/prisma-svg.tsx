@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { cn } from "@/lib/utils";
+import { cn } from '@/lib/utils';
 
 const PrismaSvg = ({
   className,
@@ -11,11 +11,11 @@ const PrismaSvg = ({
   fill?: string;
   background?: string;
 }) => {
-  if (!fill) fill = "foreground";
-  if (!background) background = "background";
+  if (!fill) fill = 'foreground';
+  if (!background) background = 'background';
   return (
     <div
-      className={cn("rounded p-2 aspect-square w-10 h-10", className)}
+      className={cn('rounded p-2 aspect-square w-10 h-10', className)}
       style={{ backgroundColor: `hsl(var(--${background}))` }}
     >
       <svg
@@ -24,7 +24,7 @@ const PrismaSvg = ({
         viewBox="0 0 611 686"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className={cn("w-full h-full")}
+        className={cn('w-full h-full')}
       >
         <path
           d="M566.035 548.418L206.78 644.888C195.82 647.849 185.274 639.324 187.532 629.364C237.175 413.221 265.007 292.039 314.65 75.8958C317.027 65.54 332.912 63.8643 337.957 73.4284C431.227 250.562 483.52 349.874 576.79 527.008C578.927 531.098 578.964 535.827 576.891 539.946C574.818 544.065 570.843 547.161 566.015 548.418L566.035 548.418Z"

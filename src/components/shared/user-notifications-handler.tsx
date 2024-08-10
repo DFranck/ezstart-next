@@ -1,26 +1,26 @@
 // src/components/shared/user-notifications-handler.tsx
-"use client";
-import { cn } from "@/lib/utils";
-import { useState } from "react";
-import { Button } from "../ui/button";
+'use client';
+import { cn } from '@/lib/utils';
+import { useState } from 'react';
+import { Button } from '../ui/button';
 
 const UserNotificationsHandler = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleTestNotification = () => {
-    if (typeof window !== "undefined" && "Notification" in window) {
-      console.log("Notification.permission: ", Notification.permission);
-      if (Notification.permission === "granted") {
-        new Notification("EzStart Notification", {
-          body: "This is a EzStart test notification",
-          icon: "/icons/icon-192x192.png",
+    if (typeof window !== 'undefined' && 'Notification' in window) {
+      console.log('Notification.permission: ', Notification.permission);
+      if (Notification.permission === 'granted') {
+        new Notification('EzStart Notification', {
+          body: 'This is a EzStart test notification',
+          icon: '/icons/icon-192x192.png',
         });
-        console.log("Notification sent", Notification);
+        console.log('Notification sent', Notification);
       } else {
-        alert("Please enable notifications to receive this alert.");
+        alert('Please enable notifications to receive this alert.');
       }
     } else {
-      alert("Notifications are not supported in this browser.");
+      alert('Notifications are not supported in this browser.');
     }
   };
 
@@ -34,8 +34,8 @@ const UserNotificationsHandler = () => {
       </h2>
       <div
         className={cn(
-          "transition-[max-height] duration-500 ease-in-out overflow-hidden mx-2",
-          isOpen ? "max-h-screen" : "max-h-0"
+          'transition-[max-height] duration-500 ease-in-out overflow-hidden mx-2',
+          isOpen ? 'max-h-screen' : 'max-h-0',
         )}
       >
         <div className="flex flex-col space-y-4">
@@ -48,7 +48,7 @@ const UserNotificationsHandler = () => {
           </ol>
           <Button
             className="h-16 w-full border shadow"
-            size={"lg"}
+            size={'lg'}
             onClick={handleTestNotification}
           >
             <h3 className="my-0">Test Notifications</h3>

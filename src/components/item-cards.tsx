@@ -1,6 +1,6 @@
 // src/components/item-cards.tsx
 
-import { Card, CardContent, CardTitle } from "./ui/card";
+import { Card, CardContent, CardTitle } from './ui/card';
 
 interface ItemCardProps {
   title: string;
