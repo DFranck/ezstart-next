@@ -26,6 +26,8 @@ export default function middleware(req: NextRequest): NextResponse {
     url.startsWith('/icons') ||
     url.startsWith('/docs') ||
     url.startsWith('/assets') ||
+    url.startsWith('/fonts') ||
+    url.startsWith('/textures') ||
     url === '/sw-registration.js' ||
     url === '/sw.js' ||
     url === '/workbox-fb90b81a.js' ||

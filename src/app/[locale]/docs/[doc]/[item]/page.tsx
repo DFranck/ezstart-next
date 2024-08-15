@@ -16,7 +16,7 @@ interface ComponentPropsMap {
 const componentMap: ComponentPropsMap = {
   Nav,
   Section,
-  Carousel3d, // Ensure this key matches the normalized name exactly
+  Carousel3d,
   // Add other components here as necessary
 };
 

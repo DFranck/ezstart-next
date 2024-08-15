@@ -20,7 +20,10 @@ const visitPaths = (locale: Locale) => [
   `/${locale}/about`,
   `/${locale}/docs`,
   `/${locale}/unauthorized`,
+  `/${locale}/three`,
   `/icons`,
+  '/fonts',
+  '/textures',
 ];
 
 const adminPaths = (locale: Locale) => [`/${locale}/admin`];
