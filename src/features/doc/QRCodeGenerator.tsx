@@ -54,7 +54,7 @@ const QRCodeGenerator = () => {
   if (!isClient) return null; // N'affiche rien tant que le composant n'est pas rendu côté client
 
   return (
-    <div className="flex flex-col items-center space-y-6 p-8 min-h-screen">
+    <div className="flex flex-col items-center space-y-6 md:p-8 min-h-screen">
       <h1 className="text-2xl font-bold mb-4">QR Code Generator</h1>
 
       <input
@@ -67,33 +67,13 @@ const QRCodeGenerator = () => {
 
       <div className="grid grid-cols-2 gap-4 w-full max-w-md">
         <div className="flex flex-col">
-          <label className="font-semibold mb-1">Size</label>
+          <label className="font-semibold mb-1">Size max 1000</label>
           <input
             type="number"
             value={size}
             onChange={(e) => setSize(Number(e.target.value))}
             min={50}
             max={1000}
-            className="p-2 border rounded-md"
-          />
-        </div>
-
-        <div className="flex flex-col">
-          <label className="font-semibold mb-1">Foreground Color</label>
-          <input
-            type="color"
-            value={fgColor}
-            onChange={(e) => setFgColor(e.target.value)}
-            className="p-2 border rounded-md"
-          />
-        </div>
-
-        <div className="flex flex-col">
-          <label className="font-semibold mb-1">Background Color</label>
-          <input
-            type="color"
-            value={bgColor}
-            onChange={(e) => setBgColor(e.target.value)}
             className="p-2 border rounded-md"
           />
         </div>
@@ -115,6 +95,26 @@ const QRCodeGenerator = () => {
         </div>
 
         <div className="flex flex-col">
+          <label className="font-semibold mb-1">Foreground Color</label>
+          <input
+            type="color"
+            value={fgColor}
+            onChange={(e) => setFgColor(e.target.value)}
+            className="bg-transparent w-full h-10"
+          />
+        </div>
+
+        <div className="flex flex-col">
+          <label className="font-semibold mb-1">Background Color</label>
+          <input
+            type="color"
+            value={bgColor}
+            onChange={(e) => setBgColor(e.target.value)}
+            className="bg-transparent w-full h-10"
+          />
+        </div>
+
+        <div className="flex flex-col">
           <label className="font-semibold mb-1">Format</label>
           <select
             value={format}
@@ -128,18 +128,14 @@ const QRCodeGenerator = () => {
       </div>
 
       {qrCodeUrl && (
-        <div className="flex flex-col items-center space-y-4">
+        <div className="flex flex-col items-center space-y-4 ">
           {format === 'png' ? (
-            <img
-              src={qrCodeUrl}
-              alt="QR Code"
-              className="border shadow-md p-4"
-            />
+            <img src={qrCodeUrl} alt="QR Code" className=" max-w-full" />
           ) : (
             <object
               data={qrCodeUrl}
               type="image/svg+xml"
-              className="border shadow-md p-4"
+              className=" max-w-full"
               aria-label="QR Code"
             />
           )}
