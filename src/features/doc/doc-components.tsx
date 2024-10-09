@@ -42,7 +42,6 @@ const layoutComponents = [
     description: 'Documentation pour le composant de section.',
   },
 ];
-
 const uiComponents = [
   {
     name: 'Carousel3D',

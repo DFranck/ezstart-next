@@ -144,6 +144,12 @@
               "image": "ComponentSvg"
             },
             {
+              "title": "Generateur de QR code",
+              "description": "Crée ton qr code gratuitement et facilement. Cette boilerplate inclut des composants personnalisés conçus afin d'integrer pleinement la traduction avec Next-Intl pour une internationalisation sans effort.",
+              "link": "qr-code-generator",
+              "image": "ComponentSvg"
+            },
+            {
               "title": "Paiement avec Stripe",
               "description": "Intégration du paiement sécurisé avec Stripe pour une gestion des transactions fluide et fiable. Cette prochaine implémentation permettra aux utilisateurs de réaliser des paiements en toute sécurité, avec une prise en charge complète des principales cartes de crédit et des méthodes de paiement populaires.",
               "link": "payment",
@@ -182,6 +188,7 @@
         "internationalization": "Internationalisation",
         "db-management": "Gestion de la Base de Données",
         "authentication": "Authentification",
+        "qr-code-generator": "Generateur de QR code",
         "payment": "Paiement",
         "components": "Composants"
       },
@@ -556,6 +563,10 @@
           "title": "Ressources supplémentaires",
           "description": "Pour plus d'informations, consultez les ressources suivantes :"
         }
+      },
+      "qr-code-generator": {
+        "title": "Generateur de QR code",
+        "description": "Crée ton qr code gratuitement et facilement."
       },
       "payment": {
         "title": "Paiement",

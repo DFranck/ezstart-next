@@ -6,6 +6,7 @@ import DocDbManagement from '@/features/doc/doc-db-management';
 import DocGetStarted from '@/features/doc/doc-get-started';
 import DocInternationalization from '@/features/doc/doc-internationalization';
 import DocPayment from '@/features/doc/doc-payment';
+import QRCodeGenerator from '@/features/doc/QRCodeGenerator';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 
@@ -31,6 +32,9 @@ const DocPage = ({ params: { doc } }: { params: { doc: string } }) => {
       break;
     case 'components':
       DocComponent = DocComponents;
+      break;
+    case 'qr-code-generator':
+      DocComponent = QRCodeGenerator;
       break;
     default:
       return (

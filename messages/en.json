@@ -145,6 +145,12 @@
               "image": "ComponentSvg"
             },
             {
+              "title": "QR code generator",
+              "description": "Create a qrcode freely and easily. This boilerplate includes custom components designed to fully integrate translation with Next-Intl for effortless internationalization.",
+              "link": "qr-code-generator",
+              "image": "ComponentSvg"
+            },
+            {
               "title": "Payment with Stripe",
               "description": "Integration of secure payment with Stripe for smooth and reliable transaction management. This upcoming implementation will allow users to make secure payments, with full support for major credit cards and popular payment methods.",
               "link": "payment",
@@ -183,6 +189,7 @@
         "internationalization": "Internationalization",
         "db-management": "Database Management",
         "authentication": "Authentication",
+        "qr-code-generator": "QR Code Generator",
         "payment": "Payment",
         "components": "Components"
       },
@@ -562,6 +569,10 @@
           "title": "Additional resources",
           "description": "For more information, check out the following resources:"
         }
+      },
+      "qr-code-generator": {
+        "title": "QR Code Generator",
+        "description": "Create a QR code freely and easily."
       },
       "payment": {
         "title": "Payment",
