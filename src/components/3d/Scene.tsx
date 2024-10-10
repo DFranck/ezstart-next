@@ -13,7 +13,6 @@ export default function Scene({
 }) {
   return (
     <Canvas className={className}>
-      {/* <Camera2 /> */}
       {children}
       <Experience />
       <OrbitControls />
