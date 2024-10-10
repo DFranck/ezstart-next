@@ -12,8 +12,9 @@ export default function Scene({
   className?: string;
 }) {
   return (
-    <Canvas>
+    <Canvas className={className}>
       {/* <Camera2 /> */}
+      {children}
       <Experience />
       <OrbitControls />
     </Canvas>

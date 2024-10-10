@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import QRCode from 'qrcode';
 import { useEffect, useState } from 'react';
 
@@ -130,7 +131,14 @@ const QRCodeGenerator = () => {
       {qrCodeUrl && (
         <div className="flex flex-col items-center space-y-4 ">
           {format === 'png' ? (
-            <img src={qrCodeUrl} alt="QR Code" className=" max-w-full" />
+            <Image
+              src={qrCodeUrl}
+              alt="QR Code"
+              className=" max-w-full"
+              width={size}
+              height={size}
+              aria-label="QR Code"
+            />
           ) : (
             <object
               data={qrCodeUrl}
