@@ -150,6 +150,12 @@
               "image": "ComponentSvg"
             },
             {
+              "title": "Tri d'images",
+              "description": "Triez vos images automatiquement pour détecter les doublons, les images floues ou celles de petite taille.",
+              "link": "qr-code-generator",
+              "image": "ComponentSvg"
+            },
+            {
               "title": "Paiement avec Stripe",
               "description": "Intégration du paiement sécurisé avec Stripe pour une gestion des transactions fluide et fiable. Cette prochaine implémentation permettra aux utilisateurs de réaliser des paiements en toute sécurité, avec une prise en charge complète des principales cartes de crédit et des méthodes de paiement populaires.",
               "link": "payment",
@@ -189,6 +195,7 @@
         "db-management": "Gestion de la Base de Données",
         "authentication": "Authentification",
         "qr-code-generator": "Generateur de QR code",
+        "image-sorting": "Tri d'images",
         "payment": "Paiement",
         "components": "Composants"
       },
@@ -567,6 +574,10 @@
       "qr-code-generator": {
         "title": "Generateur de QR code",
         "description": "Crée ton qr code gratuitement et facilement."
+      },
+      "image-sorting": {
+        "title": "Tri d'images",
+        "description": "Triez vos images automatiquement pour détecter les doublons, les images floues ou celles de petite taille."
       },
       "payment": {
         "title": "Paiement",

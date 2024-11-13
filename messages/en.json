@@ -151,6 +151,12 @@
               "image": "ComponentSvg"
             },
             {
+              "title": "Image Sorting",
+              "description": "Automatically sort your images to detect duplicates, blurry images, or small-sized images.",
+              "link": "image-sorting",
+              "image": "ComponentSvg"
+            },
+            {
               "title": "Payment with Stripe",
               "description": "Integration of secure payment with Stripe for smooth and reliable transaction management. This upcoming implementation will allow users to make secure payments, with full support for major credit cards and popular payment methods.",
               "link": "payment",
@@ -190,6 +196,7 @@
         "db-management": "Database Management",
         "authentication": "Authentication",
         "qr-code-generator": "QR Code Generator",
+        "image-sorting": "Image Sorting",
         "payment": "Payment",
         "components": "Components"
       },
@@ -573,6 +580,10 @@
       "qr-code-generator": {
         "title": "QR Code Generator",
         "description": "Create a QR code freely and easily."
+      },
+      "image-sorting": {
+        "title": "Image Sorting",
+        "description": "Automatically sort your images to detect duplicates, blurry images, or small-sized images."
       },
       "payment": {
         "title": "Payment",
